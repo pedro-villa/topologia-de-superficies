@@ -113,7 +113,7 @@ Demostrar que $R_f$ es una relación de equivalencia.
 }
 
 
-\thmr{}{diagrama}{
+\thmr{Proposición 4.1}{diagrama}{
     Dados \((X, \T)\) y \((Y, \T')\) espacios topológicos y \((\tilde{X}, \tilde{\T})\) el espacio cociente dado por \(R_f\), existe una aplicación \(\tilde{f} : (\tilde{X}, \tilde{\T}) \to (Y, \T')\) que hace que el siguiente diagrama sea conmutativo\footnote{Que el diagrama sea conmutativo quiere decir que "da igual que camino de flechitas sigamos", es decir, $\tilde{f}\circ p=f$.}
     \begin{center}
         \includegraphics[]{otros/diagrama.pdf}
@@ -239,9 +239,11 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     Un espacio topológico \((X, \T)\) se dice que es localmente euclídeo de dimensión \(n\) si todo punto \(p\) de \(X\) tiene un entorno \(U\) homeomorfo a una bola abierta \(B\) de \(\mathbb{R}^n\). Si \(\varphi: U \subset X \to B \subset \mathbb{R}^n\) es tal homeomorfismo, \((U, \varphi)\) se llama carta en \(X\) alrededor de \(p \in U\).
 }
 
-\rmk{Observaciones sobre espacios localmente euclídeos}{
-    1. Por ser \(X\) localmente euclídeo, este hereda las propiedades locales de \(\mathbb{R}^n\).  
-    2. Podemos sustituir la bola abierta en la definición anterior por un entorno abierto de \(\mathbb{R}^n\).
+\rmkb{
+    \begin{enumerate}
+        \item Por ser \(X\) localmente euclídeo, este hereda las propiedades locales de \(\mathbb{R}^n\).
+        \item Podemos sustituir la bola abierta en la definición anterior por un entorno abierto de \(\mathbb{R}^n\).
+    \end{enumerate}
 }
 
 \defn{Bola regular euclídea}{
@@ -255,56 +257,63 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
 \section{Variedades topológicas}
 
 \defn{Variedad topológica}{
-    Una variedad topológica \(M\) es un espacio topológico \(\T_2\) y \(2AN\) que es localmente euclídeo. La dimensión de \(M\) es el número natural \(n\). También se denomina \(n\)-variedad (topológica).
+    Una variedad topológica \(M\) es un espacio topológico \(\T_2\) y \(2A\N\) que es localmente euclídeo. La dimensión de \(M\) es el número natural \(n\). También se denomina \(n\)-variedad (topológica).
 }
 
 \defn{Superficie topológica}{
     Una superficie topológica \(S\) es una variedad topológica de dimensión dos o 2-variedad.
 }
 
-\rmk{Observaciones sobre variedades topológicas}{
-    1. Toda variedad topológica es localmente conexa por caminos (y localmente conexa).  
-    2. Las componentes conexas y las componentes conexas por caminos coinciden en una variedad.  
-    3. Una variedad es conexa si y solo si es conexa por caminos.  
-    4. Toda variedad es localmente compacta.  
-    5. Si una variedad no es compacta, siempre podremos compactificarla añadiendo un solo punto.  
-    6. Si cambiamos el espacio modelo \(\mathbb{R}^n\) por el semiespacio superior \(\mathbb{H}^n = \{x \in \mathbb{R}^n : x_n \geq 0\}\), obtenemos el concepto de variedad con borde.
+\propp{Observaciones sobre variedades topológicas}{
+    \begin{enumerate}
+    \item Toda variedad topológica es localmente conexa por caminos (y localmente conexa).
+    \item Las componentes conexas y las componentes conexas por caminos coinciden en una variedad.
+    \item Una variedad es conexa si y solo si es conexa por caminos.
+    \item Toda variedad es localmente compacta.
+    \item Si una variedad no es compacta, siempre podremos compactificarla añadiendo un solo punto.
+    \item Si cambiamos el espacio modelo \(\mathbb{R}^n\) por el semiespacio superior \(\mathbb{H}^n = \{x \in \mathbb{R}^n : x_n \geq 0\}\), obtenemos el concepto de variedad con borde.
+    \end{enumerate}
+}{
+    Pendiente.
 }
 
 \section{Ejemplos de superficies}
 
-\ex{Ejemplo 1: Esfera}{
+\ex{
     La esfera \(\mathbb{S}^2\) es una superficie topológica.
 }
 
-\ex{Ejemplo 2: Toro}{
+\ex{
     El toro \(\mathbb{T}^2 = \mathbb{S}^1 \times \mathbb{S}^1\) es una superficie topológica.
 }
 
-\ex{Ejemplo 3: Cilindro}{
+\ex{
     El cilindro \(\mathbb{S}^1 \times \mathbb{R}\) es una superficie topológica.
 }
 
-\ex{Ejemplo 4: Hiperboloide de una hoja}{
+\ex{
     El hiperboloide de una hoja \(x^2 + y^2 - z^2 = 1\) es una superficie topológica.
 }
 
-\ex{Ejemplo 5: Hiperboloide de dos hojas}{
+\ex{
     El hiperboloide de dos hojas \(x^2 + y^2 - z^2 = -1\) es una superficie topológica.
 }
 
-\ex{Ejemplo 6: Paraboloide de revolución}{
+\ex{
     El paraboloide de revolución \(x^2 + y^2 - z = 0\) es una superficie topológica.
 }
 
-\section{Espacio proyectivo}
-
-\defn{Espacio proyectivo real}{
+\propp{Espacio proyectivo real}{
     El espacio proyectivo real \(\mathbb{RP}^n\) es una variedad topológica de dimensión \(n\).
+}{
+    Pendiente.
 }
 
-\thmr{Proposición 4.2: Homogeneidad}{
+\thmr{Proposición 4.2 - Homogeneidad}{homogeneidad}{
     Sea \(X\) una variedad topológica conexa de dimensión \(n\) y \(p\), \(q \in X\). Entonces existe un homeomorfismo \(f : X \to X\) tal que \(f(p) = q\).
+}
+\pf{
+    Pendiente.
 }
 
 \section{Unión disjunta}
@@ -314,39 +323,62 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \[
     \bigsqcup_{\alpha \in J} X_\alpha = \{(x, \alpha) : x \in X_\alpha, \alpha \in J\}.
     \]
-    Consideramos las inyecciones canónicas \(u_\alpha : X_\alpha \to \bigsqcup_{\alpha \in J} X_\alpha\), dadas por \(u_\alpha(x) = (x, \alpha)\).
+    Consideramos las inyecciones canónicas \(\iota_\alpha : X_\alpha \to \bigsqcup_{\alpha \in J} X_\alpha\), dadas por \(\iota_\alpha(x) = (x, \alpha)\).
 }
 
-\defn{Topología unión disjunta}{
-    La familia de subconjuntos \(B = \{u_\alpha(U) : U \in T_\alpha, \alpha \in J\}\) es una base para una topología \(T\) sobre \(\bigsqcup_{\alpha \in J} X_\alpha\) que recibe el nombre de topología unión disjunta.
+\propp{Topología unión disjunta}{
+    La familia de subconjuntos \(B = \{\iota_\alpha(U) : U \in T_\alpha, \alpha \in J\}\) es una base para una topología \(T\) sobre \(\bigsqcup_{\alpha \in J} X_\alpha\) que recibe el nombre de topología unión disjunta.
+}{
+    Pendiente
 }
 
-\prop{Propiedades de la unión disjunta}{
-    1. Cada inclusión \(\nu_{\alpha}\) es un embebimiento, por lo que podemos identificar \(X_{\alpha} = \nu_{\alpha}(X_{\alpha}) \subset \bigsqcup_{\alpha \in J} X_{\alpha}\).  
-    2. Un subconjunto es abierto en \(\bigsqcup_{\alpha \in J} X_{\alpha}\) si y solo si su intersección con cada \(X_{\alpha}\) es un abierto en \(X_{\alpha}\).  
-    3. Una aplicación \(f : \bigsqcup_{\alpha \in J} X_{\alpha} \to Y\) es continua si y solo si \(f|_{X_{\alpha}}\) es continua, para todo \(\alpha \in J\).  
-    4. Si todos los espacios \(X_{\alpha}\) son \(T_2\) (resp. \(1AN\)), la unión disjunta también es \(T_2\) (resp. \(1AN\)).  
-    5. Si todos los espacios \(X_{\alpha}\) son \(2AN\) y \(J\) es numerable, entonces la unión disjunta también es \(2AN\).  
-    6. La unión disjunta de una cantidad numerable de \(n\)-variedades es una \(n\)-variedad.
+\propp{Propiedades de la unión disjunta}{
+    \begin{enumerate}
+        \item Cada inclusión \(\iota_{\alpha}\) es un embebimiento, por lo que podemos identificar 
+        
+        \(X_{\alpha} \equiv \iota_{\alpha}(X_{\alpha}) \subset \bigsqcup_{\alpha \in J} X_{\alpha}\).  
+        \item Un subconjunto es abierto en \(\bigsqcup_{\alpha \in J} X_{\alpha}\) si y solo si su intersección con cada \(X_{\alpha}\) es un abierto en \(X_{\alpha}\).  
+        \item Una aplicación \(f : \bigsqcup_{\alpha \in J} X_{\alpha} \to Y\) es continua si y solo si \(f|_{X_{\alpha}}\) es continua, para todo \(\alpha \in J\).  
+        \item Si todos los espacios \(X_{\alpha}\) son \(T_2\) (resp. \(1A\N\)), la unión disjunta también es \(T_2\) (resp. \(1A\N\)).  
+        \item Si todos los espacios \(X_{\alpha}\) son \(2A\N\) y \(J\) es numerable, entonces la unión disjunta también es \(2A\N\).  
+        \item La unión disjunta de una cantidad numerable de \(n\)-variedades es una \(n\)-variedad.
+    \end{enumerate}
+}{
+    Pendiente.
 }
 
 \section{Suma conexa}
 
 \defn{Suma conexa}{
-    Sean \(S_1\) y \(S_2\) dos superficies conexas y sean \(D_1\) y \(D_2\) discos regulares euclídeos. Sea \(\varphi : \partial D_1 \to D_2\) un homeomorfismo y denotemos por \(S_i' := S_i \setminus D_i, \ i = 1, 2\). Definimos en \(S_1' \sqcup S_2'\) la menor relación de equivalencia que contiene a \(x \sim \varphi(x)\) para todo \(x \in \partial D_1\). Entonces el cociente \(S_1' \sqcup S_2' / \sim\) es un espacio topológico.
+    Sean \(S_1\) y \(S_2\) dos superficies conexas y sean \(D_1\) y \(D_2\) discos regulares euclídeos. Sea \(\varphi : \partial D_1 \to D_2\) un homeomorfismo y denotemos por \(S_i' := S_i \setminus D_i, \ i = 1, 2\). Definimos en \(S_1' \sqcup S_2'\) la menor relación de equivalencia que contiene a \(x \sim \varphi(x)\) para todo \(x \in \partial D_1\). Entonces el cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) es un espacio topológico.
 }
 
-\thmr{Proposición 4.3}{
-    Si \(S_1\) y \(S_2\) son dos superficies topológicas conexas, entonces, salvo homeomorfismo, el espacio \(S_1' \sqcup S_2' / \sim\) no depende de los discos regulares euclídeos ni del homeomorfismo \(\varphi\).
+\thmr{Proposición 4.3}{suma_conexa}{
+    Si \(S_1\) y \(S_2\) son dos superficies topológicas conexas, entonces, salvo homeomorfismo, el espacio \(\faktor{S_1' \sqcup S_2'}{\sim}\) no depende de los discos regulares euclídeos ni del homeomorfismo \(\varphi\).
 }
+
+\pf{
+    Paso 3) Consideramos $\varphi,\sigma:\partial S_1\to\partial S_2$ y veamos que
+    \[
+    \faktor{S_1'\sqcup S_2'}{R\varphi}\cong\faktor{S_1'\sqcup S_2'}{R\sigma}
+    \]
+}
+
 
 \defn{Suma conexa de superficies}{
     Al espacio topológico cociente \(S_1' \cup S_2'\), lo denotaremos \(S_1 \# S_2\) y lo llamaremos suma conexa de \(S_1\) y \(S_2\).
 }
 
-\thmr{Proposición 4.4}{
+\thmr{Proposición 4.4}{propiedades_suma_conexa}{
+    \(S_1 \# S_2\) es una superficie, además:
     \begin{itemize}
         \item Si \(S_1\) y \(S_2\) son superficies conexas, entonces \(S_1 \# S_2\) es una superficie conexa.
         \item Si \(S_1\) y \(S_2\) son superficies compactas, entonces \(S_1 \# S_2\) es una superficie compacta.
     \end{itemize}
+}
+
+\pf{
+    - $T_2$ y $2A\N$ se hereda de las propiedades de $S_1$ y $S_2$.
+    - Localmente euclídeo de dimensión 2.
+    
 }
