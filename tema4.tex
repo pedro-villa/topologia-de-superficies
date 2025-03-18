@@ -83,7 +83,7 @@
     \end{enumerate}
 }
 
-\propp{Propiedades del espacio cociente}{
+\propp{Propiedades del espacio cociente}{\label{prop:116}
     \begin{enumerate}
     \item \(V\) es un abierto de \(\tilde{X}\) si y solo si \(\bigcup_{[x] \in V}[x]\) es abierto en \(X\).  
     \item Si \(X\) es compacto, entonces \(\tilde{X}\) es compacto.  
@@ -233,6 +233,36 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente \(\faktor{D(0, 1)}{\sim}\) es homeomorfo a la esfera \(\mathbb{S}^2\).
 }
 
+\exer{
+Dado $(X,\T)$ un espacio topológico y $K\subset X$, definimos la relación
+  \[
+  x \sim y\iff
+  \begin{cases}
+    x,y \in K \\
+    x=y
+  \end{cases}
+  \]
+y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim},\faktor{\T}{\sim})$.
+  \begin{enumerate}
+    \item[a)] Demostrar que $p|_{X\setminus K}:X\to\faktor{X}{K}$ restringida a $p(X\setminus K)$ es una biyección.
+    \item[b)] Demostrar que $p|_{X\setminus K}$ es un homeomorfismo si $K$ es abierto o cerrado.
+  \end{enumerate}
+}
+\noindent\textbf{Solución:}
+
+  Para simplificar la notación llamemos $f:=p|_{X\setminus K}$, y notemos que $\forall x \in X \setminus K, f(x)=[x]$, pero por la manera en la que está definida la relación de equivalencia, es inmediato ver que $[x]=\{x\}$, ya que el único elemento relacionado con $x$ es el propio $x$ (recordemos que $x\notin K$). Por tanto la inversa de $f$ es $f^{-1}([x])=x$, ya que $f(f^{-1}([x]))=f(x)=[x], f^{-1}(f(x))=f^{-1}([x])=x$ lo que prueba que $f$ es una biyección.
+  
+  ¿El apartado b) no es inmediato?
+  % Para el apartado b) notemos en primer lugar que $p$ es continua, por lo que $f$ también lo será por ser su restricción. Si $K$ es abierto entonces $X\setminus K$ es cerrado, ahora si tomamos $U\in\T|_{X\setminus K}$ entonces $U=V\cap X\setminus K, V\in\T$, para ver que $f(U)$ es abierto, basta ver que $f^{-1}(f(U))
+  % 
+  % es cerrada, ya que dado $C$ cerrado en $X\setminus K$ se tiene
+  % \[
+  % f(C)=\bigcup_{[x]\in C}\{x\}
+  % \]
+
+
+\clearpage
+
 \section{Espacios localmente euclídeos}
 
 \defn{Espacio localmente euclídeo}{
@@ -246,6 +276,10 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \end{enumerate}
 }
 
+\defn{Bola euclídea}{
+    Diremos que \(B' \subset X\) es una bola euclídea si $B'$ es homeomorfo a una bola abierta $B(0,r)$ de $\R^n$.
+}
+
 \defn{Bola regular euclídea}{
     Diremos que \(B \subset X\) es una bola regular euclídea si:
     \begin{itemize}
@@ -257,11 +291,15 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
 \section{Variedades topológicas}
 
 \defn{Variedad topológica}{
-    Una variedad topológica \(M\) es un espacio topológico \(\T_2\) y \(2A\N\) que es localmente euclídeo. La dimensión de \(M\) es el número natural \(n\). También se denomina \(n\)-variedad (topológica).
+    Una variedad topológica \(M\) es un espacio topológico \(T_2\) y \(2A\N\) que es localmente euclídeo. La dimensión de \(M\) es el número natural \(n\). También se denomina \(n\)-variedad (topológica).
 }
 
 \defn{Superficie topológica}{
     Una superficie topológica \(S\) es una variedad topológica de dimensión dos o 2-variedad.
+}
+
+\defn{Variedad con borde}{
+    Si en la definición de variedad cambiamos el espacio modelo \(\mathbb{R}^n\) por el semiespacio superior \(\mathbb{H}^n = \{x \in \mathbb{R}^n : x_i \geq 0\}\), obtenemos el concepto de variedad con borde.
 }
 
 \propp{Observaciones sobre variedades topológicas}{
@@ -271,17 +309,41 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \item Una variedad es conexa si y solo si es conexa por caminos.
     \item Toda variedad es localmente compacta.
     \item Si una variedad no es compacta, siempre podremos compactificarla añadiendo un solo punto.
-    \item Si cambiamos el espacio modelo \(\mathbb{R}^n\) por el semiespacio superior \(\mathbb{H}^n = \{x \in \mathbb{R}^n : x_n \geq 0\}\), obtenemos el concepto de variedad con borde.
     \end{enumerate}
 }{
-    Pendiente.
+  Sea $M$ es una n-variedad. Notemos en primer lugar que dado $x\in M, V\in\E(x)$, como $M$ es una variedad existe un entorno $U\in\E(x)$ homeomorfo a una bola $B(0,r)=\varphi(U)$ de $\R^n$ (además, podemos suponer que $\varphi(x)=0$), y de hecho siempre podemos elegir $U\subset V$ puesto que si $U\not\subset V$, entonces basta tomar $B'(0,r')\subset B(0,r)$ lo suficientemente pequeña para que $U'=\varphi^{-1}(B'(0,r'))\subset U\cap V$ y claramente $U'$ también es homeomorfo a una bola de $\R^n$.
+    \begin{enumerate}
+      \item Sean $x\in M, V\in\E(x)$, como $M$ es una variedad existe un entorno $U\in\E(x),U\subset V$ homeomorfo a una bola de $\R^n$, y por tanto localmente conexo por caminos. Como $U$ es localmente conexo por caminos $\exists U'\subset U$ un entorno de $x$ conexo por caminos. Por último notemos que $U'\subset V$ es un entorno de $x$ conexo por caminos contenido en $V$, lo que prueba que $M$ es localmente conexa por caminos. Que es localmente conexa es inmediato puesto que localmente conexo por caminos implica localmente conexo. 
+      \item Se sigue de las propiedades generales de un espacio localmente conexo por caminos.
+      \item Se sigue de las propiedades generales de un espacio localmente conexo por caminos.
+      \item Sean $x\in M, V\in\E(x)$, como $M$ es una variedad existe un entorno $U\in\E(x),U\subset V$ homeomorfo a una bola de $\R^n$, y por tanto localmente compacto. Como $U$ es localmente compacto existen $C$ compacto y $U'\in\E(x)$ tales que $C\subset U'\subset U\subset V$, lo que prueba que $M$ es localmente compacta.
+      \item Como cualquier variedad es $T_2$ y locamente compacta el Teorema de Alexandroff nos asegura que podemos compactificarla por un punto.
+    \end{enumerate}
 }
+
+\clearpage
 
 \section{Ejemplos de superficies}
 
+En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por tanto todos los espacios son $T_2$ y $2A\N$ (recordemos que estas propiedades se heredan al considerar las topologías relativas). Solo necesitamos probar que cada uno de estos espacios son localmente euclídeos.
+
 \ex{
-    La esfera \(\mathbb{S}^2\) es una superficie topológica.
+  La esfera \(\mathbb{S}^2\) es una superficie topológica.
 }
+
+\noindent\textbf{Solución:}
+
+  Sea $p=(x,y,z)\in\sphere^2$ y supongamos que $z>0$, en tal caso el entorno $U=\sphere^2\cap\{z>0\}$ es homeomorfo a la bola $B^2((0,0),1)$ mediante el homeomorfismo
+  \[
+  \varphi:B^2((0,0),1)\to U,\quad \varphi(x,y)=(x,y,\sqrt{x^2+y^2}).
+  \]
+  En efecto es una homeomorfismo pues es abierta, continua y biyectiva, con inversa
+  \[
+  \varphi^{-1}(x,y,z)=(x,y).
+  \]
+  Para el resto de puntos sabemos que alguna de las tres componentes $x,y,z$ debe ser no nula, por lo que podemos hacer un procedimiento similar, tarea que encomendamos al lector.
+
+
 
 \ex{
     El toro \(\mathbb{T}^2 = \mathbb{S}^1 \times \mathbb{S}^1\) es una superficie topológica.
