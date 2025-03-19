@@ -353,15 +353,111 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     Sean \(S_1\) y \(S_2\) dos superficies conexas y sean \(D_1\) y \(D_2\) discos regulares euclídeos. Sea \(\varphi : \partial D_1 \to D_2\) un homeomorfismo y denotemos por \(S_i' := S_i \setminus D_i, \ i = 1, 2\). Definimos en \(S_1' \sqcup S_2'\) la menor relación de equivalencia que contiene a \(x \sim \varphi(x)\) para todo \(x \in \partial D_1\). Entonces el cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) es un espacio topológico.
 }
 
+A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \ref{thm:suma_conexa}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
+
+\lem{Teorema de Jordan - Schönflies}
+{
+    Sean $C$ y $C'$ dos curvas cerradas simples de $\mathbb{R}^2$, y $f : C \to C'$ un homeomorfismo. Entonces existe un homeomorfismo $F : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $F\vert_C = f$ y fuera de un compacto $K \supseteq C$ es la identidad.
+}
+
+\lem{Extensión de homeomorfismos de $\mathbb{S}^1$}{
+    Sean $C_1, C_2$ homeomorfos a $\mathbb{S}^1$, $h: C_1 \to C_2$ un homeomorfismo y $U \subseteq \mathbb{R}^2$ abierto, $U\cong \mathbb{R}^2$, con $C_1 \cup C_2 \subseteq U$. Entonces existe un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{C_1} = h$ y $H\vert_{\mathbb{R}^2 \setminus U} = Id$.
+}
+\pf{
+    Sea $g:U\to\mathbb{R}^2$ un homeomorfismo y $\tilde{C_1} = g(C_1)$, $\hat{h} = g\circ h\circ g^{-1} : \tilde{C_1} \to C_2$. Por el Teorema de Jordan-Schönflies existe un homeomorfismo $\hat{H}:\mathbb{R}^2\to\mathbb{R}^2$ tal que $\hat{H}\vert_{\tilde{C}_1} = \hat{h}$ y $\hat{H}$ es la identidad fuera de un compacto $K\supseteq\tilde{C}_1$. Sea $H = g^{-1}\circ\hat{H}\circ g$, entonces $H$ es el homeomorfismo buscado.
+}
+
 \thmr{Proposición 4.3}{suma_conexa}{
     Si \(S_1\) y \(S_2\) son dos superficies topológicas conexas, entonces, salvo homeomorfismo, el espacio \(\faktor{S_1' \sqcup S_2'}{\sim}\) no depende de los discos regulares euclídeos ni del homeomorfismo \(\varphi\).
 }
 
 \pf{
-    Paso 3) Consideramos $\varphi,\sigma:\partial S_1\to\partial S_2$ y veamos que
-    \[
-    \faktor{S_1'\sqcup S_2'}{R\varphi}\cong\faktor{S_1'\sqcup S_2'}{R\sigma}
-    \]
+    Veremos la demostración en 3 pasos:
+
+    \begin{enumerate}
+        \item \textbf{El tamaño del disco no importa.}
+        
+        \noindent
+        Sean $D_1$ y $D_3$ discos regulares y euclídeos centrados en $p\in S_1$, y supongamos que $\overline{D_1} \subset D_3$ sin pérdida de generalidad. Veamos que $S_1 \setminus D_1 \cong S_1 \setminus D_3$.
+
+        \noindent
+        Sea $D_3'$ otro disco euclídeo con $\overline{D_3} \subseteq D_3'$, y $\psi :D_3' \to \overline{B}(0,2)$ un homeomorfismo verficando $\psi(\overline{D_3})=B^2(0,1)$. 
+
+        \noindent
+        Aplicamos el lema anterior a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
+
+        \noindent
+        Sea 
+        \[
+        \tilde{H} = \psi^{-1} \circ H \circ \psi : D_3' \to D_3',
+        \]
+        entonces $\tilde{H} (D_3'\setminus D_1) = D_3'\setminus D_3$, pues $\overline{D_1} \subset D_3$ y $\tilde{H}(\partial D_1) = \partial D_3$. 
+
+        \noindent
+        Ahora, extendiendo fuera de $D_3'$ por la identidad obtenemos el homeomorfismo buscado.
+
+        \item \textbf{El punto donde centremos el disco no importa.}
+
+        \noindent
+        Sea $D_1$ un disco regular euclídeo centrado en $p\in S_1$ y $D_3$ disco regular euclídeo centrado en $q\in S_1$. Veamos que $S_1 \setminus D_1 \cong S_1 \setminus D_3$ haciendo una construcción similar al caso anterior, pero haciendo también uso de la homogeneidad.
+
+        \noindent
+        Sea $F : S_1 \to S_1$ un homeomorfismo verificando $F(p) = q$. Sea $D_3'$ disco regular con $\overline{D_3} \subseteq D_3'$. Sea $\psi : D_3' \to B(0,2)$ el homeomorfismo que cumple que $\psi(\overline{D_3}) = B(0,1)$. 
+
+        \noindent
+        Sea ahora $\varepsilon > 0 $ suficientemente pequeño de forma que $\overline{F(D_4)} \subseteq D_1$, donde $D_4 = \psi^{-1}(B(0, \varepsilon))$. Como $\overline{D_4} \subseteq D_3$, por el paso 1) obtenemos $S_1 \setminus D_4 \cong S_1 \setminus D_3$, y de la misma forma $S_1 \setminus F(D_4) \cong S_1 \setminus D_1$.
+
+        \noindent
+        Pero como $F$ es un homeomorfismo, $S_1 \setminus F(D_4) \cong S_1 \setminus D_4$, concluyendo así el paso 2.
+
+        \item \textbf{No influye el homeomorfismo que elijamos.}
+
+        \noindent
+        Consideramos $\varphi,\sigma:\partial S_1\to\partial S_2$ y veamos que
+        \[
+        \faktor{S_1'\sqcup S_2'}{R\varphi}\cong\faktor{S_1'\sqcup S_2'}{R\sigma}.
+        \]
+
+        \noindent
+        Sea $D_2'$ disco regular euclídeo con $\overline{D_2}\subseteq D_2'$ y $\psi_2 : D_2' \to B(0,2)$ homeomorfismo, con $\psi_2(\overline{D_2}) = \overline{B}(0,1)$. 
+
+        \noindent
+        Aplicamos el lema técnico a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
+
+        \noindent
+        Definimos $F:D_2' \to D_2'$ como $F = \psi_2^{-1} \circ H \vert_{B(0,2)} \circ \psi_2$, verificando $F(D_2'\setminus D_2) = D_2'\setminus D_2$. 
+
+        \noindent
+        Ahora, extendiendo $F$ a todo $S_2$ por la identidad, obtenemos un homeomorfismo $\hat{F} : S_2 \to S_2$ definido como la identidad en $S_1 \setminus D_1$ y como $F$ en $ S_2 \setminus D_2$.
+
+        \noindent
+        Para concluir la prueba basta comprobar que $\hat{F}$ pasa al cociente. Es decir, queremos ver si a partir de nuestro homeomorfismo 
+        \[
+        \hat{F} : (S_1\setminus D_1)\sqcup(S_2\setminus D_2) \to (S_1\setminus D_1)\sqcup(S_2\setminus D_2)
+        \]
+        podemos definir un homeomorfismo entre los cocientes:  
+        \[
+        \tilde{F} : \faktor{S_1'\sqcup S_2'}{R\varphi} \to \faktor{S_1'\sqcup S_2'}{R\sigma}.
+        \]
+
+        \noindent
+        Para que esto ocurra debe verificarse $xR_\varphi y \Rightarrow \hat{F}(x) R_\sigma \hat{F}(y)$. En nuestro caso,  
+        \[
+        xR_\varphi y \iff y = \varphi(x), \quad x\in \partial D_1, \quad y\in \partial D_2. 
+        \]
+        Pero entonces
+        \[
+        \hat{F}(y) = \hat{F}(\varphi(x)) = \psi_2^{-1} \circ \psi_2 \circ \sigma \varphi^{-1} \circ \psi_2^{-1} \circ \psi_2(\varphi(x)) 
+        = \sigma(x) = \sigma(\hat{F}(x)),
+        \]
+        donde la última igualdad se debe a que $\hat{F}$ es la identidad en $\partial D_1$. 
+
+        \noindent
+        Por tanto, $\hat{F}(x) \sim \hat{F}(y)$, y $\hat{F}$ pasa al cociente como $\tilde{F}$, que es continua. 
+
+        \noindent
+        Aplicando la misma construcción a $\varphi^{-1}$ y $\sigma^{-1}$ podemos construir $\tilde{F}^{-1}$, y por tanto $\tilde{F}$ es un homeomorfismo, concluyendo así la demostración.
+    \end{enumerate}
 }
 
 
