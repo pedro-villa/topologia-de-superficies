@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '**/*.tex'
-      - '.github/workflows/compile-main.yml'
+      - '.github/workflows/compilar-pdf.yml'
   pull_request:
     paths:
       - '**/*.tex'
