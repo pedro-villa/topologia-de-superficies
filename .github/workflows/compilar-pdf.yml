@@ -1,0 +1,62 @@
+name: Compile LaTeX Document
+
+on:
+  push:
+    paths:
+      - '**/*.tex'
+      - '.github/workflows/compilar-pdf.yml'
+  pull_request:
+    paths:
+      - '**/*.tex'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false # This ensures the runner can push changes using the provided token
+
+      - name: Install recommended TeX Live packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base \
+            texlive-latex-recommended \
+            texlive-latex-extra \
+            texlive-fonts-recommended \
+            texlive-lang-spanish \
+            texlive-science \
+            latexmk
+
+      - name: Compile LaTeX document
+        run: |
+          latexmk -pdf -interaction=nonstopmode "main.tex"
+          if [ -f "main.pdf" ]; then
+            echo "PDF generated successfully"
+          else
+            echo "PDF generation failed"
+            exit 1
+          fi
+
+      - name: Clean up auxiliary files
+        run: |
+          latexmk -c
+
+      - name: Commit compiled PDF
+        if: success()
+        env:
+          COMPILE_PAT: ${{ secrets.COMPILE_PAT }}
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          # Check if the PDF file has changed
+          if [[ `git status --porcelain "main.pdf"` ]]; then
+            git add "main.pdf"
+            git commit -m "Update compiled PDF for main"
+            git push https://x-access-token:${{ secrets.COMPILE_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
+          else
+            echo "No changes to commit."
+          fi
