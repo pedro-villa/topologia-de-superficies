@@ -169,7 +169,7 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     Por tanto ambas son la misma relación. Ahora veamos que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$.
 
-    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, si $(x,y)=(0,1)$ entonces $f(\frac{1}{4})=(0,1)=(x,y)$, si $(x,y)=(0,-1)$ entonces $f(\frac{3}{4})=(0,-1)=(x,y)$, si por el contrario $x\ne0$ entonces $\alpha=\frac{\arctan(\frac{y}{x})}{2\pi}$ verifica $f(\alpha)=(x,y)$. Por tanto $f$ es sobreyectiva, lo que según la Proposición \hyperref[prop:114]{1.1.4} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
+    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal, con $\alpha\in[0,2\pi)$. Es sencillo comprobar que $f(\frac{\alpha}{2\pi})=(x,y)$, por tanto $f$ es sobreyectiva, lo que según la Proposición \hyperref[prop:114]{1.1.4} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
 }
 
 \exer{Probar que si $X$ es compacto, $Y$ es Hausdorff y $f:(X,\T)\to(Y,\T')$ es continua entonces $f$ es cerrada.}\label{exer:12}
@@ -182,6 +182,26 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     El espacio cociente es homeomorfo a un cilindro.
 }
+
+\pf{
+    Consideremos el cilindro $C=\{(x,y,z)\in\R^3 \mid x^2+y^2=1, z\in[0,1]\}$, probaremos que la relación $\sim$ coincide con la relación dada por la aplicación $f:X\to C, f(t,s)=(\cos(2\pi t),\sin(2\pi t),s)$. Para ello, dados $(x_1,y_1),(x_2,y_2)\in X$
+    \[
+        (x_1,x_2) R_f (x_2,y_2) \iff
+        \begin{cases}
+        \cos(2\pi x_1)=\cos(2\pi x_2)\\
+        \sin(2\pi x_1)=\sin(2\pi x_2)\\
+        y_1=y_2
+        \end{cases}
+    \]
+    Dejamos como un sencillo ejercicio comprobar que para que se den estas igualdades entre cosenos y senos debe darse $x_1-x_2\in\mathbb{Z}$. En resumen:
+    \[
+        (x_1,x_2) R_f (x_2,y_2) \iff (x_1,y_1)\sim(x_2,y_2)
+    \]
+    Por tanto ambas son la misma relación. Ahora veamos que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{X}$ y $C$.
+
+    En primer lugar, $f$ es continua y cerrada por un argumento similar al del ejemplo anterior. Para ver que es sobreyectiva basta tomar $p=(x,y,z)\in C$, y denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal si consideramos a $(x,y)$ como punto de $\sphere^1$, con $\alpha\in[0,2\pi)$. Entonces $f(\frac{\alpha}{2\pi},z)=(x,y,z)=p$, por lo que $f$ es sobreyectiva y por tanto identificación.
+}
+
 
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
@@ -214,8 +234,6 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     El espacio cociente es homeomorfo a un cono.
 }
-
-\newpage
 
 \ex{
     Sea \(X = \mathbb{S}^2\) con la relación de equivalencia:
