@@ -376,61 +376,46 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
     \begin{enumerate}
         \item \textbf{El tamaño del disco no importa.}
-        
-        \noindent
+
         Sean $D_1$ y $D_3$ discos regulares y euclídeos centrados en $p\in S_1$, y supongamos que $\overline{D_1} \subset D_3$ sin pérdida de generalidad. Veamos que $S_1 \setminus D_1 \cong S_1 \setminus D_3$.
 
-        \noindent
-        Sea $D_3'$ otro disco euclídeo con $\overline{D_3} \subseteq D_3'$, y $\psi :D_3' \to \overline{B}(0,2)$ un homeomorfismo verficando $\psi(\overline{D_3})=B^2(0,1)$. 
+        Sea $D_3'$ otro disco euclídeo con $\overline{D_3} \subseteq D_3'$, y $\psi :D_3' \to \overline{B}(0,2)$ un homeomorfismo verificando $\psi(\overline{D_3})=B^2(0,1)$. 
 
-        \noindent
         Aplicamos el lema anterior a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
 
-        \noindent
         Sea 
         \[
         \tilde{H} = \psi^{-1} \circ H \circ \psi : D_3' \to D_3',
         \]
         entonces $\tilde{H} (D_3'\setminus D_1) = D_3'\setminus D_3$, pues $\overline{D_1} \subset D_3$ y $\tilde{H}(\partial D_1) = \partial D_3$. 
 
-        \noindent
         Ahora, extendiendo fuera de $D_3'$ por la identidad obtenemos el homeomorfismo buscado.
 
         \item \textbf{El punto donde centremos el disco no importa.}
 
-        \noindent
         Sea $D_1$ un disco regular euclídeo centrado en $p\in S_1$ y $D_3$ disco regular euclídeo centrado en $q\in S_1$. Veamos que $S_1 \setminus D_1 \cong S_1 \setminus D_3$ haciendo una construcción similar al caso anterior, pero haciendo también uso de la homogeneidad.
 
-        \noindent
         Sea $F : S_1 \to S_1$ un homeomorfismo verificando $F(p) = q$. Sea $D_3'$ disco regular con $\overline{D_3} \subseteq D_3'$. Sea $\psi : D_3' \to B(0,2)$ el homeomorfismo que cumple que $\psi(\overline{D_3}) = B(0,1)$. 
 
-        \noindent
         Sea ahora $\varepsilon > 0 $ suficientemente pequeño de forma que $\overline{F(D_4)} \subseteq D_1$, donde $D_4 = \psi^{-1}(B(0, \varepsilon))$. Como $\overline{D_4} \subseteq D_3$, por el paso 1) obtenemos $S_1 \setminus D_4 \cong S_1 \setminus D_3$, y de la misma forma $S_1 \setminus F(D_4) \cong S_1 \setminus D_1$.
 
-        \noindent
         Pero como $F$ es un homeomorfismo, $S_1 \setminus F(D_4) \cong S_1 \setminus D_4$, concluyendo así el paso 2.
 
         \item \textbf{No influye el homeomorfismo que elijamos.}
 
-        \noindent
         Consideramos $\varphi,\sigma:\partial S_1\to\partial S_2$ y veamos que
         \[
         \faktor{S_1'\sqcup S_2'}{R\varphi}\cong\faktor{S_1'\sqcup S_2'}{R\sigma}.
         \]
 
-        \noindent
         Sea $D_2'$ disco regular euclídeo con $\overline{D_2}\subseteq D_2'$ y $\psi_2 : D_2' \to B(0,2)$ homeomorfismo, con $\psi_2(\overline{D_2}) = \overline{B}(0,1)$. 
 
-        \noindent
         Aplicamos el lema técnico a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
 
-        \noindent
         Definimos $F:D_2' \to D_2'$ como $F = \psi_2^{-1} \circ H \vert_{B(0,2)} \circ \psi_2$, verificando $F(D_2'\setminus D_2) = D_2'\setminus D_2$. 
 
-        \noindent
         Ahora, extendiendo $F$ a todo $S_2$ por la identidad, obtenemos un homeomorfismo $\hat{F} : S_2 \to S_2$ definido como la identidad en $S_1 \setminus D_1$ y como $F$ en $ S_2 \setminus D_2$.
 
-        \noindent
         Para concluir la prueba basta comprobar que $\hat{F}$ pasa al cociente. Es decir, queremos ver si a partir de nuestro homeomorfismo 
         \[
         \hat{F} : (S_1\setminus D_1)\sqcup(S_2\setminus D_2) \to (S_1\setminus D_1)\sqcup(S_2\setminus D_2)
@@ -440,22 +425,19 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
         \tilde{F} : \faktor{S_1'\sqcup S_2'}{R\varphi} \to \faktor{S_1'\sqcup S_2'}{R\sigma}.
         \]
 
-        \noindent
         Para que esto ocurra debe verificarse $xR_\varphi y \Rightarrow \hat{F}(x) R_\sigma \hat{F}(y)$. En nuestro caso,  
         \[
         xR_\varphi y \iff y = \varphi(x), \quad x\in \partial D_1, \quad y\in \partial D_2. 
         \]
         Pero entonces
         \[
-        \hat{F}(y) = \hat{F}(\varphi(x)) = \psi_2^{-1} \circ \psi_2 \circ \sigma \varphi^{-1} \circ \psi_2^{-1} \circ \psi_2(\varphi(x)) 
+        \hat{F}(y) = \hat{F}(\varphi(x)) = \psi_2^{-1} \circ \psi_2 \circ \sigma \varphi^{-1} \circ \psi_2^{-1} \circ \psi_2(\varphi(x))
         = \sigma(x) = \sigma(\hat{F}(x)),
         \]
         donde la última igualdad se debe a que $\hat{F}$ es la identidad en $\partial D_1$. 
 
-        \noindent
         Por tanto, $\hat{F}(x) \sim \hat{F}(y)$, y $\hat{F}$ pasa al cociente como $\tilde{F}$, que es continua. 
 
-        \noindent
         Aplicando la misma construcción a $\varphi^{-1}$ y $\sigma^{-1}$ podemos construir $\tilde{F}^{-1}$, y por tanto $\tilde{F}$ es un homeomorfismo, concluyendo así la demostración.
     \end{enumerate}
 }
@@ -466,7 +448,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 }
 
 \thmr{Proposición 4.4}{propiedades_suma_conexa}{
-    \(S_1 \# S_2\) es una superficie, además:
+    Sean \(S_1, S_2\) superficies. Entonces, \(S_1 \# S_2\) es una superficie. Además:
     \begin{itemize}
         \item Si \(S_1\) y \(S_2\) son superficies conexas, entonces \(S_1 \# S_2\) es una superficie conexa.
         \item Si \(S_1\) y \(S_2\) son superficies compactas, entonces \(S_1 \# S_2\) es una superficie compacta.
@@ -474,7 +456,75 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 }
 
 \pf{
-    - $T_2$ y $2A\N$ se hereda de las propiedades de $S_1$ y $S_2$.
-    - Localmente euclídeo de dimensión 2.
-    
+    Las demostraciones de las propiedades de conexidad y compacidad se consideran \underline{inmediatas}. Nos centramos en demostrar que \( S_1 \# S_2 \) es una superficie. Se puede comprobar fácilmente que las propiedades de \( 2A\mathbb{N} \) y \(T_2\) se heredan de \(S_1\) y \(S_2\). Por tanto, nos queda comprobar que \(S_1 \# S_2\) es localmente euclídeo de dimensión 2. 
+
+    Usando la notación habitual, sea 
+    \[
+    S_1 \# S_2 = \faktor{S_1'\sqcup S_2'}{R\varphi},
+    \]
+    con \( \varphi : \partial D_1 \to \partial D_2\) un homeomorfismo. Ya vimos en la proposición \ref{thm:suma_conexa} que \(S_1 \# S_2\) no depende de la elección de \(D_1, D_2\) ni de \(\varphi\). 
+
+    Consideramos la proyección
+    \[
+    p\vert_{S_1'\setminus \partial D_1} \to S_1 \# S_2,
+    \]
+    que nos da un homeomorfismo de \( S_1' \setminus \partial D_1\) sobre su imagen, la cual es un abierto de \(S_1 \# S_2\). Por tanto, \(S_1' \setminus \partial D_1\) es localmente euclídeo de dimensión 2. Análogamente, \(S_2' \setminus \partial D_2\) es localmente euclídeo de dimensión 2.
+
+    Falta ver qué ocurre en \(\partial D_1\) y \( \partial D_2\). Sean \(D_1'\) y \(D_2'\) discos regulares tales que \(\overline{D_i} \subseteq D_i'\), \( i = 1, 2\) y sean \(\psi_i : D_i' \to B(0,2)\) homeomorfismos tales que \(\psi_i(\overline{D_i}) = B(0,1)\). Introducimos la siguiente notación: si \( J \subseteq [0, +\infty) \) es un intervalo, denotamos 
+    \[
+    A_J = \{ x\in \mathbb{R}^2 : \| x \| \in J\}.
+    \]
+
+    Se tiene que 
+    \[
+    \psi_i(D_i' \setminus D_i) = A_{[1,2]}.
+    \]
+    Llamemos 
+    \[
+    \beta = \psi_2 \circ \varphi \circ \psi_1^{-1} : \mathbb{S}^1 \to \mathbb{S}^1,
+    \]
+    y definamos
+    \[
+    \alpha(x) =
+    \begin{cases}
+    \|x\| \cdot \beta\Big(\frac{x}{\|x\|}\Big) & \text{si } x \neq (0, 0), \\
+    (0,0) & \text{si } x = (0, 0).
+    \end{cases}
+    \]
+    Se verifica que \( \alpha\vert_{\mathbb{S}^1} = \beta\) y que \(\alpha \circ \psi_1 = \psi_2 \circ \varphi\). Por tanto, \(\alpha\) es un homeomorfismo de \(D_1' \setminus D_1\) sobre \(D_2' \setminus D_2\).
+
+    Sea ahora 
+    \[
+    I : A_{[1, 2)} \to A_{(1/2, 1]},\quad z \mapsto I(z) = \frac{z}{\|z\|^2}.
+    \]
+
+    Por último, definimos 
+    \[
+    \Phi : (D_1' \setminus D_1) \cup (D_2' \setminus D_2) \to A_{(1/2, 2)}
+    \]
+    mediante
+    \[
+    \Phi(q) = 
+    \begin{cases}
+    I \circ \alpha \circ \psi_1(q) & \text{si } q \in D_1' \setminus D_1, \\
+    \psi_2(q) & \text{si } q \in D_2' \setminus D_2.
+    \end{cases}
+    \]
+
+    Afirmamos que 
+    \[
+    V_0 = p\big((D_1' \setminus D_1) \cup (D_2' \setminus D_2)\big)
+    \]
+    es el abierto de \(S_1 \# S_2\) que contiene a \(p(\partial D_1) = p(\partial D_2)\). Se tiene que 
+    \[
+    (\partial D_1)\cup \big((D_1' \setminus D_1) \cap (S_1' \setminus \partial D_1)\big) = \partial D_1 \cup (D_1' \setminus D_1) = D_1'\setminus D_1.
+    \]
+    Veamos que \(\varphi(\partial D_1) \cup (D_2'\setminus D_2) \) es abierto en \(S_2\).
+
+    Queda por demostrar que 
+    \(\Phi : V_0 \to A_{(1/2, 2)}\) pasa al cociente. Esto ocurre pues se tiene que 
+    \[
+    \psi_2 \circ \varphi = I \circ \alpha \circ \psi_1
+    \]
+    sobre \(\partial D_1\). Cabe como ejercicio para el pobre estudiante comprobar que, dado \(x R_\varphi y\), se cumple que \(\psi_2(y) = \psi_2\big(\varphi(x)\big) = I \circ \alpha \circ \psi_1(x)\). Una vez hecho esto, la demostración concluye.  
 }
