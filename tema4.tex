@@ -371,11 +371,43 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     Pendiente.
 }
 
+\lem{Lema técnico}{
+    Existe $0<\epsilon \le 1$ tal que para todo $q \in B^n(0,\epsilon)$ existe un homeomorfismo \(F : \R^n \to \R^n\) con $F(0)=q$ y $F |_{\R^n \setminus B^n(0,2)}$ es la identidad.
+}
+\pf{
+    La idea es construirse una función auxiliar $f : \R^n \to \R^n$ tal que $f(p) = p$, para $p \in B(0,\epsilon)$, $f(q) = 0$, para $q \in R^n \setminus B(0,2)$, y que en el resto de puntos sea diferenciable. Una vez construida esta $f$, aplicando composiciones se llega a la forma de $F$.
+    % TODO: No sé hacer dibujos, si alguno sabe hacer el dibujito que hicimos en clase para R, que lo ponga aquí.
+}
+
 \thmr{Proposición 4.2 - Homogeneidad}{homogeneidad}{
     Sea \(X\) una variedad topológica conexa de dimensión \(n\) y \(p\), \(q \in X\). Entonces existe un homeomorfismo \(f : X \to X\) tal que \(f(p) = q\).
 }
 \pf{
-    Pendiente.
+    Sea la relación de equivalencia en $X$ dada por 
+    \[
+    p \sim q\iff
+    \exists f : X \to X \text{ homeomorfismo tal que } f(p) = q.
+    \]
+    Vamos a ver que $p^{-1}([p]) = U(p)$ es abierta y cerrada en $X$, y por tanto, es todo $\faktor{X}{\sim}$.
+
+    Para ver que es abierto, sea $B$ una bola regular euclídea centrada en $p$. Por definición, existe $B' \subset X$ bola euclídea y $\varphi : B' \to B^n(0,3) \subset \R^n$ con: 
+    
+    \[
+    \begin{cases}
+        \varphi(p) = 0 \iff \varphi^{-1}(0)=p, \\
+        \overline{B} \subset B', \\
+        \varphi(\overline{B}) = B^n(0,3/2).
+    \end{cases}
+    \]
+    
+    Por el lema anterior, existe $\epsilon \in (0,1]$ tal que $\forall x \in B(0,\epsilon)$, existe $F_x : \R^n \to \R^n$ homeomorfismo con $F_x(0) = x$ y $F_x |_{\R^n \setminus B^n(0,2)} = \text{Id}$. 
+    
+    Denotamos $B_0 = \varphi^{-1}(B^n(0,\epsilon))$ y consideramos $G= \varphi^{-1} \circ F|_{B(0,3)} \circ \varphi : B' \to B'$. $G$ está bien definida porque $F|_{B(0,3)}$ es un homeomorfismo de $B(0,3)$. % No entiendo lo que dice en la grabación, si alguien fuera tan amable para explicar por qué es homeo que lo actualice.
+    Ahora, $G(p) = \varphi^{-1} (F(\varphi(\varphi^{-1}(0)))) = \varphi^{-1} (F(0)) = \varphi^{-1}(x)$. 
+
+    Por el lema, $G$ se puede extender a $G : X \to X$ por la identidad y así obtener un homeomorfismo de X. Por tanto, $p \in B_0 \subset U(p)$, con $B_0$ abierto, y por tanto $U(p)$ es abierto.
+
+    Hemos visto que $[p]$ es abierto. Por tanto, $\faktor{\tilde{X}}{[p]} = \bigcup_{q \ne p} [q]$, porque las las clases de equivalencia son disjuntas. Al ser unión arbitraria de abiertos es abierto, luego el complementario $[p]$ es cerrado. 
 }
 
 \section{Unión disjunta}
