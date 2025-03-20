@@ -202,7 +202,7 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     En primer lugar, $f$ es continua y cerrada por un argumento similar al del ejemplo anterior. Para ver que es sobreyectiva basta tomar $p=(x,y,z)\in C$, y denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal si consideramos a $(x,y)$ como punto de $\sphere^1$, con $\alpha\in[0,2\pi)$. Entonces $f(\frac{\alpha}{2\pi},z)=(x,y,z)=p$, por lo que $f$ es sobreyectiva y por tanto identificación.
 }
 
-
+\clearpage
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -211,6 +211,27 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a una banda de Möbius.
 }
 
+\pf{
+    Llamaremos a la banda de Möbius $M$ y será la imagen de la función 
+    \begin{gather*}
+        F:[0,2\pi]\times[-1,1]\to\R^3 \\
+        F(u,v)=((2-v\sin(\frac{u}{2}))\sin(u),(2-v\sin(\frac{u}{2}))\cos(u),v\cos(\frac{u}{2}))
+    \end{gather*}
+    Probaremos ahora que la función $f:I\times I\to M$ dada por $f(t,s)=F(2\pi t,2s-1)$ define la misma relación que $\sim$ y además es una identificación. La aplicación f es claramente continua, cerrada por ir de un compacto a un $T_2$ y sobreyectiva por definición (ya que $M=F([0,2\pi]\times[-1,1])=f(I\times I))$.
+    
+    En cuanto a la relación, dados $(x,y),(a,b)\in I\times I$
+    \begin{gather*}
+        (x_1,y_1)R_f(x_2,y_2) \iff f(x_1,y_1)=f(x_2,y_2) \iff\\
+        \iff \begin{cases}
+            (2-(2y_1-1)\sin(\pi x_1))\sin(2\pi x_1) =  (2-(2y_2-1)\sin(\pi x_2))\sin(2\pi x_2)\\
+            (2-(2y_1-1)\sin(\pi x_1))\cos(2\pi x_1) = (2-(2y_2-1)\sin(\pi x_2))\cos(2\pi x_2) \\
+            (2y_1-1)\cos(\pi x_1) = (2y_2-1)\cos(\pi x_2)
+        \end{cases}
+    \end{gather*}
+    claramente si $(x_1, y_1) = (x_2, y_2) \text{ o } [x_1 - x_2 = \pm 1 \text{ e } y_1 = 1 - y_2]$ entonces se dan las igualdades y $(x_1,y_1)R_f(x_2,y_2)$. Por el contrario, si $(x_1,y_1)R_f(x_2,y_2)$ dejamos la comprobación de que debe cumplirse $(x_1, y_1) = (x_2, y_2) \text{ o } [x_1 - x_2 = \pm 1 \text{ e } y_1 = 1 - y_2]$ como ejercicio (o castigo) al lector.
+}
+
+\clearpage
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
