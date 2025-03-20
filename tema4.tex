@@ -350,12 +350,21 @@ y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim
     \item Si una variedad no es compacta, siempre podremos compactificarla añadiendo un solo punto.
     \end{enumerate}
 }{
-  Sea $M$ es una n-variedad. Notemos en primer lugar que dado $x\in M, V\in\E(x)$, como $M$ es una variedad existe un entorno $U\in\E(x)$ homeomorfo a una bola $B(0,r)=\varphi(U)$ de $\R^n$ (además, podemos suponer que $\varphi(x)=0$), y de hecho siempre podemos elegir $U\subset V$ puesto que si $U\not\subset V$, entonces basta tomar $B'(0,r')\subset B(0,r)$ lo suficientemente pequeña para que $U'=\varphi^{-1}(B'(0,r'))\subset U\cap V$ y claramente $U'$ también es homeomorfo a una bola de $\R^n$.
+  Sea $M$ una n-variedad. Notemos en primer lugar la siguiente afirmación que usaremos para probar el punto 4:
+  \clmp{}{
+     Dado $x\in M$, como $M$ es una variedad existe un entorno $U\in\E(x)$ homeomorfo a una bola $B(0,r)=\varphi(U)$ de $\R^n$ con $\varphi(x)=0$.
+  }{
+    Sabemos por ser $M$ variedad que existe un entorno $U'\in\E(x)$ y un homeomorfismo 
+    
+    \noindent$\psi:U'\to B$ con $B$ una bola en $\R^n$. Si $\psi(x)=0$ ya hemos acabado, si $\psi(x)\neq 0$ entonces podemos elegir una bola centrada en $\psi(x)$ de radio $r'$ lo suficientemente pequeño de manera que $B(\psi(x),r')\subset B\implies A=\psi^{-1}(B(\psi(x),r'))\subset\psi^{-1}(B)=U$, y $A\in\E(x)$. Finalmente la aplicación $\phi:B(\psi(x),r')\to B(0,r'), \phi(s)=s-\psi(x)$ es un homeomorfismo, por lo que $\varphi=\phi\circ\psi|_{A}:A\to B(0,r')$ es el homeomorfismo buscado.
+  }
+
+  De hecho dado cualquier $V\in\E(x)$ siempre podemos elegir el entorno homeomorfo a una bola de manera que $U\subset V$ puesto que si $U\not\subset V$, entonces basta tomar $B'(0,r')\subset B(0,r)$ lo suficientemente pequeña para que $U'=\varphi^{-1}(B'(0,r'))\subset U\cap V$ y claramente $U'$ también es homeomorfo a una bola de $\R^n$.
     \begin{enumerate}
-      \item Sean $x\in M, V\in\E(x)$, como $M$ es una variedad existe un entorno $U\in\E(x),U\subset V$ homeomorfo a una bola de $\R^n$, y por tanto localmente conexo por caminos. Como $U$ es localmente conexo por caminos $\exists U'\subset U$ un entorno de $x$ conexo por caminos. Por último notemos que $U'\subset V$ es un entorno de $x$ conexo por caminos contenido en $V$, lo que prueba que $M$ es localmente conexa por caminos. Que es localmente conexa es inmediato puesto que localmente conexo por caminos implica localmente conexo. 
+      \item Sean $x\in M, V\in\E(x)$, como $M$ es una variedad existe un entorno $U\in\E(x),U\subset V$ homeomorfo a una bola de $\R^n$, y por tanto localmente conexo por caminos. Como $U$ es localmente conexo por caminos $\exists U'\subset U$ un entorno de $x$ conexo por caminos. Por último notemos que $U'\subset U\subset V\implies U'\subset V$, luego $U'$ es un entorno de $x$ conexo por caminos contenido en $V$, lo que prueba que $M$ es localmente conexa por caminos. Que es localmente conexa es inmediato puesto que localmente conexo por caminos implica localmente conexo. 
       \item Se sigue de las propiedades generales de un espacio localmente conexo por caminos.
       \item Se sigue de las propiedades generales de un espacio localmente conexo por caminos.
-      \item Sea $x\in M$, como $M$ es una variedad existe un entorno $U\in\E(x)$ tal que \newline $\exists \varphi : B(0,r)\rightarrow U $ homeomorfismo con $\varphi(0) = x$ , puesto que $\overline{B(0,\frac{r}{2})}$ es compacto y $\varphi$ es continua, $\varphi(\overline{B(0,\frac{r}{2})})$ es un compacto que contiene a $x$, por tanto $M$ es localmente compacta.
+      \item Sea $x\in M$, como $M$ es una variedad existe un entorno $U\in\E(x)$ homeomorfo a una bola $B(0,r)$ mediante un homeomorfismo $\varphi : B(0,r)\rightarrow U $ con $\varphi(0) = x$. Puesto que $\overline{B(0,\frac{r}{2})}$ es compacto y $\varphi$ es continua, $\varphi(\overline{B(0,\frac{r}{2})})$ es un compacto. Además $\varphi(\overline{B(0,\frac{r}{2})})\subset\varphi(B(0,r))=U$ por lo que si tomamos $C=\varphi(\overline{B(0,\frac{r}{2})})$ como compacto y $U$ como entorno se verifica que $x\in C\subset U$, por lo que $M$ es localmente compacta en $x$, como el punto elegido era arbitrario $M$ es localmente compacta.
       \item Como cualquier variedad es $T_2$ y locamente compacta el Teorema de Alexandroff nos asegura que podemos compactificarla por un punto.
     \end{enumerate}
 }
