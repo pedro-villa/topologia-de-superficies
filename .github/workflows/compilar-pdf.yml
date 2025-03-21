@@ -2,6 +2,8 @@ name: Compile LaTeX Document
 
 on:
   push:
+    branches: 
+      - main
     paths:
       - '**/*.tex'
       - '.github/workflows/compilar-pdf.yml'
