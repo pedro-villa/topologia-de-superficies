@@ -17,7 +17,8 @@
    - [Abriendo un Pull Request](#6-abriendo-un-pull-request)
 4. [Buenas Prácticas](#buenas-prácticas)
 5. [Código de Conducta](#código-de-conducta)
-6. [¿Necesitas Ayuda?](#necesitas-ayuda)
+6. [Contribuciones Pequeñas](#contribuciones-pequeñas)
+7. [¿Necesitas Ayuda?](#necesitas-ayuda)
 
 ---
 
@@ -28,6 +29,8 @@ Antes de comenzar, asegúrate de tener lo siguiente:
 - Git instalado en tu computadora.
 - Un editor de texto o IDE (por ejemplo, Visual Studio Code, Notepad++, etc.).
 - Conocimientos básicos sobre el uso de Git y GitHub.
+
+**¿No cumples los requisitos? ¿Todo esto es muy complicado?** No te preocupes, ¡también puedes contribuir! Explicamos cómo en la sección de [Contribuciones pequeñas](#contribuciones-pequeñas).
 
 ---
 
@@ -103,6 +106,19 @@ El proyecto sigue un [Código de Conducta](https://opensource.guide/code-of-cond
 
 ---
 
+## Contribuciones Pequeñas
+
+Si dispones de poco tiempo o prefieres realizar cambios mínimos, ¡también puedes contribuir de forma sencilla!
+
+- Reporta erratas o pequeños errores tipográficos a través de Issues.
+- Sugiere mejoras puntuales o ejemplos adicionales en secciones específicas.
+- Comparte resultados, aclaraciones o propuestas breves que enriquezcan el contenido.
+- Ponte en contacto con los autores; ellos te orientarán sobre la mejor forma de integrar tu aporte.
+
+¡Tu contribución, por pequeña que sea, ayuda a mejorar estos apuntes!
+
+---
+
 ## ¿Necesitas Ayuda?
 
 Si tienes preguntas sobre el proceso (Git, GitHub o LaTeX):
@@ -113,4 +129,3 @@ Si tienes preguntas sobre el proceso (Git, GitHub o LaTeX):
 ---
 
 ¡Gracias por contribuir y ayudar a mejorar los apuntes de Topología de Superficies!
-
