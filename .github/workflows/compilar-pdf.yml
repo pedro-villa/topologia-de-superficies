@@ -2,12 +2,11 @@ name: Compile LaTeX Document
 
 on:
   push:
+    branches: 
+      - main
     paths:
       - '**/*.tex'
       - '.github/workflows/compilar-pdf.yml'
-  pull_request:
-    paths:
-      - '**/*.tex'
 
 jobs:
   build:
