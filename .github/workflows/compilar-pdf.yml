@@ -60,3 +60,4 @@ jobs:
             git push https://x-access-token:${{ secrets.COMPILE_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
           else
             echo "No changes to commit."
+          fi
