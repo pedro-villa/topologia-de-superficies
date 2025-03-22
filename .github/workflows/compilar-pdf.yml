@@ -1,4 +1,3 @@
-# This workflow compiles LaTeX files into a PDF and commits the result back to the repository.
 name: Compile TEX files
 
 on:
@@ -32,10 +31,11 @@ jobs:
 
       - name: Compile LaTeX
         run: |
-          latexmk -pdf -interaction=nonstopmode src/main.tex
-          if [ -f "src/main.pdf" ]; then
-            mkdir -p pdf
-            mv "src/main.pdf" "pdf/Apuntes - Topología de Superficies.pdf"
+          cd src
+          latexmk -pdf -interaction=nonstopmode main.tex
+          if [ -f "main.pdf" ]; then
+            mkdir -p ../pdf
+            mv "main.pdf" "../pdf/Apuntes - Topología de Superficies.pdf"
             echo "PDF generated successfully"
           else
             echo "PDF generation failed"
@@ -44,7 +44,8 @@ jobs:
 
       - name: Clean up
         run: |
-          latexmk -c -jobname=main src/main.tex
+          cd src
+          latexmk -c -jobname=main main.tex
 
       - name: Commit PDF
         if: success()
