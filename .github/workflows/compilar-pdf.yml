@@ -1,24 +1,24 @@
-name: Compile LaTeX Document
+# This workflow compiles LaTeX files into a PDF and commits the result back to the repository.
+name: Compile TEX files
 
 on:
   push:
-    branches: 
+    branches:
       - main
     paths:
-      - '**/*.tex'
+      - 'src/**/*.tex'
       - '.github/workflows/compilar-pdf.yml'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
         with:
-          persist-credentials: false # This ensures the runner can push changes using the provided token
+          persist-credentials: false
 
-      - name: Install recommended TeX Live packages
+      - name: Install TeX Live
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
@@ -30,32 +30,32 @@ jobs:
             texlive-science \
             latexmk
 
-      - name: Compile LaTeX document
+      - name: Compile LaTeX
         run: |
-          latexmk -pdf -interaction=nonstopmode "main.tex"
-          if [ -f "main.pdf" ]; then
+          latexmk -pdf -interaction=nonstopmode src/main.tex
+          if [ -f "src/main.pdf" ]; then
+            mkdir -p pdf
+            mv "src/main.pdf" "pdf/Apuntes - Topología de Superficies.pdf"
             echo "PDF generated successfully"
           else
             echo "PDF generation failed"
             exit 1
           fi
 
-      - name: Clean up auxiliary files
+      - name: Clean up
         run: |
-          latexmk -c
+          latexmk -c -jobname=main src/main.tex
 
-      - name: Commit compiled PDF
+      - name: Commit PDF
         if: success()
         env:
           COMPILE_PAT: ${{ secrets.COMPILE_PAT }}
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          # Check if the PDF file has changed
-          if [[ `git status --porcelain "main.pdf"` ]]; then
-            git add "main.pdf"
-            git commit -m "Update compiled PDF for main"
+          if [[ `git status --porcelain "pdf/Apuntes - Topología de Superficies.pdf"` ]]; then
+            git add "pdf/Apuntes - Topología de Superficies.pdf"
+            git commit -m "Update compiled PDF (Apuntes - Topología de Superficies)"
             git push https://x-access-token:${{ secrets.COMPILE_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
           else
             echo "No changes to commit."
-          fi
