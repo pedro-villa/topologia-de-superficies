@@ -169,7 +169,7 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     Por tanto ambas son la misma relación. Ahora veamos que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$.
 
-    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, si $(x,y)=(0,1)$ entonces $f(\frac{1}{4})=(0,1)=(x,y)$, si $(x,y)=(0,-1)$ entonces $f(\frac{3}{4})=(0,-1)=(x,y)$, si por el contrario $x\ne0$ entonces $\alpha=\frac{\arctan(\frac{y}{x})}{2\pi}$ verifica $f(\alpha)=(x,y)$. Por tanto $f$ es sobreyectiva, lo que según la Proposición \hyperref[prop:114]{1.1.4} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
+    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal, con $\alpha\in[0,2\pi)$. Es sencillo comprobar que $f(\frac{\alpha}{2\pi})=(x,y)$, por tanto $f$ es sobreyectiva, lo que según la Proposición \hyperref[prop:114]{1.1.4} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
 }
 
 \exer{Probar que si $X$ es compacto, $Y$ es Hausdorff y $f:(X,\T)\to(Y,\T')$ es continua entonces $f$ es cerrada.}\label{exer:12}
@@ -183,6 +183,26 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a un cilindro.
 }
 
+\pf{
+    Consideremos el cilindro $C=\{(x,y,z)\in\R^3 \mid x^2+y^2=1, z\in[0,1]\}$, probaremos que la relación $\sim$ coincide con la relación dada por la aplicación $f:X\to C, f(t,s)=(\cos(2\pi t),\sin(2\pi t),s)$. Para ello, dados $(x_1,y_1),(x_2,y_2)\in X$
+    \[
+        (x_1,x_2) R_f (x_2,y_2) \iff
+        \begin{cases}
+        \cos(2\pi x_1)=\cos(2\pi x_2)\\
+        \sin(2\pi x_1)=\sin(2\pi x_2)\\
+        y_1=y_2
+        \end{cases}
+    \]
+    Dejamos como un sencillo ejercicio comprobar que para que se den estas igualdades entre cosenos y senos debe darse $x_1-x_2\in\mathbb{Z}$. En resumen:
+    \[
+        (x_1,x_2) R_f (x_2,y_2) \iff (x_1,y_1)\sim(x_2,y_2)
+    \]
+    Por tanto ambas son la misma relación. Ahora veamos que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{X}$ y $C$.
+
+    En primer lugar, $f$ es continua y cerrada por un argumento similar al del ejemplo anterior. Para ver que es sobreyectiva basta tomar $p=(x,y,z)\in C$, y denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal si consideramos a $(x,y)$ como punto de $\sphere^1$, con $\alpha\in[0,2\pi)$. Entonces $f(\frac{\alpha}{2\pi},z)=(x,y,z)=p$, por lo que $f$ es sobreyectiva y por tanto identificación.
+}
+
+\clearpage
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -191,6 +211,27 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a una banda de Möbius.
 }
 
+\pf{
+    Llamaremos a la banda de Möbius $M$ y será la imagen de la función 
+    \begin{gather*}
+        F:[0,2\pi]\times[-1,1]\to\R^3 \\
+        F(u,v)=((2-v\sin(\frac{u}{2}))\sin(u),(2-v\sin(\frac{u}{2}))\cos(u),v\cos(\frac{u}{2}))
+    \end{gather*}
+    Probaremos ahora que la función $f:I\times I\to M$ dada por $f(t,s)=F(2\pi t,2s-1)$ define la misma relación que $\sim$ y además es una identificación. La aplicación f es claramente continua, cerrada por ir de un compacto a un $T_2$ y sobreyectiva por definición (ya que $M=F([0,2\pi]\times[-1,1])=f(I\times I))$.
+    
+    En cuanto a la relación, dados $(x,y),(a,b)\in I\times I$
+    \begin{gather*}
+        (x_1,y_1)R_f(x_2,y_2) \iff f(x_1,y_1)=f(x_2,y_2) \iff\\
+        \iff \begin{cases}
+            (2-(2y_1-1)\sin(\pi x_1))\sin(2\pi x_1) =  (2-(2y_2-1)\sin(\pi x_2))\sin(2\pi x_2)\\
+            (2-(2y_1-1)\sin(\pi x_1))\cos(2\pi x_1) = (2-(2y_2-1)\sin(\pi x_2))\cos(2\pi x_2) \\
+            (2y_1-1)\cos(\pi x_1) = (2y_2-1)\cos(\pi x_2)
+        \end{cases}
+    \end{gather*}
+    claramente si $(x_1, y_1) = (x_2, y_2) \text{ o } [x_1 - x_2 = \pm 1 \text{ e } y_1 = 1 - y_2]$ entonces se dan las igualdades y $(x_1,y_1)R_f(x_2,y_2)$. Por el contrario, si $(x_1,y_1)R_f(x_2,y_2)$ dejamos la comprobación de que debe cumplirse $(x_1, y_1) = (x_2, y_2) \text{ o } [x_1 - x_2 = \pm 1 \text{ e } y_1 = 1 - y_2]$ como ejercicio (o castigo) al lector.
+}
+
+\clearpage
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -214,8 +255,6 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     El espacio cociente es homeomorfo a un cono.
 }
-
-\newpage
 
 \ex{
     Sea \(X = \mathbb{S}^2\) con la relación de equivalencia:
@@ -284,7 +323,7 @@ y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim
     Diremos que \(B \subset X\) es una bola regular euclídea si:
     \begin{itemize}
         \item Existe una bola euclídea \(B'\) tal que \(\overline{B} \subset B'\).
-        \item Existe \(r > 0\) y una carta \(\varphi: B' \to B^n(0, 2r)\) tal que \(\varphi(\overline{B}) = B^n(0, r)\).
+        \item Existe \(r > 0\) y una carta \(\varphi: B' \to B^n(0, 2r)\) tal que \(\varphi(\overline{B}) = \overline{B^n(0, r)}\).
     \end{itemize}
 }
 
@@ -384,7 +423,7 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     Existe $0<\epsilon \le 1$ tal que para todo $q \in B^n(0,\epsilon)$ existe un homeomorfismo \(F : \R^n \to \R^n\) con $F(0)=q$ y $F |_{\R^n \setminus B^n(0,2)}$ es la identidad.
 }
 \pf{
-    La idea es construirse una función auxiliar $f : \R^n \to \R^n$ tal que $f(p) = p$, para $p \in B(0,\epsilon)$, $f(q) = 0$, para $q \in R^n \setminus B(0,2)$, y que en el resto de puntos sea diferenciable. Una vez construida esta $f$, aplicando composiciones se llega a la forma de $F$.
+    La idea es construirse una función auxiliar $f : \R^n \to \R^n$ tal que $f(x) = q$, para $x \in B(0,\epsilon)$, $f(x) = 0$, para $x \in R^n \setminus B(0,2)$, y que en el resto de puntos sea diferenciable. Una vez construida esta $f$, definimos $F$ como $F(x) = f(x) + x$ que es homeomorfismo por ser suma de homeomorfismos. y verifica que $F(0) = q$ y $F |_{\R^n \setminus B^n(0,2)}$ es la identidad.
     % TODO: No sé hacer dibujos, si alguno sabe hacer el dibujito que hicimos en clase para R, que lo ponga aquí.
 }
 
@@ -432,7 +471,7 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 \propp{Topología unión disjunta}{
     La familia de subconjuntos \(B = \{\iota_\alpha(U) : U \in T_\alpha, \alpha \in J\}\) es una base para una topología \(T\) sobre \(\bigsqcup_{\alpha \in J} X_\alpha\) que recibe el nombre de topología unión disjunta.
 }{
-    Pendiente
+    Sea \(\{(X_\alpha,T_\alpha)\}_{\alpha\in J}\) una familia de espacios topológicos. Para todo \((x,\alpha)\in\bigsqcup_{\alpha\in J}X_\alpha\) existe \(U\in T_\alpha\) con \(x\in U\), luego $(x,\alpha) \in \iota_\alpha(U)$. \newline Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso \newline \(\iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset\) que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V\in T_\alpha\) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). 
 }
 
 \propp{Propiedades de la unión disjunta}{
@@ -453,28 +492,26 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 \section{Suma conexa}
 
 \defn{Suma conexa}{
-    Sean \(S_1\) y \(S_2\) dos superficies conexas y sean \(D_1\) y \(D_2\) discos regulares euclídeos. Sea \(\varphi : \partial D_1 \to D_2\) un homeomorfismo y denotemos por \(S_i' := S_i \setminus D_i, \ i = 1, 2\). Definimos en \(S_1' \sqcup S_2'\) la menor relación de equivalencia que contiene a \(x \sim \varphi(x)\) para todo \(x \in \partial D_1\). Entonces el cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) es un espacio topológico.
+    Sean \(S_1\) y \(S_2\) dos superficies conexas y sean \(D_1\) y \(D_2\) discos regulares euclídeos. Sea \(\varphi : \partial D_1 \to \partial D_2\) un homeomorfismo y denotemos por \(S_i' := S_i \setminus D_i, \ i = 1, 2\). Definimos en \(S_1' \sqcup S_2'\) la menor relación de equivalencia que contiene a \(x \sim \varphi(x)\) para todo \(x \in \partial D_1\). Entonces el cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) es un espacio topológico.
 }
 
 A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \ref{thm:suma_conexa}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
 
 \lem{Teorema de Jordan - Schönflies}
 {
+    \label{lem:jordan}
     Sean $C$ y $C'$ dos curvas cerradas simples de $\mathbb{R}^2$, y $f : C \to C'$ un homeomorfismo. Entonces existe un homeomorfismo $F : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $F\vert_C = f$ y fuera de un compacto $K \supseteq C$ es la identidad.
 }
 
-\lem{Extensión de homeomorfismos de $\mathbb{S}^1$}{
+\lemp{Extensión de homeomorfismos de $\mathbb{S}^1$}{\label{lem:extension-homeo}
     Sean $C_1, C_2$ homeomorfos a $\mathbb{S}^1$, $h: C_1 \to C_2$ un homeomorfismo y $U \subseteq \mathbb{R}^2$ abierto, $U\cong \mathbb{R}^2$, con $C_1 \cup C_2 \subseteq U$. Entonces existe un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{C_1} = h$ y $H\vert_{\mathbb{R}^2 \setminus U} = Id$.
-}
-\pf{
+}{
     Sea $g:U\to\mathbb{R}^2$ un homeomorfismo y $\tilde{C_1} = g(C_1)$, $\hat{h} = g\circ h\circ g^{-1} : \tilde{C_1} \to C_2$. Por el Teorema de Jordan-Schönflies existe un homeomorfismo $\hat{H}:\mathbb{R}^2\to\mathbb{R}^2$ tal que $\hat{H}\vert_{\tilde{C}_1} = \hat{h}$ y $\hat{H}$ es la identidad fuera de un compacto $K\supseteq\tilde{C}_1$. Sea $H = g^{-1}\circ\hat{H}\circ g$, entonces $H$ es el homeomorfismo buscado.
 }
 
-\thmr{Proposición 4.3}{suma_conexa}{
+\propp{Invarianza del cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\)}{\label{prop:invariancia-cociente}
     Si \(S_1\) y \(S_2\) son dos superficies topológicas conexas, entonces, salvo homeomorfismo, el espacio \(\faktor{S_1' \sqcup S_2'}{\sim}\) no depende de los discos regulares euclídeos ni del homeomorfismo \(\varphi\).
-}
-
-\pf{
+}{
     Veremos la demostración en 3 pasos:
 
     \begin{enumerate}
@@ -484,7 +521,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
         Sea $D_3'$ otro disco euclídeo con $\overline{D_3} \subseteq D_3'$, y $\psi :D_3' \to \overline{B}(0,2)$ un homeomorfismo verificando $\psi(\overline{D_3})=B^2(0,1)$. 
 
-        Aplicamos el lema anterior a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
+        Aplicamos el lema \ref{lem:extension-homeo} a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
 
         Sea 
         \[
@@ -513,7 +550,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
         Sea $D_2'$ disco regular euclídeo con $\overline{D_2}\subseteq D_2'$ y $\psi_2 : D_2' \to B(0,2)$ homeomorfismo, con $\psi_2(\overline{D_2}) = \overline{B}(0,1)$. 
 
-        Aplicamos el lema técnico a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
+        Aplicamos el lema \ref{lem:extension-homeo} a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
 
         Definimos $F:D_2' \to D_2'$ como $F = \psi_2^{-1} \circ H \vert_{B(0,2)} \circ \psi_2$, verificando $F(D_2'\setminus D_2) = D_2'\setminus D_2$. 
 
@@ -550,15 +587,13 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
     Al espacio topológico cociente \(S_1' \cup S_2'\), lo denotaremos \(S_1 \# S_2\) y lo llamaremos suma conexa de \(S_1\) y \(S_2\).
 }
 
-\thmr{Proposición 4.4}{propiedades_suma_conexa}{
+\propp{Propiedades heredadas de la suma conexa}{\label{prop:herencia-suma-conexa}
     Sean \(S_1, S_2\) superficies. Entonces, \(S_1 \# S_2\) es una superficie. Además:
     \begin{itemize}
         \item Si \(S_1\) y \(S_2\) son superficies conexas, entonces \(S_1 \# S_2\) es una superficie conexa.
         \item Si \(S_1\) y \(S_2\) son superficies compactas, entonces \(S_1 \# S_2\) es una superficie compacta.
     \end{itemize}
-}
-
-\pf{
+}{
     Las demostraciones de las propiedades de conexidad y compacidad se consideran \underline{inmediatas}. Nos centramos en demostrar que \( S_1 \# S_2 \) es una superficie. Se puede comprobar fácilmente que las propiedades de \( 2A\mathbb{N} \) y \(T_2\) se heredan de \(S_1\) y \(S_2\). Por tanto, nos queda comprobar que \(S_1 \# S_2\) es localmente euclídeo de dimensión 2. 
 
     Usando la notación habitual, sea 
@@ -578,15 +613,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
     A_J = \{ x\in \mathbb{R}^2 : \| x \| \in J\}.
     \]
 
-    Se tiene que 
-    \[
-    \psi_i(D_i' \setminus D_i) = A_{[1,2]}.
-    \]
-    Llamemos 
-    \[
-    \beta = \psi_2 \circ \varphi \circ \psi_1^{-1} : \mathbb{S}^1 \to \mathbb{S}^1,
-    \]
-    y definamos
+    Se tiene que \(\psi_i(D_i' \setminus D_i) = A_{[1,2]} \). Si llamamos \(\beta = \psi_2 \circ \varphi \circ \psi_1^{-1} : \mathbb{S}^1 \to \mathbb{S}^1 \), y
     \[
     \alpha(x) =
     \begin{cases}
@@ -629,5 +656,5 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
     \[
     \psi_2 \circ \varphi = I \circ \alpha \circ \psi_1
     \]
-    sobre \(\partial D_1\). Cabe como ejercicio para el pobre estudiante comprobar que, dado \(x R_\varphi y\), se cumple que \(\psi_2(y) = \psi_2\big(\varphi(x)\big) = I \circ \alpha \circ \psi_1(x)\). Una vez hecho esto, la demostración concluye.  
+    sobre \(\partial D_1\). Cabe como ejercicio para el pobre lector comprobar que, dado \(x R_\varphi y\), se cumple que \(\psi_2(y) = \psi_2\big(\varphi(x)\big) = I \circ \alpha \circ \psi_1(x)\). Una vez hecho esto, la demostración concluye.  
 }
