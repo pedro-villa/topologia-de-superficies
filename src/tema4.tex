@@ -413,14 +413,24 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     El paraboloide de revolución \(x^2 + y^2 - z = 0\) es una superficie topológica.
 }
 
+\clearpage % Para que quede toda la proposición en la misma página
+
 \propp{Espacio proyectivo real}{
     El espacio proyectivo real \(\mathbb{RP}^n\) es una variedad topológica de dimensión \(n\).
 }{
+    Veamos en primer lugar qué tipo de espacio topológico es $\mathbb{RP}^n$. Para ello, notemos que está definido por la relación de equivalencia sobre $\R^{n+1}\setminus\{0\}$ dada por
+    \[
+    x \sim y \iff x=\lambda y, \lambda\neq 0.
+    \]
     Podemos dar una expresión explicita de las clases de equivalencia en $\mathbb{RP}^n$ como
     \[
-        [x_0,\cdots,x_{n+1}]=\{(\lambda x_0,\cdots,\lambda x_{n+1}):\lambda\in\R\setminus\{0\},\exists x_{i_0}\neq 0\}
+        [x_1,\cdots,x_{n+1}]=\{(\lambda x_1,\cdots,\lambda x_{n+1}):\lambda\in\R\setminus\{0\},\exists x_{i_0}\neq 0\}
     \]
-    Veamos que $\mathbb{RP}^n$ es localmente euclídeo. Sea $p=[x_0,\cdots,x_{n+1}]\in\mathbb{RP}^n$, por definición de $\mathbb{RP}^n$ sabemos que existe un $i_0$ tal que $x_{i_0} \neq 0$, definimos el siguiente entorno $U_p = \{[y_0,\cdots,y_{n+1}] : y_{i_0} \neq 0 \}$ que contiene a $p$ y es abierto puesto que es la preimagen a través de la proyección $\pi:\R^{n+1}\setminus\{0\}\to\mathbb{RP}^n$ del conjunto
+    en cuyo caso la proyección al cociente viene dada por
+    \[
+    \pi:\R^{n+1}\setminus\{0\}\to\mathbb{RP}^n,\quad \pi(x_1,\dots x_{n+1})=[x_1,\dots,x_{n+1}]
+    \]
+    Veamos que $\mathbb{RP}^n$ es localmente euclídeo. Sea $p=[x_1,\cdots,x_{n+1}]\in\mathbb{RP}^n$, por definición de $\mathbb{RP}^n$ sabemos que existe un $i_0$ tal que $x_{i_0} \neq 0$, definimos el siguiente entorno $U_p = \{[y_1,\cdots,y_{n+1}] : y_{i_0} \neq 0 \}$ que contiene a $p$ y es abierto puesto que la topología sobre $\mathbb{RP}^n$ es precisamente la topología final de $\pi$ y se tiene $\pi^{-1}(U_p)=V_p$ donde
     \[
         V_p=\{(y_1,\cdots,y_{n+1}) : y_{i_0} \neq 0\}
     \]
@@ -428,9 +438,13 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     \[
         \left[\R^{n+1}\setminus\{0\}\right]\setminus V_p=\{(y_1,\cdots,y_{n+1}) : y_{i_0} = 0\}
     \]
-    es cerrado. Como $\pi$ es continua $U_p=\pi^{-1}(V_p)$ es abierto. Entonces la siguiente carta: $\varphi :U_p \rightarrow  \mathbb{R}^n$ con $\varphi([x_0:\cdots:x_{n+1}])=(\frac{x_0}{x_{i_0}},\cdots,\frac{x_{i_0-1}}{x_{i_0}},\frac{x_{i_0+1}}{x_{i_0}},\cdots,\frac{x_{n+1}}{x_{i_0}})$ es un homeomorfismo. Omitiremos ver que $\varphi$ esta bien definida y es un homeomorfismo.
+    es cerrado. Por tanto $U_p$ es abierto (recuérdese la definición de topología final), y la siguiente aplicación
+    \[
+    \varphi :U_p \to \mathbb{R}^n,\quad \varphi([x_1,\cdots,x_{n+1}])=\left(\frac{x_0}{x_{i_0}},\cdots,\frac{x_{i_0-1}}{x_{i_0}},\frac{x_{i_0+1}}{x_{i_0}},\cdots,\frac{x_{n+1}}{x_{i_0}}\right)
+    \]
+    es un homeomorfismo. Omitiremos ver que $\varphi$ esta bien definida y es un homeomorfismo.
 
-    %TODO Justificar que es T2 y Hausdorff.
+    %TODO Justificar que es Jausdorff y 2AN.
 }
 
 \lem{Lema técnico}{
