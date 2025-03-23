@@ -40,5 +40,8 @@ Si tienes dudas sobre el proceso, revisa la [documentación oficial de GitHub](h
 Este proyecto está licenciado bajo la **MIT License**. Para más información, consulta el archivo [LICENSE](LICENSE).
 
 ---
+## Agradecimientos
+
+Este proyecto utiliza una plantilla de código creada por [kcajc](https://github.com/kcajc) en su repositorio [math-notes-template](https://github.com/kcajc/math-notes-template). ¡Muchas gracias por compartir tu trabajo!
 
 ¡Gracias por tu interés y contribución a los apuntes de Topología de Superficies!
