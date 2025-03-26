@@ -504,14 +504,26 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     Consideramos las inyecciones canónicas \(\iota_\alpha : X_\alpha \to \bigsqcup_{\alpha \in J} X_\alpha\), dadas por \(\iota_\alpha(x) = (x, \alpha)\).
 }
 
+\rmkb{
+    Para entender la unión disjunta podemos pensar en ek siguiente contexto. Supongamos que los espacios topológicos son subconjuntos acotados del plano (por ejemplo polígonos), su unión disjunta consistirá en disponer estos subconjuntos de tal manera que no se solapen unos con otros. Un ejemplo sería la imagen siguiente
+    \begin{center}
+        \includegraphics[width=0.25\textwidth]{img/union-disjunta.png}
+    \end{center}
+    Otra manera de imaginar la unión disjunta es considerar que ponemos cada subconjunto del plano en una copia distinta de $\R^2$, es decir, tendremos cada espacio topológico (figura) en un plano y la unión disjunta será la unión de esas "hojas".
+}
+
 \propp{Topología unión disjunta}{
     La familia de subconjuntos \(B = \{\iota_\alpha(U) : U \in \T_\alpha, \alpha \in J\}\) es una base para una topología \(\T\) sobre \(\bigsqcup_{\alpha \in J} X_\alpha\) que recibe el nombre de topología unión disjunta.
 }{
-    Sea \(\{(X_\alpha,\T_\alpha)\}_{\alpha\in J}\) una familia de espacios topológicos. Para todo \((x,\alpha)\in\bigsqcup_{\alpha\in J}X_\alpha\) existe \(U\in \T_\alpha\) con \(x\in U\), luego $(x,\alpha) \in \iota_\alpha(U)$. \newline Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso
+    Sea \(\{(X_\alpha,\T_\alpha)\}_{\alpha\in J}\) una familia de espacios topológicos.
+    \newline
+    (B1) Para todo \((x,\alpha)\in\bigsqcup_{\alpha\in J}X_\alpha\) se tiene $x\in X_\alpha$, y como $X_\alpha\in \T_\alpha$, deducimos que $(x,\alpha) \in \iota_\alpha(X_\alpha)\in B$.
+    \newline
+    (B2) Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso
     \[
         \iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset
     \]
-    que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V\in \T_\alpha\) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). 
+    que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V=U_1\cap U_2\in \T_\alpha\) (que es abierto puesto que $U_1,U_2$ lo son) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). La última inclusión es fácil de comprobar y se deja como un sencillo ejercicio.
 }
 
 \propp{Propiedades de la unión disjunta}{
@@ -528,6 +540,8 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 }{
     Pendiente.
 }
+
+\clearpage
 
 \section{Suma conexa}
 
