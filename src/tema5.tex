@@ -181,3 +181,26 @@ Enunciamos el siguiente teorema sin demostración:
 
     Para obtener $\mathcal{S}_1\#\mathcal{S}_2$ identificamos $\varphi : \partial Q_1 \to \partial Q_2$, con $\varphi(a) = a', \varphi(b) = b', \varphi(c) = c'$ y obtenemos $\mathcal{S}_1\#\mathcal{S}_2 = \langle A_1 \sqcup A_2 \sqcup \{a,b,c\}|W_1cbaa^{-1}b^{-1}c^{-1}W_2\rangle = \langle A_1 \sqcup A_2|W_1W_2\rangle$.
 }
+
+\defn{Transformaciones elementales sobre presentaciones poligonales}{
+    Dada una presentación poligonal, llamaremos transformaciones elementales a las siguientes operaciones:
+    \begin{itemize}
+        \item \textbf{Renombrado:} Sustituir todas las apariciones de una letra $a$ por otra letra $b$ que no estuviera en la presentación.
+        \item \textbf{Subdivisión:} Cambiar todas las apariciones de una letra $a$ por $ab$, y todas las apariciones de $a^{-1}$ por $b^{-1}a^{-1}$, donde $b$ es una letra nueva que no estaba en la presentación.
+        \item \textbf{Consolidado: } Dadas dos letras $a$ y $b$ que siempre aparezcan juntas de la forma $ab$ o $b^{-1}a^{-1}$, sustituimos todas las apariciones de $ab$ por $c$, y todas las apariciones de $b^{-1}a^{-1}$ por $c^{-1}$, donde $c$ es una letra nueva que no estaba en la presentación.
+        \item \textbf{Reflejo: } Cambiar una palabra de la forma $a_1a_2\dots a_k$ por $a_k^{-1}a_{k-1}^{-1}\dots a_1^{-1}$, donde $a_i$ son letras de la presentación.
+        \item \textbf{Rotación: } Cambiar una palabra de la forma $a_1a_2\dots a_k$ por $a_2a_3\dots a_k a_1$, donde $a_i$ son letras de la presentación.
+        \item \textbf{Corte:} Dada una palabra $W_1W_2$, con $W_1$ y $W_2$ no vacías, quitamos $W_1W_2$ de la presentación y añadimos $W_1a, a^{-1}W_2$ como palabras nuevas, donde $a$ es una letra nueva que no estaba en la presentación.
+        \item \textbf{Pegado} Sustituimos dos palabras de la forma $W_1a, a^{-1}W_2$, con $W_1$ y $W_2$ arbitrarias y no vacías, por $W_1W_2$.
+        \item \textbf{Plegado} Una palabra de la forma $W_1aa^{-1}$ se sustituye por $W_1$, donde $W_1$ tiene al menos longitud 3, salvo que haya una sola palabra, en cuyo caso podría ser de dos letras.
+        \item \textbf{Desplegado} Una palabra de la forma $W_1$ se sustituye por $W_1aa^{-1}$, donde $W_1$ tiene al menos longitud 3, salvo que haya una sola palabra, en cuyo caso podría ser de dos letras.
+    \end{itemize}
+}
+
+\defn{Presentaciones equivalentes}{
+    Dos transformaciones poligonales se dice que son topológicamente equivalentes si sus realizaciones geométricas son homeomorfas.
+}
+
+\propp{Equivalencia por transformaciones elementales}{
+    Cada una de las transformaciones elementales sobre una presentación poligonal produce otra presentación topológicamente equivalente. 
+}{Pendiente.}
