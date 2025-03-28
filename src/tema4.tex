@@ -144,8 +144,7 @@ Demostrar que $R_f$ es una relación de equivalencia.
 
 \section{Ejemplos de espacios cocientes}
 
-Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar homeomorfismos entre espacios topológicos. En estos primeros ejemplos haremos uso del Teorema \ref{thm:diagrama} para encontrar un homeomorfismo.
-\\
+Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establecer homeomorfismos entre estos espacios cociente y otros espacios topológicos de interés. En estos primeros ejemplos haremos uso del Teorema \ref{thm:diagrama} para encontrar tales homeomorfismos.
 
 \ex{
     Para el intervalo \(I = [0, 1]\), consideramos la partición:
@@ -212,11 +211,13 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
 }
 
 \pf{
-    Llamaremos a la banda de Möbius $M$ y será la imagen de la función 
+    Llamamemos $M$ a la banda de Möbius. $M$ será la imagen de la función 
     \begin{gather*}
         F:[0,2\pi]\times[-1,1]\to\R^3 \\
         F(u,v)=((2-v\sin(\frac{u}{2}))\sin(u),(2-v\sin(\frac{u}{2}))\cos(u),v\cos(\frac{u}{2}))
     \end{gather*}
+    es decir, $M=F([0,2\pi]\times[-1,1])$.
+
     Probaremos ahora que la función $f:I\times I\to M$ dada por $f(t,s)=F(2\pi t,2s-1)$ define la misma relación que $\sim$ y además es una identificación. La aplicación f es claramente continua, cerrada por ir de un compacto a un $T_2$ y sobreyectiva por definición (ya que $M=F([0,2\pi]\times[-1,1])=f(I\times I))$.
     
     En cuanto a la relación, dados $(x,y),(a,b)\in I\times I$
@@ -240,6 +241,29 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a un toro.
 }
 
+\pf{
+    En primer lugar notemos que la relación de equivalencia consiste en identificar los lados del cuadrado $[0, 1] \times [0, 1]$ según la siguiente figura
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{img/cociente-toro.png}
+    \end{center}
+    En cuanto al toro $\mathbb{T}$, lo consideraremos como el subconjunto de $\R^3$ de la siguiente forma
+    \[
+    \mathbb{T}=\{(x,y,z)\in\R^3 \mid (\sqrt{x^2+y^2}-2)^2+z^2=1\}
+    \]
+    Si definimos la función
+    \begin{gather*}
+        F:[0,2\pi]\times[0,2\pi]\to\mathbb{T} \\
+        F(u,v)=(\cos u(\cos v+2),\sin u(\cos v+2),\sin v)
+    \end{gather*}
+    basta comprobar que
+    \[
+    f:[0,1]\times[0,1]\to \mathbb{T},\quad f(t,s)=F(2\pi t,2\pi s)
+    \]
+    induce la misma relación de equivalencia que $\sim$, y además es continua, sobreyectiva y cerrada (por ir de un compacto a un Hausdorff). Todas estas comprobaciones, muy similares a las de los anteriores ejemplos, quedan como un sencillo ejercicio para el lector.
+}
+
+\clearpage
+
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -248,6 +272,21 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a una botella de Klein.
 }
 
+\pf{
+    Definiremos la botella de Klein $K$ como el subconjunto de $\R^4$ dado por la imagen de la siguiente función:
+    \begin{gather*}
+        f:[0,1]\times[0,1]\to K\subset \R^4 \\
+        f(t,s)=
+        ((2+\cos(2\pi t))\cos(2\pi s),\\
+        (2+\cos(2\pi t))\sin(2\pi s),\\
+        \sin(2\pi t)\cos(\pi s),\\
+        \sin(2\pi t)\sin(\pi s))
+    \end{gather*}
+    Claramente $f$ es continua, sobreyectiva (por la propia definición de $K$) y cerrada (por ir de un compacto a un $T2$). Además, se puede comprobar que determina la misma relación de equivalencia que $\sim$, por lo que en virtud de la Proposición 4.1 existe un homeomorfismo entre $\tilde{X}$ y la botella de Klein.
+}
+
+\clearpage
+
 \ex{
     Sea \(X = \mathbb{S}^1 \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -255,6 +294,25 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     El espacio cociente es homeomorfo a un cono.
 }
+
+\pf{
+    Definamos el cono
+    \[
+    C=\{(x,y,z)\in\R^3\mid x^2+y^2=z^2,z\in[0,1]\}
+    \]
+    y tomemos la función
+    \begin{gather*}
+        f:\sphere^1\times[0,1]\to C\\
+        f(\theta,t)=(t\theta_x,t\theta_y,t),\quad \theta=(\theta_x,\theta_y)\in\sphere^1\subset\R^2
+    \end{gather*}
+    es inmediato ver que la función es continua, sobreyectiva y cerrada por argumentos como los del resto de ejemplos. Por otro lado
+    \[
+    (\theta,t)R_f(\theta',t')\iff t=t', t\theta=t'\theta' \iff t=t'=0\quad \text{ó} \quad (\theta,t)=(\theta',t')\iff (\theta,t)\sim(\theta',t')
+    \]
+    Por tanto existe un homeomorfismo entre $C$ y $\tilde{X}$.
+}
+
+\clearpage
 
 \ex{
     Sea \(X = \mathbb{S}^2\) con la relación de equivalencia:
