@@ -312,8 +312,6 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     Por tanto existe un homeomorfismo entre $C$ y $\tilde{X}$.
 }
 
-\clearpage
-
 \ex{
     Sea \(X = \mathbb{S}^2\) con la relación de equivalencia:
     \[
@@ -331,32 +329,43 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
 }
 
 \exer{
-Dado $(X,\T)$ un espacio topológico y $K\subset X$, definimos la relación
-  \[
-  x \sim y\iff
-  \begin{cases}
-    x,y \in K \\
-    x=y
-  \end{cases}
-  \]
-y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim},\faktor{\T}{\sim})$.
-  \begin{enumerate}
-    \item[a)] Demostrar que $p|_{X\setminus K}:X\to\faktor{X}{K}$ restringida a $p(X\setminus K)$ es una biyección.
-    \item[b)] Demostrar que $p|_{X\setminus K}$ es un homeomorfismo si $K$ es abierto o cerrado.
-  \end{enumerate}
+    Dado $(X,\T)$ un espacio topológico y $K\subset X$, definimos la relación
+        \[
+            x \sim y\iff
+            \begin{cases}
+                x,y \in K \\
+                x=y
+            \end{cases}
+        \]
+    y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim},\faktor{\T}{\sim})$.
+        \begin{enumerate}
+            \item[a)] Demostrar que $p|_{X\setminus K}:X\to p(X\setminus K)$ es una biyección.
+            \item[b)] Demostrar que $p|_{X\setminus K}$ es un homeomorfismo si $K$ es abierto o cerrado.
+        \end{enumerate}
 }
+
 \noindent\textbf{Solución:}
 
-  Para simplificar la notación llamemos $f:=p|_{X\setminus K}$, y notemos que $\forall x \in X \setminus K, f(x)=[x]$, pero por la manera en la que está definida la relación de equivalencia, es inmediato ver que $[x]=\{x\}$, ya que el único elemento relacionado con $x$ es el propio $x$ (recordemos que $x\notin K$). Por tanto la inversa de $f$ es $f^{-1}([x])=x$, ya que $f(f^{-1}([x]))=f(x)=[x], f^{-1}(f(x))=f^{-1}([x])=x$ lo que prueba que $f$ es una biyección.
-  
-  ¿El apartado b) no es inmediato?
-  % Para el apartado b) notemos en primer lugar que $p$ es continua, por lo que $f$ también lo será por ser su restricción. Si $K$ es abierto entonces $X\setminus K$ es cerrado, ahora si tomamos $U\in\T|_{X\setminus K}$ entonces $U=V\cap X\setminus K, V\in\T$, para ver que $f(U)$ es abierto, basta ver que $f^{-1}(f(U))
-  % 
-  % es cerrada, ya que dado $C$ cerrado en $X\setminus K$ se tiene
-  % \[
-  % f(C)=\bigcup_{[x]\in C}\{x\}
-  % \]
+Para el apartado a) notemos que
+\[
+    \forall x \in X \setminus K,\quad p|_{X\setminus K}(x)=[x]
+\]
+pero por la manera en la que está definida la relación de equivalencia, es inmediato ver que $[x]=\{x\}$, ya que el único elemento relacionado con $x$ es el propio $x$ (recordemos que $x\notin K$). Por tanto $p|_{X\setminus K}$ es inyectiva ya que
+\[
+    p|_{X\setminus K}(x)=p|_{X\setminus K}(y)\implies [x]=[y]\implies \{x\}=\{y\}\implies x=y
+\]
+y además es sobreyectiva por estar definida en su imagen. Por tanto $p|_{X\setminus K}$ es una biyección.
 
+Para el apartado b) notemos en primer lugar que $p$ es continua, por lo que $p|_{X\setminus K}$ también lo será por ser su restricción a $X\setminus K$.
+
+Haremos el caso $K$ cerrado, cuando $K$ es abierto hay que razonar de manera idéntica pero con cerrados teniendo en cuenta la parte 3 de la Proposición \hyperref[prop:112]{1.1.2}.
+
+Si  $K$ es cerrado entonces $X\setminus K$ es abierto, ahora si tomamos $U\in\T|_{X\setminus K}$ entonces $U=\tilde{U}\cap (X\setminus K), \tilde{U}\in\T$. Pero como $X\setminus K$ es abierto entonces de hecho $U\in\T$ y por tanto
+\[
+p^{-1}(p(U))=(p|_{X\setminus K})^{-1}(p|_{X\setminus K}(U))=U\in\T
+\]
+(recordemos que $p|_{X\setminus K}$ es una biyección y por tanto tiene inversa).
+Finalmente por la definición de topología cociente debe de ser $p(U)\in\faktor{\T}{K}$, pero como además $p|_{X\setminus K}=p(U)=p(U)\cap p(X\setminus K)$ deducimos que $p|_{X\setminus K}(U)\in\faktor{\T}{K}|_{p(X\setminus K)}$, lo que prueba que $p|_{X\setminus K}$ es abierta y por tanto un homeomorfismo.
 
 \clearpage
 
