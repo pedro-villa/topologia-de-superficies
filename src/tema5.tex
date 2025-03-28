@@ -224,3 +224,55 @@ Enunciamos el siguiente teorema sin demostración:
         \item una suma conexa de planos proyectivos $\R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2$.
     \end{itemize}
 }
+\pf{
+    \noindent Sea $M$ una superficie compacta y conexa y sea $\partes$ una presentación poligonal. 
+
+    \noindent \underline{Objetivo:} ver que $\partes$ es $\begin{cases}
+        aa^{-1} \\
+        a_1b_1a_1^{-1}b_1^{-1}\dots a_nb_na_n^{-1}b_n^{-1} \\
+        a_1a_1\dots a_na_n         
+    \end{cases}$
+
+    \noindent Vamos a llamar aristas compementarias a aquellas que aparece como $a$ y $a^{-1}$. Aristas retorcidas las que aparecen como $a$ y $a$ ó $a^{-1}$ y $a^{-1}$.
+
+    \noindent \underline{PASO 1:} Podemos suponer que $\partes$ tiene solo una palabra (o que el polígono tiene 1 sula cara). 
+    Si dos palabras no tienen letras en común, entonces sus cocientes son disconexos (contradicción con que la superficie original es conexa (redactar mejor la contradicción si se quiere)). Y si tienen letras en común, rotando, reflejando y pegando podemos "unir" las palabras.
+
+    \noindent Una cantidad finita de veces de este proceso demuestra el paso 1.
+
+    \noindent \underline{PASO 2:} Podemos suponer que no hay pares de aristas complementarias adyacentes ($W_1aa^{-1}W_2$).
+    Si las hubiera, plegando por ellas desaparecen. Excepto el caso en que solo tengamos ese par ($W_1, W_2 = \emptyset$). Pero entonces la superficie es una esfera.
+
+    \noindent \underline{PASO 3:} Podemos suponer que todos los pares de aristas retorcidas son adyacentes ($VaWa$, con $V,W \ne \emptyset$). Cortamos por el medio ($Vab$ y $b^{-1}Wa$). Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$). Entonces llegamos a $bbVW^{-1}$. 
+
+    \noindent Una cantidad finita de este proceso demuestra el paso 3. 
+
+    \noindent \underline{Nota:} Puede ser que tengamos que volver a aplicar el paso 2 ya que tenemos $W^{-1}$.
+
+    \noindent \underline{PASO 4:} Podemos suponer que el polígono tiene todos sus vértices identificados.
+    Sea $p:\partes \to M$ la proyección al cociente. Sea $p(v)=[v]$. Si todos los vértices no están identificados, existen vértices $v_1, w$ en $\partes$ y arista a ($v_1 \to w$) con $p(v_1)\ne p(w)$. La arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) ni $a^{-1}$ (por los pasos anteriores). Por tanto, la arista es distinta, la llamo $b$ y el otro vértice $x$, esto es que en $b$ tenemos ($x \to v_1$). 
+    
+    \noindent Suponemos que aparece $b^{-1}$ en otro sitio (si fuese $b$ sería análogo salvo una rotación en cierto momento). En ese $b^{-1}$ tendríamos ($v_1 \to x$). Tenemos entonces $baXb^{-1}Y$, con $X,Y \ne \emptyset$ (si no llegaríamos a alguna de estas igualdades: $p(v_1)=p(w)=p(x)$).
+    
+    \noindent Ahora cortamos por $c$ ($w \to x$). Rotando para pegar por $b$ (y reflejando si en vez de tener $b^{-1}$ tuvieramos $b$). Pegando llegamos a $acYc^{-1}X$, con ($v_1 \overset{a}{\to} w \overset{c}{\to} x \overset{Y}{\to} x \overset{c^{-1}}{\to} w \overset{X}{\to} v_1$).
+
+    \noindent Por tanto, hemos reducido la cantidad de vértices que se identifican con $v$ en una unidad.
+
+    \noindent Una cantidad finita de este proceso demuestra el paso 4.
+
+    \noindent \underline{PASO 5:} Se cumple que si aparece un par $a, a^{-1}$, entonces hay otro par $b, b^{-1}$, es decir, de la forma $a\dots b\dots a^{-1} \dots b^{-1}$.
+
+    \noindent Si no fuese así, tendría $aXa^{-1}Y$, donde $X$ e $Y$ no comparten letras o aristas (por los pasos anteriores). Esto significa que $X$ e $Y$ no comparten vértices (alguna de las aristas que sale de ese vértice tendria que estar "allí"), es decir, que los vértices finales de $a$ y $a^{-1}$ que solo tocan $X$ solo pueden identificarse con vértices de $X$, y los iniciales solo pueden con $Y$.
+
+    \noindent Como cualquier arista $c \subset X$ cumple que su identificación tambien está contenida en $X$, entonces todos los vértices que se identifican con $X$ están en $X$. Si otro vértice se identificara con $x$ y estuviese en $Y$, habría una arista a la vez en $X$ e $Y$. Por tanto, tendríamos dos clases de vértices distintos $p(x) \ne p(y)$, que es una contradicción con el hecho de que todos los vértices estaban \textcolor{red}{BLANK} (no lo he escuchado, lo siento).
+
+    \noindent \textcolor{red}{!ATENCIÓN!} El dibujo que hizo en clase con las $c$'s es muy instructivo para ver esto. Si alguien lo tiene copiado y lo pone como imagen sería maravilloso (una imagen vale más que mil palabras).
+
+    \noindent \underline{PASO 6:} Podemos suponer que los pares de aristas del paso 5 aparecen consecutivos. 
+
+    \noindent $aXbYa^{-1}Zb^{-1}W$. Cortamos desde el final de $X$ al final de $W$, y llamamos a esa arista $c$. Vamos a pegar por $a$. Tendremos $aXcW$ y $bYa^{-1}Zb^{-1}c^{-1}$. Rotando de buena manera y pegando se queda $YXcWzb^{-1}c^{-1}b$. Ahora cortamos desde el final de $b^{-1}$ al final de $c$, llamando $d$ a esa arista. Se nos queda $YXcd^{-1}c^{-1}b$ y $WZb^{-1}d$. Rotando y pegando por $b$ se nos queda $YXcd^{-1}c^{-1}dWZ$. 
+
+    \noindent Una cantidad finita de este proceso demuestra el paso 6.
+
+    \noindent \underline{PASO 7:} Aplicar $\mathbb{T}^2\#\R \mathbb{P}^2$ y $\R \mathbb{P}^2\#\R \mathbb{P}^2\#\R \mathbb{P}^2$.
+}
