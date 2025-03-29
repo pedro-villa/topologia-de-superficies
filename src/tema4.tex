@@ -144,8 +144,7 @@ Demostrar que $R_f$ es una relación de equivalencia.
 
 \section{Ejemplos de espacios cocientes}
 
-Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar homeomorfismos entre espacios topológicos. En estos primeros ejemplos haremos uso del Teorema \ref{thm:diagrama} para encontrar un homeomorfismo.
-\\
+Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establecer homeomorfismos entre estos espacios cociente y otros espacios topológicos de interés. En estos primeros ejemplos haremos uso del Teorema \ref{thm:diagrama} para encontrar tales homeomorfismos.
 
 \ex{
     Para el intervalo \(I = [0, 1]\), consideramos la partición:
@@ -169,7 +168,7 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     Por tanto ambas son la misma relación. Ahora veamos que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$.
 
-    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, si $(x,y)=(0,1)$ entonces $f(\frac{1}{4})=(0,1)=(x,y)$, si $(x,y)=(0,-1)$ entonces $f(\frac{3}{4})=(0,-1)=(x,y)$, si por el contrario $x\ne0$ entonces $\alpha=\frac{\arctan(\frac{y}{x})}{2\pi}$ verifica $f(\alpha)=(x,y)$. Por tanto $f$ es sobreyectiva, lo que según la Proposición \hyperref[prop:114]{1.1.4} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
+    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal, con $\alpha\in[0,2\pi)$. Es sencillo comprobar que $f(\frac{\alpha}{2\pi})=(x,y)$, por tanto $f$ es sobreyectiva, lo que según la Proposición \hyperref[prop:114]{1.1.4} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
 }
 
 \exer{Probar que si $X$ es compacto, $Y$ es Hausdorff y $f:(X,\T)\to(Y,\T')$ es continua entonces $f$ es cerrada.}\label{exer:12}
@@ -183,6 +182,26 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a un cilindro.
 }
 
+\pf{
+    Consideremos el cilindro $C=\{(x,y,z)\in\R^3 \mid x^2+y^2=1, z\in[0,1]\}$, probaremos que la relación $\sim$ coincide con la relación dada por la aplicación $f:X\to C, f(t,s)=(\cos(2\pi t),\sin(2\pi t),s)$. Para ello, dados $(x_1,y_1),(x_2,y_2)\in X$
+    \[
+        (x_1,x_2) R_f (x_2,y_2) \iff
+        \begin{cases}
+        \cos(2\pi x_1)=\cos(2\pi x_2)\\
+        \sin(2\pi x_1)=\sin(2\pi x_2)\\
+        y_1=y_2
+        \end{cases}
+    \]
+    Dejamos como un sencillo ejercicio comprobar que para que se den estas igualdades entre cosenos y senos debe darse $x_1-x_2\in\mathbb{Z}$. En resumen:
+    \[
+        (x_1,x_2) R_f (x_2,y_2) \iff (x_1,y_1)\sim(x_2,y_2)
+    \]
+    Por tanto ambas son la misma relación. Ahora veamos que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{X}$ y $C$.
+
+    En primer lugar, $f$ es continua y cerrada por un argumento similar al del ejemplo anterior. Para ver que es sobreyectiva basta tomar $p=(x,y,z)\in C$, y denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal si consideramos a $(x,y)$ como punto de $\sphere^1$, con $\alpha\in[0,2\pi)$. Entonces $f(\frac{\alpha}{2\pi},z)=(x,y,z)=p$, por lo que $f$ es sobreyectiva y por tanto identificación.
+}
+
+\clearpage
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -191,6 +210,29 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a una banda de Möbius.
 }
 
+\pf{
+    Llamamemos $M$ a la banda de Möbius. $M$ será la imagen de la función 
+    \begin{gather*}
+        F:[0,2\pi]\times[-1,1]\to\R^3 \\
+        F(u,v)=((2-v\sin(\frac{u}{2}))\sin(u),(2-v\sin(\frac{u}{2}))\cos(u),v\cos(\frac{u}{2}))
+    \end{gather*}
+    es decir, $M=F([0,2\pi]\times[-1,1])$.
+
+    Probaremos ahora que la función $f:I\times I\to M$ dada por $f(t,s)=F(2\pi t,2s-1)$ define la misma relación que $\sim$ y además es una identificación. La aplicación f es claramente continua, cerrada por ir de un compacto a un $T_2$ y sobreyectiva por definición (ya que $M=F([0,2\pi]\times[-1,1])=f(I\times I))$.
+    
+    En cuanto a la relación, dados $(x,y),(a,b)\in I\times I$
+    \begin{gather*}
+        (x_1,y_1)R_f(x_2,y_2) \iff f(x_1,y_1)=f(x_2,y_2) \iff\\
+        \iff \begin{cases}
+            (2-(2y_1-1)\sin(\pi x_1))\sin(2\pi x_1) =  (2-(2y_2-1)\sin(\pi x_2))\sin(2\pi x_2)\\
+            (2-(2y_1-1)\sin(\pi x_1))\cos(2\pi x_1) = (2-(2y_2-1)\sin(\pi x_2))\cos(2\pi x_2) \\
+            (2y_1-1)\cos(\pi x_1) = (2y_2-1)\cos(\pi x_2)
+        \end{cases}
+    \end{gather*}
+    claramente si $(x_1, y_1) = (x_2, y_2) \text{ o } [x_1 - x_2 = \pm 1 \text{ e } y_1 = 1 - y_2]$ entonces se dan las igualdades y $(x_1,y_1)R_f(x_2,y_2)$. Por el contrario, si $(x_1,y_1)R_f(x_2,y_2)$ dejamos la comprobación de que debe cumplirse $(x_1, y_1) = (x_2, y_2) \text{ o } [x_1 - x_2 = \pm 1 \text{ e } y_1 = 1 - y_2]$ como ejercicio (o castigo) al lector.
+}
+
+\clearpage
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -198,6 +240,29 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     \]
     El espacio cociente es homeomorfo a un toro.
 }
+
+\pf{
+    En primer lugar notemos que la relación de equivalencia consiste en identificar los lados del cuadrado $[0, 1] \times [0, 1]$ según la siguiente figura
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{img/cociente-toro.png}
+    \end{center}
+    En cuanto al toro $\mathbb{T}$, lo consideraremos como el subconjunto de $\R^3$ de la siguiente forma
+    \[
+    \mathbb{T}=\{(x,y,z)\in\R^3 \mid (\sqrt{x^2+y^2}-2)^2+z^2=1\}
+    \]
+    Si definimos la función
+    \begin{gather*}
+        F:[0,2\pi]\times[0,2\pi]\to\mathbb{T} \\
+        F(u,v)=(\cos u(\cos v+2),\sin u(\cos v+2),\sin v)
+    \end{gather*}
+    basta comprobar que
+    \[
+    f:[0,1]\times[0,1]\to \mathbb{T},\quad f(t,s)=F(2\pi t,2\pi s)
+    \]
+    induce la misma relación de equivalencia que $\sim$, y además es continua, sobreyectiva y cerrada (por ir de un compacto a un Hausdorff). Todas estas comprobaciones, muy similares a las de los anteriores ejemplos, quedan como un sencillo ejercicio para el lector.
+}
+
+\clearpage
 
 \ex{
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
@@ -207,6 +272,21 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a una botella de Klein.
 }
 
+\pf{
+    Definiremos la botella de Klein $K$ como el subconjunto de $\R^4$ dado por la imagen de la siguiente función:
+    \begin{gather*}
+        f:[0,1]\times[0,1]\to K\subset \R^4 \\
+        f(t,s)=
+        ((2+\cos(2\pi t))\cos(2\pi s),\\
+        (2+\cos(2\pi t))\sin(2\pi s),\\
+        \sin(2\pi t)\cos(\pi s),\\
+        \sin(2\pi t)\sin(\pi s))
+    \end{gather*}
+    Claramente $f$ es continua, sobreyectiva (por la propia definición de $K$) y cerrada (por ir de un compacto a un $T2$). Además, se puede comprobar que determina la misma relación de equivalencia que $\sim$, por lo que en virtud de la Proposición 4.1 existe un homeomorfismo entre $\tilde{X}$ y la botella de Klein.
+}
+
+\clearpage
+
 \ex{
     Sea \(X = \mathbb{S}^1 \times [0, 1]\) con la relación de equivalencia:
     \[
@@ -215,7 +295,22 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
     El espacio cociente es homeomorfo a un cono.
 }
 
-\newpage
+\pf{
+    Definamos el cono
+    \[
+    C=\{(x,y,z)\in\R^3\mid x^2+y^2=z^2,z\in[0,1]\}
+    \]
+    y tomemos la función
+    \begin{gather*}
+        f:\sphere^1\times[0,1]\to C\\
+        f(\theta,t)=(t\theta_x,t\theta_y,t),\quad \theta=(\theta_x,\theta_y)\in\sphere^1\subset\R^2
+    \end{gather*}
+    es inmediato ver que la función es continua, sobreyectiva y cerrada por argumentos como los del resto de ejemplos. Por otro lado
+    \[
+    (\theta,t)R_f(\theta',t')\iff t=t', t\theta=t'\theta' \iff t=t'=0\quad \text{ó} \quad (\theta,t)=(\theta',t')\iff (\theta,t)\sim(\theta',t')
+    \]
+    Por tanto existe un homeomorfismo entre $C$ y $\tilde{X}$.
+}
 
 \ex{
     Sea \(X = \mathbb{S}^2\) con la relación de equivalencia:
@@ -234,32 +329,43 @@ Veamos ahora algunos ejemplos de espacios cociente y su utilidad para encontrar 
 }
 
 \exer{
-Dado $(X,\T)$ un espacio topológico y $K\subset X$, definimos la relación
-  \[
-  x \sim y\iff
-  \begin{cases}
-    x,y \in K \\
-    x=y
-  \end{cases}
-  \]
-y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim},\faktor{\T}{\sim})$.
-  \begin{enumerate}
-    \item[a)] Demostrar que $p|_{X\setminus K}:X\to\faktor{X}{K}$ restringida a $p(X\setminus K)$ es una biyección.
-    \item[b)] Demostrar que $p|_{X\setminus K}$ es un homeomorfismo si $K$ es abierto o cerrado.
-  \end{enumerate}
+    Dado $(X,\T)$ un espacio topológico y $K\subset X$, definimos la relación
+        \[
+            x \sim y\iff
+            \begin{cases}
+                x,y \in K \\
+                x=y
+            \end{cases}
+        \]
+    y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim},\faktor{\T}{\sim})$.
+        \begin{enumerate}
+            \item[a)] Demostrar que $p|_{X\setminus K}:X\to p(X\setminus K)$ es una biyección.
+            \item[b)] Demostrar que $p|_{X\setminus K}$ es un homeomorfismo si $K$ es abierto o cerrado.
+        \end{enumerate}
 }
+
 \noindent\textbf{Solución:}
 
-  Para simplificar la notación llamemos $f:=p|_{X\setminus K}$, y notemos que $\forall x \in X \setminus K, f(x)=[x]$, pero por la manera en la que está definida la relación de equivalencia, es inmediato ver que $[x]=\{x\}$, ya que el único elemento relacionado con $x$ es el propio $x$ (recordemos que $x\notin K$). Por tanto la inversa de $f$ es $f^{-1}([x])=x$, ya que $f(f^{-1}([x]))=f(x)=[x], f^{-1}(f(x))=f^{-1}([x])=x$ lo que prueba que $f$ es una biyección.
-  
-  ¿El apartado b) no es inmediato?
-  % Para el apartado b) notemos en primer lugar que $p$ es continua, por lo que $f$ también lo será por ser su restricción. Si $K$ es abierto entonces $X\setminus K$ es cerrado, ahora si tomamos $U\in\T|_{X\setminus K}$ entonces $U=V\cap X\setminus K, V\in\T$, para ver que $f(U)$ es abierto, basta ver que $f^{-1}(f(U))
-  % 
-  % es cerrada, ya que dado $C$ cerrado en $X\setminus K$ se tiene
-  % \[
-  % f(C)=\bigcup_{[x]\in C}\{x\}
-  % \]
+Para el apartado a) notemos que
+\[
+    \forall x \in X \setminus K,\quad p|_{X\setminus K}(x)=[x]
+\]
+pero por la manera en la que está definida la relación de equivalencia, es inmediato ver que $[x]=\{x\}$, ya que el único elemento relacionado con $x$ es el propio $x$ (recordemos que $x\notin K$). Por tanto $p|_{X\setminus K}$ es inyectiva ya que
+\[
+    p|_{X\setminus K}(x)=p|_{X\setminus K}(y)\implies [x]=[y]\implies \{x\}=\{y\}\implies x=y
+\]
+y además es sobreyectiva por estar definida en su imagen. Por tanto $p|_{X\setminus K}$ es una biyección.
 
+Para el apartado b) notemos en primer lugar que $p$ es continua, por lo que $p|_{X\setminus K}$ también lo será por ser su restricción a $X\setminus K$.
+
+Haremos el caso $K$ cerrado, cuando $K$ es abierto hay que razonar de manera idéntica pero con cerrados teniendo en cuenta la parte 3 de la Proposición \hyperref[prop:112]{1.1.2}.
+
+Si  $K$ es cerrado entonces $X\setminus K$ es abierto, ahora si tomamos $U\in\T|_{X\setminus K}$ entonces $U=\tilde{U}\cap (X\setminus K), \tilde{U}\in\T$. Pero como $X\setminus K$ es abierto entonces de hecho $U\in\T$ y por tanto
+\[
+p^{-1}(p(U))=(p|_{X\setminus K})^{-1}(p|_{X\setminus K}(U))=U\in\T
+\]
+(recordemos que $p|_{X\setminus K}$ es una biyección y por tanto tiene inversa).
+Finalmente por la definición de topología cociente debe de ser $p(U)\in\faktor{\T}{K}$, pero como además $p|_{X\setminus K}=p(U)=p(U)\cap p(X\setminus K)$ deducimos que $p|_{X\setminus K}(U)\in\faktor{\T}{K}|_{p(X\setminus K)}$, lo que prueba que $p|_{X\setminus K}$ es abierta y por tanto un homeomorfismo.
 
 \clearpage
 
@@ -284,7 +390,7 @@ y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim
     Diremos que \(B \subset X\) es una bola regular euclídea si:
     \begin{itemize}
         \item Existe una bola euclídea \(B'\) tal que \(\overline{B} \subset B'\).
-        \item Existe \(r > 0\) y una carta \(\varphi: B' \to B^n(0, 2r)\) tal que \(\varphi(\overline{B}) = B^n(0, r)\).
+        \item Existe \(r > 0\) y una carta \(\varphi: B' \to B^n(0, 2r)\) tal que \(\varphi(\overline{B}) = \overline{B^n(0, r)}\).
     \end{itemize}
 }
 
@@ -296,6 +402,10 @@ y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim
 
 \defn{Superficie topológica}{
     Una superficie topológica \(S\) es una variedad topológica de dimensión dos o 2-variedad.
+}
+
+\rmkb{
+    En ocasiones podemos referirnos a las superficies topológicas como superficies, o en general a las $n$-variedades topológicas como $n$-variedades (o incluso variedades si se sobrentiende su dimensión). Cabe destacar que en otro contextos la palabra superficie puede referirse a un concepto distinto, como el de superficie parametrizada o el de variedad diferenciable de dimensión 2 (superficie regular).
 }
 
 \defn{Variedad con borde}{
@@ -332,7 +442,7 @@ y llamemos al espacio cociente $(\faktor{X}{K},\faktor{\T}{K}):=(\faktor{X}{\sim
 
 \clearpage
 
-\section{Ejemplos de superficies}
+\subsection{Ejemplos de superficies}
 
 En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por tanto todos los espacios son $T_2$ y $2A\N$ (recordemos que estas propiedades se heredan al considerar las topologías relativas). Solo necesitamos probar que cada uno de estos espacios son localmente euclídeos.
 
@@ -374,17 +484,49 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     El paraboloide de revolución \(x^2 + y^2 - z = 0\) es una superficie topológica.
 }
 
+\clearpage % Para que quede toda la proposición en la misma página
+
 \propp{Espacio proyectivo real}{
     El espacio proyectivo real \(\mathbb{RP}^n\) es una variedad topológica de dimensión \(n\).
 }{
-    Pendiente.
+    Veamos en primer lugar qué tipo de espacio topológico es $\mathbb{RP}^n$. Para ello, notemos que está definido por la relación de equivalencia sobre $\R^{n+1}\setminus\{0\}$ dada por
+    \[
+    x \sim y \iff x=\lambda y, \lambda\neq 0.
+    \]
+    Podemos dar una expresión explicita de las clases de equivalencia en $\mathbb{RP}^n$ como
+    \[
+        [x_1,\cdots,x_{n+1}]=\{(\lambda x_1,\cdots,\lambda x_{n+1}):\lambda\in\R\setminus\{0\},\exists x_{i_0}\neq 0\}
+    \]
+    en cuyo caso la proyección al cociente viene dada por
+    \[
+    \pi:\R^{n+1}\setminus\{0\}\to\mathbb{RP}^n,\quad \pi(x_1,\dots x_{n+1})=[x_1,\dots,x_{n+1}]
+    \]
+    Veamos que $\mathbb{RP}^n$ es localmente euclídeo. Sea $p=[x_1,\cdots,x_{n+1}]\in\mathbb{RP}^n$, por definición de $\mathbb{RP}^n$ sabemos que existe un $i_0$ tal que $x_{i_0} \neq 0$, definimos el siguiente entorno $U_p = \{[y_1,\cdots,y_{n+1}] : y_{i_0} \neq 0 \}$ que contiene a $p$ y es abierto puesto que la topología sobre $\mathbb{RP}^n$ es precisamente la topología final de $\pi$ y se tiene $\pi^{-1}(U_p)=V_p$ donde
+    \[
+        V_p=\{(y_1,\cdots,y_{n+1}) : y_{i_0} \neq 0\}
+    \]
+    que es abierto puesto que su complementario
+    \[
+        \left[\R^{n+1}\setminus\{0\}\right]\setminus V_p=\{(y_1,\cdots,y_{n+1}) : y_{i_0} = 0\}
+    \]
+    es cerrado. Por tanto $U_p$ es abierto (recuérdese la definición de topología final), y la siguiente aplicación
+    \[
+    \varphi :U_p \to \mathbb{R}^n,\quad \varphi([x_1,\cdots,x_{n+1}])=\left(\frac{x_1}{x_{i_0}},\cdots,\frac{x_{i_0-1}}{x_{i_0}},\frac{x_{i_0+1}}{x_{i_0}},\cdots,\frac{x_{n+1}}{x_{i_0}}\right)
+    \]
+    es un homeomorfismo. Omitiremos ver que $\varphi$ esta bien definida y es un homeomorfismo.
+
+    %TODO Justificar que es Hausdorff y 2AN.
 }
+
+\clearpage
+
+\subsection{Propiedades de las variedades topológicas}
 
 \lem{Lema técnico}{
     Existe $0<\epsilon \le 1$ tal que para todo $q \in B^n(0,\epsilon)$ existe un homeomorfismo \(F : \R^n \to \R^n\) con $F(0)=q$ y $F |_{\R^n \setminus B^n(0,2)}$ es la identidad.
 }
 \pf{
-    La idea es construirse una función auxiliar $f : \R^n \to \R^n$ tal que $f(p) = p$, para $p \in B(0,\epsilon)$, $f(q) = 0$, para $q \in R^n \setminus B(0,2)$, y que en el resto de puntos sea diferenciable. Una vez construida esta $f$, aplicando composiciones se llega a la forma de $F$.
+    La idea es construirse una función auxiliar $f : \R^n \to \R^n$ tal que $f(x) = q$, para $x \in B(0,\epsilon)$, $f(x) = 0$, para $x \in \R^n \setminus B(0,2)$, y que en el resto de puntos sea diferenciable. Una vez construida esta $f$, definimos $F$ como $F(x) = f(x) + x$ que es homeomorfismo por ser suma de homeomorfismos. y verifica que $F(0) = q$ y $F |_{\R^n \setminus B^n(0,2)}$ es la identidad.
     % TODO: No sé hacer dibujos, si alguno sabe hacer el dibujito que hicimos en clase para R, que lo ponga aquí.
 }
 
@@ -397,7 +539,7 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     p \sim q\iff
     \exists f : X \to X \text{ homeomorfismo tal que } f(p) = q.
     \]
-    Vamos a ver que $p^{-1}([p]) = U(p)$ es abierta y cerrada en $X$, y por tanto, es todo $\faktor{X}{\sim}$.
+    Vamos a ver que $[p]$ es abierta y cerrada en $X$, y, por tanto, es todo $\faktor{X}{\sim}$.
 
     Para ver que es abierto, sea $B$ una bola regular euclídea centrada en $p$. Por definición, existe $B' \subset X$ bola euclídea y $\varphi : B' \to B^n(0,3) \subset \R^n$ con: 
     
@@ -422,17 +564,33 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 \section{Unión disjunta}
 
 \defn{Unión disjunta}{
-    Sea \(\{(X_\alpha, T_\alpha)\}_{\alpha \in J}\) una familia indexada de espacios topológicos. Definimos su unión disjunta como:
+    Sea \(\{(X_\alpha, \T_\alpha)\}_{\alpha \in J}\) una familia indexada de espacios topológicos. Definimos su unión disjunta como:
     \[
     \bigsqcup_{\alpha \in J} X_\alpha = \{(x, \alpha) : x \in X_\alpha, \alpha \in J\}.
     \]
     Consideramos las inyecciones canónicas \(\iota_\alpha : X_\alpha \to \bigsqcup_{\alpha \in J} X_\alpha\), dadas por \(\iota_\alpha(x) = (x, \alpha)\).
 }
 
+\rmkb{
+    Para entender la unión disjunta podemos pensar en ek siguiente contexto. Supongamos que los espacios topológicos son subconjuntos acotados del plano (por ejemplo polígonos), su unión disjunta consistirá en disponer estos subconjuntos de tal manera que no se solapen unos con otros. Un ejemplo sería la imagen siguiente
+    \begin{center}
+        \includegraphics[width=0.25\textwidth]{img/union-disjunta.png}
+    \end{center}
+    Otra manera de imaginar la unión disjunta es considerar que ponemos cada subconjunto del plano en una copia distinta de $\R^2$, es decir, tendremos cada espacio topológico (figura) en un plano y la unión disjunta será la unión de esas "hojas".
+}
+
 \propp{Topología unión disjunta}{
-    La familia de subconjuntos \(B = \{\iota_\alpha(U) : U \in T_\alpha, \alpha \in J\}\) es una base para una topología \(T\) sobre \(\bigsqcup_{\alpha \in J} X_\alpha\) que recibe el nombre de topología unión disjunta.
+    La familia de subconjuntos \(B = \{\iota_\alpha(U) : U \in \T_\alpha, \alpha \in J\}\) es una base para una topología \(\T\) sobre \(\bigsqcup_{\alpha \in J} X_\alpha\) que recibe el nombre de topología unión disjunta.
 }{
-    Sea \(\{(X_\alpha,T_\alpha)\}_{\alpha\in J}\) una familia de espacios topológicos. Para todo \((x,\alpha)\in\bigsqcup_{\alpha\in J}X_\alpha\) existe \(U\in T_\alpha\) con \(x\in U\), luego $(x,\alpha) \in \iota_\alpha(U)$. \newline Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso \newline \(\iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset\) que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V\in T_\alpha\) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). 
+    Sea \(\{(X_\alpha,\T_\alpha)\}_{\alpha\in J}\) una familia de espacios topológicos.
+    \newline
+    (B1) Para todo \((x,\alpha)\in\bigsqcup_{\alpha\in J}X_\alpha\) se tiene $x\in X_\alpha$, y como $X_\alpha\in \T_\alpha$, deducimos que $(x,\alpha) \in \iota_\alpha(X_\alpha)\in B$.
+    \newline
+    (B2) Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso
+    \[
+        \iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset
+    \]
+    que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V=U_1\cap U_2\in \T_\alpha\) (que es abierto puesto que $U_1,U_2$ lo son) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). La última inclusión es fácil de comprobar y se deja como un sencillo ejercicio.
 }
 
 \propp{Propiedades de la unión disjunta}{
@@ -450,13 +608,21 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     Pendiente.
 }
 
+\clearpage
+
 \section{Suma conexa}
 
 \defn{Suma conexa}{
-    Sean \(S_1\) y \(S_2\) dos superficies conexas y sean \(D_1\) y \(D_2\) discos regulares euclídeos. Sea \(\varphi : \partial D_1 \to D_2\) un homeomorfismo y denotemos por \(S_i' := S_i \setminus D_i, \ i = 1, 2\). Definimos en \(S_1' \sqcup S_2'\) la menor relación de equivalencia que contiene a \(x \sim \varphi(x)\) para todo \(x \in \partial D_1\). Entonces el cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) es un espacio topológico.
+    Sean \(S_1\) y \(S_2\) dos superficies conexas y sean \(D_1\) y \(D_2\) discos regulares euclídeos. Sea \(\varphi : \partial D_1 \to \partial D_2\) un homeomorfismo y denotemos por \(S_i' := S_i \setminus D_i, \ i = 1, 2\). Definimos en \(S_1' \sqcup S_2'\) la menor relación de equivalencia que contiene a \(x \sim \varphi(x)\) para todo \(x \in \partial D_1\). Entonces el cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) es un espacio topológico.
 }
 
-A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \ref{thm:suma_conexa}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
+\rmkb{El homeomorfismo $\varphi : \partial D_1 \to \partial D_2$ existe siempre puesto que las fronteras de los discos son homeomorfas a las fronteras de alguna bola euclídea, y por tanto ambas fronteras son homeomorfas a la circunferencia unidad
+\[
+    \partial D_1\cong \sphere^1\cong\partial D_2.
+\]
+}
+
+A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \hyperref[prop:invarianza-cociente]{1.7.4}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
 
 \lem{Teorema de Jordan - Schönflies}
 {
@@ -467,10 +633,20 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 \lemp{Extensión de homeomorfismos de $\mathbb{S}^1$}{\label{lem:extension-homeo}
     Sean $C_1, C_2$ homeomorfos a $\mathbb{S}^1$, $h: C_1 \to C_2$ un homeomorfismo y $U \subseteq \mathbb{R}^2$ abierto, $U\cong \mathbb{R}^2$, con $C_1 \cup C_2 \subseteq U$. Entonces existe un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{C_1} = h$ y $H\vert_{\mathbb{R}^2 \setminus U} = Id$.
 }{
-    Sea $g:U\to\mathbb{R}^2$ un homeomorfismo y $\tilde{C_1} = g(C_1)$, $\hat{h} = g\circ h\circ g^{-1} : \tilde{C_1} \to C_2$. Por el Teorema de Jordan-Schönflies existe un homeomorfismo $\hat{H}:\mathbb{R}^2\to\mathbb{R}^2$ tal que $\hat{H}\vert_{\tilde{C}_1} = \hat{h}$ y $\hat{H}$ es la identidad fuera de un compacto $K\supseteq\tilde{C}_1$. Sea $H = g^{-1}\circ\hat{H}\circ g$, entonces $H$ es el homeomorfismo buscado.
+    Sea $g:U\to\mathbb{R}^2$ el homeomorfismo dado por la hipótesis $U\cong\R^2$ y sean $\tilde{C}_1 = g(C_1),\tilde{C}_2 = g(C_2)$, definamos la aplicación
+    \[
+        \hat{h} = \left(g\circ h\circ g^{-1}\right)|_{\tilde{C}_1} : \tilde{C}_1 \to \tilde{C}_2.
+    \]
+    que es claramente un homeomorfismo. Por el Teorema de Jordan-Schönflies existe un homeomorfismo $\hat{H}:\mathbb{R}^2\to\mathbb{R}^2$ tal que $\hat{H}\vert_{\tilde{C}_1} = \hat{h}$ y $\hat{H}$ es la identidad fuera de un compacto $K\supseteq\tilde{C}_1$. Sea $H = g^{-1}\circ\hat{H}\circ g$, entonces $H$ es el homeomorfismo buscado puesto que para todo $x\in C_1$
+    \begin{align*}
+    H|_{C_1}(x) &= \left(g^{-1}\circ \hat{H} \circ g \right)|_{C_1}(x)=\left(g^{-1}\circ \hat{H}|_{\tilde{C}_1}\right)(g(x))=\left(g^{-1}\circ\hat{h}\right)(g(x))=
+    \\
+    &= \left(g^{-1}\circ g\circ h\circ g^{-1}\right)(g(x))=h(x)\implies H|_{C_1}=h
+    \end{align*}
+    Además, si $K\subset U$ entonces claramente $H\vert_{\mathbb{R}^2 \setminus U} = Id$, y siempre podemos suponer que $K\subset U$ porque $U$ es homeomorfo a $\R^2$. % Que alguien revise esto porque no estoy muy seguro la verdad
 }
 
-\propp{Invarianza del cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\)}{\label{prop:invariancia-cociente}
+\propp{Invarianza del cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\)}{\label{prop:invarianza-cociente}
     Si \(S_1\) y \(S_2\) son dos superficies topológicas conexas, entonces, salvo homeomorfismo, el espacio \(\faktor{S_1' \sqcup S_2'}{\sim}\) no depende de los discos regulares euclídeos ni del homeomorfismo \(\varphi\).
 }{
     Veremos la demostración en 3 pasos:
@@ -480,9 +656,9 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
         Sean $D_1$ y $D_3$ discos regulares y euclídeos centrados en $p\in S_1$, y supongamos que $\overline{D_1} \subset D_3$ sin pérdida de generalidad. Veamos que $S_1 \setminus D_1 \cong S_1 \setminus D_3$.
 
-        Sea $D_3'$ otro disco euclídeo con $\overline{D_3} \subseteq D_3'$, y $\psi :D_3' \to \overline{B}(0,2)$ un homeomorfismo verificando $\psi(\overline{D_3})=B^2(0,1)$. 
+        Sea $D_3'$ otro disco euclídeo con $\overline{D_3} \subseteq D_3'$, y $\psi :D_3' \to B(0,2)$ un homeomorfismo verificando $\psi(\overline{D_3})=\overline{B(0,1)}$. 
 
-        Aplicamos el lema \ref{lem:extension-homeo} a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
+        Aplicamos el Lema \hyperref[lem:extension-homeo]{1.7.3} a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
 
         Sea 
         \[
@@ -496,7 +672,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
         Sea $D_1$ un disco regular euclídeo centrado en $p\in S_1$ y $D_3$ disco regular euclídeo centrado en $q\in S_1$. Veamos que $S_1 \setminus D_1 \cong S_1 \setminus D_3$ haciendo una construcción similar al caso anterior, pero haciendo también uso de la homogeneidad.
 
-        Sea $F : S_1 \to S_1$ un homeomorfismo verificando $F(p) = q$. Sea $D_3'$ disco regular con $\overline{D_3} \subseteq D_3'$. Sea $\psi : D_3' \to B(0,2)$ el homeomorfismo que cumple que $\psi(\overline{D_3}) = B(0,1)$. 
+        Sea $F : S_1 \to S_1$ un homeomorfismo verificando $F(p) = q$. Sea $D_3'$ disco regular con $\overline{D_3} \subseteq D_3'$. Sea $\psi : D_3' \to B(0,2)$ el homeomorfismo que cumple que $\psi(\overline{D_3}) = \overline{B(0,1)}$. 
 
         Sea ahora $\varepsilon > 0 $ suficientemente pequeño de forma que $\overline{F(D_4)} \subseteq D_1$, donde $D_4 = \psi^{-1}(B(0, \varepsilon))$. Como $\overline{D_4} \subseteq D_3$, por el paso 1) obtenemos $S_1 \setminus D_4 \cong S_1 \setminus D_3$, y de la misma forma $S_1 \setminus F(D_4) \cong S_1 \setminus D_1$.
 
@@ -506,12 +682,12 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
         Consideramos $\varphi,\sigma:\partial S_1\to\partial S_2$ y veamos que
         \[
-        \faktor{S_1'\sqcup S_2'}{R\varphi}\cong\faktor{S_1'\sqcup S_2'}{R\sigma}.
+        \faktor{S_1'\sqcup S_2'}{R_\varphi}\cong\faktor{S_1'\sqcup S_2'}{R_\sigma}.
         \]
 
-        Sea $D_2'$ disco regular euclídeo con $\overline{D_2}\subseteq D_2'$ y $\psi_2 : D_2' \to B(0,2)$ homeomorfismo, con $\psi_2(\overline{D_2}) = \overline{B}(0,1)$. 
+        Sea $D_2'$ disco regular euclídeo con $\overline{D_2}\subseteq D_2'$ y $\psi_2 : D_2' \to B(0,2)$ homeomorfismo, con $\psi_2(\overline{D_2}) = \overline{B(0,1)}$. 
 
-        Aplicamos el lema \ref{lem:extension-homeo} a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
+        Aplicamos el lema \hyperref[lem:extension-homeo]{1.7.3} a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
 
         Definimos $F:D_2' \to D_2'$ como $F = \psi_2^{-1} \circ H \vert_{B(0,2)} \circ \psi_2$, verificando $F(D_2'\setminus D_2) = D_2'\setminus D_2$. 
 
@@ -523,10 +699,10 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
         \]
         podemos definir un homeomorfismo entre los cocientes:  
         \[
-        \tilde{F} : \faktor{S_1'\sqcup S_2'}{R\varphi} \to \faktor{S_1'\sqcup S_2'}{R\sigma}.
+        \tilde{F} : \faktor{S_1'\sqcup S_2'}{R_\varphi} \to \faktor{S_1'\sqcup S_2'}{R_\sigma}.
         \]
 
-        Para que esto ocurra debe verificarse $xR_\varphi y \Rightarrow \hat{F}(x) R_\sigma \hat{F}(y)$. En nuestro caso,  
+        Para que esto ocurra debe verificarse $xR_\varphi y \implies \hat{F}(x) R_\sigma \hat{F}(y)$. En nuestro caso,  
         \[
         xR_\varphi y \iff y = \varphi(x), \quad x\in \partial D_1, \quad y\in \partial D_2. 
         \]
@@ -545,7 +721,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
 
 \defn{Suma conexa de superficies}{
-    Al espacio topológico cociente \(S_1' \cup S_2'\), lo denotaremos \(S_1 \# S_2\) y lo llamaremos suma conexa de \(S_1\) y \(S_2\).
+    Al espacio topológico cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) lo denotaremos \(S_1 \# S_2\) y lo llamaremos suma conexa de \(S_1\) y \(S_2\).
 }
 
 \propp{Propiedades heredadas de la suma conexa}{\label{prop:herencia-suma-conexa}
