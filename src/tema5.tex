@@ -232,130 +232,246 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \end{itemize}
 }
 \pf{
-    \noindent Sea $M$ una superficie compacta y conexa y sea $\partes$ su presentación poligonal, la cual sabemos que existe por el Teorema de Radó (\ref{thm:rado}). 
+    \noindent
+    Sea $M$ una superficie compacta y conexa y sea $\partes$ su presentación poligonal, la cual sabemos que existe por el Teorema de Radó (\ref{thm:rado}).
 
-    \vspace{0.5em}
-    \noindent \underline{Objetivo:} aplicar transformaciones elementales a $\partes$ hasta llegar a uno de los siguientes casos:
+    \vspace{1em}
+    \noindent
+    \underline{Objetivo:} aplicar transformaciones elementales a $\partes$ hasta llegar a uno de los siguientes casos:
     \[
-    \partes \cong 
-    \begin{cases}
-        \langle a \vert a a^{-1} \rangle, & \text{presentación de } \mathbb{S}^2, \\
-        \langle a_1, b_1, \dots, a_n, b_n \vert a_1b_1a_1^{-1}b_1^{-1}\dots a_n b_n a_n^{-1}b_n^{-1} \rangle, & \text{presentación de } \mathbb{T}^2\#\dots\#\mathbb{T}^2, \\
-        \langle a_1, \dots, a_n \vert a_1a_1\dots a_n a_n \rangle, & \text{presentación de } \R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2.
-    \end{cases}
+        \partes \cong 
+        \begin{cases}
+            \langle a \vert a a^{-1} \rangle, & \text{presentación de } \mathbb{S}^2, \\[6pt]
+            \langle a_1, b_1, \dots, a_n, b_n \vert a_1b_1a_1^{-1}b_1^{-1}\dots a_n b_n a_n^{-1}b_n^{-1} \rangle, 
+            & \text{presentación de } \mathbb{T}^2\#\dots\#\mathbb{T}^2, \\[6pt]
+            \langle a_1, \dots, a_n \vert a_1a_1\dots a_n a_n \rangle, 
+            & \text{presentación de } \R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2.
+        \end{cases}
     \]
 
-    \vspace{0.5em}
+    \vspace{1em}
+    \noindent
     Para ello, separamos la demostración en 7 pasos, en cada uno de los cuales manipulamos $\partes$ para que cumpla una determinada condición 
     (nótese el abuso de notación al llamar $\partes$ tanto a la presentación original como a la presentación $\partes '$ obtenida tras aplicar una transformación elemental). 
     Al término del último paso, llegaremos a que $\partes$ adopta una de las formas canónicas anteriores.
 
-    \vspace{0.5em}
+    \vspace{1em}
+    \noindent
     Durante la demostración, llamaremos \emph{aristas complementarias} a aquellas que aparecen en $\partes$ como $a$ y $a^{-1}$, y 
-    \emph{aristas retorcidas} a las que aparecen como $a$ y $a$, o $a^{-1}$ y $a^{-1}$. \newline
+    \emph{aristas retorcidas} a las que aparecen como $a$ y $a$, o $a^{-1}$ y $a^{-1}$.
 
-    \underline{PASO 1:} 
+    \vspace{1.3em}
+    \noindent
+    \underline{PASO 1:}
     \begin{quote}
-        Podemos suponer que $\partes$ tiene sólo una palabra (o que el polígono tiene 1 sola cara).
+        Podemos suponer que $\partes$ tiene solo una palabra (o que el polígono tiene 1 sola cara).
     \end{quote}
 
-    \noindent Dado que la superficie es conexa, si $\partes$ tiene varias palabras, para cada palabra debe existir una arista que se identifique con una arista de otra palabra. 
+    \noindent
+    Dado que la superficie es conexa, si $\partes$ tiene varias palabras, para cada palabra debe existir una arista que se identifique con una arista de otra palabra. 
     Es decir, siempre que $\partes$ tenga varias palabras, para cada palabra $W_1$ de $\partes$ debe existir una arista $a \in W_1$ y una palabra $W_2$ tal que 
     o bien $a\in W_2$ o $a^{-1}\in W_2$. De lo contrario, en la realización geométrica, $W_1$ y las demás palabras serían disjuntas, formando así una separación, 
-    lo cual contradice la conexión de $M$. 
+    lo cual contradice la conexión de $M$.
 
     \vspace{0.5em}
+    \noindent
     Ahora, si $W_1$ es una palabra y $\partes$ tiene más de una palabra, entonces existe una arista $a$ que conecta con otra palabra $W_2$ 
     (ya sea mediante $a$ o $a^{-1}$). Pegando $W_1$ y $W_2$ (aplicando rotaciones y reflejos si fuera necesario), 
     obtenemos una presentación donde $W_1$ y $W_2$ se han sustituido por una nueva palabra $W_1'W_2'$. 
-    
-    Repitiendo este proceso una cantidad finita de veces se obtiene una presentación equivalente compuesta por una sola palabra. \newline
 
-    \underline{PASO 2:} 
+    \vspace{0.5em}
+    \noindent
+    Repitiendo este proceso una cantidad finita de veces se obtiene una presentación equivalente compuesta por una sola palabra.
+
+    \vspace{1.3em}
+    \noindent
+    \underline{PASO 2:}
     \begin{quote}
         Podemos suponer que no hay pares de aristas complementarias adyacentes ($W_1aa^{-1}W_2$).
     \end{quote}
-    Si las hubiera, plegando por ellas desaparecen. Excepto el caso en que solo tengamos ese par ($W_1, W_2 = \emptyset$). Pero entonces la superficie es una esfera. \newline
 
-    \underline{PASO 3:} 
+    \noindent
+    Si las hubiera, plegando por ellas desaparecen. Excepto el caso en que solo tengamos ese par ($W_1, W_2 = \emptyset$). 
+    Pero entonces la superficie es una esfera.
+
+    \vspace{1.3em}
+    \noindent
+    \underline{PASO 3:}
     \begin{quote}
         Podemos suponer que todos los pares de aristas retorcidas son adyacentes.
     \end{quote}
-    Supongamos que tenemos $VaWa$, con $V,W \ne \emptyset$. Cortamos por el medio ($Vab$ y $b^{-1}Wa$). Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$). Entonces llegamos a $bbVW^{-1}$. La repetición de este proceso una cantidad finita de veces se demuestra el paso 3. 
 
-    \underline{Nota:} En cada iteración, es posible que tengamos que volver a aplicar el paso 2 ya que al pegar $V$ y $W^{-1}$ en $V W^{-1}$ podría haber nuevas aristas complementarias adyacentes. \newline
+    \noindent
+    Supongamos que tenemos $VaWa$, con $V,W \ne \emptyset$. Cortamos por el medio ($Vab$ y $b^{-1}Wa$). 
+    Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$). Entonces llegamos a $bbVW^{-1}$. 
+    La repetición de este proceso una cantidad finita de veces demuestra el paso 3.
 
-    \underline{PASO 4:} 
+    \vspace{0.5em}
+    \noindent
+    \textit{Nota:} En cada iteración, es posible que tengamos que volver a aplicar el paso 2 ya que al pegar $V$ y $W^{-1}$ en $VW^{-1}$ podrían aparecer nuevas aristas complementarias adyacentes.
+
+    \vspace{1.3em}
+    \noindent
+    \underline{PASO 4:}
     \begin{quote}
         Podemos suponer que el polígono tiene todos sus vértices identificados.
     \end{quote}
-    Sea $p:\partes \to M$ la proyección al cociente. Sea $p(v)=[v]$. Si no todos los vértices están identificados, existen vértices $v_1, w$ en $\partes$ y arista $ a : v_1 \to w$ con $p(v_1)\ne p(w)$. Ahora, la arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) ni $a^{-1}$ (pues tendríamos la secuencia $a^{-1} a$ y podríamos aplicar el paso 2). Por tanto, concluimos que la arista es distinta, llamémosla $b$ y al vértice del que parte $x$. Es decir, tenemos $b : x \to v_1$. 
-    
-    Por la definición de presentación poligonal, la letra $b$ debe aparecer (bien como $b$ o como $b^{-1}$) en otro sitio de la presentación. Suponemos que aparece $b^{-1}$ (si fuese $b$ sería análogo salvo una reflexión que ahora mencionaremos). Tenemos entonces $baXb^{-1}Y$. Podemos suponer $X,Y \ne \emptyset$. Veámos por qué:
+
+    \noindent
+    Sea $p:\partes \to M$ la proyección al cociente. Sea $p(v)=[v]$. 
+    Si no todos los vértices están identificados, existen vértices $v_1, w$ en $\partes$ 
+    y una arista $ a : v_1 \to w$ con $p(v_1)\ne p(w)$. 
+    Ahora, la arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) 
+    ni $a^{-1}$ (pues tendríamos la secuencia $a^{-1} a$ y podríamos aplicar el paso 2). 
+    Por tanto, concluimos que la arista es distinta, llamémosla $b$, y al vértice del que parte $x$. 
+    Es decir, tenemos $b : x \to v_1$.
+
+    \vspace{0.5em}
+    \noindent
+    Por la definición de presentación poligonal, la letra $b$ debe aparecer (bien como $b$ o como $b^{-1}$) en otro sitio de la presentación. 
+    Suponemos que aparece $b^{-1}$ (si fuese $b$ sería análogo salvo una reflexión que ahora mencionaremos). 
+    Tenemos entonces $baXb^{-1}Y$. Podemos suponer $X,Y \ne \emptyset$. Veámos por qué:
     \begin{itemize}
-        \item Si $X$ fuese vacío, por la definición de $b$ el vértice al que llega $b^{-1}$ en nuestra cadena no sería otro que $w$. Pero entonces $p(v_1) = p(w)$, lo que contradice la hipótesis.
+        \item Si $X$ fuese vacío, por la definición de $b$ el vértice al que llega $b^{-1}$ en nuestra cadena no sería otro que $w$. 
+              Pero entonces $p(v_1) = p(w)$, lo que contradice la hipótesis.
         \item Si $Y$ fuese vacío, rotando obtendríamos dos aristas adyacentes $b$ y $b^{-1}$ y estaríamos en el paso 2.
     \end{itemize}
-    
-    Ahora, cortando por una nueva arista $c : w \to x$, rotando para pegar por $b$ (y reflejando si en vez de tener $b^{-1}$ tuvieramos $b$) obtenemos: 
+
+    \vspace{0.5em}
+    \noindent
+    Ahora, cortando por una nueva arista $c : w \to x$, rotando para pegar por $b$ 
+    (y reflejando si en vez de tener $b^{-1}$ tuviéramos $b$) obtenemos:
     \[
-        baXb^{-1}Y \cong bac \text{, } c^{-1}Xb^{-1}Y \cong  acb \text{, } b^{-1}Yc^{-1}X \cong acYc^{-1}X
+        baXb^{-1}Y \;\cong\; bac \text{, } c^{-1}Xb^{-1}Y \;\cong\; acb \text{, } b^{-1}Yc^{-1}X \;\cong\; acYc^{-1}X
     \]
-    
-    Incluyendo los vértices, hemos llegado a 
+
+    \noindent
+    Incluyendo los vértices, hemos llegado a:
     \[
         v_1 \overset{a}{\to} w \overset{c}{\to} x \overset{Y}{\to} x \overset{c^{-1}}{\to} w \overset{X}{\to} v_1
     \]
-    Por tanto, hemos reducido la cantidad de vértices que se identifican con $v_1$ en una unidad. 
+    Por tanto, hemos reducido la cantidad de vértices que se identifican con $v_1$ en una unidad.
 
-    \underline{Nota:} De nuevo, podría ser que al pegar $X a$ aparecieran nuevas aristas complementarias adyacentes. En ese caso, se aplicaría el paso 2, donde en ningún caso se pueden aumentar los vértices identificados con $v_1$, solo disminuirlos. \newline
+    \vspace{0.5em}
+    \noindent
+    \textit{Nota:} De nuevo, podría ser que al pegar $X a$ aparecieran nuevas aristas complementarias adyacentes. 
+    En ese caso, se aplicaría el paso 2, donde en ningún caso se pueden aumentar los vértices identificados con $v_1$, solo disminuirlos.
 
-    \noindent Una cantidad finita de iteraciones de este proceso elimina la clase de equivalencia de vértices $v_1$, pues en cada paso se elimina un elemento de este conjunto finito. Repitiendo para cada clase de equivalencia de vértices, llegamos a que solo puede quedar una, demostrando así el paso 4. \newline
+    \vspace{0.5em}
+    \noindent
+    Una cantidad finita de iteraciones de este proceso elimina la clase de equivalencia de vértices $v_1$, 
+    pues en cada paso se elimina un elemento de este conjunto finito. 
+    Repitiendo para cada clase de equivalencia de vértices, llegamos a que solo puede quedar una, 
+    demostrando así el paso 4.
 
-    \underline{PASO 5:} 
+    \vspace{1.3em}
+    \noindent
+    \underline{PASO 5:}
     \begin{quote}
-        Se cumple que si aparece un par $a, a^{-1}$, entonces hay otro par $b, b^{-1}$ intercalado, es decir, de la forma $a\dots b\dots a^{-1} \dots b^{-1}$.
+        Se cumple que si aparece un par $a, a^{-1}$, entonces hay otro par $b, b^{-1}$ intercalado, 
+        es decir, de la forma $a\dots b\dots a^{-1} \dots b^{-1}$.
     \end{quote}
 
-    \noindent Si no fuese así, tendría $aXa^{-1}Y$, donde además $X$ e $Y$ no comparten aristas (si compartiesen alguna letra $b$, esta debería aparecer como $b$ tanto $X$ como en $Y$, lo cual no es posible por el paso 3). Esto significa también que $X$ e $Y$ no comparten vértices, ya que si $x$ fuese un vértice de $X$ y $y$ un vértice de $Y$, habría una arista a la vez en $X$ y en $Y$, contradiciendo así que $X$ e $Y$ no comparten aristas.
+    \noindent
+    Si no fuese así, tendríamos $aXa^{-1}Y$, donde además $X$ e $Y$ no comparten aristas 
+    (si compartiesen alguna letra $b$, esta debería aparecer como $b$ tanto en $X$ como en $Y$, 
+    lo cual no es posible por el paso 3). 
+    Esto significa también que $X$ e $Y$ no comparten vértices, ya que si $x$ fuese un vértice de $X$ y $y$ un vértice de $Y$, 
+    habría una arista a la vez en $X$ y en $Y$, contradiciendo así que $X$ e $Y$ no comparten aristas.
 
-    En particular, los vértices finales de $a$ y $a^{-1}$, que están ambos en $X$, solo pueden identificarse con vértices de $X$. Por otro lado, los vértices iniciales de $a$ y $a^{-1}$, que están ambos en $Y$, solo pueden identificarse con vértices de $Y$. Entonces, existen dos clases de equivalencia de vértices distintas, lo que contradice el paso 4.
+    \vspace{0.5em}
+    \noindent
+    En particular, los vértices finales de $a$ y $a^{-1}$, que están ambos en $X$, 
+    solo pueden identificarse con vértices de $X$. 
+    Por otro lado, los vértices iniciales de $a$ y $a^{-1}$, que están ambos en $Y$, 
+    solo pueden identificarse con vértices de $Y$. 
+    Entonces, existen dos clases de equivalencia de vértices distintas, 
+    lo que contradice el paso 4.
 
-    \noindent \textcolor{red}{!ATENCIÓN!} El dibujo que hizo en clase con las $c$'s es muy instructivo para ver esto. Si alguien lo tiene copiado y lo pone como imagen sería maravilloso (una imagen vale más que mil palabras).
+    \vspace{0.5em}
+    \noindent
+    \textcolor{red}{!ATENCIÓN!} 
+    El dibujo que hizo en clase con las $c$'s es muy instructivo para ver esto. 
+    Si alguien lo tiene copiado y lo pone como imagen sería maravilloso (una imagen vale más que mil palabras).
 
-    \noindent \textcolor{blue}{¡ATENCIÓN!} Me uno al ruego del compañero, incluso invito al lector a hacer el dibujo y verlo por sí mismo, en este caso no es difícil. 
+    \noindent
+    \textcolor{blue}{¡ATENCIÓN!} 
+    Me uno al ruego del compañero, incluso invito al lector a hacer el dibujo y verlo por sí mismo, en este caso no es difícil.
 
-    \underline{PASO 6:} 
+    \vspace{1.3em}
+    \noindent
+    \underline{PASO 6:}
     \begin{quote}
         Podemos suponer que los pares de aristas del paso 5 aparecen consecutivos.
     \end{quote}
-    \noindent Tenemos ahora una cadena $aXbYa^{-1}Zb^{-1}W$, y hacemos transformaciones para que las aristas aparezcan consecutivas. Primero describimos los pasos y luego los escribimos de forma simbólica. 
 
-    Cortamos desde el final de $X$ al final de $W$, y llamamos a esa arista $c$. Vamos a pegar por $a$. Tendremos $WaXc$ y $c^{-1}bYa^{-1}Zb^{-1}$. Rotando de buena manera y pegando se queda $XcWzb^{-1}c^{-1}bY$. Ahora cortamos desde el final de $b^{-1}$ al final de $c$, llamando $d$ a esa arista. Se nos queda $c^{-1}bYXcd$ y $d^{-1}WZb^{-1}$. Rotando y pegando por $b$ se nos queda $YXcd^{-1}c^{-1}dWZ$.
+    \noindent
+    Tenemos ahora una cadena $aXbYa^{-1}Zb^{-1}W$, 
+    y hacemos transformaciones para que las aristas aparezcan consecutivas. 
+    Primero describimos los pasos y luego los escribimos de forma simbólica.
 
+    \vspace{0.5em}
+    \noindent
+    Cortamos desde el final de $X$ al final de $W$, y llamamos a esa arista $c$. 
+    Vamos a pegar por $a$. 
+    Tendremos $WaXc$ y $c^{-1}bYa^{-1}Zb^{-1}$. 
+    Rotando de buena manera y pegando se queda $XcWzb^{-1}c^{-1}bY$. 
+
+    \vspace{0.5em}
+    \noindent
+    Ahora cortamos desde el final de $b^{-1}$ al final de $c$, llamando $d$ a esa arista. 
+    Se nos queda $c^{-1}bYXcd$ y $d^{-1}WZb^{-1}$. 
+    Rotando y pegando por $b$ se nos queda $YXcd^{-1}c^{-1}dWZ$.
+
+    \vspace{0.5em}
+    \noindent
     \begin{align*}
-        aXbYa^{-1}Zb^{-1}W & \cong WaXbYa^{-1}Zb^{-1} \cong WaXc \text{, } c^{-1}bYa^{-1}Zb^{-1} \\
-        & \cong XcWa \text{, } a^{-1}Zb^{-1}c^{-1}bY \cong XcWZb^{-1}c^{-1}bY \\
-        & \cong c^{-1}bYXcWZb^{-1} \cong c^{-1}bYXcd \text{, } d^{-1}WZb^{-1} \\
-        & \cong YXcdc^{-1}b \text{, } b^{-1}d^{-1}WZ \cong YXcdc^{-1}d^{-1}WZ
+        aXbYa^{-1}Zb^{-1}W 
+        &\cong WaXbYa^{-1}Zb^{-1} \;\;\cong\;\; WaXc \text{, } c^{-1}bYa^{-1}Zb^{-1}\\
+        &\cong XcWa \text{, } a^{-1}Zb^{-1}c^{-1}bY 
+        \;\;\cong\;\; XcWZb^{-1}c^{-1}bY\\
+        &\cong c^{-1}bYXcWZb^{-1} 
+        \;\;\cong\;\; c^{-1}bYXcd \text{, } d^{-1}WZb^{-1}\\
+        &\cong YXcdc^{-1}b \text{, } b^{-1}d^{-1}WZ 
+        \;\;\cong\;\; YXcdc^{-1}d^{-1}WZ
     \end{align*}
 
-    \noindent Haciendo esto para todos los pares de aristas intercalados que no sean consecutivos se demuestra el paso 6.
+    \vspace{0.5em}
+    \noindent
+    Haciendo esto para todos los pares de aristas intercalados que no sean consecutivos se demuestra el paso 6.
 
-    \underline{PASO 7:} 
+    \vspace{1.3em}
+    \noindent
+    \underline{PASO 7:}
     \begin{quote}
         La superficie $M$ es homeomorfa a $\mathbb{T}^2\#\dots\#\mathbb{T}^2$, o bien a $\R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2$.
     \end{quote}
-    
-    Con todo lo que hemos hecho hasta ahora, nuestra presentación solo puede contener los siguientes tipos de elementos: 
+
+    \noindent
+    Con todo lo que hemos hecho hasta ahora, nuestra presentación solo puede contener los siguientes tipos de elementos:
+
     \begin{enumerate}
         \item Parejas de aristas complementarias consecutivas, de la forma $aba^{-1}b^{-1}$.
-        \item Aristas retorcidas de la forma $aa$. 
+        \item Aristas retorcidas de la forma $aa$.
     \end{enumerate}
-    
-    Recordemos que la presentación poligonal de un toro viene dada precisamente por de la forma $a b a^{-1} b^{-1}$, y la presentación de un plano proyectivo por $aa$. Por tanto, si solo hubiese aristas de una de estas dos formas, la superficie sería homeomorfa a un toro o a un plano proyectivo, respectivamente.
 
-    Nos queda ver qué ocurre en el caso que $\partes$ contenga ambos grupos de aristas. Supongamos que existen un grupo de aristas complementarias $aba^{-1}b^{-1}$ y otro de aristas retorcidas $cc$. Por el lema \ref{lem:toro-proyectivo}, la suma conexa de un toro y un plano proyectivo es homeomorfa a la suma conexa de tres planos proyectivos. Es decir, $aba^{-1}b^{-1}cc \cong ddeeff$. Iterando sobre cada par (toro, proyectivo) podemos eliminar los toros y quedarnos con un número finito de planos proyectivos. 
+    \noindent
+    Recordemos que la presentación poligonal de un toro viene dada precisamente por la forma $a b a^{-1} b^{-1}$, 
+    y la presentación de un plano proyectivo por $aa$. 
+    Por tanto, si solo hubiese aristas de una de estas dos formas, 
+    la superficie sería homeomorfa a un toro o a un plano proyectivo, respectivamente.
 
-    Concluyendo, si $\partes$ tiene solo aristas complementarias alternadas, es homeomorfa a una suma conexa de toros. Si tiene solo aristas retorcidas, es homeomorfa a una suma conexa de planos proyectivos. Y si tiene ambos tipos de aristas, es homeomorfa a una suma de planos proyectivos.
+    \vspace{0.5em}
+    \noindent
+    Nos queda ver qué ocurre en el caso de que $\partes$ contenga ambos grupos de aristas. 
+    Supongamos que existen un grupo de aristas complementarias $aba^{-1}b^{-1}$ y otro de aristas retorcidas $cc$. 
+    Por el lema \ref{lem:toro-proyectivo}, la suma conexa de un toro y un plano proyectivo es homeomorfa a la suma conexa de tres planos proyectivos. 
+    Es decir, $aba^{-1}b^{-1}cc \cong ddeeff$. 
+    Iterando sobre cada par (toro, proyectivo) podemos eliminar los toros y quedarnos con un número finito de planos proyectivos.
+
+    \vspace{0.5em}
+    \noindent
+    Concluyendo, si $\partes$ tiene solo aristas complementarias alternadas, es homeomorfa a una suma conexa de toros. 
+    Si tiene solo aristas retorcidas, es homeomorfa a una suma conexa de planos proyectivos. 
+    Y si tiene ambos tipos de aristas, es homeomorfa a una suma de planos proyectivos.
 }
