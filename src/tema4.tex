@@ -522,12 +522,21 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 
 \subsection{Propiedades de las variedades topológicas}
 
+Comenzamos demostrando sin demasiado detalle un pequeño lema técnico.
+
 \lem{Lema técnico}{
-    Existe $0<\epsilon \le 1$ tal que para todo $q \in B^n(0,\epsilon)$ existe un homeomorfismo \(F : \R^n \to \R^n\) con $F(0)=q$ y $F |_{\R^n \setminus B^n(0,2)}$ es la identidad.
+    Sea $B=B(0,1)\subset\R^n$ la bola abierta de centro $0$ y radio $1$ y sean $p,q\in B$. Entonces existe un homeomorfismo $\phi:\overline{B}\to\overline{B}$ de manera que $\phi(p)=q$ y $\phi|_{\partial B}=Id.$
 }
 \pf{
-    La idea es construirse una función auxiliar $f : \R^n \to \R^n$ tal que $f(x) = q$, para $x \in B(0,\epsilon)$, $f(x) = 0$, para $x \in \R^n \setminus B(0,2)$, y que en el resto de puntos sea diferenciable. Una vez construida esta $f$, definimos $F$ como $F(x) = f(x) + x$ que es homeomorfismo por ser suma de homeomorfismos. y verifica que $F(0) = q$ y $F |_{\R^n \setminus B^n(0,2)}$ es la identidad.
-    % TODO: No sé hacer dibujos, si alguno sabe hacer el dibujito que hicimos en clase para R, que lo ponga aquí.
+    Sea $\mu:B\to\R^n,\mu(x)=\frac{x}{1-|x|}$, es fácil comprobar que $\mu$ es un homeomorfismo. Definamos la aplicación $\phi:\overline{B}\to\overline{B}$ por
+    \[
+    \phi(x) =
+    \begin{cases}
+        \mu^{-1} \bigl( \mu(x) - \mu(p) + \mu(q) \bigr), & x \in B \\
+        x, & x \in \partial B
+    \end{cases}
+    \]
+    se puede comprobar que $\phi$ es continua en la frontera de $B$ y que también lo es su inversa, por tanto es un homeomorfismo que cumple $\phi(p)=q,\phi|_{\partial B}=Id$.
 }
 
 \thmr{Proposición 4.2 - Homogeneidad}{homogeneidad}{
@@ -539,27 +548,60 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     p \sim q\iff
     \exists f : X \to X \text{ homeomorfismo tal que } f(p) = q.
     \]
-    Vamos a ver que $[p]$ es abierta y cerrada en $X$, y, por tanto, es todo $\faktor{X}{\sim}$.
+    Vamos a ver que $[p]$ es abierta y cerrada en $X$, y, por tanto, es todo $X$ al ser $X$ conexo.
 
-    Para ver que es abierto, sea $B$ una bola regular euclídea centrada en $p$. Por definición, existe $B' \subset X$ bola euclídea y $\varphi : B' \to B^n(0,3) \subset \R^n$ con: 
-    
+    Para ver que es abierta sea $q\in[p]$, veremos que podemos encontrar un entorno de $q$ contenido en $[p]$. Por ser $X$ localmente euclídeo existe $U\in\E(q)$ homeomorfo a una bola de $\R^n$. Como todas las bolas son homeomorfas podemos elegir un homeomorfismo de la siguiente forma
     \[
+    \varphi:B^n(0,2)\to U,\quad \varphi(0)=q,\quad 0=\varphi^{-1}(q).
+    \]
+    Consideremos ahora los conjuntos $B=B^n(0,1), B'=\varphi(B)$. Notemos que ambos son abiertos en sus respectivas topologías. Definamos ahora la aplicación
+    \[
+    \tilde{\varphi}:\overline{B}\to\overline{B'},\quad \tilde{\varphi}(x)=\varphi(x)
+    \]
+    y veamos que es un homeomorfismo. En efecto por ser $\varphi$ continua y cerrada se tiene
+    \[
+    \varphi(\overline{B})\subset\overline{\varphi(B)}=\overline{B'}\subset\overline{\varphi({\overline{B}})}=\varphi(\overline{B})\implies \varphi(\overline{B})=\overline{B'}
+    \]
+    por lo que $\tilde{\varphi}$ está bien definida y es sobreyectiva. Finalmente notemos que $\tilde{\varphi}$ es la restricción de un homeomorfismo y es sobreyectiva, y por tanto es un homeomorfismo. Démonos cuenta también de que
+    \[
+        \tilde{\varphi}(\partial B)=\tilde{\varphi}(\overline{B}\setminus B)=\tilde{\varphi}(\overline{B})\setminus \tilde{\varphi}(B)=\overline{B'}\setminus B'=\partial B'
+    \]
+
+    Veamos ahora que $B'\subset[p]$, para ello sea $y\in B'$, de manera que $y=\varphi(x), x\in B$. Por el lema anterior, como $0,x\in B$ existe un homeomorfismo $\phi:\overline{B}\to\overline{B}$ de manera que $\phi(0)=x$ y $\phi|_{\partial B}=Id.$
+    Definamos ahora la siguiente aplicación
+    \[
+    F:\overline{B'}\to\overline{B'},\quad F=\tilde{\varphi}\circ\phi\circ\tilde{\varphi}^{-1}
+    \]
+    que es un homeomorfismo por ser composición de homeomorfismos y además cumple
+    \[
+    F(q)=\tilde{\varphi}(\phi(\tilde{\varphi}^{-1}(q)))=\tilde{\varphi}(\phi({\varphi}^{-1}(q)))=\tilde{\varphi}(\phi(0))=\tilde{\varphi}(x)=\varphi(x)=y
+    \]
+    y también
+    \[
+    F({\partial B'})=\tilde{\varphi}(\phi(\tilde{\varphi}^{-1}(\partial B')))=\tilde{\varphi}(\phi(\partial B))=\tilde{\varphi}(\partial B)=\partial B'\implies F|_{\partial B'}=Id.
+    \]
+    Ahora, por el lema del pegado para aplicaciones continuas la aplicación
+    \[
+    f:X\to X,\quad f(x)=
     \begin{cases}
-        \varphi(p) = 0 \iff \varphi^{-1}(0)=p, \\
-        \overline{B} \subset B', \\
-        \varphi(\overline{B}) = B^n(0,3/2).
+        F(x), & x \in \overline{B'} \\
+        x, & x \in X\setminus B'
     \end{cases}
     \]
-    
-    Por el lema anterior, existe $\epsilon \in (0,1]$ tal que $\forall x \in B(0,\epsilon)$, existe $F_x : \R^n \to \R^n$ homeomorfismo con $F_x(0) = x$ y $F_x |_{\R^n \setminus B^n(0,2)} = \text{Id}$. 
-    
-    Denotamos $B_0 = \varphi^{-1}(B^n(0,\epsilon))$ y consideramos $G= \varphi^{-1} \circ F|_{B(0,3)} \circ \varphi : B' \to B'$. $G$ está bien definida porque $F|_{B(0,3)}$ es un homeomorfismo de $B(0,3)$. % No entiendo lo que dice en la grabación, si alguien fuera tan amable para explicar por qué es homeo que lo actualice.
-    Ahora, $G(p) = \varphi^{-1} (F(\varphi(\varphi^{-1}(0)))) = \varphi^{-1} (F(0)) = \varphi^{-1}(x)$. 
+    es continua ya que $\overline{B'},X\setminus B'$ son cerrados y tanto $F$ como $Id$ son continuas en cada uno de estos respectivos cerrados, coincidiendo además sus valores en la intersección $\partial B'$. Por un argumento completamente análogo podemos ver que la inversa de $f$
+    \[
+    f^{-1}:X\to X,\quad f^{-1}(x)=
+    \begin{cases}
+        F^{-1}(x), & x \in \overline{B'} \\
+        x, & x \in X\setminus B'
+    \end{cases}
+    \]
+    es también continua, lo que prueba que $f$ es un homeomorfismo en $X$ que además satisface $f(q)=F(q)=y$, por tanto $\forall y\in B'$ se tiene $y\sim q\sim p\implies y\sim p$, lo cual quiere decir que $B'\subset [p]$, luego $[p]$ es abierto.
 
-    Por el lema, $G$ se puede extender a $G : X \to X$ por la identidad y así obtener un homeomorfismo de X. Por tanto, $p \in B_0 \subset U(p)$, con $B_0$ abierto, y por tanto $U(p)$ es abierto.
-
-    Hemos visto que $[p]$ es abierto. Por tanto, $\faktor{\tilde{X}}{[p]} = \bigcup_{q \ne p} [q]$, porque las las clases de equivalencia son disjuntas. Al ser unión arbitraria de abiertos es abierto, luego el complementario $[p]$ es cerrado. 
+    Hemos visto que $[p]$ es abierto. Además, $X\setminus[p] = \bigcup_{q \ne p} [q]$, porque las clases de equivalencia son disjuntas. Al ser unión arbitraria de abiertos es abierto, luego el complementario $[p]$ es cerrado. Como $X$ es conexo y $[p]$ es abierto y cerrado debe ser $[p]=X$, lo que finaliza la demostración.
 }
+
+\clearpage
 
 \section{Unión disjunta}
 
