@@ -209,11 +209,12 @@ Enunciamos el siguiente teorema sin demostración:
 
 \section{Teorema de Clasificación}
 
-En esta sección se presenta y demuestra el teorema de clasificación de superficies compactas de $\R^n$. Ya hemos visto que las transformaciones elementales sobre presentaciones poligonales producen presentaciones equivalentes, nuestro objetivo ahora es demostrar que cualquier presentación poligonal de una superficie compacta y conexa puede ser transformada en una de las formas canónicas dadas por el teorema de clasificación. \newline
+En esta sección se presenta y demuestra el teorema de clasificación de superficies compactas de $\R ^n$. Ya hemos visto que las transformaciones elementales sobre presentaciones poligonales producen presentaciones equivalentes, nuestro objetivo ahora es demostrar que cualquier presentación poligonal de una superficie compacta y conexa puede ser transformada en una de las formas canónicas dadas por el teorema de clasificación. \newline
 
 El siguiente lema simplifica la demostración del teorema de clasificación, mostrando la equivalencia entre ciertos tipos de superficies.
 
 \lemp{Equivalencia entre algunos tipos de superficies}{
+    \label{lem:toro-proyectivo}
     \begin{enumerate}
         \item La botella de Klein y $\R\mathbb{P}^2\#\R\mathbb{P}^2$ son homeomorfas.
         \item $\mathbb{T}^2\#\R\mathbb{P}^2$ y $\R\mathbb{P}^2\#\R\mathbb{P}^2\#\R\mathbb{P}^2$ son homeomorfas.
@@ -261,7 +262,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \noindent Dado que la superficie es conexa, si $\partes$ tiene varias palabras, para cada palabra debe existir una arista que se identifique con una arista de otra palabra. 
     Es decir, siempre que $\partes$ tenga varias palabras, para cada palabra $W_1$ de $\partes$ debe existir una arista $a \in W_1$ y una palabra $W_2$ tal que 
     o bien $a\in W_2$ o $a^{-1}\in W_2$. De lo contrario, en la realización geométrica, $W_1$ y las demás palabras serían disjuntas, formando así una separación, 
-    lo cual contradice la conexidad de $M$. 
+    lo cual contradice la conexión de $M$. 
 
     \vspace{0.5em}
     Ahora, si $W_1$ es una palabra y $\partes$ tiene más de una palabra, entonces existe una arista $a$ que conecta con otra palabra $W_2$ 
@@ -288,29 +289,73 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \begin{quote}
         Podemos suponer que el polígono tiene todos sus vértices identificados.
     \end{quote}
-    Sea $p:\partes \to M$ la proyección al cociente. Sea $p(v)=[v]$. Si no todos los vértices están identificados, existen vértices $v_1, w$ en $\partes$ y arista a ($v_1 \to w$) con $p(v_1)\ne p(w)$. La arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) ni $a^{-1}$ (por los pasos anteriores). Por tanto, la arista es distinta, la llamo $b$ y el otro vértice $x$, esto es que en $b$ tenemos ($x \to v_1$). 
+    Sea $p:\partes \to M$ la proyección al cociente. Sea $p(v)=[v]$. Si no todos los vértices están identificados, existen vértices $v_1, w$ en $\partes$ y arista $ a : v_1 \to w$ con $p(v_1)\ne p(w)$. Ahora, la arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) ni $a^{-1}$ (pues tendríamos la secuencia $a^{-1} a$ y podríamos aplicar el paso 2). Por tanto, concluimos que la arista es distinta, llamémosla $b$ y al vértice del que parte $x$. Es decir, tenemos $b : x \to v_1$. 
     
-    \noindent Suponemos que aparece $b^{-1}$ en otro sitio (si fuese $b$ sería análogo salvo una rotación en cierto momento). En ese $b^{-1}$ tendríamos ($v_1 \to x$). Tenemos entonces $baXb^{-1}Y$, con $X,Y \ne \emptyset$ (si no llegaríamos a alguna de estas igualdades: $p(v_1)=p(w)=p(x)$).
+    Por la definición de presentación poligonal, la letra $b$ debe aparecer (bien como $b$ o como $b^{-1}$) en otro sitio de la presentación. Suponemos que aparece $b^{-1}$ (si fuese $b$ sería análogo salvo una reflexión que ahora mencionaremos). Tenemos entonces $baXb^{-1}Y$. Podemos suponer $X,Y \ne \emptyset$. Veámos por qué:
+    \begin{itemize}
+        \item Si $X$ fuese vacío, por la definición de $b$ el vértice al que llega $b^{-1}$ en nuestra cadena no sería otro que $w$. Pero entonces $p(v_1) = p(w)$, lo que contradice la hipótesis.
+        \item Si $Y$ fuese vacío, rotando obtendríamos dos aristas adyacentes $b$ y $b^{-1}$ y estaríamos en el paso 2.
+    \end{itemize}
     
-    \noindent Ahora cortamos por $c$ ($w \to x$). Rotando para pegar por $b$ (y reflejando si en vez de tener $b^{-1}$ tuvieramos $b$). Pegando llegamos a $acYc^{-1}X$, con ($v_1 \overset{a}{\to} w \overset{c}{\to} x \overset{Y}{\to} x \overset{c^{-1}}{\to} w \overset{X}{\to} v_1$).
+    Ahora, cortando por una nueva arista $c : w \to x$, rotando para pegar por $b$ (y reflejando si en vez de tener $b^{-1}$ tuvieramos $b$) obtenemos: 
+    \[
+        baXb^{-1}Y \cong bac \text{, } c^{-1}Xb^{-1}Y \cong  acb \text{, } b^{-1}Yc^{-1}X \cong acYc^{-1}X
+    \]
+    
+    Incluyendo los vértices, hemos llegado a 
+    \[
+        v_1 \overset{a}{\to} w \overset{c}{\to} x \overset{Y}{\to} x \overset{c^{-1}}{\to} w \overset{X}{\to} v_1
+    \]
+    Por tanto, hemos reducido la cantidad de vértices que se identifican con $v_1$ en una unidad. 
 
-    \noindent Por tanto, hemos reducido la cantidad de vértices que se identifican con $v$ en una unidad.
+    \underline{Nota:} De nuevo, podría ser que al pegar $X a$ aparecieran nuevas aristas complementarias adyacentes. En ese caso, se aplicaría el paso 2, donde en ningún caso se pueden aumentar los vértices identificados con $v_1$, solo disminuirlos. \newline
 
-    \noindent Una cantidad finita de este proceso demuestra el paso 4.
+    \noindent Una cantidad finita de iteraciones de este proceso elimina la clase de equivalencia de vértices $v_1$, pues en cada paso se elimina un elemento de este conjunto finito. Repitiendo para cada clase de equivalencia de vértices, llegamos a que solo puede quedar una, demostrando así el paso 4. \newline
 
-    \noindent \underline{PASO 5:} Se cumple que si aparece un par $a, a^{-1}$, entonces hay otro par $b, b^{-1}$, es decir, de la forma $a\dots b\dots a^{-1} \dots b^{-1}$.
+    \underline{PASO 5:} 
+    \begin{quote}
+        Se cumple que si aparece un par $a, a^{-1}$, entonces hay otro par $b, b^{-1}$ intercalado, es decir, de la forma $a\dots b\dots a^{-1} \dots b^{-1}$.
+    \end{quote}
 
-    \noindent Si no fuese así, tendría $aXa^{-1}Y$, donde $X$ e $Y$ no comparten letras o aristas (por los pasos anteriores). Esto significa que $X$ e $Y$ no comparten vértices (alguna de las aristas que sale de ese vértice tendria que estar "allí"), es decir, que los vértices finales de $a$ y $a^{-1}$ que solo tocan $X$ solo pueden identificarse con vértices de $X$, y los iniciales solo pueden con $Y$.
+    \noindent Si no fuese así, tendría $aXa^{-1}Y$, donde además $X$ e $Y$ no comparten aristas (si compartiesen alguna letra $b$, esta debería aparecer como $b$ tanto $X$ como en $Y$, lo cual no es posible por el paso 3). Esto significa también que $X$ e $Y$ no comparten vértices, ya que si $x$ fuese un vértice de $X$ y $y$ un vértice de $Y$, habría una arista a la vez en $X$ y en $Y$, contradiciendo así que $X$ e $Y$ no comparten aristas.
 
-    \noindent Como cualquier arista $c \subset X$ cumple que su identificación tambien está contenida en $X$, entonces todos los vértices que se identifican con $X$ están en $X$. Si otro vértice se identificara con $x$ y estuviese en $Y$, habría una arista a la vez en $X$ e $Y$. Por tanto, tendríamos dos clases de vértices distintos $p(x) \ne p(y)$, que es una contradicción con el hecho de que todos los vértices estaban \textcolor{red}{BLANK} (no lo he escuchado, lo siento).
+    En particular, los vértices finales de $a$ y $a^{-1}$, que están ambos en $X$, solo pueden identificarse con vértices de $X$. Por otro lado, los vértices iniciales de $a$ y $a^{-1}$, que están ambos en $Y$, solo pueden identificarse con vértices de $Y$. Entonces, existen dos clases de equivalencia de vértices distintas, lo que contradice el paso 4.
 
     \noindent \textcolor{red}{!ATENCIÓN!} El dibujo que hizo en clase con las $c$'s es muy instructivo para ver esto. Si alguien lo tiene copiado y lo pone como imagen sería maravilloso (una imagen vale más que mil palabras).
 
-    \noindent \underline{PASO 6:} Podemos suponer que los pares de aristas del paso 5 aparecen consecutivos. 
+    \noindent \textcolor{blue}{¡ATENCIÓN!} Me uno al ruego del compañero, incluso invito al lector a hacer el dibujo y verlo por sí mismo, en este caso no es difícil. 
 
-    \noindent $aXbYa^{-1}Zb^{-1}W$. Cortamos desde el final de $X$ al final de $W$, y llamamos a esa arista $c$. Vamos a pegar por $a$. Tendremos $aXcW$ y $bYa^{-1}Zb^{-1}c^{-1}$. Rotando de buena manera y pegando se queda $YXcWzb^{-1}c^{-1}b$. Ahora cortamos desde el final de $b^{-1}$ al final de $c$, llamando $d$ a esa arista. Se nos queda $YXcd^{-1}c^{-1}b$ y $WZb^{-1}d$. Rotando y pegando por $b$ se nos queda $YXcd^{-1}c^{-1}dWZ$. 
+    \underline{PASO 6:} 
+    \begin{quote}
+        Podemos suponer que los pares de aristas del paso 5 aparecen consecutivos.
+    \end{quote}
+    \noindent Tenemos ahora una cadena $aXbYa^{-1}Zb^{-1}W$, y hacemos transformaciones para que las aristas aparezcan consecutivas. Primero describimos los pasos y luego los escribimos de forma simbólica. 
 
-    \noindent Una cantidad finita de este proceso demuestra el paso 6.
+    Cortamos desde el final de $X$ al final de $W$, y llamamos a esa arista $c$. Vamos a pegar por $a$. Tendremos $WaXc$ y $c^{-1}bYa^{-1}Zb^{-1}$. Rotando de buena manera y pegando se queda $XcWzb^{-1}c^{-1}bY$. Ahora cortamos desde el final de $b^{-1}$ al final de $c$, llamando $d$ a esa arista. Se nos queda $c^{-1}bYXcd$ y $d^{-1}WZb^{-1}$. Rotando y pegando por $b$ se nos queda $YXcd^{-1}c^{-1}dWZ$.
 
-    \noindent \underline{PASO 7:} Aplicar $\mathbb{T}^2\#\R \mathbb{P}^2$ y $\R \mathbb{P}^2\#\R \mathbb{P}^2\#\R \mathbb{P}^2$.
+    \begin{align*}
+        aXbYa^{-1}Zb^{-1}W & \cong WaXbYa^{-1}Zb^{-1} \cong WaXc \text{, } c^{-1}bYa^{-1}Zb^{-1} \\
+        & \cong XcWa \text{, } a^{-1}Zb^{-1}c^{-1}bY \cong XcWZb^{-1}c^{-1}bY \\
+        & \cong c^{-1}bYXcWZb^{-1} \cong c^{-1}bYXcd \text{, } d^{-1}WZb^{-1} \\
+        & \cong YXcdc^{-1}b \text{, } b^{-1}d^{-1}WZ \cong YXcdc^{-1}d^{-1}WZ
+    \end{align*}
+
+    \noindent Haciendo esto para todos los pares de aristas intercalados que no sean consecutivos se demuestra el paso 6.
+
+    \underline{PASO 7:} 
+    \begin{quote}
+        La superficie $M$ es homeomorfa a $\mathbb{T}^2\#\dots\#\mathbb{T}^2$, o bien a $\R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2$.
+    \end{quote}
+    
+    Con todo lo que hemos hecho hasta ahora, nuestra presentación solo puede contener los siguientes tipos de elementos: 
+    \begin{enumerate}
+        \item Parejas de aristas complementarias consecutivas, de la forma $aba^{-1}b^{-1}$.
+        \item Aristas retorcidas de la forma $aa$. 
+    \end{enumerate}
+    
+    Recordemos que la presentación poligonal de un toro viene dada precisamente por de la forma $a b a^{-1} b^{-1}$, y la presentación de un plano proyectivo por $aa$. Por tanto, si solo hubiese aristas de una de estas dos formas, la superficie sería homeomorfa a un toro o a un plano proyectivo, respectivamente.
+
+    Nos queda ver qué ocurre en el caso que $\partes$ contenga ambos grupos de aristas. Supongamos que existen un grupo de aristas complementarias $aba^{-1}b^{-1}$ y otro de aristas retorcidas $cc$. Por el lema \ref{lem:toro-proyectivo}, la suma conexa de un toro y un plano proyectivo es homeomorfa a la suma conexa de tres planos proyectivos. Es decir, $aba^{-1}b^{-1}cc \cong ddeeff$. Iterando sobre cada par (toro, proyectivo) podemos eliminar los toros y quedarnos con un número finito de planos proyectivos. 
+
+    Concluyendo, si $\partes$ tiene solo aristas complementarias alternadas, es homeomorfa a una suma conexa de toros. Si tiene solo aristas retorcidas, es homeomorfa a una suma conexa de planos proyectivos. Y si tiene ambos tipos de aristas, es homeomorfa a una suma de planos proyectivos.
 }
