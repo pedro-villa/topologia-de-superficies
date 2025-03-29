@@ -182,7 +182,7 @@ Enunciamos el siguiente teorema sin demostración:
     Para obtener $\mathcal{S}_1\#\mathcal{S}_2$ identificamos $\varphi : \partial Q_1 \to \partial Q_2$, con $\varphi(a) = a', \varphi(b) = b', \varphi(c) = c'$ y obtenemos $\mathcal{S}_1\#\mathcal{S}_2 = \langle A_1 \sqcup A_2 \sqcup \{a,b,c\}|W_1cbaa^{-1}b^{-1}c^{-1}W_2\rangle = \langle A_1 \sqcup A_2|W_1W_2\rangle$.
 }
 
-\section{Teorema de Clasificación}
+\section{Transformaciones elementales}
 
 \defn{Transformaciones elementales sobre presentaciones poligonales}{
     Dada una presentación poligonal, llamaremos transformaciones elementales a las siguientes operaciones:
@@ -207,6 +207,12 @@ Enunciamos el siguiente teorema sin demostración:
     Cada una de las transformaciones elementales sobre una presentación poligonal produce otra presentación topológicamente equivalente. 
 }{Pendiente.}
 
+\section{Teorema de Clasificación}
+
+En esta sección se presenta y demuestra el teorema de clasificación de superficies compactas de $\R^n$. Ya hemos visto que las transformaciones elementales sobre presentaciones poligonales producen presentaciones equivalentes, nuestro objetivo ahora es demostrar que cualquier presentación poligonal de una superficie compacta y conexa puede ser transformada en una de las formas canónicas dadas por el teorema de clasificación. \newline
+
+El siguiente lema simplifica la demostración del teorema de clasificación, mostrando la equivalencia entre ciertos tipos de superficies.
+
 \lemp{Equivalencia entre algunos tipos de superficies}{
     \begin{enumerate}
         \item La botella de Klein y $\R\mathbb{P}^2\#\R\mathbb{P}^2$ son homeomorfas.
@@ -225,32 +231,64 @@ Enunciamos el siguiente teorema sin demostración:
     \end{itemize}
 }
 \pf{
-    \noindent Sea $M$ una superficie compacta y conexa y sea $\partes$ una presentación poligonal. 
+    \noindent Sea $M$ una superficie compacta y conexa y sea $\partes$ su presentación poligonal, la cual sabemos que existe por el Teorema de Radó (\ref{thm:rado}). 
 
-    \noindent \underline{Objetivo:} ver que $\partes$ es $\begin{cases}
-        aa^{-1} \\
-        a_1b_1a_1^{-1}b_1^{-1}\dots a_nb_na_n^{-1}b_n^{-1} \\
-        a_1a_1\dots a_na_n         
-    \end{cases}$
+    \vspace{0.5em}
+    \noindent \underline{Objetivo:} aplicar transformaciones elementales a $\partes$ hasta llegar a uno de los siguientes casos:
+    \[
+    \partes \cong 
+    \begin{cases}
+        \langle a \vert a a^{-1} \rangle, & \text{presentación de } \mathbb{S}^2, \\
+        \langle a_1, b_1, \dots, a_n, b_n \vert a_1b_1a_1^{-1}b_1^{-1}\dots a_n b_n a_n^{-1}b_n^{-1} \rangle, & \text{presentación de } \mathbb{T}^2\#\dots\#\mathbb{T}^2, \\
+        \langle a_1, \dots, a_n \vert a_1a_1\dots a_n a_n \rangle, & \text{presentación de } \R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2.
+    \end{cases}
+    \]
 
-    \noindent Vamos a llamar aristas compementarias a aquellas que aparece como $a$ y $a^{-1}$. Aristas retorcidas las que aparecen como $a$ y $a$ ó $a^{-1}$ y $a^{-1}$.
+    \vspace{0.5em}
+    Para ello, separamos la demostración en 7 pasos, en cada uno de los cuales manipulamos $\partes$ para que cumpla una determinada condición 
+    (nótese el abuso de notación al llamar $\partes$ tanto a la presentación original como a la presentación $\partes '$ obtenida tras aplicar una transformación elemental). 
+    Al término del último paso, llegaremos a que $\partes$ adopta una de las formas canónicas anteriores.
 
-    \noindent \underline{PASO 1:} Podemos suponer que $\partes$ tiene solo una palabra (o que el polígono tiene 1 sula cara). 
-    Si dos palabras no tienen letras en común, entonces sus cocientes son disconexos (contradicción con que la superficie original es conexa (redactar mejor la contradicción si se quiere)). Y si tienen letras en común, rotando, reflejando y pegando podemos "unir" las palabras.
+    \vspace{0.5em}
+    Durante la demostración, llamaremos \emph{aristas complementarias} a aquellas que aparecen en $\partes$ como $a$ y $a^{-1}$, y 
+    \emph{aristas retorcidas} a las que aparecen como $a$ y $a$, o $a^{-1}$ y $a^{-1}$. \newline
 
-    \noindent Una cantidad finita de veces de este proceso demuestra el paso 1.
+    \underline{PASO 1:} 
+    \begin{quote}
+        Podemos suponer que $\partes$ tiene sólo una palabra (o que el polígono tiene 1 sola cara).
+    \end{quote}
 
-    \noindent \underline{PASO 2:} Podemos suponer que no hay pares de aristas complementarias adyacentes ($W_1aa^{-1}W_2$).
-    Si las hubiera, plegando por ellas desaparecen. Excepto el caso en que solo tengamos ese par ($W_1, W_2 = \emptyset$). Pero entonces la superficie es una esfera.
+    \noindent Dado que la superficie es conexa, si $\partes$ tiene varias palabras, para cada palabra debe existir una arista que se identifique con una arista de otra palabra. 
+    Es decir, siempre que $\partes$ tenga varias palabras, para cada palabra $W_1$ de $\partes$ debe existir una arista $a \in W_1$ y una palabra $W_2$ tal que 
+    o bien $a\in W_2$ o $a^{-1}\in W_2$. De lo contrario, en la realización geométrica, $W_1$ y las demás palabras serían disjuntas, formando así una separación, 
+    lo cual contradice la conexidad de $M$. 
 
-    \noindent \underline{PASO 3:} Podemos suponer que todos los pares de aristas retorcidas son adyacentes ($VaWa$, con $V,W \ne \emptyset$). Cortamos por el medio ($Vab$ y $b^{-1}Wa$). Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$). Entonces llegamos a $bbVW^{-1}$. 
+    \vspace{0.5em}
+    Ahora, si $W_1$ es una palabra y $\partes$ tiene más de una palabra, entonces existe una arista $a$ que conecta con otra palabra $W_2$ 
+    (ya sea mediante $a$ o $a^{-1}$). Pegando $W_1$ y $W_2$ (aplicando rotaciones y reflejos si fuera necesario), 
+    obtenemos una presentación donde $W_1$ y $W_2$ se han sustituido por una nueva palabra $W_1'W_2'$. 
+    
+    Repitiendo este proceso una cantidad finita de veces se obtiene una presentación equivalente compuesta por una sola palabra. \newline
 
-    \noindent Una cantidad finita de este proceso demuestra el paso 3. 
+    \underline{PASO 2:} 
+    \begin{quote}
+        Podemos suponer que no hay pares de aristas complementarias adyacentes ($W_1aa^{-1}W_2$).
+    \end{quote}
+    Si las hubiera, plegando por ellas desaparecen. Excepto el caso en que solo tengamos ese par ($W_1, W_2 = \emptyset$). Pero entonces la superficie es una esfera. \newline
 
-    \noindent \underline{Nota:} Puede ser que tengamos que volver a aplicar el paso 2 ya que tenemos $W^{-1}$.
+    \underline{PASO 3:} 
+    \begin{quote}
+        Podemos suponer que todos los pares de aristas retorcidas son adyacentes.
+    \end{quote}
+    Supongamos que tenemos $VaWa$, con $V,W \ne \emptyset$. Cortamos por el medio ($Vab$ y $b^{-1}Wa$). Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$). Entonces llegamos a $bbVW^{-1}$. La repetición de este proceso una cantidad finita de veces se demuestra el paso 3. 
 
-    \noindent \underline{PASO 4:} Podemos suponer que el polígono tiene todos sus vértices identificados.
-    Sea $p:\partes \to M$ la proyección al cociente. Sea $p(v)=[v]$. Si todos los vértices no están identificados, existen vértices $v_1, w$ en $\partes$ y arista a ($v_1 \to w$) con $p(v_1)\ne p(w)$. La arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) ni $a^{-1}$ (por los pasos anteriores). Por tanto, la arista es distinta, la llamo $b$ y el otro vértice $x$, esto es que en $b$ tenemos ($x \to v_1$). 
+    \underline{Nota:} En cada iteración, es posible que tengamos que volver a aplicar el paso 2 ya que al pegar $V$ y $W^{-1}$ en $V W^{-1}$ podría haber nuevas aristas complementarias adyacentes. \newline
+
+    \underline{PASO 4:} 
+    \begin{quote}
+        Podemos suponer que el polígono tiene todos sus vértices identificados.
+    \end{quote}
+    Sea $p:\partes \to M$ la proyección al cociente. Sea $p(v)=[v]$. Si no todos los vértices están identificados, existen vértices $v_1, w$ en $\partes$ y arista a ($v_1 \to w$) con $p(v_1)\ne p(w)$. La arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) ni $a^{-1}$ (por los pasos anteriores). Por tanto, la arista es distinta, la llamo $b$ y el otro vértice $x$, esto es que en $b$ tenemos ($x \to v_1$). 
     
     \noindent Suponemos que aparece $b^{-1}$ en otro sitio (si fuese $b$ sería análogo salvo una rotación en cierto momento). En ese $b^{-1}$ tendríamos ($v_1 \to x$). Tenemos entonces $baXb^{-1}Y$, con $X,Y \ne \emptyset$ (si no llegaríamos a alguna de estas igualdades: $p(v_1)=p(w)=p(x)$).
     
