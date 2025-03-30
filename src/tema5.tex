@@ -268,20 +268,20 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \end{quote}
 
     \noindent
-    Dado que la superficie es conexa, si $\partes$ tiene varias palabras, para cada palabra debe existir una arista que se identifique con una arista de otra palabra. 
+    Una consecuencia de que la superficie sea conexa es la siguiente: si $\partes$ tiene varias palabras, para cada palabra debe existir una arista que se identifique con una arista de otra palabra. 
     Es decir, siempre que $\partes$ tenga varias palabras, para cada palabra $W_1$ de $\partes$ debe existir una arista $a \in W_1$ y una palabra $W_2$ tal que 
-    o bien $a\in W_2$ o $a^{-1}\in W_2$. De lo contrario, en la realización geométrica, $W_1$ y las demás palabras serían disjuntas, formando así una separación, 
-    lo cual contradice la conexión de $M$.
+    o bien $a\in W_2$ o $a^{-1}\in W_2$. En caso de que esto no ocurra, en la realización geométrica $W_1$ y las demás palabras serían disjuntas, formando así una separación que
+    contradice la conexión de $M$.
 
     \vspace{0.5em}
     \noindent
-    Ahora, si $W_1$ es una palabra y $\partes$ tiene más de una palabra, entonces existe una arista $a$ que conecta con otra palabra $W_2$ 
+    Ahora, si $W_1$ es una palabra y $\partes$ tiene más de una palabra, por lo anterior existe una arista $a$ que conecta con otra palabra $W_2$ 
     (ya sea mediante $a$ o $a^{-1}$). Pegando $W_1$ y $W_2$ (aplicando rotaciones y reflejos si fuera necesario), 
-    obtenemos una presentación donde $W_1$ y $W_2$ se han sustituido por una nueva palabra $W_1'W_2'$. 
+    obtenemos una presentación donde $W_1$ y $W_2$ se han sustituido por una única nueva palabra $W_1'W_2'$. 
 
     \vspace{0.5em}
     \noindent
-    Repitiendo este proceso una cantidad finita de veces se obtiene una presentación equivalente compuesta por una sola palabra.
+    Como el número de palabras de la presentación original es finito, mediante este proceso se obtiene una presentación equivalente compuesta por una sola palabra.
 
     \vspace{1.3em}
     \noindent
@@ -292,7 +292,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 
     \noindent
     Si las hubiera, plegando por ellas desaparecen. Excepto el caso en que solo tengamos ese par ($W_1, W_2 = \emptyset$). 
-    Pero entonces la superficie es una esfera.
+    Pero entonces la superficie es una esfera, que es una de las formas canónicas que pretendíamos obtener.
 
     \vspace{1.3em}
     \noindent
@@ -303,7 +303,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 
     \noindent
     Supongamos que tenemos $VaWa$, con $V,W \ne \emptyset$. Cortamos por el medio ($Vab$ y $b^{-1}Wa$). 
-    Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$). Entonces llegamos a $bbVW^{-1}$. 
+    Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$), llegando a $bbVW^{-1}$. 
     La repetición de este proceso una cantidad finita de veces demuestra el paso 3.
 
     \vspace{0.5em}
@@ -346,11 +346,11 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \]
 
     \noindent
-    Incluyendo los vértices, hemos llegado a:
+    Incluyendo los vértices en la presentación a la que hemos llegado, 
     \[
         v_1 \overset{a}{\to} w \overset{c}{\to} x \overset{Y}{\to} x \overset{c^{-1}}{\to} w \overset{X}{\to} v_1
     \]
-    Por tanto, hemos reducido la cantidad de vértices que se identifican con $v_1$ en una unidad.
+    que es una presentación equivalente donde hemos reducido la cantidad de vértices que se identifican con $v_1$ en una unidad.
 
     \vspace{0.5em}
     \noindent
@@ -373,11 +373,11 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \end{quote}
 
     \noindent
-    Si no fuese así, tendríamos $aXa^{-1}Y$, donde además $X$ e $Y$ no comparten aristas 
-    (si compartiesen alguna letra $b$, esta debería aparecer como $b$ tanto en $X$ como en $Y$, 
+    Si no fuese así, tendríamos una presentación de la forma $aXa^{-1}Y$, donde además $X$ e $Y$ no comparten aristas 
+    (si compartiesen alguna letra $b$, por hipótesis ésta debería aparecer como $b$, y no como $b^{-1}$, tanto en $X$ como en $Y$, 
     lo cual no es posible por el paso 3). 
-    Esto significa también que $X$ e $Y$ no comparten vértices, ya que si $x$ fuese un vértice de $X$ y $y$ un vértice de $Y$, 
-    habría una arista a la vez en $X$ y en $Y$, contradiciendo así que $X$ e $Y$ no comparten aristas.
+    Esto significa también que $X$ e $Y$ no comparten vértices, ya que si $x$ fuese un vértice de $X$ y $y$ un vértice de $Y$ tales que acaban identificados en la proyección,
+    por cómo se define la relación de equivalencia tendría que haber una arista a la vez en $X$ y en $Y$, contradiciendo así que $X$ e $Y$ no comparten aristas.
 
     \vspace{0.5em}
     \noindent
@@ -390,13 +390,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 
     \vspace{0.5em}
     \noindent
-    \textcolor{red}{!ATENCIÓN!} 
-    El dibujo que hizo en clase con las $c$'s es muy instructivo para ver esto. 
-    Si alguien lo tiene copiado y lo pone como imagen sería maravilloso (una imagen vale más que mil palabras).
-
-    \noindent
-    \textcolor{blue}{¡ATENCIÓN!} 
-    Me uno al ruego del compañero, incluso invito al lector a hacer el dibujo y verlo por sí mismo, en este caso no es difícil.
+    \textit{Nota:} se invita al lector a hacer el dibujo y verlo por sí mismo, en este caso no es difícil. No se puede confirmar ni desmentir que la invitación al lector sea por la pereza de los autores de añadir dibujos. 
 
     \vspace{1.3em}
     \noindent
@@ -407,34 +401,27 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 
     \noindent
     Tenemos ahora una cadena $aXbYa^{-1}Zb^{-1}W$, 
-    y hacemos transformaciones para que las aristas aparezcan consecutivas. 
-    Primero describimos los pasos y luego los escribimos de forma simbólica.
-
-    \vspace{0.5em}
-    \noindent
-    Cortamos desde el final de $X$ al final de $W$, y llamamos a esa arista $c$. 
-    Vamos a pegar por $a$. 
-    Tendremos $WaXc$ y $c^{-1}bYa^{-1}Zb^{-1}$. 
-    Rotando de buena manera y pegando se queda $XcWzb^{-1}c^{-1}bY$. 
-
-    \vspace{0.5em}
+    y buscamos hacer transformaciones para que las aristas aparezcan consecutivas. 
+    Empezamos con nuestra presentación original, la cual rotamos para cortar desde el final de $X$ al final de $W$, llamando a la arista del corte $c$. 
+    \[
+        aXbYa^{-1}Zb^{-1}W \cong WaXbYa^{-1}Zb^{-1} \;\;\cong\;\; WaXc \text{, } c^{-1}bYa^{-1}Zb^{-1}
+    \]
+    \noindent 
+    Vamos a pegar por $a$, para lo cual tenemos primero que rotar.
+    \[
+        WaXc \text{, } c^{-1}bYa^{-1}Zb^{-1} \cong XcWa \text{, } a^{-1}Zb^{-1}c^{-1}bY \;\;\cong\;\; XcWZb^{-1}c^{-1}bY
+    \] 
     \noindent
     Ahora cortamos desde el final de $b^{-1}$ al final de $c$, llamando $d$ a esa arista. 
-    Se nos queda $c^{-1}bYXcd$ y $d^{-1}WZb^{-1}$. 
-    Rotando y pegando por $b$ se nos queda $YXcd^{-1}c^{-1}dWZ$.
+    \[
+        XcWZb^{-1}c^{-1}bY \;\;\cong\;\; c^{-1}bYXcWZb^{-1} \;\;\cong\;\; c^{-1}bYXcd \text{, } d^{-1}WZb^{-1}
+    \]
 
-    \vspace{0.5em}
     \noindent
-    \begin{align*}
-        aXbYa^{-1}Zb^{-1}W 
-        &\cong WaXbYa^{-1}Zb^{-1} \;\;\cong\;\; WaXc \text{, } c^{-1}bYa^{-1}Zb^{-1}\\
-        &\cong XcWa \text{, } a^{-1}Zb^{-1}c^{-1}bY 
-        \;\;\cong\;\; XcWZb^{-1}c^{-1}bY\\
-        &\cong c^{-1}bYXcWZb^{-1} 
-        \;\;\cong\;\; c^{-1}bYXcd \text{, } d^{-1}WZb^{-1}\\
-        &\cong YXcdc^{-1}b \text{, } b^{-1}d^{-1}WZ 
-        \;\;\cong\;\; YXcdc^{-1}d^{-1}WZ
-    \end{align*}
+    Por último, rotando y pegando por $b$ conseguimos que las cuatro aristas queden consecutivas.
+    \[
+        c^{-1}bYXcd \text{, } d^{-1}WZb^{-1} \cong YXcdc^{-1}b \text{, } b^{-1}d^{-1}WZ \;\;\cong\;\; YXcdc^{-1}d^{-1}WZ
+    \]
 
     \vspace{0.5em}
     \noindent
@@ -459,15 +446,15 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     Recordemos que la presentación poligonal de un toro viene dada precisamente por la forma $a b a^{-1} b^{-1}$, 
     y la presentación de un plano proyectivo por $aa$. 
     Por tanto, si solo hubiese aristas de una de estas dos formas, 
-    la superficie sería homeomorfa a un toro o a un plano proyectivo, respectivamente.
+    la superficie sería homeomorfa a una suma conexa de toros o de planos proyectivos, respectivamente.
 
     \vspace{0.5em}
     \noindent
     Nos queda ver qué ocurre en el caso de que $\partes$ contenga ambos grupos de aristas. 
     Supongamos que existen un grupo de aristas complementarias $aba^{-1}b^{-1}$ y otro de aristas retorcidas $cc$. 
     Por el lema \ref{lem:toro-proyectivo}, la suma conexa de un toro y un plano proyectivo es homeomorfa a la suma conexa de tres planos proyectivos. 
-    Es decir, $aba^{-1}b^{-1}cc \cong ddeeff$. 
-    Iterando sobre cada par (toro, proyectivo) podemos eliminar los toros y quedarnos con un número finito de planos proyectivos.
+    Es decir, $aba^{-1}b^{-1}cc \cong a'a'b'b'c'c'$. 
+    Transformando cada par (toro, proyectivo) en tres proyectivos podemos eliminar los toros y quedarnos con un número finito de planos proyectivos.
 
     \vspace{0.5em}
     \noindent
