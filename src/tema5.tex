@@ -178,6 +178,8 @@ Enunciamos el siguiente teorema sin demostración:
     Para obtener $\mathcal{S}_1\#\mathcal{S}_2$ identificamos $\varphi : \partial Q_1 \to \partial Q_2$, con $\varphi(a) = a', \varphi(b) = b', \varphi(c) = c'$ y obtenemos $\mathcal{S}_1\#\mathcal{S}_2 = \langle A_1 \sqcup A_2 \sqcup \{a,b,c\}|W_1cbaa^{-1}b^{-1}c^{-1}W_2\rangle = \langle A_1 \sqcup A_2|W_1W_2\rangle$.
 }
 
+\clearpage
+
 \section{Transformaciones elementales}
 
 \defn{Transformaciones elementales sobre presentaciones poligonales}{
@@ -203,20 +205,43 @@ Enunciamos el siguiente teorema sin demostración:
     Cada una de las transformaciones elementales sobre una presentación poligonal produce otra presentación topológicamente equivalente. 
 }{Pendiente.}
 
+\clearpage
+
 \section{Teorema de Clasificación}
 
-En esta sección se presenta y demuestra el teorema de clasificación de superficies compactas de $\R ^n$. Ya hemos visto que las transformaciones elementales sobre presentaciones poligonales producen presentaciones equivalentes, nuestro objetivo ahora es demostrar que cualquier presentación poligonal de una superficie compacta y conexa puede ser transformada en una de las formas canónicas dadas por el teorema de clasificación. \newline
+En esta sección se presenta y demuestra el teorema de clasificación de superficies compactas de $\R ^n$. Ya hemos visto que las transformaciones elementales sobre presentaciones poligonales producen presentaciones equivalentes, nuestro objetivo ahora es demostrar que cualquier presentación poligonal de una superficie compacta y conexa puede ser transformada en una de las formas canónicas dadas por el teorema de clasificación.
 
 El siguiente lema simplifica la demostración del teorema de clasificación, mostrando la equivalencia entre ciertos tipos de superficies.
 
 \lemp{Equivalencia entre algunos tipos de superficies}{
     \label{lem:toro-proyectivo}
     \begin{enumerate}
-        \item La botella de Klein y $\R\mathbb{P}^2\#\R\mathbb{P}^2$ son homeomorfas.
-        \item $\mathbb{T}^2\#\R\mathbb{P}^2$ y $\R\mathbb{P}^2\#\R\mathbb{P}^2\#\R\mathbb{P}^2$ son homeomorfas.
+        \item La botella de Klein y $\mathbb{RP}^2\#\mathbb{RP}^2$ son homeomorfas.
+        \item $\mathbb{T}^2\#\mathbb{RP}^2$ y $\mathbb{RP}^2\#\mathbb{RP}^2\#\mathbb{RP}^2$ son homeomorfas.
     \end{enumerate}
 }{
-    El dibujo. 
+    Para la primera parte nos fijamos en el siguiente dibujo:
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/botella-klein-transformacion.png}
+    \end{center}
+    Por tanto a la presentación de la botella de Klein dada por $\langle a,b\mid abab^{-1} \rangle$ le aplicamos un corte, una reflexión, dos rotaciones, un pegado y una última rotación:
+    \begin{align*}
+        \langle a,b\mid abab^{-1} \rangle &\cong \langle a,b,c\mid abc, c^{-1}ab^{-1} \rangle \cong \langle a,b,c\mid abc,ba^{-1}c \rangle \\
+        &\cong \langle a,b,c\mid bca,a^{-1}cb \rangle \cong \langle b,c\mid bccb \rangle \cong \langle b,c\mid bbcc \rangle
+    \end{align*}
+    y llegamos a una presentación de la suma conexa de dos proyectivos.
+
+    Para la segunda parte nos fijamos en este otro dibujo:
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/toro-proyectivo-transformacion.png}
+    \end{center}
+    Partimos de una presentación de $K\#\mathbb{RP}^2$, que por la parte 1 sabemos que es homeomorfo a $\mathbb{RP}^2\#\mathbb{RP}^2\#\mathbb{RP}^2$. La presentación está dada por $\langle a,b\mid abab^{-1}cc \rangle$, y le aplicamos las transformaciones de la figura (ejercicio para el lector: indicar qué transformaciones elementales se usan en cada paso)
+    \begin{align*}
+        \langle a,b,c\mid abab^{-1}cc \rangle &\cong \langle a,b,c,d\mid abd^{-1}c, c^{-1}ba^{-1}d^{-1} \rangle \cong \langle a,b,d\mid abd^{-1}ba^{-1}d^{-1} \rangle \\
+        &\cong \langle a,b,d,e\mid deb^{-1},bea^{-1}d^{-1}a \rangle \cong \langle a,d,e \mid deea^{-1}d^{-1}a \rangle\\
+        &\cong \langle a,d,e \mid a^{-1}d^{-1}adee \rangle
+    \end{align*}
+    y llegamos a una presentación de la suma conexa de un toro y un proyectivo.
 }
 
 \thm{Clasificación de superficies compactas}{
@@ -224,7 +249,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \begin{itemize}
         \item la esfera $\mathbb{S}^2$.
         \item una suma conexa de toros $\mathbb{T}^2\#\dots\#\mathbb{T}^2$.
-        \item una suma conexa de planos proyectivos $\R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2$.
+        \item una suma conexa de planos proyectivos $\mathbb{RP}^2\#\dots\#\mathbb{RP}^2$.
     \end{itemize}
 }
 \pf{
@@ -241,7 +266,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
             \langle a_1, b_1, \dots, a_n, b_n \vert a_1b_1a_1^{-1}b_1^{-1}\dots a_n b_n a_n^{-1}b_n^{-1} \rangle, 
             & \text{presentación de } \mathbb{T}^2\#\dots\#\mathbb{T}^2, \\[6pt]
             \langle a_1, \dots, a_n \vert a_1a_1\dots a_n a_n \rangle, 
-            & \text{presentación de } \R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2.
+            & \text{presentación de } \mathbb{RP}^2\#\dots\#\mathbb{RP}^2.
         \end{cases}
     \]
 
@@ -427,7 +452,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \noindent
     \underline{PASO 7:}
     \begin{quote}
-        La superficie $M$ es homeomorfa a $\mathbb{T}^2\#\dots\#\mathbb{T}^2$, o bien a $\R\mathbb{P}^2\#\dots\#\R\mathbb{P}^2$.
+        La superficie $M$ es homeomorfa a $\mathbb{T}^2\#\dots\#\mathbb{T}^2$, o bien a $\mathbb{RP}^2\#\dots\#\mathbb{RP}^2$.
     \end{quote}
 
     \noindent
