@@ -483,3 +483,99 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     Si tiene solo aristas retorcidas, es homeomorfa a una suma conexa de planos proyectivos. 
     Y si tiene ambos tipos de aristas, es homeomorfa a una suma de planos proyectivos.
 }
+
+\propp{Característica de Euler invariante por transformaciones elementales}{
+    La característica de Euler de una presentación poligonal es invariante por transformaciones elementales
+}{
+    \noindent Renombrar, reflejar y rotar CHECK
+
+    \noindent Consolidar y dividir:
+
+    \[ \text{3 vertices, 2 aristas $\longleftrightarrow$ 2 vértices, 1 arista, $\chi$ se mantiene.} \]
+
+    \noindent Cortar y pegar:
+
+    \[\text{1 cara, 2 aristas $\longleftrightarrow$ 2 caras, 3 aristas, $\chi$ se mantiene.}\]
+
+    \noindent Plegar y desplegar:
+
+    \[\text{1 vértice $\longleftrightarrow$ 2 vértices, 1 arista, $\chi$ se mantiene.}\]
+}
+
+\defn{Característica de Euler de una superficie compacta}{
+    Dada una superficie compacta $M$, se define su característica de Euler $\chi(M)$ como la característica de cualquier presentación poligonal de ella (ya que es invariante por transformaciones elementales).
+}
+
+\ex{
+    Característica de Euler en las superficies modelo:
+    \begin{enumerate}
+        \item $\chi(\mathbb{S}^2) = 1-1+2 = 2$.
+        \item $\chi(n\mathbb{T}^2) = 1-2n+1 = 2-2n$.
+        \item $\chi(n\mathbb{RP}^2) = 1-n+1 = 2-n$.
+    \end{enumerate}
+}
+
+\rmkb{
+    Para todo poliedro de $\R^3$, esto es, un sólido bordeado por un conjunto finito de polígonos convexos unidos por los lados, que sea homeomorfo a la esfera $\mathbb{S}^2$ se tiene que
+    \[ \chi = V - E + F = 2 \]
+}
+
+\defn{Superficie orientable}{
+    Una superficie compacta se dice orientable si admite una presentación poligonal en la que no existe ningún par de aristas que se identifiquen recorriéndose en el mismo sentido, es decir, si para cada arista $a$ de la presentación, aparece tanto $a$ como $a^{-1}$.
+}
+
+\propp{}{
+    Una superficie compacta no orientable contiene un subespacio homeomorfo a la cinta de Möbius (de hecho es un si y solo si).
+}{
+    \noindent ($\implies$) Siempre tenemos aristas identificadas $aa$.
+    Demostración con dibujitos, no puedo hacerlo :(
+    
+    \noindent ($\impliedby$) Sea una presentación:
+    
+    \noindent\underline{Afirmación 1:} El subespacio homeomorfo a la cinta de Möbius toca al borde. No entra en detalle, si alguien quiere hacerlo que se las apañe jeje.
+}
+
+\ex{
+    \noindent Superficies no orientables: $\mathbb{RP}^2$, $K$ (la botella).
+    
+    \noindent Superficies orientables: $\mathbb{S}^2$, $\mathbb{T}^2$.
+}
+
+\propp{Orientabilidad de la suma conexa}{
+    Dadas dos superficies compactas $S_1$ y $S_2$, la suma conexa $S_1\# S_2$ es orientable si, y solo si, ambas superficies son orientables.
+}{
+    Pendiente...
+}
+
+\ex{
+    $\mathbb{T}^2 \# \dots \# \mathbb{T}^2$ es orientable.
+    $\mathbb{RP}^2 \# \dots \# \mathbb{RP}^2$ es no orientable.
+}
+
+\corp{
+    Dos superficies compactas y conexas son homeomorfas si, y solo si, tienen la misma característica de Euler y la misma orientabilidad.
+}{
+    Pendiente...
+}
+
+\defn{Género de una superficie}{
+    Sea $S$ una superficie compacta y conexa. Se define el género de $S$ como $g(S) = 1-\frac{1}{2}\chi(S)$ si $S$ es orientable, y $g(S) = 2 - \chi(S)$ si no lo es. El género también se conoce como el número de agujeros.
+}
+
+\ex{
+    \begin{itemize}
+        \item $g(\mathbb{S}^2) = 0 = g(0\mathbb{T})$.
+        \item $g(\mathbb{T}^2 \# \dots \# \mathbb{T}^2) = n$.
+        \item $g(\mathbb{RP}^2 \# \dots \# \mathbb{RP}^2) = n$.
+    \end{itemize}
+}
+
+\corp{
+    Si $S$ es una superficie compacta, conexa y orientable, entonces $S$ es homeomorfa a:
+    \[\begin{cases}
+        \text{una esfera, cuando $g(S) = 0$} \\
+        \text{una suma conexa de $n$ toros, cuando $g(S) = n, n \ge 1$}
+    \end{cases}\]
+}{
+    Pendiente...
+}{}
