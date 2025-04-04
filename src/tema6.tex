@@ -1,0 +1,88 @@
+\chapter{El grupo fundamental}
+
+\section{Definiciones previas}
+
+\defn{Camino o arco}{
+    Sea ($X,\tau$) un espacio topológico e $I = [0,1] \subset \R$. Se llama \textbf{camino o arco} en $X$ a una aplicación continua $\alpha: I \to X$. Se llama $\alpha(0)$ origen y $\alpha(1)$ final. Diremos que $\alpha$ es un arco uniendo $\alpha(0)$ con $\alpha(1)$. Cuando $\alpha(0) = \alpha(1)$ diremos que $\alpha$ es un lazo.
+}
+
+\defn{Aplicaciones homotópicas}{
+    Dos aplicaciones continuas $f ,g : X \to Y$ entre dos espacios topológicos son homotópicas si existe una aplicación continua $F : X \times [0,1] \to Y$ tal que $F(x,0) = f(x)$ y $F(x,1) = g(x)$, para todo $x \in X$. Se dice que $F$ es una homotopía entre $f$ y $g$, y se representa por $f \simeq g$.
+}
+
+\fact{
+    Si $F$ es una homotopía, para cada $t \in [0,1]$, definimos $F_t : X \to Y$ por $F_t(x) = F(x,t)$. Las aplicaciones $F_t$ son continuas, $F_0 = f$ y $F_1 = g$. Si fijamos $x$, entonces $F_x(t) = F(x,t) : I \to Y$ es un arco en $Y$ uniendo $f(x)$ con $g(x)$.
+}
+
+\ex{
+    \begin{enumerate}
+        \item Si el espacio de llegada es convexo, cualquier par de aplicaciones continuas son homotópicas.
+        \item Sean $X, Y$ espacios topológicos e $y_1, y_2 \in Y$. Entonces:
+        $$C_{y_i} : X \to Y, \text{, con } C_{y_i}(x) = y_i, i=1,2 \text{ homotópicas } \iff \text{ existe un arco en $Y$ uniendo $y_1, y_2$}$$
+        \underline{Demostración: } Pendiente...
+    \end{enumerate}
+}
+
+\propp{Relación de equivalencia}{
+    La propiedad de ser homotópicas $\simeq$ es una relación de equivalencia en el conjunto $\mathcal{C}(X,Y)$ formado por todas las aplicaciones continuas de $X$ en $Y$. 
+}{
+    \begin{enumerate}
+        \item \underline{Simétrica}: $f \simeq f$, $F(x,t) = f(x)$ $\begin{cases}
+            F(x,0) = f(x) \\
+            F(x,1) = f(x)
+        \end{cases}$.
+        \item \underline{Reflexiva}: $f \simeq g \implies g \simeq f$, $\overline{F}(x,t) = F(x,1-t)$. Realmente se podría hacer con cualquier homeomorfismo $\alpha : I \to I$ con $alpha(0) = 1$ y $\alpha(1) = 0$ en vez de $1-t$.
+        \item \underline{Transitiva}: $f \simeq g$ y $g \simeq h$, $\overline{F}(x,t) =$ $\begin{cases}
+            F_1(x,2t) & t \in [0, \frac{1}{2}] \\
+            F_2(x,2t-1) & t \in [\frac{1}{2}, 1]
+        \end{cases}$. E igual que antes, se podria hacer con cualquier homeomorfismo que cumpla con lo que necesitamos.
+    \end{enumerate}
+}
+
+\defn{Espacios homotópicamente equivalentes}{
+    Decimos que dos espacios topológicos $X$ e $Y$ son homotópicamente equivalentes o tienen el mismo tipo de homotopía (denotado $X \simeq Y$) si existen aplicaciones continuas $f : X \to Y$ y $g :Y \to X$ tales que $g \circ f \simeq Id_X$ y $f \circ g \simeq Id_Y$. A la aplicación $f$ (también a $g$) se le llama, equivalencia de homotopía.
+}
+
+\ex{
+    \begin{enumerate}
+        \item Si $Y \subset \R^n$ es convexo, entonces $Y \simeq \{x\}$.
+        Buscamos aplicaciones $f : X \to Y$, con $f(x)=y_0$ y $g : Y \to X$ tales que $g \circ f \simeq Id_X$ y $f \circ g \simeq Id_Y$, con $g(y)=x, \forall y\in Y$. 
+        
+        Buscamos $H_1$ continua con $\begin{cases}
+            H_1(x,0) = g \circ f(x) = g(y_0) = x \in X \\
+            H_1(x,1) = Id_X(x) = x
+        \end{cases} \implies H_1(x,t) = x$. 
+        
+        $H_2$ continua con $\begin{cases}
+            H_2(y,0) = f \circ g(y) = f(x) = y_0 \in Y \\
+            H_2(y,1) = Id_Y(y) = y
+        \end{cases} \implies H_2(y,t) = ty + (1-t)y_0 \in Y$ porque $Y$ es convexo.
+
+        \item $\R^2\setminus\{0\} \simeq \mathbb{S}^1$.
+        Buscamos $f : \R^2\setminus\{0\} \to \mathbb{S}^1$ y $g : \mathbb{S}^1 \to \R^2\setminus\{0\}$ tales que $\begin{cases}
+            f \circ g \simeq Id_{\mathbb{S}^1} (F_1) \\
+            g \circ f \simeq Id_{\R^2\setminus\{0\}} (F_2)
+        \end{cases}$. 
+        
+        $F_1$ tal que $\begin{cases}
+            F_1(x,0) = f \circ g(x) \\
+            F_1(x,1) = Id_{\mathbb{S}^1}(x) = x \in \mathbb{S}^1
+        \end{cases}$. 
+        
+        $F_2$ tal que $\begin{cases}
+            F_2(y,0) = g \circ f(y) \\
+            F_2(y,1) = Id_{\R^2\setminus\{0\}}(y) = y \in \R^2\setminus\{0\}
+        \end{cases}$. 
+        
+        $f(y) = \frac{y}{\|y\|}$ y $g(x) = x$. Entonces, $F_1(x,t) = x$ y $F_2(y,t) = ty + (1-t)\frac{y}{\|y\|} \in Y$.
+
+        \item La corona circular $C = \{(x,y) \in \R^2 : 1 \le x^2 +y^2 \le 2\} \simeq \mathbb{S}^1$
+    \end{enumerate}
+}
+
+\propp{Espacios homotópicos y homeomorfos}{
+    Si $X$ e $Y$ son homeomorfos, entonces $X \simeq Y$. El recíproco no es cierto.
+}{
+    Para la ida, las composiciones son la identidad, y por tanto la homotopía es trivial.
+    Como contraejemplo para la vuelta, vale cualquiera de los ejemplos anteriores.
+}
