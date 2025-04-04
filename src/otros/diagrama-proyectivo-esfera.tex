@@ -1,0 +1,12 @@
+\documentclass{standalone}
+\usepackage{tikz-cd}
+\usepackage{amssymb,amsmath}
+
+\begin{document}
+
+\begin{tikzcd}[every arrow/.append style={shift left}]
+    \mathbb{R}^3\setminus\{0\} \arrow{r}{f} \arrow{d}{\pi_1} & \mathbb{S}^2 \arrow{l}{\iota} \arrow{d}{\pi_2}\\
+    \mathbb{RP}^2 \arrow{r}{\tilde{f}} & \tilde{\mathbb{S}}^2 \arrow{l}{\tilde{\iota}}
+\end{tikzcd}
+
+\end{document}

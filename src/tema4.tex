@@ -312,13 +312,59 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     Por tanto existe un homeomorfismo entre $C$ y $\tilde{X}$.
 }
 
+\clearpage
+
 \ex{
     Sea \(X = \mathbb{S}^2\) con la relación de equivalencia:
     \[
     p \sim q \iff p = \pm q.
     \]
-    El espacio cociente es homeomorfo al plano proyectivo \(\R\mathbb{P}^2\).
+    El espacio cociente $\tilde{\mathbb{S}}^2$ es homeomorfo al plano proyectivo \(\mathbb{RP}^2\).
 }
+
+\pf{
+    En primer lugar, el plano proyectivo $\mathbb{RP}^2$ será el conjunto cociente obtenido al considerar la siguiente relación $\sim_p$ sobre $\R^3\setminus\{0\}$. 
+    \[
+    x \sim_p y\iff x=\lambda y, \lambda\neq 0.
+    \]
+    La idea va a ser construir una aplicación de $\R^3\setminus\{0\}$ a $\mathbb{S}^2$ de tal manera que la aplicación respeta la relación que existe sobre $\mathbb{S}^2$, es decir, $x\sim_p y\iff f(x)\sim f(y)$. Similarmente, veremos que existe una aplicación de $\mathbb{S}^2$ a $\R^3\setminus\{0\}$ que también respeta la relación de equivalencia del proyectivo. Esto garantiza que las aplicaciones "pasan al cociente". Finalmente veremos que estas aplicaciones en el cociente son homeomorfismos y que la una es la inversa de la otra. La idea se resume en el siguiente diagrama, donde $\pi_1,\pi_2$ son las proyecciones a los cocientes.
+    \begin{center}
+        \includegraphics[width=0.25\textwidth]{otros/diagrama-proyectivo-esfera.pdf}
+    \end{center}
+
+    Definamos $f:\R^3\setminus\{0\}\to\sphere^2$ por $f(x)=\frac{x}{|x|}$, y $\iota:\sphere^2\to\R^3\setminus\{0\}$ por $\iota(x)=x$. Notemos que si $x,y\in\R^3\setminus\{0\}$ están relacionados entonces:
+    \[
+    x\sim_p y\iff x=\lambda y,\lambda\neq 0 
+    \]
+    y por tanto
+    \[
+    f(x)=\frac{x}{|x|}=\frac{\lambda y}{|\lambda||y|}=\pm\frac{y}{|y|}=\pm f(y) \iff f(x)\sim f(y).
+    \]
+    Además, si $f(x)\sim f(y)$ entonces 
+    \[
+    \frac{x}{|x|}=\pm\frac{y}{|y|}\implies x=\lambda y, \lambda \ne 0
+    \]
+    en esencia hemos visto que $x\sim_p y\iff f(x)\sim f(y)$, lo que garantiza que la aplicación $\tilde{f}([x]_p)=[f(x)]$\footnote{Usamos $[\cdot]_p$ para referirnos a las clases de equivalencia en el proyectivo y $[\cdot]$ para las clases de equivalencia en $\sphere^2$.} está bien definida puesto que
+    \[
+        \tilde{f}([x]_p)=\tilde{f}([y]_p)\iff [f(x)]=[f(y)]\iff f(x)\sim f(y) \iff x\sim_p y\iff [x]_p=[y]_p.
+    \]
+    La demostración de que $\iota$ también pasa al cociente como $\tilde{\iota}([x])=[\iota(x)]_p$ se deja como un sencillo ejercicio.
+    
+    Veamos ahora que $\tilde{f}$ y $\tilde{\iota}$ son inversas la una de la otra
+    \[
+    \tilde{f}(\tilde{\iota}([x]))=\tilde{f}([x]_p)=[f(x)]=\left[\frac{x}{|x|}\right]=[x]
+    \]
+    donde la última igualdad se sigue de que $x\in\sphere^2$ y por tanto $|x|=1$. Por otro lado
+    \[
+    \tilde{\iota}(\tilde{f}([x]_p))=\tilde{\iota}([f(x)])=\tilde{\iota}(\left[\frac{x}{|x|}\right])=\left[\frac{x}{|x|}\right]_p=[x]_p
+    \]
+    donde la última igualdad se sigue del hecho de que $\frac{x}{|x|}\sim_p x$.
+
+    Veamos ahora que $\tilde{f}$ es continua. Para ello notemos que por la Proposición \hyperref[prop:116]{1.1.6}, $\tilde{f}$ es continua si y solo si $\tilde{f}\circ\pi_1=\pi_2\circ f$ lo es. Pero claramente $f$ es continua y también lo es la proyección $\pi_2$, por lo que $\tilde{f}$ es continua. De manera similar, $\iota$ es continua si y solo si lo es $\iota\circ\pi_2=\pi_1\circ\iota$, que es claramente continua por serlo $\pi_1, \iota$.
+
+}
+
+\clearpage
 
 \ex{
     En el disco cerrado \(D(0, 1)\) de \(\mathbb{R}^2\), consideramos la relación de equivalencia:
@@ -326,6 +372,10 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     (x_1, y_1) \sim (x_2, y_2) \text{ si y solo si } x_1 = \pm x_2 \text{ e } y_1 = y_2.
     \]
     El espacio cociente \(\faktor{D(0, 1)}{\sim}\) es homeomorfo a la esfera \(\mathbb{S}^2\).
+}
+
+\pf{
+    Se deja como ejercicio.
 }
 
 \exer{
