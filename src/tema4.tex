@@ -142,7 +142,7 @@ Demostrar que $R_f$ es una relación de equivalencia.
 
 \clearpage
 
-\section{Ejemplos de espacios cocientes}
+\section{Ejemplos de espacios cocientes}\label{sec:ejemplos-cocientes}
 
 Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establecer homeomorfismos entre estos espacios cociente y otros espacios topológicos de interés. En estos primeros ejemplos haremos uso del Teorema \ref{thm:diagrama} para encontrar tales homeomorfismos.
 
@@ -237,7 +237,7 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     Sea \(X = [0, 1] \times [0, 1]\) con la relación de equivalencia:
     \[
     (x_1, y_1) \sim (x_2, y_2) \text{ si y solo si } x_1 - x_2 \in \mathbb{Z} \text{ e } y_1 - y_2 \in \mathbb{Z}.
-    \]
+    \]  
     El espacio cociente es homeomorfo a un toro.
 }
 
@@ -246,18 +246,18 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     \begin{center}
         \includegraphics[width=0.2\textwidth]{img/cociente-toro.png}
     \end{center}
-    En cuanto al toro $\mathbb{T}$, lo consideraremos como el subconjunto de $\R^3$ de la siguiente forma
+    En cuanto al toro $\mathbb{T}^2$, lo consideraremos como el subconjunto de $\R^3$ de la siguiente forma
     \[
-    \mathbb{T}=\{(x,y,z)\in\R^3 \mid (\sqrt{x^2+y^2}-2)^2+z^2=1\}
+    \mathbb{T}^2=\{(x,y,z)\in\R^3 \mid (\sqrt{x^2+y^2}-2)^2+z^2=1\}
     \]
     Si definimos la función
     \begin{gather*}
-        F:[0,2\pi]\times[0,2\pi]\to\mathbb{T} \\
+        F:[0,2\pi]\times[0,2\pi]\to\mathbb{T}^2 \\
         F(u,v)=(\cos u(\cos v+2),\sin u(\cos v+2),\sin v)
     \end{gather*}
     basta comprobar que
     \[
-    f:[0,1]\times[0,1]\to \mathbb{T},\quad f(t,s)=F(2\pi t,2\pi s)
+    f:[0,1]\times[0,1]\to \mathbb{T}^2,\quad f(t,s)=F(2\pi t,2\pi s)
     \]
     induce la misma relación de equivalencia que $\sim$, y además es continua, sobreyectiva y cerrada (por ir de un compacto a un Hausdorff). Todas estas comprobaciones, muy similares a las de los anteriores ejemplos, quedan como un sencillo ejercicio para el lector.
 }
@@ -462,6 +462,14 @@ Finalmente por la definición de topología cociente debe de ser $p(U)\in\faktor
     Si en la definición de variedad cambiamos el espacio modelo \(\mathbb{R}^n\) por el semiespacio superior \(\mathbb{H}^n = \{x \in \mathbb{R}^n : x_i \geq 0\}\), obtenemos el concepto de variedad con borde.
 }
 
+\ex{
+    Sea $X=(\R\times\{0\})\cup(\R\times\{1\})$ y consideremos la relación $R$ dada por
+    \[
+    (x,0)R(x,1) \forall x\neq 0, (x,y)R(x,y) \forall (x,y)\in X.
+    \]
+    Entonces $\faktor{X}{R}$ es localmente euclídeo de dimensión 1 pero no es Hausdorff, por tanto no es una variedad. Para más información consultar \href{https://en.wikipedia.org/wiki/Non-Hausdorff_manifold#Line_with_two_origins}{Line with two origins}.
+}
+
 \propp{Observaciones sobre variedades topológicas}{
     \begin{enumerate}
     \item Toda variedad topológica es localmente conexa por caminos (y localmente conexa).
@@ -500,27 +508,63 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
   La esfera \(\mathbb{S}^2\) es una superficie topológica.
 }
 
-\noindent\textbf{Solución:}
-
-  Sea $p=(x,y,z)\in\sphere^2$ y supongamos que $z>0$, en tal caso el entorno $U=\sphere^2\cap\{z>0\}$ es homeomorfo a la bola $B^2((0,0),1)$ mediante el homeomorfismo
-  \[
-  \varphi:B^2((0,0),1)\to U,\quad \varphi(x,y)=(x,y,\sqrt{x^2+y^2}).
-  \]
-  En efecto es una homeomorfismo pues es abierta, continua y biyectiva, con inversa
-  \[
-  \varphi^{-1}(x,y,z)=(x,y).
-  \]
-  Para el resto de puntos sabemos que alguna de las tres componentes $x,y,z$ debe ser no nula, por lo que podemos hacer un procedimiento similar, tarea que encomendamos al lector.
-
-
+\pf{
+    Sea $p=(x,y,z)\in\sphere^2$ y supongamos que $z>0$, en tal caso el entorno $U=\sphere^2\cap\{z>0\}$ es homeomorfo a la bola $B^2((0,0),1)$ mediante el homeomorfismo
+    \[
+    \varphi:B^2((0,0),1)\to U,\quad \varphi(x,y)=(x,y,\sqrt{x^2+y^2}).
+    \]
+    En efecto $\varphi$ es un homeomorfismo pues es abierta, continua y biyectiva, con inversa
+    \[
+    \varphi^{-1}(x,y,z)=(x,y).
+    \]
+    Para el resto de puntos sabemos que alguna de las tres componentes $x,y,z$ debe ser no nula, por lo que podemos hacer un procedimiento similar, tarea que encomendamos al lector.
+}
 
 \ex{
     El toro \(\mathbb{T}^2 = \mathbb{S}^1 \times \mathbb{S}^1\) es una superficie topológica.
 }
 
+\pf{
+    Recomendamos al lector que vuelva a echar un vistazo al ejemplo referente al toro en la \hyperref[sec:ejemplos-cocientes]{Sección 1.2}, aunque en este caso identificaremos al toro con el producto cartesiano de dos circunferencias.
+    
+    Para ver que $\mathbb{T}^2$ es localmente euclídeo sea $p=(x,y)\in\mathbb{T}^2=\sphere^1\times\sphere^1$, de manera que
+    \[
+    p=((\cos\theta,\sin\theta),(\cos\phi,\sin\phi))
+    \]
+    para ciertos $\theta,\phi\in[0,2\pi)$. Consideremos la bola abierta $B=B((\theta,\phi),1)\subset\R^2$ y el homeomorfismo
+    \[
+    \varphi:B\to U\subset\sphere^1\times\sphere^1,\quad \varphi(\theta',\phi')=((\cos\theta',\sin\theta'),(\cos\phi',\sin\phi')).
+    \]
+    En efecto es un homeomorfismo al considerarla sobre su imagen $U=\varphi(B)$ porque es continua y biyectiva con inversa continua. Que es sobreyectiva es inmediato, que es inyectiva también puesto que las funciones seno y coseno son $2\pi$-periódicas y el radio de la bola es menor que $2\pi$. Por tanto para cada punto $p$ existe la carta $(U,\varphi^{-1})$ en torno a ese punto, lo que prueba que $\mathbb{T}^2$ es localmente euclídeo.
+}
+
+\clearpage
+
 \ex{
     El cilindro \(\mathbb{S}^1 \times \mathbb{R}\) es una superficie topológica.
 }
+
+\pf{
+    Sea $p=(\cos\theta,\sin\theta,s)\in\sphere^1\times\R$ y consideremos la bola abierta $B=B((\theta,s),1)\subset\R^2$ y el homeomorfismo
+    \[
+    \varphi:B\to U\subset\sphere^1\times\sphere^1,\quad \varphi(\theta',s')=(\cos\theta',\sin\theta',s').
+    \]
+    En efecto es un homeomorfismo al considerarla sobre su imagen $U=\varphi(B)$ porque es continua y biyectiva con inversa continua. Por tanto para cada punto $p$ existe la carta $(U,\varphi^{-1})$ en torno a ese punto, lo que prueba que el cilindro es localmente euclídeo.
+}
+
+\ex{
+    El paraboloide de revolución \(x^2 + y^2 - z = 0\) es una superficie topológica.
+}
+
+\pf{
+    Sea $P=\{(x,y,z)\in\R^3 \mid x^2 + y^2 - z = 0\}$ y sea $p\in P, p=(x,y,z)$. Consideremos el número $r=1+\sqrt{x^2+y^2}$ y la bola $B=B((x,y),r)$, así como el homeomorfismo
+    \[
+    \varphi:B\to U,\quad \varphi(x',y')=(x',y',x'^2+y'^2)
+    \]
+    definido en su imagen $U=\varphi(U)$, entonces $(U,\varphi^{-1})$ es una carta que cubre al punto $p$, lo que prueba que $P$ es una superficie.
+}
+
+El resto de ejemplos se pueden justificar de manera similar a los anteriores encontrando una serie de cartas que cubran todos los puntos de la superficie. Dejamos esta tarea al lector.
 
 \ex{
     El hiperboloide de una hoja \(x^2 + y^2 - z^2 = 1\) es una superficie topológica.
@@ -528,10 +572,6 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 
 \ex{
     El hiperboloide de dos hojas \(x^2 + y^2 - z^2 = -1\) es una superficie topológica.
-}
-
-\ex{
-    El paraboloide de revolución \(x^2 + y^2 - z = 0\) es una superficie topológica.
 }
 
 \clearpage % Para que quede toda la proposición en la misma página
