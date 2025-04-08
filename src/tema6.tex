@@ -163,3 +163,154 @@
 
     Como contraejemplo para el recíproco consideremos el conjunto $\R^n$ que es convexo, por tanto $\R^n\simeq \{x\}$ para cualquier $x\in\R^n$, sin embargo no son espacios homeomorfos puesto que $\R^n$ no es compacto y $\{x\}$ sí.
 }
+
+\lemp{Relación de equivalencia entre espacios topológicos}{
+    La propiedad $\simeq$ define una relación de equivalencia entre los espacios topológicos.
+}{
+    \noindent\underline{Reflexiva:} $X \simeq X$, $f = g = Id_X$.
+
+    \noindent\underline{Simetrica:} $X \simeq Y$ ($\exists f:X\to Y, g:Y\to X$) $\implies Y \simeq X$ ($\bar{f}=g, \bar{g}=f$).
+
+    \noindent\underline{Transitiva:} $X \simeq Y$ ($\exists f_1:X\to Y, g_1:Y\to X$) y $Y \simeq Z$ ($\exists f_2:Y\to Z, g_2:Z\to Y$) 
+
+    ¿$f:X\to Z, g:Z\to Y$? $f=f_2\circ f_1, g=g_1\circ g_2$.
+
+    $f\circ g = f_2\circ f_1\circ g_1\circ g_2 \simeq f_2\circ Id_Y \circ g_2 = f_2\circ g_2 \simeq Id_Z$.
+
+    $g\circ f =g_1\circ g_2\circ f_2\circ f_1 \simeq g_1\circ Id_Y\circ f_1 = g_1\circ f_1 \simeq Id_X$.
+}
+
+\defn{Espacio contráctil}{
+    Un espacio topológico X se dice que es contráctil si es homotópicamente equivalente a un punto.
+}
+
+\propp{Caracterizaciones de espacios contráctiles}{
+    Sea $Y$ un espacio topológico, las siguientes afirmaciones son equivalentes:
+    \begin{enumerate}
+        \item $Y$ es contráctil.
+        \item Existe $y_0 \in Y$ tal que $Id_Y$ y $C_{y_0}:Y\to \{y_0\}$ son homotópicas.
+        \item Si $X$ es otro espacio topológico, cualquier par de aplicaciones continuas $f,g : X \to Y$ son homotópicas.
+        \item Para todo $y_0\in Y$, se tiene que $C_{y_0}$ es homotópica a la $Id_Y$.
+        \item Si $X$ es otro espacio topológico y $f:Y\to X$ continua, entonces existe $x_0\in X$ tal que $f \simeq C_{x_0}$. 
+    \end{enumerate}
+}{
+    \noindent ($1 \implies 2$) Existen $Y \longleftrightarrow \{p\}$, donde $C_p:Y\to \{p\}$ es tal que $C_p(y)=p$ y $f:\{p\}\to Y$. Cumplen que $C_p\circ f \simeq Id_{\{p\}}$ y $f\circ C_p \simeq Id_Y$.
+
+    \noindent Como $f\circ C_p \to f(C_p(y))=f(p)=:y_0\in Y$, entonces $f\circ C_p = C_{y_0}:Y\to Y$ y se tiene que $C_{y_0} \simeq Id_Y$.
+
+    \noindent ($2 \implies 3$) Sabemos que $\exists y_0\in Y$ tal que $Id_Y \simeq C_{y_0}$. Sea $X$ espacio topológico, y $f,g:X\to Y$ continuas. Veamos que $f \simeq g$.
+    $$ f = Id_Y\circ f \simeq C_{y_0}\circ f = \overline{C_{y_0}} :X \to Y \text{ tal que } \overline{C_{y_0}}(x) = y_0 $$
+    $$ g = Id_Y\circ g \simeq C_{y_0}\circ g = \overline{C_{y_0}} :X \to Y \text{ tal que } \overline{C_{y_0}}(x) = y_0 $$
+
+    \noindent Por tanto, $f \simeq g$.
+
+    \noindent ($3 \implies 4$) Cogemos $Y=X$, $f=Id_Y, g=C_{y_0}$, con $y_0\in Y$. Aplicando la hipótesis a estos espacios y funciones se obtiene que $f\simeq g \implies Id_Y \simeq C_{y_0}, y_0\in Y$.
+
+    \noindent ($4 \implies 5$) Sabemos que $C_{y_0} \simeq Id_Y, \forall y_0\in Y$. Sea $X$ espacio topológico y $f:Y\to X$ continua. Entonces, $f = f\circ Id_Y \simeq f\circ C_{y_0} : Y \to X$ tal que $f\circ C_{y_0}(y) = f(y_0)$. Luego, $f\circ C_{y_0} = C_{f(y_0)}:Y\to X$. Tomando $x_0 = f(y_0)$, se tiene que $f \simeq C_{x_0}$. 
+
+    \noindent ($5 \implies 2$) Aplicamos la hipótesis al espacio $X=Y$ y la función $f=Id_Y$. Entonces, obtenemos $y_0\in Y$ tal que $f\simeq C_{y_0}$. Por tanto, $Id_Y \simeq C_{y_0}$.
+
+    \noindent ($2 \implies 1$) Por la hipótesis, existe $y_0\in Y$ tal que $Id_Y \simeq C_{y_0}$. Las funciones buscadas son $\begin{cases}
+        f = C_{y_0}: Y\to \{y_0\} \\
+        g = \iota : \{y_0\} \to Y
+    \end{cases}$, que cumplen que:
+    $$ f\circ g = C_{y_0} \circ \iota = \overline{C_{y_0}} : \{y_0\} \to \{y_0\} = Id_{\{y_0\}} $$
+    $$ g\circ f = \iota \circ C_{y_0} = \tilde{C}_{y_0} : Y \to Y \simeq Id_Y$$
+}
+
+\corp{
+    Todo espacio contráctil es arcoconexo y por tanto conexo.
+}{
+    Gracias a la proposición anterior, aplicamos el apartado $3$ a $f,g:Y\to Y$ continua, con $C_{y_1}=f(y) = y_1\in Y, C_{y_2}=g(y)=y_2\in Y$. Entonces
+    $$ C_{y_1} \simeq C_{y_2} \iff \exists F:Y\times I \to Y \text{ continua tal que } \begin{cases}
+        F(y,0) = C_{y_1}(y) = y_1 \\
+        F(y,1) = C_{y_2}(y) = y_2
+    \end{cases}$$
+    $\alpha:I \to Y, \alpha(t) = F(y_0,t)$, con $y_0\in Y$ fijo. Este camino une $y_1$ y $y_2$, para cualesquiera $y_1,y_2\in Y$. Por tanto, $Y$ es arcoconexo. 
+}
+
+\defn{Invariante homotópico}{
+    Un invariante homotópico es una propiedad topológica $\partes$ que se conserva por equivalencias homotópicas, es decir, si $X \simeq Y$, entonces $X$ satisface $\partes$ si, y solo si, $Y$ satisface $\partes$.
+}
+
+\ex{
+    \begin{enumerate}
+        \item La conexión es un invariante homotópico.
+        \item La conexión por caminos es un invariante homotópico.
+        \item La compacidad NO es un invariante homotópico.
+    \end{enumerate}
+}
+
+\defn{Caominos homotópicos}{
+    Dos caminos $\alpha,\beta : I \to X$ en un espacio topológico $X$ uniendo dos puntos $x_0$ y $x_1$ se dice que son homotópicos (por caminos) si existe una homotopía $F : I \times I \to X$ entre $\alpha$ y $\beta$ tal que $F(0,t) = x_0$, $F(1,t) = x_1$, para todo $t \in I$. Lo denotaremos por $\alpha \simeq_p \beta$.
+}
+% TODO: Hacer dibujo
+
+\fact{
+    Para cada $t\in I$, $F_t$ es un camino uniendo $x_0$ y $x_1$, con $F_0 = \alpha$ y $F_1 = \beta$.
+}
+
+\propp{Relación de equivalencia $\simeq_p$}{
+    $\simeq_p$ define una relación de equivalencia. Denotamos por $[\alpha]$ la clase asociada a un camino $\alpha$.
+}{
+    Pendiente...
+}
+
+\defn{Producto de caminos}{
+    Si $\alpha$ es un camino uniendo $x_0$ y $x_1$, y $\beta$ es un camino uniendo $x_1$ y $x_2$, definimos el camino producto $\alpha * \beta$ por 
+    $$\alpha * \beta(s) = \begin{cases}
+        \alpha(2s) & s \in [0, \frac{1}{2}] \\
+        \beta(2s - 1) & s \in [\frac{1}{2}, 1]
+    \end{cases}$$
+}
+
+\prop{Propiedades}{
+    \begin{enumerate}
+        \item $\alpha * (\beta * \gamma) \simeq_p (\alpha * \beta) * \gamma$.
+        \item Si $\epsilon_{x_0}$ es el arco constante $x_0$ e igual $\epsilon_{x_1}$, entonces
+        $$\epsilon_{x_0} * \alpha \simeq_p \alpha \text{ y } \alpha * \epsilon_{x_1} \simeq_p \alpha$$
+        \item Sea $\bar{\alpha} = \alpha(1-t), t\in I$. Entonces, $$\alpha * \bar{\alpha} \simeq_p \epsilon_{x_0} \text{ y } \bar{\alpha} * \alpha \simeq_p \epsilon_{x_1}$$
+    \end{enumerate}
+}
+
+\defn{Conjunto de arcos}{
+    Dado $X$ un espacio topológico, denotaremos por $$\Omega_{x_0}^{x_1}(X) := \{\alpha:I\to X \text{ continua con } \alpha(0) = x_0, \alpha(1)=x_1\}$$ y $$\Omega_{x_0} = \Omega_{x_0}^{x_0}(X)$$
+    Llamaremos $$\pi_1(X,x_0) : \faktor{\Omega_{x_0}}{\simeq_p}$$
+}
+
+\defn{Producto de clases de homotopía}{
+    El producto $*$ induce un producto bien definido para clases de homotopía:
+    $$[\alpha]*[\beta]:=[\alpha*\beta]$$
+}
+
+\thm{El grupo fundamental}{
+    El conjunto $\pi_1(X,x_0)$ junto con la operación producto $*$ es un grupo, denominado el \textbf{grupo fundamental} de $X$ en $x_0$.
+}
+\lemp{Lema previo}{
+    Sean $\alpha\in\Omega_{x_0}^{x_1}(X), \beta\in\Omega_{x_1}^{x_2}(X)$. Entonces, $\alpha*\beta \simeq_p \gamma(t) = \begin{cases}
+        \alpha(\frac{t}{r}) & t \in [0, r] \\
+        \beta(\frac{t-r}{1-r}) & t \in [r, 1]
+    \end{cases}$
+}{
+    Quiero ver que $\alpha*\beta$ y $\gamma$ son homotópicos por caminos, luego necesito una homotopía $H(x,t):I\times I \to X$  tal que $H(x,0) = \alpha*\beta(x)$ y $H(x,1) = \gamma(x)$, además de que $H(0,t) = x_0$ y $H(1,t) = x_2$.
+
+    $H(x,t) = \begin{cases}
+        \alpha\Big{(}\frac{x}{(1-t)\frac{1}{2}+tr}\Big{)} & x \in [0, (1-t)\frac{1}{2}+tr] \\
+        \beta\Big{(}\frac{x-(1-t)\frac{1}{2}-tr}{1-(1-t)\frac{1}{2}-tr}\Big{)} & x \in [(1-t)\frac{1}{2}+tr, 1]
+    \end{cases}$
+    \begin{itemize}
+        \item $H(x,0) = \alpha*\beta(x). \checkmark$
+        \item $H(x,1) = \gamma(x). \checkmark$
+        \item $H(0,t) = \alpha(0) = x_0. \checkmark$
+        \item $H(1,t) = \beta(1) = x_2. \checkmark$
+    \end{itemize}
+}
+\pf{
+    Pendiente...
+}
+
+\ex{
+    \noindent Si $X\subset \R^n$ convexo, entonces $\pi_1(X,x_0) = 0$ (el grupo trivial) para todo $x_0\in X$. En particular $\pi_1(\R^n,x_0) = 0$ y $\pi_1(B^n, x_0) = 0$, donde $B^n$ es la bola unidad.
+
+    \noindent$\pi_1(\R,x) = (0,+)$ (el grupo trivial se denota así).
+}
