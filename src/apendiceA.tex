@@ -1,0 +1,51 @@
+\appendix
+\chapter{Teoría de grupos}
+
+\section{Grupos y subgrupos}
+
+\defn{Grupo}{
+    Un grupo es un par $(G, *)$ donde $G$ es un conjunto y $*: G \times G \to G$ es una operación binaria que satisface:
+    \begin{enumerate}
+        \item[(G1)] \textbf{Asociatividad}: $(a * b) * c = a * (b * c)$ para todo $a, b, c \in G$
+        \item[(G2)] \textbf{Elemento neutro}: Existe $e \in G$ tal que $e * a = a * e = a$ para todo $a \in G$
+        \item[(G3)] \textbf{Elemento inverso}: Para cada $a \in G$, existe $a^{-1} \in G$ tal que
+        \[
+        a * a^{-1} = a^{-1} * a = e.
+        \]
+    \end{enumerate}
+}
+
+\defn{Grupo abeliano}{
+    Un grupo $(G, *)$ se dice abeliano o conmutativo si además cumple:
+    \begin{enumerate}
+        \item[(G4)] \textbf{Conmutatividad}: $a * b = b * a$ para todo $a, b \in G$
+    \end{enumerate}
+}
+
+\exer{
+    Probar las siguientes afirmaciones:
+    \begin{itemize}
+        \item $(\mathbb{Z}, +)$ es un grupo abeliano.
+        \item $(\R\setminus\{0\}, \cdot)$ es un grupo abeliano.
+        \item El grupo simétrico $S_n$ de permutaciones de $n$ elementos es un grupo.
+        \item $(\N, +)$ no es un grupo.
+    \end{itemize}
+}
+
+\defn{Subgrupo}{
+    Un subconjunto $H$ de un grupo $G$ es un subgrupo (denotado $H \leq G$) si:
+    \begin{enumerate}
+        \item $H$ es no vacío
+        \item Para todo $a, b \in H$, $a * b \in H$ (cerrado bajo la operación)
+        \item Para todo $a \in H$, $a^{-1} \in H$ (cerrado bajo inversos)
+    \end{enumerate}
+}
+
+\section{Homomorfismos}
+
+\defn{Homomorfismo de grupos}{
+    Sean $(G, \cdot)$ y $(H, *)$ grupos. Una aplicación $f: G \to H$ es un homomorfismo de grupos si preserva las operaciones de grupo, es decir:
+    \[
+    f(a \cdot b) = f(a) * f(b) \quad \forall a, b \in G
+    \]
+}

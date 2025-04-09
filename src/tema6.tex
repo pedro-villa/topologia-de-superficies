@@ -167,11 +167,11 @@
 \lemp{Relación de equivalencia entre espacios topológicos}{
     La propiedad $\simeq$ define una relación de equivalencia entre los espacios topológicos.
 }{
-    \noindent\underline{Reflexiva:} $X \simeq X$, $f = g = Id_X$.
+    \noindent\textbf{Reflexiva:} $X \simeq X$, $f = g = Id_X$.
 
-    \noindent\underline{Simetrica:} $X \simeq Y$ ($\exists f:X\to Y, g:Y\to X$) $\implies Y \simeq X$ ($\bar{f}=g, \bar{g}=f$).
+    \noindent\textbf{Simetrica:} $X \simeq Y$ ($\exists f:X\to Y, g:Y\to X$) $\implies Y \simeq X$ ($\bar{f}=g, \bar{g}=f$).
 
-    \noindent\underline{Transitiva:} $X \simeq Y$ ($\exists f_1:X\to Y, g_1:Y\to X$) y $Y \simeq Z$ ($\exists f_2:Y\to Z, g_2:Z\to Y$) 
+    \noindent\textbf{Transitiva:} $X \simeq Y$ ($\exists f_1:X\to Y, g_1:Y\to X$) y $Y \simeq Z$ ($\exists f_2:Y\to Z, g_2:Z\to Y$) 
 
     ¿$f:X\to Z, g:Z\to Y$? $f=f_2\circ f_1, g=g_1\circ g_2$.
 
@@ -179,6 +179,8 @@
 
     $g\circ f =g_1\circ g_2\circ f_2\circ f_1 \simeq g_1\circ Id_Y\circ f_1 = g_1\circ f_1 \simeq Id_X$.
 }
+
+\section{Espacios contractiles}
 
 \defn{Espacio contráctil}{
     Un espacio topológico X se dice que es contráctil si es homotópicamente equivalente a un punto.
@@ -241,17 +243,19 @@
     \end{enumerate}
 }
 
-\defn{Caominos homotópicos}{
+\section{Homotopía por caminos}
+
+\defn{Caminos homotópicos}{
     Dos caminos $\alpha,\beta : I \to X$ en un espacio topológico $X$ uniendo dos puntos $x_0$ y $x_1$ se dice que son homotópicos (por caminos) si existe una homotopía $F : I \times I \to X$ entre $\alpha$ y $\beta$ tal que $F(0,t) = x_0$, $F(1,t) = x_1$, para todo $t \in I$. Lo denotaremos por $\alpha \simeq_p \beta$.
 }
 % TODO: Hacer dibujo
 
-\fact{
+\rmkb{
     Para cada $t\in I$, $F_t$ es un camino uniendo $x_0$ y $x_1$, con $F_0 = \alpha$ y $F_1 = \beta$.
 }
 
 \propp{Relación de equivalencia $\simeq_p$}{
-    $\simeq_p$ define una relación de equivalencia. Denotamos por $[\alpha]$ la clase asociada a un camino $\alpha$.
+    $\simeq_p$ define una relación de equivalencia sobr el conjunto de caminos que unen $x_0,x_1$. Denotamos por $[\alpha]$ la clase asociada a un camino $\alpha$.
 }{
     Pendiente...
 }
@@ -295,8 +299,8 @@
     Quiero ver que $\alpha*\beta$ y $\gamma$ son homotópicos por caminos, luego necesito una homotopía $H(x,t):I\times I \to X$  tal que $H(x,0) = \alpha*\beta(x)$ y $H(x,1) = \gamma(x)$, además de que $H(0,t) = x_0$ y $H(1,t) = x_2$.
 
     $H(x,t) = \begin{cases}
-        \alpha\Big{(}\frac{x}{(1-t)\frac{1}{2}+tr}\Big{)} & x \in [0, (1-t)\frac{1}{2}+tr] \\
-        \beta\Big{(}\frac{x-(1-t)\frac{1}{2}-tr}{1-(1-t)\frac{1}{2}-tr}\Big{)} & x \in [(1-t)\frac{1}{2}+tr, 1]
+        \alpha\Big(\frac{x}{(1-t)\frac{1}{2}+tr}\Big) & x \in [0, (1-t)\frac{1}{2}+tr] \\
+        \beta\Big(\frac{x-(1-t)\frac{1}{2}-tr}{1-(1-t)\frac{1}{2}-tr}\Big) & x \in [(1-t)\frac{1}{2}+tr, 1]
     \end{cases}$
     \begin{itemize}
         \item $H(x,0) = \alpha*\beta(x). \checkmark$
@@ -310,7 +314,68 @@
 }
 
 \ex{
-    \noindent Si $X\subset \R^n$ convexo, entonces $\pi_1(X,x_0) = 0$ (el grupo trivial) para todo $x_0\in X$. En particular $\pi_1(\R^n,x_0) = 0$ y $\pi_1(B^n, x_0) = 0$, donde $B^n$ es la bola unidad.
+    Si $X\subset \R^n$ convexo, entonces $\pi_1(X,x_0) = 0$ (el grupo trivial) para todo $x_0\in X$. En particular $\pi_1(\R^n,x_0) = 0$ y $\pi_1(B^n, x_0) = 0$, donde $B^n$ es la bola unidad.
+}
+\ex{
+    $\pi_1(\R,x) = (0,+)$ (el grupo trivial se denota así).
+}
 
-    \noindent$\pi_1(\R,x) = (0,+)$ (el grupo trivial se denota así).
+\defn{}{
+    Sea $\sigma$ un camino uniendo dos puntos $x_0, x_1 \in X$. Definimos
+    \[
+    \hat{\sigma} : \pi_1(X, x_0) \to \pi_1(X, x_1)
+    \]
+    por
+    \[
+    \hat{\sigma}([\gamma]) = [\overline{\sigma}] * [\gamma] * [\sigma].
+    \]
+}
+
+\propp{Proposición 6.8}{\label{prop:iso-grupos}
+    La aplicación $\hat{\sigma}$ es un isomorfismo de grupos para todo camino $\sigma$. 
+}{
+    Para ver que $\hat{\sigma}$ es biyectiva comprobaremos que tiene inversa dada por
+    \[
+    (\hat{\sigma})^{-1}=\widehat{(\overline{\sigma})}
+    \]
+    en efecto se tiene
+    \begin{align*}
+        \widehat{(\overline{\sigma})}(\hat{\sigma})([\gamma])=\text{Pasos pendientes}=[\gamma]
+    \end{align*}
+}
+
+\corp{
+    Si $X$ es conexo por caminos, todos los grupos $\pi_1(X, x_0)$ son isomorfos entre sí. En este caso, podemos considerar el grupo fundamental $\pi_1(X)$, independiente del punto base.
+}{
+    Pendiente.
+}
+
+\section{Espacios simplemente conexos}
+
+\defn{Espacio simplemente conexo}{
+    Decimos que un espacio topológico $X$ es simplemente conexo si es conexo por caminos y $\pi_1(X) = 0$.
+}
+
+\ex{
+    Si $X \subset \mathbb{R}^n$ es convexo, entonces $X$ es simplemente conexo.
+}
+
+\section{El homomorfismo inducido}
+
+\defn{Homomorfismo inducido}{
+    Sea $f : X \to Y$ una aplicación continua. Para todo punto $x_0 \in X$, $f$ induce una aplicación
+    \[
+    f_* : \pi_1(X, x_0) \to \pi_1(Y, f(x_0))
+    \]
+    definida por $f_*([\alpha]) = [f \circ \alpha]$, denominada el homomorfismo inducido.
+}
+
+\propp{Propiedades del homomorfismo inducido}{
+    \begin{enumerate}
+        \item Si $f: X \to Y$ y $g: Y \to Z$ son continuas, entonces $(g \circ f)_* = g_* \circ f_*$.
+        \item Para la identidad $Id_X: X \to X$ se tiene $(Id_X)_* = Id|_{\pi_1(X,x_0)}.$
+        \item Si $f$ es un homeomorfismo, entonces $f_*$ es un isomorfismo de grupos. Así, el grupo fundamental es un invariante topológico.
+    \end{enumerate}
+}{
+    Pendiente.
 }
