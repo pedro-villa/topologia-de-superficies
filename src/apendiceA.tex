@@ -49,3 +49,29 @@
     f(a \cdot b) = f(a) * f(b) \quad \forall a, b \in G
     \]
 }
+
+\defn{Isomorfismo de grupos}{
+    Un isomorfismo de grupos es una aplicación biyectiva que además es homomorfismo. Si $(G, \cdot)$ y $(H, *)$ son grupos y $f: G \to H$ es un isomorfismo decimos que $G$ y $H$ son isomorfos. 
+}
+
+\defn{Imagen y núcleo}{
+    Dado un homomorfismo $f: G \to H$ definimos la imagen de $f$ como
+    \[
+        \text{Im} f = \{ h \in H \mid h = f(g), g \in G\}
+    \]
+    y el núcleo de $f$ como 
+    \[
+        \text{Ker} f = \{ g \in G \mid f(g)=e_H \}
+    \]
+    donde $e_H$ indica el elemento neutro del grupo $H$.
+}
+
+\exer{
+    Sea $f: G \to H$ un homomorfismo, probar las siguientes afirmaciones:
+    \begin{itemize}
+        \item $f$ es inyectiva si y solo si $\text{Ker} f=\{e_H\}$.
+        \item Si $f$ es biyectiva, entonces $f^{-1}$ también es un homomorfismo.
+        \item $\text{Im} f,\text{Ker} f$ son subgrupos de $H,G$ respectivamente.
+        \item Si $K \leq G$ entonces $f(K) \leq H$. Recordar que $\leq$ indica que el conjunto es un subgrupo. 
+    \end{itemize}
+}
