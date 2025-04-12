@@ -509,7 +509,7 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 }
 
 \pf{
-    Sea $p=(x,y,z)\in\sphere^2$ y supongamos que $z>0$, en tal caso el entorno $U=\sphere^2\cap\{z>0\}$ es homeomorfo a la bola $B^2((0,0),1)$ mediante el homeomorfismo
+    Sea $p=(x_0,y_0,z_0)\in\sphere^2$ y supongamos que $z_0>0$, en tal caso el entorno $U=\sphere^2\cap\{z>0\}$ es homeomorfo a la bola $B^2((0,0),1)$ mediante el homeomorfismo
     \[
     \varphi:B^2((0,0),1)\to U,\quad \varphi(x,y)=(x,y,\sqrt{x^2+y^2}).
     \]
@@ -517,7 +517,7 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
     \[
     \varphi^{-1}(x,y,z)=(x,y).
     \]
-    Para el resto de puntos sabemos que alguna de las tres componentes $x,y,z$ debe ser no nula, por lo que podemos hacer un procedimiento similar, tarea que encomendamos al lector.
+    Para el resto de puntos sabemos que alguna de las tres componentes $x_0,y_0,z_0$ debe ser no nula, por lo que podemos hacer un procedimiento similar, tarea que encomendamos al lector.
 }
 
 \ex{
@@ -527,13 +527,13 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 \pf{
     Recomendamos al lector que vuelva a echar un vistazo al ejemplo referente al toro en la \hyperref[sec:ejemplos-cocientes]{Sección 1.2}, aunque en este caso identificaremos al toro con el producto cartesiano de dos circunferencias.
     
-    Para ver que $\mathbb{T}^2$ es localmente euclídeo sea $p=(x,y)\in\mathbb{T}^2=\sphere^1\times\sphere^1$, de manera que
+    Para ver que $\mathbb{T}^2$ es localmente euclídeo sea $p=(x_0,y_0)\in\mathbb{T}^2=\sphere^1\times\sphere^1$, de manera que
     \[
-    p=((\cos\theta,\sin\theta),(\cos\phi,\sin\phi))
+    p=((\cos\theta_0,\sin\theta_0),(\cos\phi_0,\sin\phi_0))
     \]
-    para ciertos $\theta,\phi\in[0,2\pi)$. Consideremos la bola abierta $B=B((\theta,\phi),1)\subset\R^2$ y el homeomorfismo
+    para ciertos $\theta_0,\phi_0\in[0,2\pi)$. Consideremos la bola abierta $B=B((\theta_0,\phi_0),1)\subset\R^2$ y el homeomorfismo
     \[
-    \varphi:B\to U\subset\sphere^1\times\sphere^1,\quad \varphi(\theta',\phi')=((\cos\theta',\sin\theta'),(\cos\phi',\sin\phi')).
+    \varphi:B\to U\subset\sphere^1\times\sphere^1,\quad \varphi(\theta,\phi)=((\cos\theta,\sin\theta),(\cos\phi,\sin\phi)).
     \]
     En efecto es un homeomorfismo al considerarla sobre su imagen $U=\varphi(B)$ porque es continua y biyectiva con inversa continua. Que es sobreyectiva es inmediato, que es inyectiva también puesto que las funciones seno y coseno son $2\pi$-periódicas y el radio de la bola es menor que $2\pi$. Por tanto para cada punto $p$ existe la carta $(U,\varphi^{-1})$ en torno a ese punto, lo que prueba que $\mathbb{T}^2$ es localmente euclídeo.
 }
@@ -545,9 +545,9 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 }
 
 \pf{
-    Sea $p=(\cos\theta,\sin\theta,s)\in\sphere^1\times\R$ y consideremos la bola abierta $B=B((\theta,s),1)\subset\R^2$ y el homeomorfismo
+    Sea $p=((\cos\theta_0,\sin\theta_0),s_0)\equiv(\cos\theta_0,\sin\theta_0,s_0)\in\sphere^1\times\R$ y consideremos la bola abierta $B=B((\theta_0,s_0),1)\subset\R^2$ y el homeomorfismo
     \[
-    \varphi:B\to U\subset\sphere^1\times\sphere^1,\quad \varphi(\theta',s')=(\cos\theta',\sin\theta',s').
+    \varphi:B\to U\subset\sphere^1\times\sphere^1,\quad \varphi(\theta,s)=(\cos\theta,\sin\theta,s).
     \]
     En efecto es un homeomorfismo al considerarla sobre su imagen $U=\varphi(B)$ porque es continua y biyectiva con inversa continua. Por tanto para cada punto $p$ existe la carta $(U,\varphi^{-1})$ en torno a ese punto, lo que prueba que el cilindro es localmente euclídeo.
 }
@@ -557,11 +557,11 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 }
 
 \pf{
-    Sea $P=\{(x,y,z)\in\R^3 \mid x^2 + y^2 - z = 0\}$ y sea $p\in P, p=(x,y,z)$. Consideremos el número $r=1+\sqrt{x^2+y^2}$ y la bola $B=B((x,y),r)$, así como el homeomorfismo
+    Sea $P=\{(x,y,z)\in\R^3 \mid x^2 + y^2 - z = 0\}$ y sea $p\in P, p=(x_0,y_0,z_0)$. Consideremos la bola $B=B((x_0,y_0),1)$ y el homeomorfismo
     \[
-    \varphi:B\to U,\quad \varphi(x',y')=(x',y',x'^2+y'^2)
+    \varphi:B\to U,\quad \varphi(x,y)=(x,y,x^2+y^2)
     \]
-    definido en su imagen $U=\varphi(U)$, entonces $(U,\varphi^{-1})$ es una carta que cubre al punto $p$, lo que prueba que $P$ es una superficie.
+    definido en su imagen $U=\varphi(B)$. Que es un homeomorfismo es inmediato puesto que es continua y su inversa es $\varphi^{-1}(x,y,z)=(x,y)$, también continua. Entonces $(U,\varphi^{-1})$ es una carta que cubre al punto $p$, lo que prueba que $P$ es un localmente euclídeo y por tanto una superficie.
 }
 
 El resto de ejemplos se pueden justificar de manera similar a los anteriores encontrando una serie de cartas que cubran todos los puntos de la superficie. Dejamos esta tarea al lector.
@@ -589,8 +589,9 @@ El resto de ejemplos se pueden justificar de manera similar a los anteriores enc
     \]
     en cuyo caso la proyección al cociente viene dada por
     \[
-    \pi:\R^{n+1}\setminus\{0\}\to\mathbb{RP}^n,\quad \pi(x_1,\dots x_{n+1})=[x_1,\dots,x_{n+1}]
+    \pi:\R^{n+1}\setminus\{0\}\to\mathbb{RP}^n,\quad \pi(x_1,\dots x_{n+1})=[x_1,\dots,x_{n+1}].
     \]
+
     Veamos que $\mathbb{RP}^n$ es localmente euclídeo. Sea $p=[x_1,\cdots,x_{n+1}]\in\mathbb{RP}^n$, por definición de $\mathbb{RP}^n$ sabemos que existe un $i_0$ tal que $x_{i_0} \neq 0$, definimos el siguiente entorno $U_p = \{[y_1,\cdots,y_{n+1}] : y_{i_0} \neq 0 \}$ que contiene a $p$ y es abierto puesto que la topología sobre $\mathbb{RP}^n$ es precisamente la topología final de $\pi$ y se tiene $\pi^{-1}(U_p)=V_p$ donde
     \[
         V_p=\{(y_1,\cdots,y_{n+1}) : y_{i_0} \neq 0\}
@@ -605,7 +606,15 @@ El resto de ejemplos se pueden justificar de manera similar a los anteriores enc
     \]
     es un homeomorfismo. Omitiremos ver que $\varphi$ esta bien definida y es un homeomorfismo.
 
-    %TODO Justificar que es Hausdorff y 2AN.
+    Ahora veamos que $\mathbb{RP}^n$ es $2A\N$. Para ello notemos que $\R^{n+1}\setminus\{0\}$ es $2A\N$ y $\pi$ es continua y sobreyectiva. En tal caso podemos aplicar el siguiente lema:
+    \lem{}{
+        Sea $X$ un espacio $2A\N$ y $\pi: X \to M$ continua y sobreyectiva. Si $M$ es localmente euclídeo entonces es $2A\N$.
+    }
+    \pf{
+        Sea $\mathcal{U}=\{U_p \mid p \in M\}$ un recubrimiento por bolas euclídeas de $M$, en tal caso $\mathcal{B}=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}\}$ es un recubrimiento por abiertos de $X$. Por ser $X$ $2A\N$ debe existir un subrecubrimiento numerable de $\mathcal{B}$ (la demostración de este hecho queda para el lector). Sea $\mathcal{B}'=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}'\}$ tal subrecubrimiento numerable, entonces existe un subrecubrimiento numerable $\mathcal{U}'\subset\mathcal{U}$. Como cada bola euclídea de $\mathcal{U}'$ tiene una base numerable la unión numerable de estas bases es una base numerable de $M$ (recordemos que la unión numerable de conjuntos numerbales es numerable).
+    }
+
+    Falta probar que es Hausdorff.
 }
 
 \clearpage
