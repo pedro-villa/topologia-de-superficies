@@ -614,7 +614,31 @@ El resto de ejemplos se pueden justificar de manera similar a los anteriores enc
         Sea $\mathcal{U}=\{U_p \mid p \in M\}$ un recubrimiento por bolas euclídeas de $M$, en tal caso $\mathcal{B}=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}\}$ es un recubrimiento por abiertos de $X$. Por ser $X$ $2A\N$ debe existir un subrecubrimiento numerable de $\mathcal{B}$ (la demostración de este hecho queda para el lector). Sea $\mathcal{B}'=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}'\}$ tal subrecubrimiento numerable, entonces existe un subrecubrimiento numerable $\mathcal{U}'\subset\mathcal{U}$. Como cada bola euclídea de $\mathcal{U}'$ tiene una base numerable la unión numerable de estas bases es una base numerable de $M$ (recordemos que la unión numerable de conjuntos numerbales es numerable).
     }
 
-    Falta probar que es Hausdorff.
+    Finalmente para probar que es Hausdorff recordemos que una relación de equivalencia $\sim$ en un espacio topológico $X$ se dice abierta si para cada subconjunto abierto $A$ de $X$, el conjunto
+    \[[A] := \{x \in X \mid x \sim a \text{ para algún } a \in A\}\]
+    también es abierto. Es fácil ver que la relación que define a $\mathbb{RP}^n$ es abierta, y en tal caso podemos aplicar el siguiente lema cuya demostración dejamos como ejercicio.
+    
+    \lem{}{
+        Sea $\sim$ una relación de equivalencia abierta en un espacio $X$. Entonces $X / \sim$ es Hausdorff si y solo si el conjunto $\{(x, y) \mid x \sim y\}$ es cerrado en $X \times X$.
+    }
+    
+    Sea $X = \mathbb{R}^{n+1} \setminus 0$ y $\sim$ la relación del espacio proyectivo. Definamos la aplicación $f: X \times X \to \R$ como
+    \[
+    f(x_1, \ldots, x_{n+1}, y_1, \ldots, y_{n+1}) = \sum_{i \neq j} (x_i y_j - y_i x_j)^2.
+    \]
+    Entonces $f(x, y)$ es claramente continua y se anula si y solo si $y = \lambda x$ para algún $\lambda \neq 0$, es decir, si y solo si $x \sim y$. Así tenemos que
+    \[
+    f^{-1}(0) = \{(x, y) \mid x \sim y\}
+    \]
+    es cerrado en $X \times X$ y por el lema, $\mathbb{RP}^n$ es Hausdorff.
+}
+
+\rmkb{
+    $\mathbb{RP}^n$ es de hecho una variedad compacta. Para probar esto basta ver que $\mathbb{RP}^n$ es homeomorfo a la esfera $\sphere^n$ con la relación de equivalencia
+    \[
+        p \sim q \iff p = \pm q
+    \]
+    que denotaremos $\tilde{\sphere}^n$. Esta demostración es muy similar a la del ejemplo para $\mathbb{RP}^2$ de la \hyperref[sec:ejemplos-cocientes]{Sección 1.2} y queda para el lector. Por las propiedades de los espacios cociente $\tilde{\sphere}^n$ es compacta, y por tanto $\mathbb{RP}^n$ también.
 }
 
 \clearpage
