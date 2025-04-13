@@ -737,28 +737,25 @@ Comenzamos demostrando sin demasiado detalle un pequeño lema técnico.
 }
 
 \rmkb{
-    Para entender la unión disjunta podemos pensar en ek siguiente contexto. Supongamos que los espacios topológicos son subconjuntos acotados del plano (por ejemplo polígonos), su unión disjunta consistirá en disponer estos subconjuntos de tal manera que no se solapen unos con otros. Un ejemplo sería la imagen siguiente
+    Para entender la unión disjunta podemos situarnos en el siguiente contexto: supongamos que los espacios topológicos son subconjuntos acotados del plano (por ejemplo polígonos), su unión disjunta consistirá intuitivamente en disponer estos subconjuntos de tal manera que no se solapen unos con otros. Un ejemplo sería la imagen siguiente
     \begin{center}
         \includegraphics[width=0.25\textwidth]{img/union-disjunta.png}
     \end{center}
-    Otra manera de imaginar la unión disjunta es considerar que ponemos cada subconjunto del plano en una copia distinta de $\R^2$, es decir, tendremos cada espacio topológico (figura) en un plano y la unión disjunta será la unión de esas "hojas".
+    Otra manera de imaginar la unión disjunta es considerar que ponemos cada subconjunto del plano en una copia distinta de $\R^2$, es decir, tendremos cada espacio topológico (en la figura cada polígono coloreado) en un "plano" distinto y la unión disjunta será la unión de todas esas "hojas".
 }
 
 \propp{Topología unión disjunta}{
     La familia de subconjuntos \(B = \{\iota_\alpha(U) : U \in \T_\alpha, \alpha \in J\}\) es una base para una topología \(\T\) sobre \(\bigsqcup_{\alpha \in J} X_\alpha\) que recibe el nombre de topología unión disjunta.
 }{
-    Sea \(\{(X_\alpha,\T_\alpha)\}_{\alpha\in J}\) una familia de espacios topológicos.
-    \newline
+    Sea \(\{(X_\alpha,\T_\alpha)\}_{\alpha\in J}\) una familia de espacios topológicos. Veamos que $B$ es una base:
+    
     (B1) Para todo \((x,\alpha)\in\bigsqcup_{\alpha\in J}X_\alpha\) se tiene $x\in X_\alpha$, y como $X_\alpha\in \T_\alpha$, deducimos que $(x,\alpha) \in \iota_\alpha(X_\alpha)\in B$.
-    \newline
-    (B2) Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso
-    \[
-        \iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset
-    \]
-    que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V=U_1\cap U_2\in \T_\alpha\) (que es abierto puesto que $U_1,U_2$ lo son) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). La última inclusión es fácil de comprobar y se deja como un sencillo ejercicio.
+
+    (B2) Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso $\iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset$ que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V=U_1\cap U_2\in \T_\alpha\) (que es abierto puesto que $U_1,U_2$ lo son) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). La última inclusión es fácil de comprobar y se deja como un sencillo ejercicio.
 }
 
 \propp{Propiedades de la unión disjunta}{
+    Sea \(\{(X_\alpha,\T_\alpha)\}_{\alpha \in J}\) una familia de espacios topológicos, $X=\sqcup_{\alpha \in J} X_\alpha$ y $(X,\T)$ el espacio topológico con la unión disjunta. Entonces:
     \begin{enumerate}
         \item Cada inclusión \(\iota_{\alpha}\) es un embebimiento, por lo que podemos identificar 
         
@@ -771,6 +768,41 @@ Comenzamos demostrando sin demasiado detalle un pequeño lema técnico.
     \end{enumerate}
 }{
     Pendiente.
+    %%%%%% Esto lo empecé a escribir pero no tiene mucho sentido, no le hagais caso. 
+    %
+    % Hagamos un par de observaciones. En primer lugar $\forall \alpha \in J$ es inmediato que $\iota_\alpha$ es inyectiva, luego se cumple
+    % \[
+    % \iota_\alpha^{-1}(\iota_\alpha(A)) = A,\quad \iota_\alpha(A\cap B)=\iota_\alpha(A)\cap\iota_\alpha(B).
+    % \]
+    % Además, notemos que si tomamos dos elementos básicos $B_1,B_2\in\T$ de la forma $B_1=\iota_\alpha(U_1),B_2=\iota_\beta(U_2)$ entonces
+    % \[
+    % B_1 \cap B_2 = \iota_\alpha(U_1) \cap \iota_\beta(U_2)=
+    % \begin{cases}
+    %     \iota_\alpha(U_1 \cap U_2), &\alpha=\beta \\
+    %     \emptyset, &\alpha\neq\beta
+    % \end{cases}
+    % \]
+    % \begin{enumerate}
+    %     \item 
+    %     Para ver que es continua, si $V \in \T$ entonces es una intersección finita de elementos básicos, $V=\cap_{n=1}^N V_n$ y cada $V_n \in B$ verifica $V_n=\iota_{\beta_n} (U_n), U_n\in \T_{\beta_n}, \beta_n \in J$. Es fácil ver que si algún $\beta_n\neq\alpha$ entonces $\iota_\alpha^{-1}(V)=\emptyset$, mientras que si $\beta_n=\alpha$ para todo $n$ entonces
+    %     \[
+    %     \iota_\alpha^{-1}(V)=\iota_\alpha^{-1}(\cap_{i=1}^N \iota_\alpha(U_n))=\cap_{i=1}^N U_n\in \T_\alpha.
+    %     \]
+    %     Finalmente, si consideramos la restricción de $\iota_\alpha$ a su imagen la inversa es la proyección
+    %     \[
+    %         \pi_\alpha: \iota_\alpha(X_\alpha) \to X_\alpha,\quad \pi_\alpha(x,\alpha)=x
+    %     \]
+    %     que también es continua porque dado $U\in\T_\alpha, \pi_\alpha^{-1}(U)=\iota_\alpha(U)\in\T$ por la definición de la base $B$. Esto prueba que $\iota_\alpha$ es un embebimiento.
+
+    %     \item Sea $V \subset X$, entonces $V$ es abierto si y solo si es intersección finita de elementos básicos
+    %     \[
+    %     V \in \T \iff V=\cap_{n=1}^N V_n, V_n=\iota_{\beta_n} (U_n), U_n\in \T_{\beta_n}, \beta_n \in J
+    %     \]  
+    %     Si existen dos $\beta_n$ distintos entonces $V=\emptyset$ y el resultado es inmediato. En caso contrario $\alpha=\beta_n$ para todo $n=1,\dots,N$ y por tanto
+    %     \[
+    %     V \in \T \iff V=\cap_{n=1}^N \iota_{\alpha}(U_n) = \iota_{\alpha}(\cap_{n=1}^N U_n), U_n\in\T_\alpha
+    %     \]   
+    % \end{enumerate}
 }
 
 \clearpage
@@ -787,7 +819,7 @@ Comenzamos demostrando sin demasiado detalle un pequeño lema técnico.
 \]
 }
 
-A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \hyperref[prop:invarianza-cociente]{1.7.4}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
+A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \hyperref[prop:invarianza-cociente]{1.6.4}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
 
 \lem{Teorema de Jordan - Schönflies}
 {
@@ -800,15 +832,17 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 }{
     Sea $g:U\to\mathbb{R}^2$ el homeomorfismo dado por la hipótesis $U\cong\R^2$ y sean $\tilde{C}_1 = g(C_1),\tilde{C}_2 = g(C_2)$, definamos la aplicación
     \[
-        \hat{h} = \left(g\circ h\circ g^{-1}\right)|_{\tilde{C}_1} : \tilde{C}_1 \to \tilde{C}_2.
+        \hat{h} = g\circ h\circ \left(g^{-1}|_{\tilde{C}_1}\right) : \tilde{C}_1 \to \tilde{C}_2.
     \]
-    que es claramente un homeomorfismo. Por el Teorema de Jordan-Schönflies existe un homeomorfismo $\hat{H}:\mathbb{R}^2\to\mathbb{R}^2$ tal que $\hat{H}\vert_{\tilde{C}_1} = \hat{h}$ y $\hat{H}$ es la identidad fuera de un compacto $K\supseteq\tilde{C}_1$. Sea $H = g^{-1}\circ\hat{H}\circ g$, entonces $H$ es el homeomorfismo buscado puesto que para todo $x\in C_1$
+    que es claramente un homeomorfismo. Por el Teorema de Jordan-Schönflies existe un homeomorfismo $\hat{H}:\mathbb{R}^2\to\mathbb{R}^2$ tal que $\hat{H}\vert_{\tilde{C}_1} = \hat{h}$ y $\hat{H}$ es la identidad fuera de un compacto $K$, $\tilde{C}_1 \subset K$.
+    
+    Sea $H' = g^{-1}\circ\hat{H}\circ g: U \to U$, entonces podemos extender esta aplicación como la identidad fuera de $U$, obteniendo $H:\R^2\to\R^2$, que es el homeomorfismo buscado puesto que para todo $x\in C_1$
     \begin{align*}
-    H|_{C_1}(x) &= \left(g^{-1}\circ \hat{H} \circ g \right)|_{C_1}(x)=\left(g^{-1}\circ \hat{H}|_{\tilde{C}_1}\right)(g(x))=\left(g^{-1}\circ\hat{h}\right)(g(x))=
-    \\
-    &= \left(g^{-1}\circ g\circ h\circ g^{-1}\right)(g(x))=h(x)\implies H|_{C_1}=h
+        H|_{C_1}(x) &= \left(g^{-1}\circ \hat{H} \circ g \right)|_{C_1}(x) = g^{-1}\circ \hat{H} \circ \left( g |_{C_1}\right)(x) =\\
+        &= g^{-1}\circ \left(\hat{H}|_{\tilde{C}_1}\right)(g(x))=\left(g^{-1}\circ\hat{h}\right)(g(x)) = \\
+        &= \left(g^{-1}\circ g\circ h\circ g^{-1}\right)(g(x))=h(x)\implies H|_{C_1}=h
     \end{align*}
-    Además, si $K\subset U$ entonces claramente $H\vert_{\mathbb{R}^2 \setminus U} = Id$, y siempre podemos suponer que $K\subset U$ porque $U$ es homeomorfo a $\R^2$. % Que alguien revise esto porque no estoy muy seguro la verdad
+    y además $H|_{\R^2\setminus U}=Id.$
 }
 
 \propp{Invarianza del cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\)}{\label{prop:invarianza-cociente}
@@ -829,7 +863,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
         \[
         \tilde{H} = \psi^{-1} \circ H \circ \psi : D_3' \to D_3',
         \]
-        entonces $\tilde{H} (D_3'\setminus D_1) = D_3'\setminus D_3$, pues $\overline{D_1} \subset D_3$ y $\tilde{H}(\partial D_1) = \partial D_3$. 
+        entonces $\tilde{H} (D_3'\setminus D_1) = D_3'\setminus D_3$, pues $\overline{D_1} \subset D_3$ y $\tilde{H}(\partial D_1) = \partial D_3$. % Esto no tiene sentido, hay que buscarle algún apaño
 
         Ahora, extendiendo fuera de $D_3'$ por la identidad obtenemos el homeomorfismo buscado.
 
@@ -896,13 +930,13 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
         \item Si \(S_1\) y \(S_2\) son superficies compactas, entonces \(S_1 \# S_2\) es una superficie compacta.
     \end{itemize}
 }{
-    Las demostraciones de las propiedades de conexidad y compacidad se consideran \underline{inmediatas}. Nos centramos en demostrar que \( S_1 \# S_2 \) es una superficie. Se puede comprobar fácilmente que las propiedades de \( 2A\mathbb{N} \) y \(T_2\) se heredan de \(S_1\) y \(S_2\). Por tanto, nos queda comprobar que \(S_1 \# S_2\) es localmente euclídeo de dimensión 2. 
+    Las demostraciones de las propiedades de conexidad y compacidad se omiten, nos centramos en demostrar que \( S_1 \# S_2 \) es una superficie. Se puede comprobar fácilmente que las propiedades de \( 2A\mathbb{N} \) y \(T_2\) se heredan de \(S_1\) y \(S_2\). Por tanto, nos queda comprobar que \(S_1 \# S_2\) es localmente euclídeo de dimensión 2. 
 
     Usando la notación habitual, sea 
     \[
     S_1 \# S_2 = \faktor{S_1'\sqcup S_2'}{R\varphi},
     \]
-    con \( \varphi : \partial D_1 \to \partial D_2\) un homeomorfismo. Ya vimos en la proposición \ref{thm:suma_conexa} que \(S_1 \# S_2\) no depende de la elección de \(D_1, D_2\) ni de \(\varphi\). 
+    con \( \varphi : \partial D_1 \to \partial D_2\) un homeomorfismo. Ya vimos en la \hyperref[prop:invarianza-cociente]{Proposición 1.6.4} que \(S_1 \# S_2\) no depende de la elección de \(D_1, D_2\) ni de \(\varphi\). 
 
     Consideramos la proyección
     \[
