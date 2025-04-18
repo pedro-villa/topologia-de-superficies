@@ -341,7 +341,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 
     \noindent
     Supongamos que tenemos $VaWa$, con $V,W \ne \emptyset$. Cortamos por el medio ($Vab$ y $b^{-1}Wa$). 
-    Rotamos y pegamos por $a$ ($bVa$ y $a^{-1}W^{-1}b$), llegando a $bbVW^{-1}$. 
+    Rotamos y reflejamos la segunda palabra ($bVa$ y $a^{-1}W^{-1}b$), y pegamos por $a$ llegando a $bbVW^{-1}$, donde las aristas retorcidas ya son adyacentes. 
     La repetición de este proceso una cantidad finita de veces demuestra el paso 3.
 
     \vspace{0.5em}
@@ -360,7 +360,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     Si no todos los vértices están identificados, existen vértices $v_1, w$ en $\partes$ 
     y una arista $ a : v_1 \to w$ con $p(v_1)\ne p(w)$. 
     Ahora, la arista que termina en $v_1$ no puede ser ni $a$ (porque entonces $p(v_1) = p(w)$) 
-    ni $a^{-1}$ (pues tendríamos la secuencia $a^{-1} a$ y podríamos aplicar el paso 2). 
+    ni $a^{-1}$ (pues tendríamos la secuencia $a^{-1} a$ y al aplicar de nuevo el paso 2 llegaríamos también a que $p(v_1) = p(w)$). 
     Por tanto, concluimos que la arista es distinta, llamémosla $b$, y al vértice del que parte $x$. 
     Es decir, tenemos $b : x \to v_1$.
 
@@ -368,9 +368,9 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \noindent
     Por la definición de presentación poligonal, la letra $b$ debe aparecer (bien como $b$ o como $b^{-1}$) en otro sitio de la presentación. 
     Suponemos que aparece $b^{-1}$ (si fuese $b$ sería análogo salvo una reflexión que ahora mencionaremos). 
-    Tenemos entonces $baXb^{-1}Y$. Podemos suponer $X,Y \ne \emptyset$. Veámos por qué:
+    Tenemos entonces por construcción la secuencia $baXb^{-1}Y$, con $X$ e $Y$ cadenas arbitrarias de la presentación. Podemos suponer $X,Y \ne \emptyset$. Veámos por qué:
     \begin{itemize}
-        \item Si $X$ fuese vacío, por la definición de $b$ el vértice al que llega $b^{-1}$ en nuestra cadena no sería otro que $w$. 
+        \item Si $X$ fuese vacío, por la definición de $b$, el vértice al que llega $b^{-1}$ en nuestra cadena no sería otro que $w$ (recordemos $a:v_1\to w$). 
               Pero entonces $p(v_1) = p(w)$, lo que contradice la hipótesis.
         \item Si $Y$ fuese vacío, rotando obtendríamos dos aristas adyacentes $b$ y $b^{-1}$ y estaríamos en el paso 2.
     \end{itemize}
