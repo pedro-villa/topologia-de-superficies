@@ -76,7 +76,7 @@
     \]
     es una homotopía entre $g,f$ puesto que es continua al serlo $F$ y cumple $\overline{F}(x,0)=F(x,1)=g(x), \overline{F}(x,1)=F(x,0)=f(x)$. 
     
-    \textit{Nota:} La aplicación $\overline{F}$ se puede construir con cualquier homeomorfismo $\alpha : I \to I$ con $alpha(0) = 1$ y $\alpha(1) = 0$ en vez de $1-t$.
+    \textit{Nota:} La aplicación $\overline{F}$ se puede construir con cualquier homeomorfismo $\alpha : I \to I$ con $\alpha(0) = 1$ y $\alpha(1) = 0$ en vez de $1-t$.
 
     \noindent\textbf{3. Transitiva:} $f \simeq g,g \simeq h \implies f \simeq h$
     
@@ -151,6 +151,33 @@
 \ex{
     La corona circular $C = \{(x,y) \in \R^2 : 1 \le x^2 +y^2 \le 2\} \simeq \mathbb{S}^1$
 }
+\pf{
+    Procedemos de forma idéntica al ejemplo anterior. De hecho, se recomienda al lector intentar hacerlo como ejercicio antes de ver la solución.
+    
+    Definimos $f:C \to \mathbb{S}^1$, $g:\mathbb{S}^1 \to C$ como sigue:
+    \begin{center}
+        $f(y) = \frac{y}{|y|}$ \quad,\quad  $g(x) = x$
+    \end{center}
+    Para cualquier $x \in \mathbb{S}^1 $ se tiene que 
+    \[
+        f \circ g (x) = f(x) = x
+    \] 
+    Concluimos que  $f \circ g \simeq Id_{\mathbb{S}^1}$. Por otro lado, si $y \in C$, 
+    \[
+    g\circ f (y) = g(\frac{y}{|y|}) = \frac{y}{|y|}
+    \]
+    Consideramos la homotopía $F : C \times I \to C$ siguiente, 
+    \[
+        F(y, t) = ty + (1 - t) \frac{y}{|y|}, \quad
+        \begin{cases}
+            F(y,0) = \frac{y}{|y|}=g(f(y)) \\
+            F(y,1) = y = Id_{\mathbb{S}^1 
+            }(y)
+        \end{cases}
+    \]
+    Se puede comprobar fácilmente que para cualquier $y\in C$ la aplicación $F_y$ definida como $F_y(t) = F(y, t)$ verifica $F_y(t) \in C \quad \forall t \in I $. Así, $F$ está bien definida y por tanto $g\circ f \simeq Id_C$.
+}
+
 
 \propp{Espacios homeomorfos y homotopía}{
     Si $X$ e $Y$ son homeomorfos, entonces $X \simeq Y$. El recíproco no es cierto.
@@ -173,7 +200,7 @@
     
     Basta tomar $f = g = Id_X \implies f \circ g = g \circ f = Id_X \simeq Id_X$.
 
-    \noindent\textbf{2. Simetrica:} $X \simeq Y \implies T \simeq X$
+    \noindent\textbf{2. Simetrica:} $X \simeq Y \implies Y \simeq X$
     
     Si $X \simeq Y$ entonces $\exists f:X\to Y, g:Y\to X$ de manera que $f \circ g \simeq Id_X, g \circ f \simeq Id_Y$, luego tomando $\bar{f}=g, \bar{g}=f$ tenemos dos aplicaciones que cumplen lo necesario para que $Y \simeq X$.
 
