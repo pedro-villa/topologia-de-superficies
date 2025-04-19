@@ -3,6 +3,22 @@
 
 \section{Grupos y subgrupos}
 
+\defn{Operación binaria}{
+    Dado un conjunto $X$, una operación binaria en $X$ es una aplicación
+    \[
+        * : X \times X \to X
+    \]
+    Dados $a,b\in X$ se suele abreviar la notación escribiendo $ *(a, b) =: a * b$. 
+}
+
+\ex{
+    \begin{itemize}
+        \item La suma $+$ es una operación binaria sobre $\mathbb{Z}$.
+        \item La resta $-$ NO es una operación binaria sobre $\mathbb{N}$.
+        \item Dado un conjunto cualquiera $X$, llamemos $\Phi(X) = \{ \varphi : X \to X : \text{ } \varphi \text{ es biyectiva }\}$. La composición $\circ$ es una operación binaria sobre $\Phi(X)$.
+    \end{itemize}
+}
+
 \defn{Grupo}{
     Un grupo es un par $(G, *)$ donde $G$ es un conjunto y $*: G \times G \to G$ es una operación binaria que satisface:
     \begin{enumerate}
@@ -22,14 +38,26 @@
     \end{enumerate}
 }
 
+\rmkb{
+    Sobre la notación usual para grupos. Si $(G, *)$ es un grupo arbitrario, por comodidad se suele trabajar con la siguiente notación: 
+    \begin{itemize}
+    \item Si sabemos que $G$ es abeliano, se suele usar notación sumativa. Es decir, se sustituye el símbolo $*$ por $+$ para denotar la operación, y trabajamos con $(G, +)$. Además, el elemento neutro $e_G \in G$ se suele llamar el ``cero'' de $G$, y se escribe $0_G$ o directamente $0$. Es bastante intuitivo pensar que para cualquier $g\in G$, $0_G + g = g + 0_G = g$, aunque no estemos trabajando con números. 
+    \item Alternativamente y de forma más general, se puede usar notación multiplicativa: trabajamos con $(G, \cdot)$ y ahora el neutro es $e_G = 1_G$ el ``uno'' de $G$. Se tiene que $\forall g \in G$, $1_G \cdot g = g \cdot 1_G = g$. De nuevo, recalco, no estamos trabajando con números.
+    \end{itemize}
+}
+
 \exer{
     Probar las siguientes afirmaciones:
     \begin{itemize}
         \item $(\mathbb{Z}, +)$ es un grupo abeliano.
         \item $(\R\setminus\{0\}, \cdot)$ es un grupo abeliano.
-        \item El grupo simétrico $S_n$ de permutaciones de $n$ elementos es un grupo.
+        \item El grupo simétrico $S_n$ de permutaciones de $n$ elementos es un grupo con la composición como operación. 
         \item $(\N, +)$ no es un grupo.
     \end{itemize}
+}
+
+\rmkb{
+    Dado un conjunto cualquiera $X$ con $n$ elementos, una permutación en $X$ es una aplicación biyectiva $\sigma : X \to X $. Cuando se habla del grupo simétrico es lo mismo trabajar con el conjunto $X$ que con cualquier otro que tenga el mismo cardinal. Por ello, se suelen describir las permutaciones como aplicaciones $ \sigma : \mathbb{N}_n \to \mathbb{N}_n$, donde $\mathbb{N}_n = \{1, 2, \dots, n\}$.
 }
 
 \defn{Subgrupo}{
@@ -41,11 +69,12 @@
     \end{enumerate}
 }
 \propp{Observacion sobre subgrupos}
-{Un subgrupo es un grupo}
+{Todo subgrupo es un grupo.}
 {
     Si $H \leq G$, entonces $(H, *)$ es un grupo con la misma operación que $G$. 
-    Ya se tienen las propiedades de la asociatividad y la la propiedad del elemento inverso, solo hace falta ver que existe un elemento neutro, que ademas, coincide con el elemento neutro de $G$. \newline
-    Como $H$ es no vacío, existe $a \in H$. Entonces definimos el neutro de $H$ como \newline $e = e_H = a * a^{-1} \in H$ Que cumple las propiedades del elemento neutro al heredarse de $G$.
+    Ya se tienen las propiedades de la asociatividad y la la existencia del elemento inverso, solo hace falta ver que existe un elemento neutro, que además, resulta coincidir con el elemento neutro de $G$. \newline
+    
+    Como $H$ es no vacío, existe $a \in H$. Entonces definimos el neutro de $H$ como \newline $e_H = a * a^{-1} \in H$. Observemos que como $a\in G$, también se tiene que $a * a^{-1} = e_G$ y ambos neutros son en realidad el mismo elemento. De aquí se deduce que $e_H$ cumple las propiedades de elemento neutro al heredarlas de $G$.
 }
 
 \section{Homomorfismos}
