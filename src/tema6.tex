@@ -426,6 +426,40 @@
     El producto $*$ induce un producto bien definido para clases de homotopía:
     $$[\alpha]*[\beta]:=[\alpha*\beta]$$
 }
+\pf{
+    Veamos que el producto $*$ está bien definido en el cociente, es decir, no depende de los representantes elegidos de las clases $[\alpha]$ y $[\beta]$. Sean $\alpha_1, \alpha_2 \in \Omega_{x_0}^{x_1}$ con $\alpha_1 \simeq_p \alpha_2$ y $\beta_1, \beta_2 \in \Omega_{x_1}^{x_2}$ con $\beta_1 \simeq_p \beta_2$. Queremos probar que $\alpha_1 * \beta_1 \simeq_p \alpha_2 * \beta_2$. Llamemos $F_{\alpha}$ a la homotopía entre $\alpha_1$ y $\alpha_2$, y sea $F_{\beta}$ la homotopía entre $\beta_1$ y $ \beta_2$. 
+    \newline 
+
+    Buscamos probar que $\alpha_1 * \beta_1 $ y $\alpha_2 * \beta_2$ son caminos homotópicos. Nuestra homotopía candidata es $G : I \times I \to X$ como
+    \[
+        G(s, t) =
+        \begin{cases}
+            F_{\alpha}(2s, t) & \text{si } s \in [0, \frac{1}{2}], \\
+            F_{\beta}(2s - 1, t) & \text{si } s \in [\frac{1}{2}, 1].
+        \end{cases}
+    \]
+
+    Veamos que $G$ es homotopía. Es claramente continua por serlo $F_{\alpha} $ y $F_{\beta}$, y además verifica
+    \[ 
+        G(s, 0) =
+        \begin{cases}
+            G(s, 0) = F_{\alpha}(2s, 0) = \alpha_1(2s) = \alpha_1 * \beta_1(s) \quad & \text{si } s \in [0,\frac{1}{2}] \\
+            G(s, 0) = F_{\beta}(2s - 1, 0) = \beta_1(2s) = \alpha_1 * \beta_1(s) \quad & \text{si } s \in [\frac{1}{2}, 1] 
+        \end{cases}
+    \]
+    \[
+        G(s, 1) =
+        \begin{cases}
+            G(s, 1) = F_{\alpha}(2s, 1) = \alpha_2(2s) = \alpha_2 * \beta_2(s) \quad & \text{si } s \in [0,\frac{1}{2}] \\
+            G(s, 1) = F_{\beta}(2s - 1, 1) = \beta_2(2s) = \alpha_2 * \beta_2(s) \quad & \text{si } s \in [\frac{1}{2}, 1] 
+        \end{cases}
+    \] 
+
+    Por otro lado, también se verifica la condición de homotopía de caminos, pues $\alpha_1 \simeq_p \alpha_2$ implica que $G(0, t) = F_{\alpha}(0, t) = x_0$. Análogamente, se tiene que $G(1, t) = F_{\beta}(1, t) = x_2$.
+    \newline 
+
+    Concluimos entonces que $\alpha_1 * \beta_1  \simeq_p \alpha_2 * \beta_2$, y por tanto $[\alpha] * [\beta]$ no depende de los representantes de las clases $[\alpha]$ y $[\beta]$.
+}
 
 \thm{El grupo fundamental}{
     El conjunto $\pi_1(X,x_0)$ junto con la operación producto $*$ es un grupo, denominado el \textbf{grupo fundamental} de $X$ en $x_0$.
