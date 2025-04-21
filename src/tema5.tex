@@ -171,7 +171,7 @@ Enunciamos el siguiente teorema sin demostración:
             \end{cases}
         \end{equation}, con $h_k : b_k \to a_1$.
         
-        Para garantizar la existencia de $\alpha_k$, podemos construirla en dos pasos, una para llevar a su hueco y otra para garantizar \ref{5.3-casos}. 
+        Para garantizar la existencia de $\alpha_k$, podemos construirla en dos pasos, una para llevar a su hueco y otra para garantizar \hyperref[5.3-casos]{5.3-casos}. 
 
         Sea $r \le \min{r_1, \dots, r_k}$ y $V_i = \alpha_i^{-1}(\{z : |z| < r, \text{arg}(z) \in [\frac{2\pi(i-1)}{k}, \frac{2\pi i}{k}]\})$. Definimos $\alpha : V_1 \cup \dots \cup V_k \to B(0,r)$ como $\alpha(x) = \alpha_i(x), x \in V_i$. $\alpha$ está bien definida pues si $xRy, x\in b_i, y \in a_{i+1} \implies \alpha(y) = \alpha_{i+1}(h_i(x)) = \alpha_i(x) = \alpha(x), i\ne k$. Y para $k$, $y = h_k(x) \in a_1 \to$ misma cuenta. Luego, $\alpha$ es identificación (continua, sobreyectiva, cerrada) y $\tilde{\alpha}$ es homeomorfismo.
     \end{enumerate}
@@ -262,6 +262,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 
 \thm{Clasificación de superficies compactas}{
+    \label{thm:clasificacion-superficies}
     Sea $S$ una superficie compacta y conexa, entonces $S$ es homeomorfa a una de las siguientes superficies:
     \begin{itemize}
         \item la esfera $\mathbb{S}^2$.
@@ -271,7 +272,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 \pf{
     \noindent
-    Sea $M$ una superficie compacta y conexa y sea $\partes$ su presentación poligonal, la cual sabemos que existe por el Teorema de Radó (\ref{thm:rado}).
+    Sea $M$ una superficie compacta y conexa y sea $\partes$ su presentación poligonal, la cual sabemos que existe por el \hyperref[thm:rado]{Teorema de Radó}.
 
     \vspace{1em}
     \noindent
@@ -537,6 +538,8 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \[ \chi = V - E + F = 2 \]
 }
 
+\section{Orientabilidad}
+
 \defn{Superficie orientable}{
     Una superficie compacta se dice orientable si admite una presentación poligonal en la que no existe ningún par de aristas que se identifiquen recorriéndose en el mismo sentido, es decir, si para cada arista $a$ de la presentación, aparece tanto $a$ como $a^{-1}$.
 }
@@ -594,5 +597,17 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
         \text{una suma conexa de $n$ toros, cuando $g(S) = n, n \ge 1$}
     \end{cases}\]
 }{
-    Pendiente...
+    Sea $S$ una superficie compacta, conexa y orientable. Por definición, existe una presentación $\mathcal{P}$ que no tiene pares de aristas retorcidas. Además, por el \hyperref[thm:clasificacion-superficies]{Teorema de Clasificación}, $S$ debe ser homeomorfa a una suma conexa de una de las tres superficies modelo. Basta ver que a partir de la presentación $\mathcal{P}$ no se puede llegar a una suma conexa de planos proyectivos. 
+
+    Nótese que en una presentación sin pares de aristas retorcidas, la única forma de que aparezcan mediante transformaciones es cortando y haciendo un reflejo en una de las palabras. Seguimos el algoritmo de la demostración del \hyperref[thm:clasificacion-superficies]{Teorema de Clasificación}, teniendo como hipótesis que en $\mathcal{P}$ inicialmente no hay aristas retorcidas, para observar que nunca aplicamos reflejos y por tanto no llegamos a un plano proyectivo (recomendamos tener dicha demostración delante para ver esta, pues son comentarios a los pasos de la misma).
+
+    \begin{enumerate}
+        \item Si $\mathcal{P}$ tiene más de una palabra, para pegar solo hay que hacer rotaciones y no reflejos (pues todos los pares ya son de la forma $a, a^{-1}$).
+        \item No se hacen reflejos en ningún caso.
+        \item No hay aristas retorcidas, así que el paso no se aplica.
+        \item Recordemos la construcción $ a: v_1\to w$, $b: x \to v_1$. La otra aparición de $b$ en la presentación debe ser como $b^{-1}$, y por tanto no es necesario aplicar ninguna reflexión.
+        \item No se aplican reflejos.
+        \item Ninguna transformación de las que se hacen es un reflejo.
+        \item Una vez llegamos a este paso, podemos concluir directamente que estamos ante una suma de toros, pues sabemos que no hay ningún par de aristas retorcidas. 
+    \end{enumerate}
 }
