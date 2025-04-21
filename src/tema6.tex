@@ -408,7 +408,28 @@
     Es importante tener en mente que definimos el producto de caminos de izquierda a derecha, es decir, recorriendo primero el camino de la izquierda y después el de la derecha.
 }
 
-\prop{Propiedades del producto de caminos}{
+
+\lemp{Lema previo}{
+    Sean $\alpha\in\Omega_{x_0}^{x_1}(X), \beta\in\Omega_{x_1}^{x_2}(X)$. Entonces, $\alpha*\beta \simeq_p \gamma(t) = \begin{cases}
+        \alpha(\frac{t}{r}) & t \in [0, r] \\
+        \beta(\frac{t-r}{1-r}) & t \in [r, 1]
+    \end{cases}$
+}{
+    Quiero ver que $\alpha*\beta$ y $\gamma$ son homotópicos por caminos, luego necesito una homotopía $H(x,t):I\times I \to X$  tal que $H(x,0) = \alpha*\beta(x)$ y $H(x,1) = \gamma(x)$, además de que $H(0,t) = x_0$ y $H(1,t) = x_2$.
+
+    $H(x,t) = \begin{cases}
+        \alpha\Big(\frac{x}{(1-t)\frac{1}{2}+tr}\Big) & x \in [0, (1-t)\frac{1}{2}+tr] \\
+        \beta\Big(\frac{x-(1-t)\frac{1}{2}-tr}{1-(1-t)\frac{1}{2}-tr}\Big) & x \in [(1-t)\frac{1}{2}+tr, 1]
+    \end{cases}$
+    \begin{itemize}
+        \item $H(x,0) = \alpha*\beta(x). \checkmark$
+        \item $H(x,1) = \gamma(x). \checkmark$
+        \item $H(0,t) = \alpha(0) = x_0. \checkmark$
+        \item $H(1,t) = \beta(1) = x_2. \checkmark$
+    \end{itemize}
+}
+
+\propp{Propiedades del producto de caminos}{
     \label{prop:propiedades-producto-caminos}
     \begin{enumerate}
         \item $\alpha * (\beta * \gamma) \simeq_p (\alpha * \beta) * \gamma$.
@@ -416,6 +437,8 @@
         $$\epsilon_{x_0} * \alpha \simeq_p \alpha \text{ y } \alpha * \epsilon_{x_1} \simeq_p \alpha$$
         \item Sea $\bar{\alpha} = \alpha(1-t), t\in I$. Entonces, $$\alpha * \bar{\alpha} \simeq_p \epsilon_{x_0} \text{ y } \bar{\alpha} * \alpha \simeq_p \epsilon_{x_1}$$
     \end{enumerate}
+}{
+    Pendiente...
 }
 
 \defn{Conjunto de arcos}{
@@ -462,39 +485,19 @@
     Concluimos entonces que $\alpha_1 * \beta_1  \simeq_p \alpha_2 * \beta_2$, y por tanto $[\alpha] * [\beta]$ no depende de los representantes de las clases $[\alpha]$ y $[\beta]$.
 }
 
-Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en álgebra se conoce como un \textbf{grupo}. Un grupo es, esencialmente, un conjunto con una operación que satisface ciertas reglas (asociatividad, existencia de un elemento neutro y de inversos para cada elemento). Para una introducción más formal a los conceptos que usaremos de teoría de grupos, se puede consultar el \hyperref[apendice:teoria-de-grupos]{Apéndice A}. A continuación, formalizamos este resultado.
-
-\lemp{Lema previo}{
-    Sean $\alpha\in\Omega_{x_0}^{x_1}(X), \beta\in\Omega_{x_1}^{x_2}(X)$. Entonces, $\alpha*\beta \simeq_p \gamma(t) = \begin{cases}
-        \alpha(\frac{t}{r}) & t \in [0, r] \\
-        \beta(\frac{t-r}{1-r}) & t \in [r, 1]
-    \end{cases}$
-}{
-    Quiero ver que $\alpha*\beta$ y $\gamma$ son homotópicos por caminos, luego necesito una homotopía $H(x,t):I\times I \to X$  tal que $H(x,0) = \alpha*\beta(x)$ y $H(x,1) = \gamma(x)$, además de que $H(0,t) = x_0$ y $H(1,t) = x_2$.
-
-    $H(x,t) = \begin{cases}
-        \alpha\Big(\frac{x}{(1-t)\frac{1}{2}+tr}\Big) & x \in [0, (1-t)\frac{1}{2}+tr] \\
-        \beta\Big(\frac{x-(1-t)\frac{1}{2}-tr}{1-(1-t)\frac{1}{2}-tr}\Big) & x \in [(1-t)\frac{1}{2}+tr, 1]
-    \end{cases}$
-    \begin{itemize}
-        \item $H(x,0) = \alpha*\beta(x). \checkmark$
-        \item $H(x,1) = \gamma(x). \checkmark$
-        \item $H(0,t) = \alpha(0) = x_0. \checkmark$
-        \item $H(1,t) = \beta(1) = x_2. \checkmark$
-    \end{itemize}
-}
+Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en álgebra se conoce como un \textbf{grupo}. Un grupo es, esencialmente, un conjunto con una operación que satisface ciertas reglas (asociatividad, existencia de un elemento neutro y de inversos para cada elemento). Para una introducción más formal a los conceptos que usaremos de teoría de grupos, se puede consultar el \hyperref[apendice:teoria-de-grupos]{Apéndice A}.
 
 \thm{El grupo fundamental}{
     El conjunto $\pi_1(X,x_0)$ junto con la operación producto $*$ es un grupo, denominado el \textbf{grupo fundamental} de $X$ en $x_0$.
 }
 \pf{
-    Veamos que la operación $*$ definida en el cociente $\Omega_{x_0} / \simeq_p$ es asociativa, tiene un elemento neutro y todo elemento tiene un inverso respecto a ella. En esencia, aplicaremos la proposición \hyperref[prop:propiedades-producto-caminos]{3.3.4} a la operación en el cociente, usando que está bien definida. 
+    Veamos que la operación $*$ definida en el cociente $\Omega_{x_0} / \simeq_p$ es asociativa, tiene un elemento neutro y todo elemento tiene un inverso respecto a ella. En esencia, aplicaremos la proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} a la operación en el cociente, usando que está bien definida. 
     
     \textbf{Asociatividad. } Sean $[\alpha], [\beta], [\gamma] \in \pi_1(X, x_0)$. Queremos ver que $([\alpha] * [\beta]) * [\gamma] = [\alpha] * ([\beta] * [\gamma])$. Por definición de la operación en el cociente, esto es equivalente a probar que $[(\alpha * \beta) * \gamma] = [\alpha * (\beta * \gamma)]$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.4} (1) nos dice que $(\alpha * \beta) * \gamma \simeq_p \alpha * (\beta * \gamma)$, lo que implica que sus clases de homotopía son iguales.
 
-    \textbf{Elemento neutro. } Sea $\epsilon_{x_0}$ el camino constante en $x_0$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.4} (2) establece que $\epsilon_{x_0} * \alpha \simeq_p \alpha$ y $\alpha * \epsilon_{x_0} \simeq_p \alpha$. En términos de clases de homotopía, esto significa que $[\epsilon_{x_0}] * [\alpha] = [\alpha]$ y $[\alpha] * [\epsilon_{x_0}] = [\alpha]$. Por lo tanto, $[\epsilon_{x_0}]$ es el elemento neutro del grupo.
+    \textbf{Elemento neutro. } Sea $\epsilon_{x_0}$ el camino constante en $x_0$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} (2) establece que $\epsilon_{x_0} * \alpha \simeq_p \alpha$ y $\alpha * \epsilon_{x_0} \simeq_p \alpha$. En términos de clases de homotopía, esto significa que $[\epsilon_{x_0}] * [\alpha] = [\alpha]$ y $[\alpha] * [\epsilon_{x_0}] = [\alpha]$. Por lo tanto, $[\epsilon_{x_0}]$ es el elemento neutro del grupo.
 
-    \textbf{Elemento inverso. } Para cualquier $[\alpha] \in \pi_1(X, x_0)$, consideremos el camino inverso $\bar{\alpha}(t) = \alpha(1-t)$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.4} (3) nos dice que $\alpha * \bar{\alpha} \simeq_p \epsilon_{x_0}$ y $\bar{\alpha} * \alpha \simeq_p \epsilon_{x_0}$. Esto se traduce en $[\alpha] * [\bar{\alpha}] = [\epsilon_{x_0}]$ y $[\bar{\alpha}] * [\alpha] = [\epsilon_{x_0}]$. Por lo tanto, $[\bar{\alpha}]$ es el inverso de $[\alpha]$.
+    \textbf{Elemento inverso. } Para cualquier $[\alpha] \in \pi_1(X, x_0)$, consideremos el camino inverso $\bar{\alpha}(t) = \alpha(1-t)$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} (3) nos dice que $\alpha * \bar{\alpha} \simeq_p \epsilon_{x_0}$ y $\bar{\alpha} * \alpha \simeq_p \epsilon_{x_0}$. Esto se traduce en $[\alpha] * [\bar{\alpha}] = [\epsilon_{x_0}]$ y $[\bar{\alpha}] * [\alpha] = [\epsilon_{x_0}]$. Por lo tanto, $[\bar{\alpha}]$ es el inverso de $[\alpha]$.
 
     Como la operación $*$ es asociativa, tiene elemento neutro y todo elemento tiene inverso, $(\pi_1(X, x_0), *)$ es un grupo.
 }
