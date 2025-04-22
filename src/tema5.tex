@@ -602,7 +602,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \[\text{1 cara, 2 aristas $\longleftrightarrow$ 2 caras, 3 aristas, $\chi$ se mantiene.}\]
 
     \item Plegar y desplegar:
-    \[\text{1 vértice $\longleftrightarrow$ 2 vértices, 1 arista, $\chi$ se mantiene.}\]
+    \[\text{1 vértice $\longleftrightarrow$ 2 vértices, 1 arista, $\chi$ se mantiene}\]
     \end{itemize}
 }
 
@@ -611,13 +611,15 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 
 \ex{
-    Característica de Euler en las superficies modelo (recordando sus representaciones <<estándar>>):
+    Característica de Euler en las superficies modelo (para visualizarlo es útil recordar sus representaciones <<estándar>>):
     \begin{enumerate}
         \item $\chi(\mathbb{S}^2) = 1-1+2 = 2$.
         \item $\chi(n\mathbb{T}^2) = 1-2n+1 = 2-2n$.
         \item $\chi(n\mathbb{RP}^2) = 1-n+1 = 2-n$.
     \end{enumerate}
 }
+
+\newpage
 
 \rmkb{
     Para todo poliedro de $\R^3$, esto es, un sólido bordeado por un conjunto finito de polígonos convexos unidos por los lados, que sea homeomorfo a la esfera $\mathbb{S}^2$ se tiene que
@@ -631,7 +633,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 
 \propp{}{
-    Una superficie compacta no orientable contiene un subespacio homeomorfo a la cinta de Möbius (de hecho es un si y solo si).
+    Una superficie compacta  es no orientable si y solo si contiene un subespacio homeomorfo a la cinta de Möbius.
 }{
     \noindent ($\implies$) Siempre tenemos aristas identificadas $aa$.
     Demostración con dibujitos, no puedo hacerlo :(
@@ -642,7 +644,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 
 \ex{
-    \noindent Superficies no orientables: $\mathbb{RP}^2$, $K$ (la botella).
+    \noindent Superficies no orientables: $\mathbb{RP}^2$, $K$ (botella de Klein).
     
     \noindent Superficies orientables: $\mathbb{S}^2$, $\mathbb{T}^2$.
 }
@@ -650,7 +652,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 \propp{Orientabilidad de la suma conexa}{
     Dadas dos superficies compactas $S_1$ y $S_2$, la suma conexa $S_1\# S_2$ es orientable si, y solo si, ambas superficies son orientables.
 }{
-    Pendiente...
+    Es fácil ver que tanto la esfera como la suma conexa de toros son orientables, mientras que la suma conexa de proyectivos no lo es. Por tanto, por el teorema de clasificacion una superficie compacta es no orientable si y solo si es homeomorfa a una suma conexa de planos proyectivos. Por tanto si $S_1,S_2$ son orientables entonces son homeomorfas a una suma de toros o a una esfera, pero entonces $S_1\# S_2$ también es homeomorfa a una suma de toros o a una esfera, y por tanto es orientable como queríamos ver.
 }
 
 \ex{
@@ -659,9 +661,9 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 
 \corp{
-    Dos superficies compactas y conexas son homeomorfas si, y solo si, tienen la misma característica de Euler y la misma orientabilidad.
+    Dos superficies compactas son homeomorfas si, y solo si, tienen la misma característica de Euler y la misma orientabilidad.
 }{
-    Pendiente...
+    Sean $S_1,S_2$ dos superficies compactas. Si son homeomorfas es claro que ambas serán homeomorfas a las misma presentación del teorema de clasificacion, y por tanto tendrán la misma característica de Euler y la misma orientabilidad. Si por el contrario tienen la misma orientabilidad entonces ambas son suma de proyectivos o suma de toros, y si además tienen la misma característica de Euler entonces debe haber igual número de proyectivos/toros, por lo que ambas son homeomorfas a una misma suma conexa y por tanto homeomorfas entre si.
 }
 
 \defn{Género de una superficie}{
@@ -683,6 +685,8 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
         \text{una suma conexa de $n$ toros, cuando $g(S) = n, n \ge 1$}
     \end{cases}\]
 }{
+    A partir de la propia definición de género de una superficie podemos conocer su característica de Euler, y sabiendo que es orientable esto nos permite discernir si se trata de una esfera o de una suma conexa de toros. Sin embargo, añadimos una demostración directa que resulta muy instructiva.
+
     Sea $S$ una superficie compacta, conexa y orientable. Por definición, existe una presentación $\mathcal{P}$ que no tiene pares de aristas retorcidas. Además, por el \hyperref[thm:clasificacion-superficies]{Teorema de Clasificación}, $S$ debe ser homeomorfa a una suma conexa de una de las tres superficies modelo. Basta ver que a partir de la presentación $\mathcal{P}$ no se puede llegar a una suma conexa de planos proyectivos. 
 
     Nótese que en una presentación sin pares de aristas retorcidas, la única forma de que aparezcan mediante transformaciones es cortando y haciendo un reflejo en una de las palabras. Seguimos el algoritmo de la demostración del \hyperref[thm:clasificacion-superficies]{Teorema de Clasificación}, teniendo como hipótesis que en $\mathcal{P}$ inicialmente no hay aristas retorcidas, para observar que nunca aplicamos reflejos y por tanto no llegamos a un plano proyectivo (recomendamos tener dicha demostración delante para ver esta, pues son comentarios a los pasos de la misma).
