@@ -244,7 +244,24 @@ Enunciamos el siguiente teorema sin demostración:
 
 \propp{Equivalencia por transformaciones elementales}{
     Cada una de las transformaciones elementales sobre una presentación poligonal produce otra presentación topológicamente equivalente. 
-}{Pendiente.}
+}{
+    Claramente, subdividir y consolidar son operaciones inversas una de la otra, al igual que cortar/pegar y plegar/desplegar, por lo que por simetría solo es necesario demostrar una de cada par. Demostramos las técnicas probando la proposición para cortar y plegar, y dejamos el resto como ejercicio.
+
+    Para probar que cortar produce una realización geométrica homeomorfa, sean \(P_{1}\) y \(P_{2}\) polígonos convexos <<etiquetados>> \(W_{1}e\) y \(e^{-1}W_{2}\), respectivamente, y sea \(P^{\prime}\) un polígono convexo etiquetado \(W_{1}W_{2}\). Por el momento, asumamos que estas son las únicas palabras en sus respectivas presentaciones. Sean \(\pi: P_{1}\sqcup P_{2}\to S\) y \(\pi' P^{\prime}\to S^{\prime}\) las identificaciones respectivas. El segmento de recta que va desde el vértice terminal de \(W_{1}\) en \(P^{\prime}\) hasta su vértice inicial está contenido en \(P^{\prime}\) por convexidad; etiquetemos este segmento como \(e\). Se puede asegurar\footnote{Haría falta hacer una construcción que no incluimos, pero se puede probar que las aplicaciones que nombramos existen.} que existe una aplicación continua \(f: P_{1}\sqcup P_{2}\to P^{\prime}\) que lleva cada arista de \(P_{1}\) o \(P_{2}\) a la arista en \(P^{\prime}\) con la etiqueta correspondiente, y cuya restricción a cada \(P_{i}\) es un homeomorfismo. Además, \(f\) es una identificación. Como \(f\) identifica las dos aristas etiquetadas \(e\) y \(e^{-1}\) pero nada más, las también identificaciones \(\pi'\circ f\) y \(\pi\) realizan exactamente las mismas identificaciones, por lo que sus espacios cociente son homeomorfos. Si hay otras palabras \(W_{3},\ldots,W_{k}\), simplemente extendemos \(f\) declarándola como la identidad en sus respectivos polígonos y procedemos como antes.
+
+    Para plegar, como antes podemos ignorar las palabras adicionales \(W_{2},\ldots,W_{k}\). Si \(W_{1}\) tiene longitud \(2\), podemos subdividir para alargarla, luego realizar la operación de plegado y después consolidar, así que asumimos que \(W_{1}\) tiene longitud al menos \(3\). Supongamos primero que \(W_{1}=abc\) tiene longitud exactamente \(3\). Sean \(P\) y \(P^{\prime}\) polígonos convexos con etiquetas de arista \(abcee^{-1}\) y \(abc\), respectivamente, y sean \(\pi\colon P\to S\), \(\pi^{\prime}\colon P^{\prime}\to S^{\prime}\) las identificaciones.
+    \begin{center}
+        \includegraphics[width=0.3\textwidth]{img/plegado.png}
+    \end{center}
+
+    Añadiendo aristas como se muestra en la figura existe una única aplicación \(f: P\to P^{\prime}\) que lleva cada arista de \(P\) a la arista de \(P^{\prime}\) con la misma etiqueta. Como antes, \(\pi^{\prime}\circ f\) y \(\pi\) son identificaciones que realizan las mismas identificaciones, por lo que sus espacios cociente son homeomorfos.
+
+    Si \(W_{1}\) tiene longitud \(4\) o más, podemos escribir \(W_{1}=Xbc\) para algún \(X\) de longitud al menos \(2\). Entonces cortamos a lo largo de \(a\) para obtener
+    \[
+    \langle S,b,c,e \mid Xbcee^{-1}\rangle\cong\langle S,a,b,c,e \mid Xa^{-1},abcee^{-1}\rangle
+    \]
+    y procedemos como antes.
+}
 
 \propp{Presentación de $\mathcal{S}_1\#\mathcal{S}_2$}{
     Sean $\mathcal{S}_1$ y $\mathcal{S}_2$ dos superficies compactas y conexas presentadas por $\langle A_1|W_1 \rangle$ y $\langle A_2|W_2 \rangle$, respectivamente. Entonces, $\langle A_1 \cup A_2|W_1W_2 \rangle$ es una presentación de $\mathcal{S}_1\#\mathcal{S}_2$.
