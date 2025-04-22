@@ -592,19 +592,17 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 \propp{Característica de Euler invariante por transformaciones elementales}{
     La característica de Euler de una presentación poligonal es invariante por transformaciones elementales
 }{
-    \noindent Renombrar, reflejar y rotar CHECK
-
-    \noindent Consolidar y dividir:
-
+    Es inmediato que al renombrar, reflejar y rotar no cambiamos el número de vértices, aristas y caras, por lo que $\chi$ no cambia. Para el resto de transformaciones veamos que los cambios en $F,E,V$ se <<compensan>>:
+    \begin{itemize}
+    \item Consolidar y dividir
     \[ \text{3 vertices, 2 aristas $\longleftrightarrow$ 2 vértices, 1 arista, $\chi$ se mantiene.} \]
 
-    \noindent Cortar y pegar:
-
+    \item Cortar y pegar
     \[\text{1 cara, 2 aristas $\longleftrightarrow$ 2 caras, 3 aristas, $\chi$ se mantiene.}\]
 
-    \noindent Plegar y desplegar:
-
+    \item Plegar y desplegar:
     \[\text{1 vértice $\longleftrightarrow$ 2 vértices, 1 arista, $\chi$ se mantiene.}\]
+    \end{itemize}
 }
 
 \defn{Característica de Euler de una superficie compacta}{
@@ -612,7 +610,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 
 \ex{
-    Característica de Euler en las superficies modelo:
+    Característica de Euler en las superficies modelo (recordando sus representaciones <<estándar>>):
     \begin{enumerate}
         \item $\chi(\mathbb{S}^2) = 1-1+2 = 2$.
         \item $\chi(n\mathbb{T}^2) = 1-2n+1 = 2-2n$.
