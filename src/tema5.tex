@@ -292,6 +292,18 @@ Enunciamos el siguiente teorema sin demostración:
 
 En esta sección se presenta y demuestra el teorema de clasificación de superficies compactas de $\R ^n$. Ya hemos visto que las transformaciones elementales sobre presentaciones poligonales producen presentaciones equivalentes, nuestro objetivo ahora es demostrar que cualquier presentación poligonal de una superficie compacta y conexa puede ser transformada en una de las formas canónicas dadas por el teorema de clasificación.
 
+En primer lugar enunciamos sin demostración una serie de presentaciones <<estándar>> de las superficies más usuales
+\begin{itemize}
+    \item $\sphere^2 \cong \langle a,b \mid abb^{-1}a^{-1} \rangle \cong \langle a \mid aa^{-1} \rangle$
+    \item $\mathbb{T}^2 \cong \langle a,b \mid aba^{-1}b^{-1} \rangle$
+    \item $\mathbb{RP}^2 \cong \langle a,b \mid abab \rangle \cong \langle a \mid aa \rangle$
+    \item $K \cong \langle a,b \mid abab^{-1} \rangle$
+\end{itemize}
+
+\begin{center}
+    \includegraphics[width=\textwidth]{img/realizacion-geom.png}
+\end{center}
+
 El siguiente lema simplifica la demostración del teorema de clasificación, mostrando la equivalencia entre ciertos tipos de superficies.
 
 \lemp{Equivalencia entre algunos tipos de superficies}{
@@ -408,8 +420,11 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     Supongamos que tenemos $VaWa$, con $V,W \ne \emptyset$. Cortamos por el medio ($Vab$ y $b^{-1}Wa$). 
     Rotamos y reflejamos la segunda palabra ($bVa$ y $a^{-1}W^{-1}b$), y pegamos por $a$ llegando a $bbVW^{-1}$, donde las aristas retorcidas ya son adyacentes. 
     La repetición de este proceso una cantidad finita de veces demuestra el paso 3.
+    
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/teorema-clasificacion/paso3.png}
+    \end{center}
 
-    \vspace{0.5em}
     \noindent
     \textit{Nota:} En cada iteración, es posible que tengamos que volver a aplicar el paso 2 ya que al pegar $V$ y $W^{-1}$ en $VW^{-1}$ podrían aparecer nuevas aristas complementarias adyacentes.
 
@@ -447,6 +462,10 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \[
         baXb^{-1}Y \;\cong\; bac \text{, } c^{-1}Xb^{-1}Y \;\cong\; acb \text{, } b^{-1}Yc^{-1}X \;\cong\; acYc^{-1}X
     \]
+
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/teorema-clasificacion/paso4.png}
+    \end{center}
 
     \noindent
     Incluyendo los vértices en la presentación a la que hemos llegado, 
@@ -489,11 +508,11 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     Por otro lado, los vértices iniciales de $a$ y $a^{-1}$, que están ambos en $Y$, 
     solo pueden identificarse con vértices de $Y$. 
     Entonces, existen dos clases de equivalencia de vértices distintas, 
-    lo que contradice el paso 4.
+    lo que contradice el paso 4. Por tanto no puede darse la situación $aXa^{-1}Y$ y los pares de aristas retorcidas deben estar intercalados.
 
-    \vspace{0.5em}
-    \noindent
-    \textit{Nota:} se invita al lector a hacer el dibujo y verlo por sí mismo, en este caso no es difícil. No se puede confirmar ni desmentir que la invitación al lector sea por la pereza de los autores de añadir dibujos. 
+    \begin{center}
+        \includegraphics[width=0.3\textwidth]{img/teorema-clasificacion/paso5.pdf}
+    \end{center}
 
     \vspace{1.3em}
     \noindent
@@ -525,6 +544,10 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \[
         c^{-1}bYXcd \text{, } d^{-1}WZb^{-1} \cong YXcdc^{-1}b \text{, } b^{-1}d^{-1}WZ \;\;\cong\;\; YXcdc^{-1}d^{-1}WZ
     \]
+
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/teorema-clasificacion/paso6.png}
+    \end{center}
 
     \vspace{0.5em}
     \noindent
