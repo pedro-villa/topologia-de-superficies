@@ -140,11 +140,14 @@ Enunciamos el siguiente teorema sin demostración:
 
     Veamos que $\tilde{X}$ es localmente euclídeo. Necesitamos que para cada punto, haya un entorno que sea homeomorfo a un abierto de $\R^2$. 
     Sea $x \in \tilde{X}$ y consideramos los tres casos posibles para la preimagen del punto:
-    \[\pi^{-1}(x) = \begin{cases}
-        p \in \text{int}(X) \\
-        \{q_1, q_2\} \in \text{aristas} \\
-        \{v_1, \dots, v_k\} \in \text{vértices}
-    \end{cases}\]
+    \[
+        \pi^{-1}(x) =
+        \begin{cases}
+            p \in \text{int}(X) \\
+            \{q_1, q_2\} \in \text{aristas} \\
+            \{v_1, \dots, v_k\} \in \text{vértices}
+        \end{cases}
+    \]
     \begin{enumerate}
         \item $\pi^{-1}(x) = p \in \text{int}(X)$. Como solo se identifican aristas estamos dentro de un polígono de $\R^2$. Entonces, $\pi|_{\text{int}(X)} : \text{int}(X) \to \pi(\text{int}(X))$ es biyectiva y continua y su inversa también es continua. Por tanto, como $\text{int}(X)$ es abierto, $\pi(\text{int}(X))$ es un entorno del $x$ homeomorfo a un abierto como queríamos ver.
         
@@ -188,22 +191,23 @@ Enunciamos el siguiente teorema sin demostración:
         En primer lugar podemos construir un homeomorfismo afín $\alpha_i : \R^2 \to \R^2$ que lleva el sector $U_i$ en $\{z : |z| < r_i, \text{arg}(z) \in [\frac{2\pi(i-1)}{k}, \frac{2\pi i}{k}]\}$ para todo $i=1,\dots,k-1$ cumpliendo $\alpha_{i+1} \circ h_i = \alpha_i|_{b_i}$, donde $h_i : b_i \to a_{i+1}$.
         
         También podemos construir el último homeomorfismo $\alpha_k : \R^2 \to \R^2$ que lleva $U_k$ en $\{z : |z| < r_k, \text{arg}(z) \in [\frac{2\pi(k-1)}{k}, 2\pi]\}$ y que cumpla 
-        \begin{equation*}
+        \[
             \begin{cases}
                 \alpha_k \circ h_{k-1} = \alpha_{k-1}|_{b_{k-1}} \\
-                \alpha_1 \circ h_k = \alpha_k|_{b_k \equiv a_1}
-            \end{cases} \tag{\star}
-        \end{equation*}
+                \alpha_1 \circ h_k = \alpha_k|_{b_k \equiv a_1} \tag{$\star$}
+            \end{cases}
+        \]
         con $h_k : b_k \to a_1$.
         
-        Para garantizar la existencia de $\alpha_k$, podemos construirla en dos pasos, una para llevar a su hueco y otra para garantizar (\star). 
+        Para garantizar la existencia de $\alpha_k$, podemos construirla en dos pasos, una para llevar a su hueco y otra para garantizar ($\star$). 
 
         Sea $r \le \min\{r_1, \dots, r_k\}$ y $V_i = \alpha_i^{-1}(\{z : |z| < r, \text{arg}(z) \in [\frac{2\pi(i-1)}{k}, \frac{2\pi i}{k}]\})$. Definimos $\alpha : V_1 \cup \dots \cup V_k \to B(0,r)$ como
         \[
         \alpha(x) = \alpha_i(x), x \in V_i.
         \]
         $\alpha$ está bien definida pues
-        \[xRy, x\in b_i, y \in a_{i+1} \implies \alpha(y) = \alpha_{i+1}(h_i(x)) = \alpha_i(x) = \alpha(x), i\ne k.
+        \[
+        xRy, x\in b_i, y \in a_{i+1} \implies \alpha(y) = \alpha_{i+1}(h_i(x)) = \alpha_i(x) = \alpha(x), i\ne k.
         \]
         Y para $i=k$,
         \[
