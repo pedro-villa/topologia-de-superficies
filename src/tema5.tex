@@ -119,7 +119,7 @@ Enunciamos el siguiente teorema sin demostración:
     Probar que las realizaciones geométricas del ejemplo anterior, es decir, los cuadrados con una cierta relación de equivalencia, son homeomorfos a los espacios que se indica en la figura.
 }
 
-\propp{Compacidad y conexión de $|\partes|$}{
+\propp{Compacidad y conexión de $|\partes|$}{\label{prop:244}
     Dada una representación poligonal $\partes$, su realización geométrica, $|\partes|$, es una superficie compacta. Además si solo tiene una palabra, entonces es conexa.
 }{
     Consideremos el polígono $X$ (realmente pueden ser varios polígonos disjuntos si hay más de una palabra). Vamos a ver que el espacio topológico cociente $\tilde{X}$ resultado de identificar las aristas es:
@@ -219,20 +219,6 @@ Enunciamos el siguiente teorema sin demostración:
     Sea $\mathcal{S}$ una superficie compacta. Una presentación de $\mathcal{S}$ es una presentación poligonal $\partes$ tal que $|\partes|$ y $\mathcal{S}$ son homeomorfas.
 }
 
-\propp{Presentación de $\mathcal{S}_1\#\mathcal{S}_2$}{
-    Sean $\mathcal{S}_1$ y $\mathcal{S}_2$ dos superficies compactas y conexas presentadas por $\langle A_1|W_1 \rangle$ y $\langle A_2|W_2 \rangle$, respectivamente. Entonces, $\langle A_1 \sqcup A_2|W_1W_2 \rangle$ es una presentación de $\mathcal{S}_1\#\mathcal{S}_2$.
-}{
-    Sea $\partes_1$ polígono asociado a $W_1$ y sean $p,q \in \text{int}(\partes_1)$ dos puntos distintos y $v$ vértice de $partes_1$. 
-
-    $\mathcal{S}_1 = \langle A_1|W_1 \rangle = \langle A_1 \sqcup {a,b,c}|W_1cba = Q_1, abc \rangle$. Definimos $\pi' : \partes_1 \sqcup Q_1 \to \mathcal{S}_1$ y $\pi:\partes_1 \to \mathcal{S}_1$. Sea entonces $B_1 = \pi'(\text{int}(Q_1)) \subset \mathcal{S}_1$. Si probamos que $B_1$ es homeomorfo a un disco, entonces tendremos que $\mathcal{S}_1\#\mathcal{S}_2$ se puede ver como $\mathcal{S}_1 \setminus Q_1 \sqcup \faktor{\mathcal{S}_2}{R_\varphi}$.
-
-    Para ver que $B_1$ es homeomorfo a un disco, hacemos un razonamiento similar al de la proposición anterior tomando como abierto uno de la forma "sector circular" con $p$ y $q$ dentro del sector y $v$ el vértice, y hacer el mismo razonamiento con un solo sector.
-
-    Así, tendremos que $\langle A_1 \sqcup \{a,b,c\}|W_1cba, a^{-1}b^{-1}c^{-1} \rangle$ es una presentación de $\mathcal{S}_1\setminus \text{int}(Q_1)$, análogamente $\langle A_2 \sqcup \{a',b',c'\}|W_2c'b'a', (a')^{-1}(b')^{-1}(c')^{-1} \rangle$ es presentación de $\mathcal{S}_2\setminus \text{int}(Q_2)$.
-
-    Para obtener $\mathcal{S}_1\#\mathcal{S}_2$ identificamos $\varphi : \partial Q_1 \to \partial Q_2$, con $\varphi(a) = a', \varphi(b) = b', \varphi(c) = c'$ y obtenemos $\mathcal{S}_1\#\mathcal{S}_2 = \langle A_1 \sqcup A_2 \sqcup \{a,b,c\}|W_1cbaa^{-1}b^{-1}c^{-1}W_2\rangle = \langle A_1 \sqcup A_2|W_1W_2\rangle$.
-}
-
 \clearpage
 
 \section{Transformaciones elementales}
@@ -259,6 +245,28 @@ Enunciamos el siguiente teorema sin demostración:
 \propp{Equivalencia por transformaciones elementales}{
     Cada una de las transformaciones elementales sobre una presentación poligonal produce otra presentación topológicamente equivalente. 
 }{Pendiente.}
+
+\propp{Presentación de $\mathcal{S}_1\#\mathcal{S}_2$}{
+    Sean $\mathcal{S}_1$ y $\mathcal{S}_2$ dos superficies compactas y conexas presentadas por $\langle A_1|W_1 \rangle$ y $\langle A_2|W_2 \rangle$, respectivamente. Entonces, $\langle A_1 \cup A_2|W_1W_2 \rangle$ es una presentación de $\mathcal{S}_1\#\mathcal{S}_2$.
+}{
+    Sea $\partes_1$ el polígono asociado a $W_1$ y sean $p,q \in \text{int}(\partes_1)$ dos puntos distintos y $v$ un vértice de $\partes_1$. 
+
+    Aplicando operaciones elementales tenemos
+    \[
+    \mathcal{S}_1 = \langle A_1|W_1 \rangle = \langle A_1 \cup \{a,b,c\} \mid W_1cba = Q_1, a^{-1}b^{-1}c^{-1} \rangle.
+    \]
+    Definimos $\pi' : \partes_1 \cup Q_1 \to \mathcal{S}_1$ y $\pi:\partes_1 \to \mathcal{S}_1$. Sea entonces $B_1 = \pi'(\text{int}(Q_1)) \subset \mathcal{S}_1$. Si probamos que $B_1$ es homeomorfo a un disco, entonces podemos hacer lo mismo con $\mathcal{S}_2$ y aplicar que que $\mathcal{S}_1\#\mathcal{S}_2$ se puede ver como $\faktor{\mathcal{S}_1 \setminus Q_1 \sqcup \mathcal{S}_2\setminus Q_2}{R_\varphi}$.
+
+    Para ver que $B_1$ es homeomorfo a un disco, hacemos un razonamiento similar al de la \hyperref[prop:244]{Proposición 2.4.4} tomando como abierto uno de la forma <<sector circular>> con $p$ y $q$ dentro del sector y $v$ el vértice, y hacer el mismo razonamiento con un solo sector.
+
+    Así, tendremos que $\langle A_1 \cup \{a,b,c\}|W_1cba, a^{-1}b^{-1}c^{-1} \rangle$ es una presentación de $\mathcal{S}_1\setminus \text{int}(Q_1)$, análogamente $\langle A_2 \cup \{a',b',c'\}|W_2c'b'a', (a')^{-1}(b')^{-1}(c')^{-1} \rangle$ es presentación de $\mathcal{S}_2\setminus \text{int}(Q_2)$.
+
+    Para obtener $\mathcal{S}_1\#\mathcal{S}_2$ identificamos $\varphi : \partial Q_1 \to \partial Q_2$, con $\varphi(a) = a', \varphi(b) = b', \varphi(c) = c'$ y obtenemos 
+    \[
+    \mathcal{S}_1\#\mathcal{S}_2 = \langle A_1 \cup A_2 \cup \{a,b,c\}|W_1cbaa^{-1}b^{-1}c^{-1}W_2\rangle = \langle A_1 \cup A_2|W_1W_2\rangle.
+    \]
+}
+
 
 \clearpage
 
