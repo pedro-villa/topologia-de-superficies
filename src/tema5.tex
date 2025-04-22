@@ -128,6 +128,8 @@ Enunciamos el siguiente teorema sin demostración:
         \item Superficie ($T_2$, $2A\N$, localmente euclídeo)
     \end{enumerate}
 
+    Antes de esto, es inmediato que si hay una sola palabra el espacio es conexo, puesto que en tal caso el espacio original $X$ está formado por un único polígono y es conexo. Por tanto, por las propiedades de los espacios cociente $\tilde{X}$ también es conexo. Notemos también que el hecho de tener más de una palabra no excluye la posibilidad de que $\tilde{X}$ sea conexo.
+
     \textbf{Compacto:} Sea $X$ el polígono en $\R^2$, sea $\sim$ la relación de equivalencia entre las aristas y sea $\tilde{X}$ el cociente. $X$ es compacto por ser cerrado y acotado, y la proyección al cociente $p : X \to \tilde{X}=\faktor{X}{\sim}$  es continua, por tanto, $\tilde{X}$ es compacto.
 
     \textbf{$\mathbf{T_2}$:} \textit{Esquema de la demostración:}
@@ -172,30 +174,42 @@ Enunciamos el siguiente teorema sin demostración:
             \alpha_2(x) & x \in V_2.
         \end{cases}
         \]
-        es una identificación (continua, cerrada, sobreyectiva). Está bien definida y pasa al cociente porque $xRy, x\in a, y \in a' \implies y = h(x)$ y entonces $\alpha(y) = \alpha_2(y) = \alpha_2(h(x)) = \alpha_1(x) = \alpha(x)$. Al pasar al cociente obtenemos $\tilde{\alpha}:\tilde{V}\to\R^2$, donde $\tilde{V}=\pi(V)$, como $x\in\tilde{V}$ podemos encontrar un entorno de $\R^2$ homeomorfo a un cierto $\tilde{U}\subset\tilde{V}$, lo que prueba que existe un entorno de $x$ homeomorfo a un entorno de $\R^2$.
+        es una identificación (continua, cerrada, sobreyectiva). Está bien definida y pasa al cociente porque $xRy, x\in a, y \in a' \implies y = h(x)$ y entonces $\alpha(y) = \alpha_2(y) = \alpha_2(h(x)) = \alpha_1(x) = \alpha(x)$. Al pasar al cociente obtenemos $\tilde{\alpha}:\tilde{V}\to\R^2$, donde $\tilde{V}=\pi(V)$ que es abierto, como $x\in\tilde{V}$ esto prueba que existe un entorno de $x$ homeomorfo a un entorno de $\R^2$, puesto que podemos consideramos la restricción de $\tilde{\alpha}$ a su imagen (que será abierta puesto que $\tilde{V}$ lo es), de manera que obtenemos un homeomorfismo.
 
-        \item Sea ahora $\pi^{-1}(x) = \{v_1, \dots, v_k\}, k \in \N$. Consideramos $D_i$ discos suficientemente pequeños de manera que $\overline{D_i} \cap \overline{D_j} = \emptyset, i \neq j$ no contenga puntos de otras aristas, ni vértices. 
-        Sean $U_i = D_i \cap \partes$ sectores circular. Supongamos los sectores ordenados de forma que $b_i \sim a_{i+1}, i=1,\dots,k$.
+        \item Sea ahora $\pi^{-1}(x) = \{v_1, \dots, v_k\}, k \in \N$. Consideremos $D_i$ discos suficientemente pequeños de manera que $\overline{D_i} \cap \overline{D_j} = \emptyset, i \neq j$ no contenga puntos de otras aristas, ni vértices. 
+        Sean $U_i = D_i \cap X$ sectores circulares. Denotemos a las dos aristas de cada vértice $a_i,b_i$, y supongamos los sectores ordenados de forma que $b_i \sim a_{i+1}, i=1,\dots,k$.
 
-        Objetivo: $V_1 \cup \dots \cup V_k \overset{\alpha}{\longrightarrow} B(0,r) \subset \R^2$. 
+        Objetivo: encontrar una aplicación que junte todos los sectores para formar una circunferencia, $V_1 \cup \dots \cup V_k \overset{\alpha}{\longrightarrow} B(0,r) \subset \R^2$. 
         
         \begin{center}
             \includegraphics[width=0.8\textwidth]{img/entornos-vertices.png}
         \end{center}
 
-        Sea homeomorfismo afín $\alpha_i : \R^2 \to \R^2$ que lleva $U_i$ en $\{z : |z| < r_i, \text{arg}(z) \in [\frac{2\pi(i-1)}{k}, \frac{2\pi i}{k}]\}$ para todo $i=1,\dots,k$ cumpliendo $\alpha_{i+1} \circ h_i = \alpha_i|_{b_i}$, donde $h_i : b_i \to a_{i+1}$.
+        En primer lugar podemos construir un homeomorfismo afín $\alpha_i : \R^2 \to \R^2$ que lleva el sector $U_i$ en $\{z : |z| < r_i, \text{arg}(z) \in [\frac{2\pi(i-1)}{k}, \frac{2\pi i}{k}]\}$ para todo $i=1,\dots,k-1$ cumpliendo $\alpha_{i+1} \circ h_i = \alpha_i|_{b_i}$, donde $h_i : b_i \to a_{i+1}$.
         
-        Finalmente queda construir $\alpha_k : \R^2 \to \R^2$ que lleve $U_k$ en $\{z : |z| < r_k, \text{arg}(z) \in [\frac{2\pi(k-1)}{k}, 2\pi]\}$ y que cumpla 
-        \begin{equation}
-            \label{5.3-casos} \begin{cases}
+        También podemos construir el último homeomorfismo $\alpha_k : \R^2 \to \R^2$ que lleva $U_k$ en $\{z : |z| < r_k, \text{arg}(z) \in [\frac{2\pi(k-1)}{k}, 2\pi]\}$ y que cumpla 
+        \begin{equation*}
+            \begin{cases}
                 \alpha_k \circ h_{k-1} = \alpha_{k-1}|_{b_{k-1}} \\
                 \alpha_1 \circ h_k = \alpha_k|_{b_k \equiv a_1}
-            \end{cases}
-        \end{equation}, con $h_k : b_k \to a_1$.
+            \end{cases} \tag{\star}
+        \end{equation*}
+        con $h_k : b_k \to a_1$.
         
-        Para garantizar la existencia de $\alpha_k$, podemos construirla en dos pasos, una para llevar a su hueco y otra para garantizar \hyperref[5.3-casos]{5.3-casos}. 
+        Para garantizar la existencia de $\alpha_k$, podemos construirla en dos pasos, una para llevar a su hueco y otra para garantizar (\star). 
 
-        Sea $r \le \min{r_1, \dots, r_k}$ y $V_i = \alpha_i^{-1}(\{z : |z| < r, \text{arg}(z) \in [\frac{2\pi(i-1)}{k}, \frac{2\pi i}{k}]\})$. Definimos $\alpha : V_1 \cup \dots \cup V_k \to B(0,r)$ como $\alpha(x) = \alpha_i(x), x \in V_i$. $\alpha$ está bien definida pues si $xRy, x\in b_i, y \in a_{i+1} \implies \alpha(y) = \alpha_{i+1}(h_i(x)) = \alpha_i(x) = \alpha(x), i\ne k$. Y para $k$, $y = h_k(x) \in a_1 \to$ misma cuenta. Luego, $\alpha$ es identificación (continua, sobreyectiva, cerrada) y $\tilde{\alpha}$ es homeomorfismo.
+        Sea $r \le \min\{r_1, \dots, r_k\}$ y $V_i = \alpha_i^{-1}(\{z : |z| < r, \text{arg}(z) \in [\frac{2\pi(i-1)}{k}, \frac{2\pi i}{k}]\})$. Definimos $\alpha : V_1 \cup \dots \cup V_k \to B(0,r)$ como
+        \[
+        \alpha(x) = \alpha_i(x), x \in V_i.
+        \]
+        $\alpha$ está bien definida pues
+        \[xRy, x\in b_i, y \in a_{i+1} \implies \alpha(y) = \alpha_{i+1}(h_i(x)) = \alpha_i(x) = \alpha(x), i\ne k.
+        \]
+        Y para $i=k$,
+        \[
+        y = h_k(x) \in a_1, \alpha(y)=\alpha_{1}(h_k(x))=\alpha_k(x)=\alpha(x).
+        \]
+        Luego, $\alpha$ es identificación (continua, sobreyectiva, cerrada) y $\tilde{\alpha}$ es un homeomorfismo al restringirla a su imagen, y podemos aplicar el mismo argumento del caso anterior.
     \end{enumerate}
 
     \textbf{$\mathbf{2A\N}$:} La proyección es continua y sobreyectiva, y el polígono es $2A\N$, luego $\tilde{X}$ también lo es por el \hyperref[lem:146]{Lema 1.4.6}.
