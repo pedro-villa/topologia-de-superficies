@@ -55,7 +55,7 @@
         
         Si además es abierta entonces dado $U\in\T(f)$ arbitrario, $f^{-1}(U)\in\T$ por la definición de $\T(f)$, pero entonces $f(f^{-1}(U))\in\T'$ al ser $f$ abierta, y como es sobreyectiva $f(f^{-1}(U))=U\in\T'$, por lo que $\T(f)\subset\T'\subset\T(f)\implies \T(f)=\T'$, luego $f$ es una identificación.
         
-        Si $f$ es cerrada razonamos de manera similar pero con cerrados: dado $U\in\T(f)$, $C=Y\setminus U$ es cerrado en $\T(f)$, por lo que $f^{-1}(C)$ es cerrado en $\T$\footnote{Por la tercera parte de la Proposición \hyperref[prop:112]{1.1.2}}, por tanto $f(f^{-1}(C))=C$ es cerrado en $\T$ al ser $f$ cerrada, pero entonces $U=Y\setminus(Y\setminus C)\in\T$, por tanto $\T(f)\subset\T'\subset\T(f)\implies \T(f)=\T'$, luego $f$ es una identificación.
+        Si $f$ es cerrada razonamos de manera similar pero con cerrados: dado $U\in\T(f)$, $C=Y\setminus U$ es cerrado en $\T(f)$, por lo que $f^{-1}(C)$ es cerrado en $\T$\footnote{Por la tercera parte de la Proposición \hyperref[prop:112]{1.1.2}}, por tanto $f(f^{-1}(C))=C$ es cerrado en $\T'$ al ser $f$ cerrada, pero entonces $U=Y\setminus C\in\T'$, por tanto $\T(f)\subset\T'\subset\T(f)\implies \T(f)=\T'$, luego $f$ es una identificación.
     \end{enumerate}
 }
 
@@ -98,7 +98,7 @@
         Por otro lado si $x\in\bigcup_{[x] \in V}[x]$ entonces $[x]\in V$, por tanto $p(x)=[x] \in V \implies x \in p^{-1}(V)$, lo que prueba finalmente que $p^{-1}(V)=\bigcup_{[x] \in V}[x]$.
         \item Sabemos que la aplicación $p$ es continua y la compacidad se preserva por aplicaciones continuas. Como además $p$ es sobreyectiva entonces $p(X)=\tilde{X}$, por tanto si $X$ es compacto entonces $p(X)=\tilde{X}$ también lo es.
         \item Sabemos que la aplicación $p$ es continua y tanto la conexión como la arcoconexión se preservan por aplicaciones continuas. Como además $p$ es sobreyectiva entonces $p(X)=\tilde{X}$, por tanto si $X$ es conexo (conexo por caminos) entonces $p(X)=\tilde{X}$ también lo es.
-        \item Es inmediato que $\tilde{\T}=\T(p)$, por otro lado dado $y\in\tilde{\T}\implies y=[x]$ para cierto $x\in X$, por tanto $p(x)=y$, luego $p$ es sobreyectiva.
+        \item Es inmediato que $\tilde{\T}=\T(p)$, por otro lado dado $y\in\tilde{X}\implies y=[x]$ para cierto $x\in X$, por tanto $p(x)=y$, luego $p$ es sobreyectiva.
         \item Por el apartado 4, $p$ es una identificación, por tanto basta aplicar la parte 2 de la Proposición \hyperref[prop:114]{1.1.4}
     \end{enumerate}
 }
@@ -112,9 +112,8 @@ x R_fx'\iff f(x)=f(x')
 Demostrar que $R_f$ es una relación de equivalencia.
 }
 
-
 \thmr{Proposición 4.1}{diagrama}{
-    Dados \((X, \T)\) y \((Y, \T')\) espacios topológicos y \((\tilde{X}, \tilde{\T})\) el espacio cociente dado por \(R_f\), existe una aplicación \(\tilde{f} : (\tilde{X}, \tilde{\T}) \to (Y, \T')\) que hace que el siguiente diagrama sea conmutativo\footnote{Que el diagrama sea conmutativo quiere decir que "da igual que camino de flechitas sigamos", es decir, $\tilde{f}\circ p=f$.}
+    Dados \((X, \T)\) y \((Y, \T')\) espacios topológicos y \((\tilde{X}, \tilde{\T})\) el espacio cociente dado por \(R_f\), existe una aplicación \(\tilde{f} : (\tilde{X}, \tilde{\T}) \to (Y, \T')\) que hace que el siguiente diagrama sea conmutativo\footnote{Que el diagrama sea conmutativo quiere decir que ``da igual que camino de flechitas sigamos'', es decir, $\tilde{f}\circ p=f$.}
     \begin{center}
         \includegraphics[]{otros/diagrama.pdf}
     \end{center}
@@ -123,17 +122,21 @@ Demostrar que $R_f$ es una relación de equivalencia.
 \pf{
     Si pretendemos que el diagrama sea conmutativo debe cumplirse
     \[
-    \tilde{f}(p(x))=f(x)\iff \tilde{f}([x])=f(x)
+    \tilde{f}(p(x))=f(x)
     \]
-    por tanto definimos $\tilde{f}$ de la siguiente manera:
+    Es decir,
+    \[
+        \tilde{f}([x])=f(x)
+    \]
+    Por tanto definimos $\tilde{f}$ de la siguiente manera:
     \[
     \tilde{f}:(\tilde{X}, \tilde{\T}) \to (Y, \T'),\quad \tilde{f}([x])=f(x).
     \]
-    Ahora solo necesitamos ver que la aplicación está bien definida. En efecto si $x,y\in X$ son dos representantes de la misma clase de equivalencia $[x]$ entonces $xR_fy$, por tanto se cumple $f(x)=f(y)$, luego
+    Ahora solo necesitamos ver que la aplicación está bien definida\footnote{Una aplicación que tiene como dominio un cociente se dice que está bien definida si la imagen de una clase de equivalencia no depende del representante escogido para la clase.}. En efecto si $x,y\in X$ son dos representantes de la misma clase de equivalencia $[x]$ entonces $xR_fy$, por tanto se cumple $f(x)=f(y)$, luego
     \[
     \tilde{f}([x])=f(x)=f(y)=\tilde{f}([y])
     \]
-    por lo que la aplicación está bien definida\footnote{Está bien definida ya que hemos visto que la imagen de una clase de equivalencia no depende del representante escogido.}.
+    por lo que la aplicación está bien definida.
 
     Para la segunda parte, si suponemos que $\tilde{f}$ es un homeomorfismo entonces $f=\tilde{f}\circ p$ es continua por ser composición de funciones continuas, y es sobreyectiva por serlo $\tilde{f}$ y $p$. Además, si $U\in\T(f)$ entonces $f^{-1}(U)=p^{-1}(\tilde{f}^{-1}(U))\in\T$, por tanto $\tilde{f}^{-1}(U)\in\tilde{\T}$, y al ser $\tilde{f}$ abierta y biyectiva  $U=\tilde{f}(\tilde{f}^{-1}(U))\in\T'$, lo que prueba que $\T(f)=\T'$ y por tanto $f$ es una identificación.
 
@@ -607,7 +610,7 @@ El resto de ejemplos se pueden justificar de manera similar a los anteriores enc
     es un homeomorfismo. Omitiremos ver que $\varphi$ esta bien definida y es un homeomorfismo.
 
     Ahora veamos que $\mathbb{RP}^n$ es $2A\N$. Para ello notemos que $\R^{n+1}\setminus\{0\}$ es $2A\N$ y $\pi$ es continua y sobreyectiva. En tal caso podemos aplicar el siguiente lema:
-    \lem{}{
+    \lem{}{  
         \label{lem:146}
         Sea $X$ un espacio $2A\N$ y $\pi: X \to M$ continua y sobreyectiva. Si $M$ es localmente euclídeo entonces es $2A\N$.
     }
