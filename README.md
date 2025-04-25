@@ -8,9 +8,9 @@
 
 - ```src/```  
   Carpeta que contiene los archivos fuente en LaTeX:
-  - Archivo principal: **src/main.tex**, que integra todas las secciones.
-  - Archivos de temas, tales como **src/tema4.tex**, entre otros.
-  - Archivos complementarios (p.ej., **src/commands.tex**, **src/example.tex**, **src/otros/diagrama.tex**).
+  - Archivo principal: ```src/main.tex```, que integra todas las secciones.
+  - Archivos de temas, tales como ```src/tema4.tex```, entre otros.
+  - Archivos complementarios (p.ej., ```src/commands.tex```, ```src/example.tex```, ```src/otros/diagrama.tex```).
 
 - ```pdf/Apuntes - Topología de Superficies.pdf```  
   Versión compilada de los apuntes generada automáticamente mediante GitHub Actions. **No se debe realizar ningún cambio manual en este archivo.**
