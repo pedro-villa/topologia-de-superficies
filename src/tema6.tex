@@ -548,17 +548,17 @@
     Concluimos entonces que $\alpha_1 * \beta_1  \simeq_p \alpha_2 * \beta_2$, y por tanto $[\alpha] * [\beta]$ no depende de los representantes de las clases $[\alpha]$ y $[\beta]$.
 }
 
-Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en álgebra se conoce como un \textbf{grupo}. Un grupo es, esencialmente, un conjunto con una operación que satisface ciertas reglas (asociatividad, existencia de un elemento neutro y de inversos para cada elemento). Para una introducción más formal a los conceptos que usaremos de teoría de grupos, se puede consultar el \hyperref[apendice:teoria-de-grupos]{Apéndice A}.
+Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en álgebra se conoce como un grupo. Un grupo es, esencialmente, un conjunto con una operación que satisface ciertas reglas (asociatividad, existencia de un elemento neutro y de inversos para cada elemento). Para una introducción más formal a los conceptos que usaremos de teoría de grupos, se puede consultar el \hyperref[apendice:teoria-de-grupos]{Apéndice A}.
 
 \thm{El grupo fundamental}{
-    El conjunto $\pi_1(X,x_0)$ junto con la operación producto $*$ es un grupo, denominado el \textbf{grupo fundamental} de $X$ en $x_0$.
+    El conjunto $\pi_1(X,x_0)$ junto con la operación producto $*$ es un grupo, denominado el grupo fundamental de $X$ en $x_0$.
 }
 \pf{
     Veamos que la operación $*$ definida en el cociente $\Omega_{x_0} / \simeq_p$ es asociativa, tiene un elemento neutro y todo elemento tiene un inverso respecto a ella. En esencia, aplicaremos la proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} a la operación en el cociente, usando que está bien definida. 
     
-    \textbf{Asociatividad. } Sean $[\alpha], [\beta], [\gamma] \in \pi_1(X, x_0)$. Queremos ver que $([\alpha] * [\beta]) * [\gamma] = [\alpha] * ([\beta] * [\gamma])$. Por definición de la operación en el cociente, esto es equivalente a probar que $[(\alpha * \beta) * \gamma] = [\alpha * (\beta * \gamma)]$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.4} (1) nos dice que $(\alpha * \beta) * \gamma \simeq_p \alpha * (\beta * \gamma)$, lo que implica que sus clases de homotopía son iguales.
+    \textbf{Asociatividad. } Sean $[\alpha], [\beta], [\gamma] \in \pi_1(X, x_0)$. Queremos ver que $([\alpha] * [\beta]) * [\gamma] = [\alpha] * ([\beta] * [\gamma])$. Por definición de la operación en el cociente, esto es equivalente a probar que $[(\alpha * \beta) * \gamma] = [\alpha * (\beta * \gamma)]$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} (1) nos dice que $(\alpha * \beta) * \gamma \simeq_p \alpha * (\beta * \gamma)$, lo que implica que sus clases de homotopía son iguales.
 
-    \textbf{Elemento neutro. } Sea $\epsilon_{x_0}$ el camino constante en $x_0$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} (2) establece que $\epsilon_{x_0} * \alpha \simeq_p \alpha$ y $\alpha * \epsilon_{x_0} \simeq_p \alpha$. En términos de clases de homotopía, esto significa que $[\epsilon_{x_0}] * [\alpha] = [\alpha]$ y $[\alpha] * [\epsilon_{x_0}] = [\alpha]$. Por lo tanto, $[\epsilon_{x_0}]$ es el elemento neutro del grupo.
+    \textbf{Elemento neutro. } Sea $\epsilon_{x_0}$ el camino constante en $x_0$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} (2) establece que $\epsilon_{x_0} * \alpha \simeq_p \alpha$ y $\alpha * \epsilon_{x_0} \simeq_p \alpha$ (notemos que en este caso $x_1=x_0$). En términos de clases de homotopía, esto significa que $[\epsilon_{x_0}] * [\alpha] = [\alpha]$ y $[\alpha] * [\epsilon_{x_0}] = [\alpha]$. Por lo tanto, $[\epsilon_{x_0}]$ es el elemento neutro del grupo.
 
     \textbf{Elemento inverso. } Para cualquier $[\alpha] \in \pi_1(X, x_0)$, consideremos el camino inverso $\bar{\alpha}(t) = \alpha(1-t)$. La proposición \hyperref[prop:propiedades-producto-caminos]{3.3.5} (3) nos dice que $\alpha * \bar{\alpha} \simeq_p \epsilon_{x_0}$ y $\bar{\alpha} * \alpha \simeq_p \epsilon_{x_0}$. Esto se traduce en $[\alpha] * [\bar{\alpha}] = [\epsilon_{x_0}]$ y $[\bar{\alpha}] * [\alpha] = [\epsilon_{x_0}]$. Por lo tanto, $[\bar{\alpha}]$ es el inverso de $[\alpha]$.
 
@@ -566,10 +566,23 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 }
 
 \ex{
-    Si $X\subset \R^n$ convexo, entonces $\pi_1(X,x_0) = 0$ (el grupo trivial) para todo $x_0\in X$. En particular $\pi_1(\R^n,x_0) = 0$ y $\pi_1(B^n, x_0) = 0$, donde $B^n$ es la bola unidad.
+    Si $X\subset \R^n$ convexo, entonces $\pi_1(X,x_0) = (0,+)$ (el grupo trivial) para todo $x_0\in X$. En particular $\pi_1(\R^n,x_0) = (0,+)$ y $\pi_1(B^n, x_0) = (0,+)$, donde $B^n$ es la bola unidad.
 }
+
+\pf{
+    Veamos que dado $X\subset\R^n$ convexo y $x\in X$ cualquier camino $\alpha\in\Omega_{x}$ es homotópico por caminos al camino constante $\epsilon_x$, y por tanto el grupo fundamental debe ser el grupo trivial al tener $\Omega_{x}$ un único elemento. Para ver que $\alpha\simeq_p\epsilon_x$ basta considerar la homotopía por caminos
+    \[
+    H(s,t)=t\alpha(s)+(1-t)\epsilon_x(s)=t\alpha(s)+(1-t)x
+    \]
+    que en efecto es continua y verifica $H(s,0)=\epsilon_x(s),H(s,1)=\alpha(s),H(0,t)=x=H(1,t)$.
+}
+
 \ex{
-    $\pi_1(\R,x) = (0,+)$ (el grupo trivial se denota así).
+    $\pi_1(\R,x) = (0,+)$.
+}
+
+\rmkb{
+    En ocasiones abusaremos de la notación  y denotaremos al grupo trivial simplemente como 0.
 }
 
 \defn{}{
