@@ -398,10 +398,13 @@
 
 \defn{Producto de caminos}{
     Si $\alpha$ es un camino uniendo $x_0$ y $x_1$, y $\beta$ es un camino uniendo $x_1$ y $x_2$, definimos el camino producto $\alpha * \beta$ por 
-    $$\alpha * \beta(s) = \begin{cases}
-        \alpha(2s) & s \in [0, \frac{1}{2}] \\
-        \beta(2s - 1) & s \in [\frac{1}{2}, 1]
-    \end{cases}$$
+    \[
+        \alpha * \beta(s) =
+        \begin{cases}
+            \alpha(2s) & s \in [0, \frac{1}{2}] \\
+            \beta(2s - 1) & s \in [\frac{1}{2}, 1]
+        \end{cases}
+    \]
 }
 
 \rmkb{
@@ -410,22 +413,26 @@
 
 
 \lemp{Lema previo}{
-    Sean $\alpha\in\Omega_{x_0}^{x_1}(X), \beta\in\Omega_{x_1}^{x_2}(X)$. Entonces, $\alpha*\beta \simeq_p \gamma(t) = \begin{cases}
+    Sea $\alpha$ un camino uniendo $x_0$ y $x_1$, sea $\beta$ un camino uniendo $x_1$ y $x_2$. Entonces, para cualquier $r\in(0,1)$ se cumple $\alpha*\beta \simeq_p \gamma,\quad \gamma(t) = \begin{cases}
         \alpha(\frac{t}{r}) & t \in [0, r] \\
-        \beta(\frac{t-r}{1-r}) & t \in [r, 1]
+        \beta(\frac{t-r}{1-r}) & t \in [r, 1].
     \end{cases}$
 }{
-    Quiero ver que $\alpha*\beta$ y $\gamma$ son homotópicos por caminos, luego necesito una homotopía $H(x,t):I\times I \to X$  tal que $H(x,0) = \alpha*\beta(x)$ y $H(x,1) = \gamma(x)$, además de que $H(0,t) = x_0$ y $H(1,t) = x_2$.
-
-    $H(x,t) = \begin{cases}
+    Queremos ver que $\alpha*\beta$ y $\gamma$ son homotópicos por caminos, luego necesitamos una homotopía $H:I\times I \to X$ tal que $H(x,0) = \alpha*\beta(x)$ y $H(x,1) = \gamma(x)$, y además $H(0,t) = x_0$ y $H(1,t) = x_2$.
+    
+    Definamos $H$ de la siguente manera
+    \[
+    H(x,t) = \begin{cases}
         \alpha\Big(\frac{x}{(1-t)\frac{1}{2}+tr}\Big) & x \in [0, (1-t)\frac{1}{2}+tr] \\
         \beta\Big(\frac{x-(1-t)\frac{1}{2}-tr}{1-(1-t)\frac{1}{2}-tr}\Big) & x \in [(1-t)\frac{1}{2}+tr, 1]
-    \end{cases}$
+    \end{cases}
+    \]
+    Claramente $H$ es continua por el lema del pegado y además se verifican las siguientes propiedades que necesitabamos comprobar:
     \begin{itemize}
-        \item $H(x,0) = \alpha*\beta(x). \checkmark$
-        \item $H(x,1) = \gamma(x). \checkmark$
-        \item $H(0,t) = \alpha(0) = x_0. \checkmark$
-        \item $H(1,t) = \beta(1) = x_2. \checkmark$
+        \item $H(x,0) = \alpha*\beta(x) \checkmark$
+        \item $H(x,1) = \gamma(x) \checkmark$
+        \item $H(0,t) = \alpha(0) = x_0 \checkmark$
+        \item $H(1,t) = \beta(1) = x_2 \checkmark$
     \end{itemize}
 }
 
@@ -433,12 +440,71 @@
     \label{prop:propiedades-producto-caminos}
     \begin{enumerate}
         \item $\alpha * (\beta * \gamma) \simeq_p (\alpha * \beta) * \gamma$.
-        \item Si $\epsilon_{x_0}$ es el arco constante $x_0$ e igual $\epsilon_{x_1}$, entonces
-        $$\epsilon_{x_0} * \alpha \simeq_p \alpha \text{ y } \alpha * \epsilon_{x_1} \simeq_p \alpha$$
-        \item Sea $\bar{\alpha} = \alpha(1-t), t\in I$. Entonces, $$\alpha * \bar{\alpha} \simeq_p \epsilon_{x_0} \text{ y } \bar{\alpha} * \alpha \simeq_p \epsilon_{x_1}$$
+        \item Si $\epsilon_{x_0}$ es el arco constante $x_0$ y $\epsilon_{x_1}$ el arco constante $x_1$, entonces
+        \[
+            \epsilon_{x_0} * \alpha \simeq_p \alpha \text{ y } \alpha * \epsilon_{x_1} \simeq_p \alpha
+        \]
+        \item Sea $\bar{\alpha}(t) = \alpha(1-t), t\in I$. Entonces, $$\alpha * \bar{\alpha} \simeq_p \epsilon_{x_0} \text{ y } \bar{\alpha} * \alpha \simeq_p \epsilon_{x_1}$$
     \end{enumerate}
 }{
-    Pendiente...
+    \begin{enumerate}
+        \item Es inmediato notar que
+        \begin{align*}
+            \alpha * (\beta * \gamma)(s) &=
+            \begin{cases}
+                \alpha(2s) & s \in [0, \frac{1}{2}] \\
+                \beta(4s-2) & s \in [\frac{1}{2}, \frac{3}{4}]\\
+                \gamma(4s-3) & s \in [\frac{3}{4}, 1]
+            \end{cases}\\
+            (\alpha * \beta) * \gamma(s) &=
+            \begin{cases}
+                \alpha(4s) & s \in [0, \frac{1}{4}] \\
+                \beta(4s-1) & s \in [\frac{1}{4}, \frac{1}{2}]\\
+                \gamma(2s-1) & s \in [\frac{1}{2}, 1]
+            \end{cases}
+        \end{align*}
+        Aplicando el lema previo con $r=\frac{1}{3}$ al primer producto obtenemos
+        \[
+            \alpha * (\beta * \gamma)(s) \simeq_p \sigma(s)=
+            \begin{cases}
+                \alpha(3s) & s \in [0, \frac{1}{3}] \\
+                \beta(3s-1) & s \in [\frac{1}{3}, \frac{2}{3}]\\
+                \gamma(3s-2) & s \in [\frac{2}{3}, 1]
+            \end{cases}
+        \]
+        y de nuevo aplicandolo al segundo producto se puede llegar a $(\alpha * \beta) * \gamma(s) \simeq_p \sigma(s)$, lo que prueba finalmente que $\alpha * (\beta * \gamma) \simeq_p \sigma \simeq_p (\alpha * \beta) * \gamma$.
+
+        \item Probaremos solo el primer caso, el segundo es muy similar. Definamos la siguiente aplicación 
+        \[
+        H(x,t) = \begin{cases}
+            x_0 & x \in [0, \frac{t}{2}] \\
+            \alpha\Big(\frac{2x-t}{2-t}\Big) & x \in [\frac{t}{2}, 1]
+        \end{cases}
+        \]
+        que es una homotopía por caminos puesto que es continua y verifica
+        \[
+        H(x,1)=\epsilon_{x_0} * \alpha(x), H(x,0)=\alpha(x), H(0,t)=x_0, H(1,t)=x_1,
+        \]
+        luego $\alpha\simeq_p\epsilon_{x_0} * \alpha$.
+
+        \item De nuevo probamos solo el primer caso, para ello basta definir la siguiente homotopia por caminos $H:I\times I\to X$, dada por
+        \[
+            H(x, t) = 
+            \begin{cases} 
+            \alpha(2x(1-t)) & x \in [0, \frac{1}{2}] \\
+            \alpha((2-2x)(1-t)) & x \in [\frac{1}{2}, 1]
+            \end{cases}
+        \]
+        esta aplicación es continua y efectivamente cumple $H(x,1)=\epsilon_{x_0}(x), H(0,t)=x_0, H(1,t)=x_0$, además de
+        \[
+        H(x,0)=
+        \begin{cases} 
+            \alpha(2x) & x \in [0, \frac{1}{2}] \\
+            \alpha(2-2x)=\alpha(1-(2x-1))=\bar{\alpha}(2x-1) & x \in [\frac{1}{2}, 1]
+            \end{cases}
+        =\alpha * \bar{\alpha}(x).
+        \]
+    \end{enumerate}
 }
 
 \defn{Conjunto de arcos}{
@@ -446,13 +512,11 @@
     Llamaremos $$\pi_1(X,x_0) : \faktor{\Omega_{x_0}}{\simeq_p}$$
 }
 
-\defn{Producto de clases de homotopía}{
+\propp{Producto de clases de homotopía}{
     El producto $*$ induce un producto bien definido para clases de homotopía:
     $$[\alpha]*[\beta]:=[\alpha*\beta]$$
-}
-\pf{
+}{
     Veamos que el producto $*$ está bien definido en el cociente, es decir, no depende de los representantes elegidos de las clases $[\alpha]$ y $[\beta]$. Sean $\alpha_1, \alpha_2 \in \Omega_{x_0}^{x_1}$ con $\alpha_1 \simeq_p \alpha_2$ y $\beta_1, \beta_2 \in \Omega_{x_1}^{x_2}$ con $\beta_1 \simeq_p \beta_2$. Queremos probar que $\alpha_1 * \beta_1 \simeq_p \alpha_2 * \beta_2$. Llamemos $F_{\alpha}$ a la homotopía entre $\alpha_1$ y $\alpha_2$, y sea $F_{\beta}$ la homotopía entre $\beta_1$ y $ \beta_2$. 
-    \newline 
 
     Buscamos probar que $\alpha_1 * \beta_1 $ y $\alpha_2 * \beta_2$ son caminos homotópicos. Nuestra homotopía candidata es $G : I \times I \to X$ como
     \[
@@ -480,7 +544,6 @@
     \] 
 
     Por otro lado, también se verifica la condición de homotopía de caminos, pues $\alpha_1 \simeq_p \alpha_2$ implica que $G(0, t) = F_{\alpha}(0, t) = x_0$. Análogamente, se tiene que $G(1, t) = F_{\beta}(1, t) = x_2$.
-    \newline 
 
     Concluimos entonces que $\alpha_1 * \beta_1  \simeq_p \alpha_2 * \beta_2$, y por tanto $[\alpha] * [\beta]$ no depende de los representantes de las clases $[\alpha]$ y $[\beta]$.
 }
@@ -596,6 +659,171 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     f_{*} : \pi_1(X, x_0) \to \pi_1(Y, f(x_0))
     \]  
     es un isomorfismo de grupos.
+}{
+    Pendiente.
+}
+
+\corp{
+    Si $X$ es un espacio contráctil entonces $X$ es simplemente conexo.
+}{
+    Pendiente.
+}
+
+\section{Aplicaciones recubridoras}
+
+\defn{Aplicación recubridora}{
+    Sea $p:E \to B$ una aplicación continua y sobreyectiva. Decimos que $p$ es una aplicación recubridora si para todo $b \in B$ existe un entorno $U\in\E(b)$ tal que
+    \[
+        p^{-1}(U)=\bigcup_{i \in J} V_i
+    \]
+    donde los $V_i$ son abiertos disjuntos en $E$ y
+    \[
+    p|_{V_i}:V_i \to U
+    \]
+    es un homeomorfismo para todo $i \in J$.
+    Se dice que $E$ es un espacio recubridor de $B$. Si $J=\{1,\dots,n\}$ diremos que $p$ es una aplicación recubridora de $n$ hojas.
+}
+
+\ex{
+    La aplicación $p : \mathbb{R} \to \mathbb{S}^1$ dada por $p(t) = (\cos 2\pi t, \sin 2\pi t)$ es una aplicación recubridora.
+}
+
+\ex{
+    La aplicación $p : \mathbb{S}^1 \to \mathbb{S}^1$ dada por $p(x, y) = (x^2 - y^2, 2xy)$ (elevar al cuadrado en $\mathbb{C}$) es una aplicación recubridora.
+}
+
+\propp{}{
+    El producto de dos aplicaciones recubridoras es una aplicación recubridora.
+}{
+    Pendiente.
+}
+
+\ex{
+    Sea $p : \mathbb{R} \to \mathbb{S}^1$ dada por $p(t) = (\cos 2\pi t, \sin 2\pi t)$, entonces $p \times p : \mathbb{R}^2 \to \mathbb{S}^1 \times \mathbb{S}^1$ es una aplicación recubridora sobre el toro.
+}
+
+\lem{Levantamiento de caminos}{
+    Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$. Para cualquier camino $\alpha : I \to B$ que comienza en $b$, existe un único camino $\tilde{\alpha} : I \to E$ que comienza en $e$ tal que $p \circ \tilde{\alpha} = \alpha$. El camino $\tilde{\alpha}$ se llama levantamiento de $\alpha$.
+}
+
+\lem{Levantamiento de homotopías}{
+    Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$. Para cualquier homotopía por caminos $F : I \times I \to B$ con $F(0,0) = b$, existe una única homotopía por caminos $\tilde{F} : I \times I \to E$ tal que $p \circ \tilde{F} = F$ y $\tilde{F}(0,0) = e$.
+}
+
+\propp{}{
+    Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$. Sean $\alpha$, $\beta$ dos caminos en $B$ comenzando en $b$ y finalizando en un mismo punto, y sean $\tilde{\alpha}$, $\tilde{\beta}$ sus respectivos levantamientos comenzando en $e$. Si $\alpha \simeq_p \beta$, entonces $\tilde{\alpha} \simeq_p \tilde{\beta}$ y $\tilde{\alpha}$, $\tilde{\beta}$ finalizan en un mismo punto de $E$.
+}{
+    Pendiente.
+}
+
+\defn{Correspondencia del levantamiento}{
+    Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$. Definimos la aplicación
+    \[
+    \Phi : \pi_1(B, b) \to p^{-1}(b)
+    \]
+    que asigna a cada clase de lazos $[\alpha] \in \pi_1(B, b)$ un elemento de $E$. En concreto, sea $\tilde{\alpha}$ el levantamiento de $\alpha$ que empieza en $e$, entonces ese elemento es
+    \[
+    \Phi([\alpha]) := \tilde{\alpha}(1).
+    \]
+}
+
+\propp{}{
+    Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$.
+    \begin{enumerate}
+        \item Si $E$ es conexo por caminos, entonces $\Phi$ es sobreyectiva.
+        \item Si $E$ es simplemente conexo, entonces $\Phi$ es biyectiva.
+    \end{enumerate}
+}{
+    Pendiente.
+}
+
+\thm{}{
+    El grupo fundamental de la circunferencia $\mathbb{S}^1$ es isomorfo a $(\mathbb{Z}, +)$.
+}
+
+\defn{Retracción, retracto}{
+    Sea $A \subset X$ un subconjunto de un espacio topológico $X$. Una retracción de $X$ en $A$ es una aplicación continua $r : X \to A$ tal que $r|_A = Id_A$. Se dice que $A$ es un retracto de $X$.
+}
+
+\ex{
+    La aplicación $r : \mathbb{R}^{n+1} \setminus \{0\} \to \mathbb{S}^n$ dada por $r(x) = \frac{x}{\|x\|}$ es una retracción, así $\mathbb{S}^n$ es un retracto de $\mathbb{R}^{n+1} \setminus \{0\}$.
+}
+
+\lem{}{
+    Si $A$ es un retracto de $X$, entonces el homomorfismo inducido $i_* : \pi_1(A, a) \to \pi_1(X, a)$ es inyectivo, para todo $a \in A$, donde $i : A \to X$ es la inclusión.
+}
+
+\defn{Retracto de deformación}{
+    Sea $A \subset X$ un retracto de $X$. Decimos que $A$ es un retracto de deformación de $X$ si la aplicación identidad $Id_X$ es homotópica a $i \circ r$, con $r$ una retracción de $X$ en $A$, de forma que cada punto de $A$ permanece fijo por la homotopía. En particular, $A \simeq X$.
+}
+
+\ex{
+    $\mathbb{S}^n$ es un retracto de deformación de $\mathbb{R}^{n+1} \setminus \{0\}$.
+}
+
+\corp{
+    Sea $A$ un retracto de deformación de $X$. Para todo $a \in A$, el homomorfismo inducido $i_* : \pi_1(A, a) \to \pi_1(X, a)$ por la inclusión es un isomorfismo.
+}{
+    Pendiente.
+}
+
+\corp{
+    $\pi_1(\mathbb{R}^{n+1} \setminus \{0\}) \cong \pi_1(\mathbb{S}^n)$, para todo $n \geq 1$.
+}{
+    Pendiente.
+}
+
+\section{Teorema de Seifert-van Kampen}
+
+\thm{Teorema de Seifert-van Kampen (versión reducida)}{
+    Supongamos que $X = U \cup V$, donde $U$ y $V$ son abiertos y $U \cap V \neq \emptyset$ es conexo por caminos. Sean $i : U \to X$ y $j : V \to X$ las inclusiones. Para cada $x_0 \in U \cap V$, las imágenes de los homomorfismos inducidos $i_*$ y $j_*$ generan el grupo $\pi_1(X, x_0)$.
+}
+
+\corp{
+    Supongamos que $X = U \cup V$, donde $U$ y $V$ son abiertos y $U \cap V \neq \emptyset$, $U$ y $V$ son conexos por caminos. Si $U$ y $V$ son simplemente conexos, entonces $X$ es simplemente conexo.
+}{
+    Pendiente.
+}
+
+\corp{
+    La esfera $\mathbb{S}^n$ es simplemente conexa, para $n \geq 2$.
+}{
+    Pendiente.
+}
+
+\thm{}{
+    Sean $X$ e $Y$ dos espacios topológicos y fijemos puntos $x_0 \in X$, $y_0 \in Y$. Entonces
+    \[
+    \pi_1(X \times Y, (x_0, y_0)) \cong \pi_1(X, x_0) \times \pi_1(Y, y_0).
+    \]
+}
+
+\corp{
+    $\pi_1(\mathbb{S}^1 \times \mathbb{S}^1) \cong \mathbb{Z} \times \mathbb{Z}$.
+}{
+    Pendiente.
+}
+
+\propp{}{
+    El grupo fundamental del plano proyectivo $\mathbb{RP}^2$ es $\mathbb{Z}_2$.
+}{
+    Pendiente.
+}
+
+\propp{}{
+    El grupo fundamental de la figura ocho $\mathbb{S}^1 \lor \mathbb{S}^1$ es no abeliano (grupo libre de dos generadores).
+}{
+    Pendiente.
+}
+
+\corp{
+    El grupo fundamental del plano doblemente agujereado es no abeliano.
+}{
+    Pendiente.
+}
+
+\corp{
+    El grupo fundamental del doble toro $\mathbb{T}^2 \#\mathbb{T}^2$ es no abeliano.
 }{
     Pendiente.
 }
