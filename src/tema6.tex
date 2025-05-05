@@ -329,6 +329,10 @@
 }
 
 \rmkb{
+    El subíndice $p$ de $\simeq_p$ proviene de que en inglés camino se traduce por \textit{path}.
+}
+
+\rmkb{
     Para cada $t\in I$, $F_t$ es un camino uniendo $x_0$ y $x_1$, con $F_0 = \alpha$ y $F_1 = \beta$. En la siguiente imagen aparecen los distintos $F_t$ en color gris:
     \begin{center}
         \includegraphics[]{img/homotopia-caminos}
@@ -613,7 +617,7 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     \begin{align*}
         \widehat{(\overline{\sigma})}(\hat{\sigma}([\gamma]))=[\sigma] * \hat{\sigma}([\gamma]) * [\overline{\sigma}]=[\sigma] * [\overline{\sigma}] * [\gamma] * [\sigma] * [\overline{\sigma}] = [\gamma]
     \end{align*}
-    donde hemos usado las propiedades de grupo de $\pi_1(X,x_0)$.
+    donde hemos usado las propiedades de grupo de $\pi_1(X,x_0)$. Para comprobar que $\widehat{(\overline{\sigma})}$ también es inversa por la derecha de $\hat{\sigma}$ seguimos un razonamiento similar que omitimos.
 
     Para ver que es un homomorfismo basta notar que
     \begin{align*}
@@ -652,18 +656,47 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     definida por $f_*([\alpha]) = [f \circ \alpha]$, denominada el homomorfismo inducido.
 }
 
+\clmp{}{
+    $f_*$ es un homomorfismo de grupos.
+}{
+    En primer lugar notemos que $f\circ\alpha$ es un lazo centrado en $f(x_0$ por ser $f$ continua. Ahora basta notar que dados $[\alpha],[\beta]\in\pi_1(X)$ tenemos
+    \[
+        f_*([\alpha]) * f_*([\beta]) = [f \circ \alpha] * [f \circ \beta] = [(f \circ \alpha) * (f \circ \beta)] = [f \circ (\alpha * \beta)] = f_*([\alpha * \beta]).
+    \]
+    Los detalles de cada paso quedan para el lector.
+}
+
 \propp{Propiedades del homomorfismo inducido}{
     \begin{enumerate}
         \item Si $f: X \to Y$ y $g: Y \to Z$ son continuas, entonces $(g \circ f)_* = g_* \circ f_*$.
-        \item Para la identidad $Id_X: X \to X$ se tiene $(Id_X)_* = Id|_{\pi_1(X,x_0)}.$
+        \item Para la identidad $Id_X: X \to X$ se tiene $(Id_X)_* = Id_{\pi_1(X,x_0)}.$
         \item Si $f$ es un homeomorfismo, entonces $f_*$ es un isomorfismo de grupos. Así, el grupo fundamental es un invariante topológico.
     \end{enumerate}
 }{
-    Pendiente.
+    \begin{enumerate}
+        \item Sea $[\alpha]\in\pi_1(X)$, entonces
+        \[
+            (g \circ f)_*([\alpha])=[(g\circ f)\circ \alpha] = [g\circ(f\circ\alpha)] = g_*([f\circ\alpha]) = g_*(f_*([\alpha])) = g_* \circ f_* ([\alpha]).
+        \]
+        \item Es inmediato verificar que
+        \[
+            (Id_X)_*([\alpha]) = [Id_X \circ \alpha] = [\alpha] = Id_{\pi_1(X,x_0)}([\alpha])
+        \]
+        \item Ya sabemos que $f_*$ es un homomorfismo. Para ver que es una biyección notemos que $f^{-1}$ también es continua por ser $f$ homeomorfismo, por tanto, usando los apartados anteriores
+        \begin{align*}
+            f^{-1}_* \circ f_* &= (f^{-1} \circ f)_* = (Id_X)_* = Id_{\pi_1(X,x_0)}\\
+            f_* \circ f^{-1}_* &= (f \circ f^{-1})_* = (Id_X)_* = Id_{\pi_1(X,x_0)} 
+        \end{align*}
+        luego $f^{-1}_*$ es la inversa de $f_*$ y por tanto es una biyección.
+    \end{enumerate}
 }
 
-\lem{}{
-    Sea $X$ un espacio topológico y sean $\sigma_1$ y $\sigma_2$ arcos homotópicos en $X$ (no necesariamente por caminos). Entonces $\sigma_1 \simeq_p \sigma_2$. 
+\lem{Lema 6.10}{
+    Sea $X$ un espacio topológico y sean $\sigma_1$ y $\sigma_2$ arcos homotópicos en $X$ (no necesariamente por caminos). Entonces existen arcos $\tau_1$ uniendo $\sigma_1(0)$ con $\sigma_2(0)$ y $\tau_2$ uniendo $\sigma_1(1)$ con $\sigma_2(1)$ tales que
+    \[
+        \sigma_2 \simeq_p \overline{\tau}_1 * \sigma_1 * \tau_2.
+    \]
+    De hecho, si $\sigma_i$ es un lazo centrado en $x_i\in X$, $i=1,2$, entonces pueden elegirse $\tau_2=\tau_1$.
 }
 
 \propp{}{
