@@ -297,7 +297,7 @@
 
 \corp{
     Todo espacio contráctil es arcoconexo y por tanto conexo.
-}{
+}{\label{cor:contractil-arcoconexo}
     Sea $Y$ un espacio contráctil y sean $y_1,y_2 \in Y$ dos puntos arbitrarios. Aplicando el apartado (3) de la proposición anterior a las aplicaciones $f=C_{y_1},g=C_{y_2}:Y\to Y$ continuas obtenemos
     \[
     C_{y_1} \simeq C_{y_2} \iff \exists F:Y\times I \to Y \text{ continua tal que } \begin{cases}
@@ -646,6 +646,8 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     Si $X \subset \mathbb{R}^n$ es convexo, entonces $X$ es simplemente conexo.
 }
 
+\clearpage
+
 \section{El homomorfismo inducido}
 
 \defn{Homomorfismo inducido}{
@@ -659,11 +661,15 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 \clmp{}{
     $f_*$ es un homomorfismo de grupos.
 }{
-    En primer lugar notemos que $f\circ\alpha$ es un lazo centrado en $f(x_0$ por ser $f$ continua. Ahora basta notar que dados $[\alpha],[\beta]\in\pi_1(X)$ tenemos
+    En primer lugar notemos que $f\circ\alpha$ es un lazo centrado en $f(x_0)$ por ser $f$ continua. Ahora basta notar que dados $[\alpha],[\beta]\in\pi_1(X)$ tenemos
     \[
         f_*([\alpha]) * f_*([\beta]) = [f \circ \alpha] * [f \circ \beta] = [(f \circ \alpha) * (f \circ \beta)] = [f \circ (\alpha * \beta)] = f_*([\alpha * \beta]).
     \]
-    Los detalles de cada paso quedan para el lector.
+    Los detalles de cada paso, especialmente de
+    \[
+        f \circ (\alpha * \beta) = (f \circ \alpha) * (f \circ \beta)
+    \]
+    quedan para el lector.
 }
 
 \propp{Propiedades del homomorfismo inducido}{
@@ -685,18 +691,24 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
         \item Ya sabemos que $f_*$ es un homomorfismo. Para ver que es una biyección notemos que $f^{-1}$ también es continua por ser $f$ homeomorfismo, por tanto, usando los apartados anteriores
         \begin{align*}
             f^{-1}_* \circ f_* &= (f^{-1} \circ f)_* = (Id_X)_* = Id_{\pi_1(X,x_0)}\\
-            f_* \circ f^{-1}_* &= (f \circ f^{-1})_* = (Id_X)_* = Id_{\pi_1(X,x_0)} 
+            f_* \circ f^{-1}_* &= (f \circ f^{-1})_* = (Id_X)_* = Id_{\pi_1(Y,f(x_0))} 
         \end{align*}
         luego $f^{-1}_*$ es la inversa de $f_*$ y por tanto es una biyección.
     \end{enumerate}
 }
 
-\lem{Lema 6.10}{
+\lem{}{
     Sea $X$ un espacio topológico y sean $\sigma_1$ y $\sigma_2$ arcos homotópicos en $X$ (no necesariamente por caminos). Entonces existen arcos $\tau_1$ uniendo $\sigma_1(0)$ con $\sigma_2(0)$ y $\tau_2$ uniendo $\sigma_1(1)$ con $\sigma_2(1)$ tales que
     \[
         \sigma_2 \simeq_p \overline{\tau}_1 * \sigma_1 * \tau_2.
     \]
-    De hecho, si $\sigma_i$ es un lazo centrado en $x_i\in X$, $i=1,2$, entonces pueden elegirse $\tau_2=\tau_1$.
+    De hecho, si $\sigma_i$ es un lazo centrado en $x_i\in X$, $i=1,2$, entonces pueden elegirse $\tau_2=\overline{\tau}_1$.
+}
+
+\pf{
+    \textit{Esquema de la prueba}
+
+    Como $\sigma_1 \simeq \sigma_2$ existe una homotopía $F:I\times I\to X$ tal que $F(x,0)=\sigma_1(x),F(x,1)=\sigma_2(x)$. Entonces basta tomar $\tau_1(t)=F(0,t),\tau_2(t)=F(1,t)$ y vemos que $\sigma_2$ y $\overline{\tau}_1 * \sigma_1 * \tau_2$ son homotópicos por caminos.
 }
 
 \propp{}{
@@ -704,22 +716,28 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     \[
         \sigma(t) := F(x_0, t), \quad t \in I \text{ entonces } \hat{\sigma} \circ f_{*} = g_{*},
     \]  
-    es decir:  
+    es decir, el siguiente diagrama es conmutativo:  
     \begin{center}
         \includegraphics[]{otros/diagrama-prop-6-11.pdf}
     \end{center}
 }{
-    Pendiente.
+    \textit{Esquema de la prueba}
+
+    Sea $[\alpha]\in\pi_1(X,x_0)$, entonces
+    \[
+        \hat{\sigma} \circ f_{*}([\alpha]) = [\overline{\sigma}] * [f \circ \alpha] * [\sigma] = [\tau * f \circ \alpha * \overline{\tau}] = [g \circ \alpha] = g_*([\alpha])
+    \]
+    donde hemos usado que $f\circ\alpha,g\circ\alpha$ son lazos en torno al mismo punto y además $\sigma=\tau$ igual que en el lema anterior.
 }
 
 \corp{
     El grupo fundamental es un invariante homotópico. En efecto, si  
     \[
-    f : X \to Y
+        f : X \to Y
     \]  
     es una equivalencia de homotopía entre espacios topológicos homotópicos, entonces  
     \[
-    f_{*} : \pi_1(X, x_0) \to \pi_1(Y, f(x_0))
+        f_{*} : \pi_1(X, x_0) \to \pi_1(Y, f(x_0))
     \]  
     es un isomorfismo de grupos.
 }{
@@ -729,8 +747,14 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 \corp{
     Si $X$ es un espacio contráctil entonces $X$ es simplemente conexo.
 }{
-    Pendiente.
+    Si $X$ es contractial entonces es homotópico a un punto $\{x\}$, como el único lazo en este espacio es el lazo constante, su grupo fundamental es el grupo trivial: $\pi_1(\{x\})\cong(0,+)$. Finalmente, por el corolario anterior el grupo fundamental es un invariante homotópico, y como $X\simeq\{x\}$ hemos de tener
+    \[
+    \pi_1(X)\cong\pi_1(\{x\})\cong(0,+).
+    \]
+    Finalmente, el \hyperref[cor:contractil-arcoconexo]{Corolario 3.2.3} nos permite asegurar que $X$ es arcoconexo, lo que prueba que $X$ es simplemente conexo.
 }
+
+\clearpage
 
 \section{Aplicaciones recubridoras}
 
@@ -835,6 +859,8 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 }{
     Pendiente.
 }
+
+\clearpage
 
 \section{Teorema de Seifert-van Kampen}
 
