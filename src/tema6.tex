@@ -775,14 +775,56 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     La aplicación $p : \mathbb{R} \to \mathbb{S}^1$ dada por $p(t) = (\cos 2\pi t, \sin 2\pi t)$ es una aplicación recubridora.
 }
 
+\pf{
+    $p$ es continua por ser composición de funciones continuas, y es sobreyectiva pues todo punto en $\mathbb{S}^1$ puede expresarse en coordenadas polares como $(\cos \theta, \sin \theta)$ para algún $\theta \in \mathbb{R}$, luego $p(\frac{\theta}{2\pi})=b$.
+
+    Sea $b = (\cos \theta, \sin \theta) \in \mathbb{S}^1$. Tomemos el entorno $U = \mathbb{S}^1 \setminus \{-b\}$, entonces
+    \[
+    p^{-1}(U) = \bigcup_{k \in \mathbb{Z}} \left( k + \frac{\theta}{2\pi} - \frac{1}{2}, k + \frac{\theta}{2\pi} + \frac{1}{2} \right),
+    \]
+    donde cada $V_k = \left( k + \frac{\theta}{2\pi} - \frac{1}{2}, k + \frac{\theta}{2\pi} + \frac{1}{2} \right)$ es abierto en $\mathbb{R}$ y $p|_{V_k} \colon V_k \to U$ es un homeomorfismo. Los $V_k$ son disjuntos y $p$ restringida a cada $V_k$ es biyectiva, con inversa continua.
+}
+
 \ex{
     La aplicación $p : \mathbb{S}^1 \to \mathbb{S}^1$ dada por $p(x, y) = (x^2 - y^2, 2xy)$ (elevar al cuadrado en $\mathbb{C}$) es una aplicación recubridora.
+}
+
+\pf{
+    $p$ es continua por serlo cada componente, y es sobreyectiva pues dado $b = (\cos \theta, \sin \theta) \in \sphere^1, \theta \in \R$ podemos tomar $(x,y)=(\cos \frac{\theta}{2}, \sin \frac{\theta}{2})$ de manera que
+    \[
+    p(x,y)=(\cos \frac{\theta}{2} - \sin \frac{\theta}{2}, 2\cos \frac{\theta}{2}\sin \frac{\theta}{2})=(cos \theta, \sin \theta) = b.
+    \]
+    
+    Además, para cualquier $b \in \mathbb{S}^1$, podemos tomar $U = \mathbb{S}^1 \setminus \{-b\}$. Entonces:
+    \[
+        p^{-1}(U) = V_1 \cup V_2,
+    \]
+    donde $V_1$ y $V_2$ son dos hemisferios abiertos de $\mathbb{S}^1$. Cada $V_i$ es la preimagen de $U$ en un "sector" de $\mathbb{S}^1$ que cubre la mitad del círculo, y $p|_{V_i}$ es un homeomorfismo.
 }
 
 \propp{}{
     El producto de dos aplicaciones recubridoras es una aplicación recubridora.
 }{
-    Pendiente.
+    Sean $p_1 \colon E_1 \to B_1$ y $p_2 \colon E_2 \to B_2$ aplicaciones recubridoras. Entonces el producto es
+    \[
+    p = p_1 \times p_2 \colon E_1 \times E_2 \to B_1 \times B_2, \quad p(e_1, e_2)=(p_1(e_1), p_2(e_2)).
+    \]
+    Para ver que $p$ es una aplicación recubridora es inmediato que
+    $p$ es continua y sobreyectiva porque $p_1$ y $p_2$ lo son.
+
+    Dado $(b_1, b_2) \in B_1 \times B_2$, existen entornos $U_1 \subset B_1$ de $b_1$ y $U_2 \subset B_2$ de $b_2$ tales que:
+    \[
+    p_1^{-1}(U_1) = \bigcup_{i \in I} V_i^1, \quad p_2^{-1}(U_2) = \bigcup_{j \in J} V_j^2,
+    \]
+    con los $V_i^1, V_j^2$ disjuntos y tales que $p_1|_{V_i^1} \colon V_i^1 \to U_1$ y $p_2|_{V_j^2} : V_j^2 \to U_2$ son homeomorfismos. Entonces, para $U = U_1 \times U_2$, tenemos:
+    \[
+    p^{-1}(U) = \bigcup_{(i,j) \in I \times J} V_i^1 \times V_j^2.
+    \]
+    Cada $V_i^1 \times V_j^2$ es abierto en $E_1 \times E_2$, son disjuntos, y:
+    \[
+        p|_{V_i^1 \times V_j^2} \colon V_i^1 \times V_j^2 \to U_1 \times U_2
+    \]
+    es un homeomorfismo porque es producto de homeomorfismos. Por lo tanto, $p_1 \times p_2$ es una aplicación recubridora.
 }
 
 \ex{
