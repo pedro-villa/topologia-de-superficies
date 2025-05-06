@@ -93,6 +93,8 @@
     Como $H$ es no vacío, existe $a \in H$. Entonces definimos el neutro de $H$ como \newline $e_H = a * a^{-1} \in H$. Observemos que como $a\in G$, también se tiene que $a * a^{-1} = e_G$ y ambos neutros son en realidad el mismo elemento. De aquí se deduce que $e_H$ cumple las propiedades de elemento neutro al heredarlas de $G$.
 }
 
+\clearpage
+
 \section{Homomorfismos}
 
 \defn{Homomorfismo de grupos}{
@@ -126,4 +128,33 @@
         \item $\text{Im} f,\text{Ker} f$ son subgrupos de $H,G$ respectivamente.
         \item Si $K \leq G$ entonces $f(K) \leq H$. Recordar que $\leq$ indica que el conjunto es un subgrupo. 
     \end{itemize}
+}
+
+\clearpage
+
+\section{Teorema de Lagrange y consecuencias}
+
+\defn{Orden de un grupo}{
+    Sea $G$ un grupo. El orden de $G$, denotado por $|G|$, es el número de elementos que contiene $G$ si $G$ es finito. Si $G$ tiene infinitos elementos decimos que $G$ es un grupo de orden infinito.
+}
+
+\thm{Teorema de Lagrange}{
+    Sea $G$ un grupo finito y $H$ un subgrupo de $G$. Entonces, el orden de $H$ divide al orden de $G$. Es decir,
+    \[
+    n|H|=|G|,\quad n\in\N.
+    \]
+}
+
+\corp{
+    Sea $G$ un grupo con $p$ elementos, $p$ un número primo. Entonces $G\cong\mathbb{Z}_p$.
+}{
+    Dado que $|G| = p$, tomamos un elemento $g \in G$ distinto de la identidad ($g \neq e$). Consideramos el subgrupo cíclico generado por $g$, denotado $\langle g \rangle$.
+
+    Por el Teorema de Lagrange, el orden de $\langle g \rangle$ debe dividir a $p$. Como $p$ es primo, los únicos divisores posibles son $1$ y $p$. Pero $g \neq e$, así que $|\langle g \rangle| \neq 1$, lo que implica $|\langle g \rangle| = p$. Por lo tanto, $\langle g \rangle = G$, es decir, $G$ es cíclico generado por $g$.
+
+    Para ver que todo grupo cíclico de orden $p$ es isomorfo a $\mathbb{Z}_p$ podemos construir el isomorfismo explícito:
+    \[
+    \phi: G \to \mathbb{Z}_p, \quad \phi(g^k) = k \mod p.
+    \]
+    La comprobación de que es un isomorfismo se deja como ejercicio. Finalmente, $G \cong \mathbb{Z}_p$.
 }
