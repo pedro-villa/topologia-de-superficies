@@ -721,13 +721,30 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
         \includegraphics[]{otros/diagrama-prop-6-11.pdf}
     \end{center}
 }{
-    \textit{Esquema de la prueba}
-
-    Sea $[\alpha]\in\pi_1(X,x_0)$, entonces
+    Sea $[\alpha]\in\pi_1(X,x_0)$, notemos en primer lugar que $f\circ\alpha,g\circ\alpha$ son lazos en torno al mismo punto. Además sabemos que
+    \begin{align*}
+        \hat{\sigma} \circ f_{*}([\alpha]) = g_*([\alpha]) \iff  [\overline{\sigma}] * [f \circ \alpha] * [\sigma]  = [g \circ \alpha] \iff \\
+        \iff [f \circ \alpha] = [\sigma] * [g \circ \alpha] * [\overline{\sigma}] \iff [f \circ \alpha] = [\sigma * g \circ \alpha * \overline{\sigma}]
+    \end{align*}
+    por tanto solo hace falta ver que
     \[
-        \hat{\sigma} \circ f_{*}([\alpha]) = [\overline{\sigma}] * [f \circ \alpha] * [\sigma] = [\tau * f \circ \alpha * \overline{\tau}] = [g \circ \alpha] = g_*([\alpha])
+    \sigma * g \circ \alpha * \overline{\sigma} \simeq_p f \circ \alpha.
     \]
-    donde hemos usado que $f\circ\alpha,g\circ\alpha$ son lazos en torno al mismo punto y además $\sigma=\tau$ igual que en el lema anterior.
+    Para probar esto último consideremos la homotopía por caminos siguiente
+    \[
+    G(s,t)=\begin{cases}
+        \sigma(3ts) = F(x_0,3ts) & s\in[0,\frac{1}{3}]\\
+        F(\alpha(3s-1),t) & s\in[\frac{1}{3},\frac{2}{3}]\\
+        \sigma(3t(1-s))F(x_0,3t(1-s)) & s\in[\frac{2}{3},1]
+    \end{cases}
+    \]
+    ahora basta notar que $G(s,0)$ es una reparametrización del producto de caminos $\epsilon_{f(x_0)} * (f\circ\alpha) * \epsilon_{f(x_0)}$ mientras que $G(s,1)$ es una reparametrización del producto de caminos $\sigma * (g\circ\alpha) * \overline{\sigma}$, lo que nos permite afirmar que $\epsilon_{f(x_0)} * (f\circ\alpha) * \epsilon_{f(x_0)} \simeq_p \sigma * (g\circ\alpha) * \overline{\sigma}$.
+
+    Finalmente aplicando la \hyperref[prop:propiedades-producto-caminos]{Proposición 3.3.5} obtenemos 
+    \[
+        f\circ\alpha \simeq_p \epsilon_{f(x_0)} * f\circ\alpha * \epsilon_{f(x_0)} \simeq_p \sigma * g\circ\alpha * \overline{\sigma}
+    \]
+    como queríamos ver.
 }
 
 \corp{
@@ -735,19 +752,33 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     \[
         f : X \to Y
     \]  
-    es una equivalencia de homotopía entre espacios topológicos homotópicos, entonces  
+    es una equivalencia de homotopía entre espacios topológicos homotópicamente equivalentes, entonces  
     \[
         f_{*} : \pi_1(X, x_0) \to \pi_1(Y, f(x_0))
     \]  
     es un isomorfismo de grupos.
 }{
-    Pendiente.
+    Por ser $f$ una equivalencia de homotopía debe existir $g$ tal que
+    \[
+        g \circ f \simeq Id_X, \quad f \circ g \simeq Id_Y
+    \]
+    Sea $F_X$ la homotopía entre $Id_X,g \circ f$ y sea $F_Y$ la homotopía entre $Id_Y, f \circ g$. Sea $x_0 \in X$ y sea  $\sigma_X=F_X(x_0,t)$ aplicando la proposición anterior obtenemos:
+    \begin{align*}
+        \hat{\sigma}_X \circ (Id_X)_* = \hat{\sigma}_X \circ Id_{\pi_1(X,x_0)} = g_* \circ f_*
+    \end{align*}
+    Como $\hat{\sigma}_X, Id_{\pi_1(X,x_0)}$ son isomorfismos su composición también lo es, por tanto $g_* \circ f_*$ es un isomorfismo, lo que implica que $f_*$ debe ser inyectiva. 
+    
+    Similarmente, consideremos la aplicación $\sigma_Y=F_Y(f(x_0),t)$, aplicando la proposición anterior obtenemos:
+    \begin{align*}
+        \hat{\sigma}_Y \circ (Id_Y)_* = \hat{\sigma}_Y \circ Id_{\pi_1(Y,f(x_0))} = f_* \circ g_*
+    \end{align*}
+    igual que antes $\hat{\sigma}_X \circ Id_{\pi_1(Y,f(x_0))}$ es un isomorfismo, y por tanto $f_*$ debe ser sobreyectiva, lo que finaliza la prueba puesto que ya sabemos que es un homomorfismo. 
 }
 
 \corp{
     Si $X$ es un espacio contráctil entonces $X$ es simplemente conexo.
 }{
-    Si $X$ es contractial entonces es homotópico a un punto $\{x\}$, como el único lazo en este espacio es el lazo constante, su grupo fundamental es el grupo trivial: $\pi_1(\{x\})\cong(0,+)$. Finalmente, por el corolario anterior el grupo fundamental es un invariante homotópico, y como $X\simeq\{x\}$ hemos de tener
+    Si $X$ es contráctil entonces es homotópico a un punto $\{x\}$, como el único lazo en este espacio es el lazo constante, su grupo fundamental es el grupo trivial: $\pi_1(\{x\})\cong(0,+)$. Finalmente, por el corolario anterior el grupo fundamental es un invariante homotópico, y como $X\simeq\{x\}$ hemos de tener
     \[
     \pi_1(X)\cong\pi_1(\{x\})\cong(0,+).
     \]
