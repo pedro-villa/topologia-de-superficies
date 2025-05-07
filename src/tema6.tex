@@ -954,6 +954,14 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     Si $A$ es un retracto de $X$, entonces el homomorfismo inducido $i_* : \pi_1(A, a) \to \pi_1(X, a)$ es inyectivo, para todo $a \in A$, donde $i : A \to X$ es la inclusión.
 }
 
+\pf{
+    Sea $r$ la retracción de $X$ en $A$. Sean $[\alpha]_A,[\beta]_A\in\pi_1(A, a)$, entonces
+    \[
+        i_*([\alpha]_A)=i_*([\beta]_A) \implies [i\circ\alpha]_X=[i\circ\beta]_X \implies [\alpha]_X=[\beta]_X.
+    \]
+    Como $[\alpha]_X=[\beta]_X$ existe una homotopía por caminos $F:I\times I\to X$ entre $\alpha$ y $\beta$. Sea entonces $\tilde{F}:I\times I \to A, \tilde{F} = r \circ F$, que está bien definida porque las imágenes de $\alpha,\beta$ están en $A$. Además $\tilde{F}$ es una homotopía por caminos, luego $[\alpha]_A = [\beta]_A$.
+}
+
 \defn{Retracto de deformación}{
     Sea $A \subset X$ un retracto de $X$. Decimos que $A$ es un retracto de deformación de $X$ si la aplicación identidad $Id_X$ es homotópica a $i \circ r$, con $r$ una retracción de $X$ en $A$, de forma que cada punto de $A$ permanece fijo por la homotopía. En particular, $A \simeq X$.
 }
@@ -962,16 +970,28 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     $\mathbb{S}^n$ es un retracto de deformación de $\mathbb{R}^{n+1} \setminus \{0\}$.
 }
 
+% Falta ver que $r(x) = \frac{x}{\|x\|}$ es homotópica a lo otro 
+
 \corp{
     Sea $A$ un retracto de deformación de $X$. Para todo $a \in A$, el homomorfismo inducido $i_* : \pi_1(A, a) \to \pi_1(X, a)$ por la inclusión es un isomorfismo.
 }{
-    Pendiente.
+    Como $A$ es un retracto de deformación de $X$ sabemos que $i \circ r \simeq Id_X$, y además es inmediato que $r \circ i = Id_A$. Veamos que $i_*$ es sobreyectiva y habremos terminado, puesto que ya sabemos que es un homomorfismo y que es inyectiva.
+
+    Sea $[\alpha]_X \in \pi_1(X, a)$ y sea
+    \[
+        \tilde{\alpha}:I\to A,\quad \tilde{\alpha}(s)=r(\alpha(s))
+    \]
+    entonces
+    \[
+        i_*([\tilde{\alpha}]_A)=[i\circ\tilde{\alpha}]_X=[(i\circ r)\circ \alpha]_X=[\alpha]_X
+    \]
+    donde la última igualdad se da porque $i \circ r \simeq Id_X$, luego $i \circ r \circ \alpha \simeq Id_X \circ \alpha \simeq \alpha$.
 }
 
 \corp{
     $\pi_1(\mathbb{R}^{n+1} \setminus \{0\}) \cong \pi_1(\mathbb{S}^n)$, para todo $n \geq 1$.
 }{
-    Pendiente.
+    Por el ejemplo anterior $\sphere^n$ es un retracto de deformación de $\mathbb{R}^{n+1} \setminus \{0\}$, luego $i_*$ es el isomorfismo buscado entre $\pi_1(\mathbb{R}^{n+1} \setminus \{0\})$ y $\pi_1(\mathbb{S}^n)$.
 }
 
 \clearpage
