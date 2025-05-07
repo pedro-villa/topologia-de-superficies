@@ -823,14 +823,22 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 \pf{
     $p$ es continua por serlo cada componente, y es sobreyectiva pues dado $b = (\cos \theta, \sin \theta) \in \sphere^1, \theta \in \R$ podemos tomar $(x,y)=(\cos \frac{\theta}{2}, \sin \frac{\theta}{2})$ de manera que
     \[
-    p(x,y)=(\cos \frac{\theta}{2} - \sin \frac{\theta}{2}, 2\cos \frac{\theta}{2}\sin \frac{\theta}{2})=(cos \theta, \sin \theta) = b.
+    p(x,y)=(\cos \frac{\theta}{2} - \sin \frac{\theta}{2}, 2\cos \frac{\theta}{2}\sin \frac{\theta}{2})=(\cos \theta, \sin \theta) = b.
     \]
     
-    Además, para cualquier $b \in \mathbb{S}^1$, podemos tomar $U = \mathbb{S}^1 \setminus \{-b\}$. Entonces:
+    Además, para cualquier $b \in \mathbb{S}^1$, podemos tomar $U = \mathbb{S}^1 \setminus \{-b\}$. Supongamos ahora que el punto $b$ está en el primer cuadrante, para el resto de cuadrantes podemos razonar de manera similar. Es fácil comprobar que
+    \[
+    p^{-1}(-b)=\{a,b\},\quad a=(\cos(\theta+\frac{\pi}{2}),\sin(\theta+\frac{\pi}{2})), b=(\cos(\theta+\frac{3\pi}{2}),\sin(\theta+\frac{3\pi}{2}))
+    \]
+    Entonces es claro que:
     \[
         p^{-1}(U) = V_1 \cup V_2,
     \]
-    donde $V_1$ y $V_2$ son dos hemisferios abiertos de $\mathbb{S}^1$. Cada $V_i$ es la preimagen de $U$ en un "sector" de $\mathbb{S}^1$ que cubre la mitad del círculo, y $p|_{V_i}$ es un homeomorfismo.
+    donde $V_1$ y $V_2$ son los dos hemisferios abiertos de $\mathbb{S}^1$ dados por
+    \[
+    V_1=\{(\cos\alpha,\sin\alpha) \mid \alpha \in (\theta+\frac{\pi}{2},\theta+\frac{3\pi}{2})\},\quad V_2=\{(\cos\alpha,\sin\alpha) \mid \alpha \in (\theta+\frac{3\pi}{2},2\pi)\cup[0,\theta+\frac{\pi}{2})\}.
+    \]
+    Cada $V_i$ es un "sector" de $\mathbb{S}^1$ que cubre la mitad del círculo, y $p|_{V_i}$ es un homeomorfismo. Si $b$ no estuviera en el primer cuadrante también obtenemos dos hemisferios abiertos, los detalles se dejan como ejercicio.
 }
 
 \propp{}{
@@ -862,6 +870,8 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     Sea $p : \mathbb{R} \to \mathbb{S}^1$ dada por $p(t) = (\cos 2\pi t, \sin 2\pi t)$, entonces $p \times p : \mathbb{R}^2 \to \mathbb{S}^1 \times \mathbb{S}^1$ es una aplicación recubridora sobre el toro.
 }
 
+% Faltan las demostraciones de los dos lemas. Están en la clase del 29/04
+
 \lem{Levantamiento de caminos}{
     Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$. Para cualquier camino $\alpha : I \to B$ que comienza en $b$, existe un único camino $\tilde{\alpha} : I \to E$ que comienza en $e$ tal que $p \circ \tilde{\alpha} = \alpha$. El camino $\tilde{\alpha}$ se llama levantamiento de $\alpha$.
 }
@@ -871,9 +881,14 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 }
 
 \propp{}{
-    Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$. Sean $\alpha$, $\beta$ dos caminos en $B$ comenzando en $b$ y finalizando en un mismo punto, y sean $\tilde{\alpha}$, $\tilde{\beta}$ sus respectivos levantamientos comenzando en $e$. Si $\alpha \simeq_p \beta$, entonces $\tilde{\alpha} \simeq_p \tilde{\beta}$ y $\tilde{\alpha}$, $\tilde{\beta}$ finalizan en un mismo punto de $E$.
+    Sea $p : E \to B$ una aplicación recubridora. Sean $e \in E$, $b \in B$ tales que $p(e) = b$. Sean $\alpha$, $\beta$ dos caminos en $B$ comenzando en $b$ y finalizando en un mismo punto $b'$, y sean $\tilde{\alpha}$, $\tilde{\beta}$ sus respectivos levantamientos comenzando en $e$. Si $\alpha \simeq_p \beta$, entonces $\tilde{\alpha} \simeq_p \tilde{\beta}$ y $\tilde{\alpha}$, $\tilde{\beta}$ finalizan en un mismo punto de $E$.
 }{
-    Pendiente.
+    Supongamos que $\alpha \simeq_p \beta$ y sea $F$ la homotopía por caminos entre $\alpha,\beta$, con $F(0,0)=b$. Por el lema anterior existe una única homotopía por caminos $\tilde{F}$, que cumple $\tilde{F}(0,t)=e,\tilde{F}(1,t)=e'$ para un cierto $e'$. Veamos que es una homotopía entre $\tilde{\alpha},\tilde{\beta}$, en efecto
+    \begin{align*}
+        p\circ\tilde{F}(s,0)=F(s,0)=\alpha(s)\implies \tilde{F}(s,0)=\tilde{\alpha}(s)\\
+        p\circ\tilde{F}(s,1)=F(s,1)=\beta(s)\implies \tilde{F}(s,1)=\tilde{\beta}(s)
+    \end{align*}
+    y como además mantiene fijos los extremos es una homotopía de caminos, por tanto $\tilde{\alpha}\simeq_p\tilde{\beta}$.
 }
 
 \defn{Correspondencia del levantamiento}{
@@ -894,12 +909,38 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
         \item Si $E$ es simplemente conexo, entonces $\Phi$ es biyectiva.
     \end{enumerate}
 }{
-    Pendiente.
+    \begin{enumerate}
+        \item Si $E$ es conexo por caminos dado $e' \in p^{-1}(b)$ existe un camino $\tilde{\alpha}$ en $E$ uniendo $e$ con $e'$. Entonces $\alpha=p\circ\tilde{\alpha}$ es un lazo centrado en $b$ con $\Phi([\alpha])=\alpha(1)=e'$ por definición, luego $\Phi$ es sobreyectiva.
+        \item Si $E$ es simplemente conexo entonces es conexo por caminos, por lo que el apartado anterior garantiza la sobreyectividad.
+        
+        Para ver que es inyectiva sean $[\alpha],[\beta]\in\pi_1(B,b)$ tales que $\Phi([\alpha])=\Phi([\beta])$. Sean $\tilde{\alpha},\tilde{\beta}$ los levantamientos empezando en $e$ y terminando en $\tilde{\alpha}(1)=\tilde{\beta}(1)$ dados por la proposición anterior. Como $E$ es simplemente conexo existe una homotopía por caminos $\tilde{F}$ entre $\tilde{\alpha},\tilde{\beta}$, pero entonces $F=p\circ\tilde{F}$ es una homotopía por caminos entre $\alpha,\beta$, por lo que $[\alpha]=[\beta]$.
+    \end{enumerate}
 }
 
 \thm{}{
     El grupo fundamental de la circunferencia $\mathbb{S}^1$ es isomorfo a $(\mathbb{Z}, +)$.
 }
+
+\pf{
+    Sea $p:\R \to \sphere^1$ dada por $p(t)=(\cos(2\pi t), \sin(2\pi t))$ y sea $e=0, b=p(0)=(1,0)$. Como ya sabemos, $p$ es una aplicación recubridora. Además, $p^{-1}(b)=\mathbb{Z}$, y como $\R$ es simplemente conexo la aplicación $\Phi$ es una biyección. Veamos que también es un homomorfismo.
+
+    Sean $[\alpha],[\beta]\in\pi_1(\sphere^1,b)$ y sean $\tilde{\alpha},\tilde{\beta}$ los levantamientos empezando en $e$ y terminando en $\tilde{\alpha}(1)=n, \tilde{\beta}(1)=m,\quad n,m\in\mathbb{Z}$. Consideremos el camino en $\R$ dado por
+    \[
+    \tilde{\tilde{\beta}}:I\to\R, \tilde{\tilde{\beta}}(s)=n+\tilde{\beta}(s)
+    \]
+    como $p(x+n)=p(x)$ para todo $x\in\R$ entonces $\tilde{\tilde{\beta}}$ es un levantamiento de $\beta$ que comienza en $\tilde{\tilde{\beta}}(0)=n$ en lugar de en $0$. Entonces $\tilde{\alpha}*\tilde{\tilde{\beta}}$ está bien definido ya que
+    \[
+        \tilde{\alpha}(1)=n=\tilde{\tilde{\beta}}(0)
+    \]
+    y es un levantamiento de $\alpha*\beta$ que comienza en $0$. Notemos ahora que el punto final de $\tilde{\alpha}*\tilde{\tilde{\beta}}$ es $\tilde{\tilde{\beta}}(1)=n+m$, luego tenemos
+    \[
+        \Phi([\alpha*\beta])=n+m=\tilde{\alpha}(1)+\tilde{\beta}(1)=\Phi([\alpha])+\Phi([\beta])
+    \]
+    lo que prueba que $\Phi$ es un homomorfismo.
+}
+
+\clearpage
+\section{Retractos}
 
 \defn{Retracción, retracto}{
     Sea $A \subset X$ un subconjunto de un espacio topológico $X$. Una retracción de $X$ en $A$ es una aplicación continua $r : X \to A$ tal que $r|_A = Id_A$. Se dice que $A$ es un retracto de $X$.
