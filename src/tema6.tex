@@ -1002,16 +1002,54 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     Supongamos que $X = U \cup V$, donde $U$ y $V$ son abiertos y $U \cap V \neq \emptyset$ es conexo por caminos. Sean $i : U \to X$ y $j : V \to X$ las inclusiones. Para cada $x_0 \in U \cap V$, las imágenes de los homomorfismos inducidos $i_*$ y $j_*$ generan el grupo $\pi_1(X, x_0)$.
 }
 
-\corp{
-    Supongamos que $X = U \cup V$, donde $U$ y $V$ son abiertos y $U \cap V \neq \emptyset$, $U$ y $V$ son conexos por caminos. Si $U$ y $V$ son simplemente conexos, entonces $X$ es simplemente conexo.
-}{
-    Pendiente.
+\pf{
+    Queremos ver que dado $[\alpha]\in\pi_1(X, x_0)$ se tiene que 
+    \[
+        [\alpha]=[\beta_1 * \dots * \beta_n]
+    \]
+    con cada $\beta_k$ contenido en $U$ o en $V$.
+
+    Existe una subdivisión de $[0,1]$ de la forma $0=a_0<a_1<\dots<a_n=1$ tal que $\alpha(a_i)\in U \cap V$ y $\alpha([a_{i-1},a_{i}])$ está contenido en $U$ o en $V$.
+
+    Definamos $\alpha_i$ como un camino que cubre el trozo de $\alpha$ en el intervalo $[a_{i-1},a_{i}]$ haciendo
+    \[
+    \alpha_i(t)=\alpha(a_{i-1}+t(a_{i}-a_{i-1})).
+    \]
+    Es inmediato entonces que 
+    \[
+    \alpha \simeq_p \alpha_1 * \dots * \alpha_n.
+    \]
+    Cada curva $\alpha_i$ es un camino uniendo puntos de $U\cap V$, que es conexo por caminos. Por tanto, existe $\gamma_i$ un camino contenido en $U\cap V$ uniendo $x_0$ con $\alpha(a_i)$ . Como $\alpha(a_0)=x_0=\alpha(a_n)$, los arcos $\gamma_1,\gamma_n$ son constantes.
+
+    Finalmente, definamos los arcos $\beta_i=\gamma_{i-1} * \alpha_i * \overline{\gamma_i}$, entonces se tiene que $\beta_i$ es un lazo en $x_0$ y además
+    \[
+        \beta_1 * \beta_2 * \dots * \beta_n \simeq_p \alpha_1 * \dots * \alpha_n \simeq_p \alpha
+    \]
+    lo que nos permite concluir 
+    \[
+        [\alpha]=[\beta_1 * \dots * \beta_n]
+    \]
+    como queríamos ver.
+}
+
+\rmkb{
+    Es fácil visualizar el teorema en el caso de los lazos simples. Si tomamos un punto $x_0 \in U\cap V$ y un lazo simple $\alpha$ centrado en $x_0$, entonces siempre podemos dividir este camino en dos lazos distintos $\alpha_1,\alpha_2$ de manera que $\alpha_1$ está en $U$ y $\alpha_2$ está en $V$, y además $[\alpha]=[\alpha_1 * \alpha_2].$
 }
 
 \corp{
-    La esfera $\mathbb{S}^n$ es simplemente conexa, para $n \geq 2$.
+    Supongamos que $X = U \cup V$, donde $U$ y $V$ son abiertos y $U \cap V \neq \emptyset$, $U$ y $V$ son conexos por caminos. Si $U$ y $V$ son simplemente conexos, entonces $X$ es simplemente conexo.
 }{
-    Pendiente.
+    Como $U,V,U \cup V$ son conexos por caminos, $X$ lo es, y por tanto $\pi_1(X)\cong\pi_1(X,x_0)$ para cualquier $x_0\in U\cup V$. Por el Teorema de Seifert-van Kampen $\pi_1(X,x_0)$ está generado por $i_*,j_*$, pero al ser $U,V$ simplemente conexos esto quiere decir que $\pi_1(X,x_0)$ es isomorfo al grupo trivial, por tanto $X$ es simplemente conexo.
+}
+
+\corp{
+    La esfera $\mathbb{S}^n$ es simplemente conexa para $n \geq 2$.
+}{
+    Sean $p=(0,\dots,1)\in\R^{n+1}$ y $q=(0,\dots,-1)\in\R^{n+1}$, entonces $\sphere^n\setminus\{p\}$ es homeomorfa a $\R^n$, por tanto simplemente conexa. De igual manera, $\sphere^n\setminus\{q\}$ es homeomorfa a $\R^n$ y por tanto simplemente conexa. Finalmente notemos que
+    \[
+    \left( \sphere^n\setminus\{p\} \right) \cap \left( \sphere^n\setminus\{q\} \right) \neq \emptyset, \left( \sphere^n\setminus\{p\} \right) \cup \left( \sphere^n\setminus\{q\}\right) = \sphere^n
+    \]
+    por tanto, por el corolario anterior, $\sphere^n$ es simplemente conexa.
 }
 
 \thm{}{
