@@ -1058,6 +1058,62 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     \pi_1(X \times Y, (x_0, y_0)) \cong \pi_1(X, x_0) \times \pi_1(Y, y_0).
     \]
 }
+\pf{
+    Queremos construir un isomorfismo de grupos
+    \[
+        \Phi : \pi_1(X \times Y, (x_0, y_0)) \longrightarrow \pi_1(X, x_0) \times \pi_1(Y, y_0).
+    \]
+    Consideremos las proyecciones canónicas $p : X \times Y \to X$ y $q : X \times Y \to Y$. Estas aplicaciones son continuas y, por lo tanto, inducen homomorfismos entre los grupos fundamentales:
+    \begin{align*}
+        p_* &: \pi_1(X \times Y, (x_0, y_0)) \longrightarrow \pi_1(X, x_0) \\
+        q_* &: \pi_1(X \times Y, (x_0, y_0)) \longrightarrow \pi_1(Y, y_0).
+    \end{align*}
+    Definimos la aplicación $\Phi$ de la siguiente manera: para cualquier lazo $[\alpha] \in \pi_1(X \times Y, (x_0, y_0))$,
+    \[
+        \Phi([\alpha]) := (p_*([\alpha]), q_*([\alpha])) = ([p \circ \alpha]_X, [q \circ \alpha]_Y).
+    \]
+    Para demostrar que $\Phi$ es un isomorfismo, verificaremos que es un homomorfismo y que es biyectiva.
+
+    \paragraph{1. $\Phi$ es un homomorfismo}
+    Sean $[\alpha], [\beta] \in \pi_1(X \times Y, (x_0, y_0))$. Entonces,
+    \begin{align*}
+        \Phi([\alpha] * [\beta]) &= \Phi([\alpha * \beta]) \\
+        &= (p_*([\alpha * \beta]), q_*([\alpha * \beta])) \\
+        &= ([p \circ (\alpha * \beta)]_X, [q \circ (\alpha * \beta)]_Y).
+    \end{align*}
+    Dado que $[p \circ (\alpha * \beta)]_X = [p \circ \alpha]_X * [p \circ \beta]_X$ y análogamente $[q \circ (\alpha * \beta)]_Y = [q \circ \alpha]_Y * [q \circ \beta]_Y$, se sigue que
+    \begin{align*}
+        p_*([\alpha * \beta]) &= [p \circ \alpha * p \circ \beta]_X = [p \circ \alpha]_X * [p \circ \beta]_X = p_*([\alpha]) * p_*([\beta]) \\
+        q_*([\alpha * \beta]) &= [q \circ \alpha * q \circ \beta]_Y = [q \circ \alpha]_Y * [q \circ \beta]_Y = q_*([\alpha]) * q_*([\beta]).
+    \end{align*}
+    Por lo tanto,
+    \begin{align*}
+        \Phi([\alpha] * [\beta]) &= (p_*([\alpha]) * p_*([\beta]), q_*([\alpha]) * q_*([\beta])) \\
+        &= (p_*([\alpha]), q_*([\alpha])) * (p_*([\beta]), q_*([\beta])) \\
+        &= \Phi([\alpha]) * \Phi([\beta]).
+    \end{align*}
+    Así, $\Phi$ es un homomorfismo de grupos.
+
+    \paragraph{2. $\Phi$ es inyectiva}
+    Sabemos que un homomorfismo es inyectivo si y solo si su núcleo es trivial. En este caso, el núcleo de $\Phi$ está dado por
+    \[
+        Ker(\Phi) = \{[\alpha] \in \pi_1(X \times Y, (x_0, y_0)) : [p \circ \alpha] = [\varepsilon_{x_0}], [q \circ \alpha] = [\varepsilon_{y_0}]\}.  
+    \]
+
+    Supongamos que $\alpha$ es un lazo en $(x_0, y_0)$ con $[\alpha] \in Ker(\Phi)$. Esto implica que $p \circ \alpha \simeq_p \varepsilon_{x_0}$ y $q \circ \alpha \simeq_q \varepsilon_{y_0}$. Sean $H$ y $G$ las respectivas homotopías. Entonces, definimos
+
+    \[
+        F((x, y), t) = (H(x, t), G(y, t)),
+    \]
+    que es homotopía entre $\alpha$ y el lazo constante en $(x_0, y_0)$. Por lo tanto, $[\alpha] = [\varepsilon_{(x_0, y_0)}]$, lo que implica que el núcleo de $\Phi$ es trivial.
+    \paragraph{3. $\Phi$ es sobreyectiva}
+    Sea $\gamma_1$ lazo en $X$ centrado en $x_0$ y $\gamma_2$ lazo en $Y$ centrado en $y_0$. Buscamos $[\alpha] \in \pi_1(X \times Y, (x_0, y_0))$ tal que $\Phi([\alpha]) = ([\gamma_1], [\gamma_2])$. 
+
+    Basta tomar $\alpha(s) = (\gamma_1(s), \gamma_2(s))$ para $s \in [0, 1]$ y observar que cumple las condiciones. 
+
+    \vspace{0.5cm}
+    Hemos visto que $\Phi$ es un homomorfismo de grupos, inyectivo y sobreyectivo, por lo que es un isomorfismo. 
+}   
 
 \corp{
     $\pi_1(\mathbb{S}^1 \times \mathbb{S}^1) \cong \mathbb{Z} \times \mathbb{Z}$.
