@@ -1132,7 +1132,19 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 \propp{}{
     El grupo fundamental del plano proyectivo $\mathbb{RP}^2$ es $\mathbb{Z}_2$.
 }{
-    Pendiente.
+    Consideremos $\mathbb{RP}^2$ como el espacio cociente en $\sphere^2$ al identificar puntos opuestos. En tal caso la aplicación
+    \[
+        p: \sphere^2 \to \mathbb{RP}^2,\quad p(x)=[x]
+    \]
+    es una aplicación recubridora de dos hojas (la demostración de que lo es queda como ejercicio). Como $\sphere^2$ es simplemente conexa la correspondencia del levantamiento
+    \[
+        \Phi: \pi_1(\mathbb{RP}^2,x)\to p^{-1}([x])
+    \]
+    es una biyección. Ahora notemos que $\mathbb{RP}^2$ es conexo por caminos, luego el grupo fundamental no depende del punto escogido, y además $p^{-1}([x])=\{x,-x\}$, por lo que $\pi_1(\mathbb{RP}^2)$ tiene solo dos elementos. Finalmente, un resultado bien conocido sobre teoría de grupos nos permite afirmar que todos los grupos de dos elementos son isomorfos a $\mathbb{Z}_2$, luego
+    \[
+        \pi_1(\mathbb{RP}^2)\cong\mathbb{Z}_2
+    \]
+    como queríamos ver.
 }
 
 \propp{}{
