@@ -1040,10 +1040,20 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     Es fácil visualizar el teorema en el caso de los lazos simples. Si tomamos un punto $x_0 \in U\cap V$ y un lazo simple $\alpha$ centrado en $x_0$, entonces siempre podemos dividir este camino en dos lazos distintos $\alpha_1,\alpha_2$ de manera que $\alpha_1$ está en $U$ y $\alpha_2$ está en $V$, y además $[\alpha]=[\alpha_1 * \alpha_2].$
 }
 
-\corp{
-    Supongamos que $X = U \cup V$, donde $U$ y $V$ son abiertos y $U \cap V \neq \emptyset$, $U$ y $V$ son conexos por caminos. Si $U$ y $V$ son simplemente conexos, entonces $X$ es simplemente conexo.
+\corp{%
+    Sea $X = U \cup V$ con $U,\,V\subseteq X$ abiertos tales que $U$ y $V$ son conexos por caminos y simplemente conexos, y $U\cap V \neq \emptyset$ con $U\cap V$ conexo por caminos. Entonces $X$ es simplemente conexo.
 }{
-    Como $U,V$ son conexos por caminos y $U\cap V\neq\emptyset$, $X$ es conexo por caminos, y por tanto $\pi_1(X)\cong\pi_1(X,x_0)$ para cualquier $x_0\in U\cup V$. Por el Teorema de Seifert-van Kampen $\pi_1(X,x_0)$ está generado por $i_*,j_*$, pero al ser $U,V$ simplemente conexos esto quiere decir que $\pi_1(X,x_0)$ es isomorfo al grupo trivial, por tanto $X$ es simplemente conexo.
+    Sea $x_{0}\in U\cap V$.  Como $U$ y $V$ son conexos por caminos y $U \cap V \neq \emptyset$ entonces $X = U\cup V$ es conexo por caminos, lo que nos permite identificar $\pi_{1}(X)\cong\pi_{1}(X,x_{0})$.
+
+    Por el teorema de Seifert-van Kampen las inclusiones $i:U\hookrightarrow X$ y $j:V\hookrightarrow X$ inducen homomorfismos $i_{*}$ y $j_{*}$ cuyas imágenes generan $\pi_{1}(X,x_{0})$.
+
+    Como $U$ y $V$ son simplemente conexos, $\pi_{1}(U,x_{0})=\pi_{1}(V,x_{0})=\{1\}$, de modo que $\operatorname{Im}i_{*}=\operatorname{Im}j_{*}=\{1\}$.
+
+    Finalmente el subgrupo generado por el elemento triviales es el grupo trivial, luego
+    \[
+        \pi_{1}(X,x_{0})=\langle\{1\}\rangle=\{1\}.
+    \]
+    Por tanto $X$ es simplemente conexo.
 }
 
 \corp{
