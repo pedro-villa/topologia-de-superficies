@@ -702,7 +702,11 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     \[
         \sigma_2 \simeq_p \overline{\tau}_1 * \sigma_1 * \tau_2.
     \]
-    De hecho, si $\sigma_i$ es un lazo centrado en $x_i\in X$, $i=1,2$, entonces pueden elegirse $\tau_2=\overline{\tau}_1$.
+    De hecho, si $F:I \times I \to X$ es la homotopía que relaciona $\sigma_1$ con $\sigma_2$, se tiene que
+    \[
+        \tau_1(t)=F(0,t), t \in I\quad y \quad \tau_2(t)=F(1,t),t\in I.
+    \]
+    Además, si $\sigma_i$ es un lazo centrado en $x_i\in X$, $i=1,2$, entonces pueden elegirse $\tau_2=\overline{\tau}_1$.
 }
 
 \pf{
@@ -917,7 +921,7 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     \end{enumerate}
 }
 
-\thm{}{
+\thmr{}{grupo-fund-S1}{
     El grupo fundamental de la circunferencia $\mathbb{S}^1$ es isomorfo a $(\mathbb{Z}, +)$.
 }
 
@@ -1128,7 +1132,11 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
 \corp{
     $\pi_1(\mathbb{S}^1 \times \mathbb{S}^1) \cong \mathbb{Z} \times \mathbb{Z}$.
 }{
-    Pendiente.
+    El resultado es inmediato si notamos que $\sphere^1$ es conexo por caminos y por tanto su grupo fundamental no depende del punto. Además, por el \hyperref[thm:grupo-fund-S1]{Teorema 3.6.8}
+    \[
+    \pi_1(\mathbb{S}^1) \cong \mathbb{Z} 
+    \]
+    por lo que aplicando el Teorema anterior se obtiene el resultado.
 }
 
 \propp{}{
