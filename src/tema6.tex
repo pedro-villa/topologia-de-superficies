@@ -725,7 +725,7 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
         \includegraphics[]{otros/diagrama-prop-6-11.pdf}
     \end{center}
 }{
-    Sea $[\alpha]\in\pi_1(X,x_0)$, notemos en primer lugar que $f\circ\alpha,g\circ\alpha$ son lazos en torno al mismo punto. Además sabemos que
+    Sea $[\alpha]\in\pi_1(X,x_0)$, notemos en primer lugar que $f\circ\alpha,g\circ\alpha$ son lazos en torno a los puntos $f(x_0),g(x_0)$ respectivamente. Además sabemos que
     \begin{align*}
         \hat{\sigma} \circ f_{*}([\alpha]) = g_*([\alpha]) \iff  [\overline{\sigma}] * [f \circ \alpha] * [\sigma]  = [g \circ \alpha] \iff \\
         \iff [f \circ \alpha] = [\sigma] * [g \circ \alpha] * [\overline{\sigma}] \iff [f \circ \alpha] = [\sigma * g \circ \alpha * \overline{\sigma}]
@@ -739,7 +739,7 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     G(s,t)=\begin{cases}
         \sigma(3ts) = F(x_0,3ts) & s\in[0,\frac{1}{3}]\\
         F(\alpha(3s-1),t) & s\in[\frac{1}{3},\frac{2}{3}]\\
-        \sigma(3t(1-s))F(x_0,3t(1-s)) & s\in[\frac{2}{3},1]
+        \sigma(3t(1-s)) = F(x_0,3t(1-s)) & s\in[\frac{2}{3},1]
     \end{cases}
     \]
     ahora basta notar que $G(s,0)$ es una reparametrización del producto de caminos $\epsilon_{f(x_0)} * (f\circ\alpha) * \epsilon_{f(x_0)}$ mientras que $G(s,1)$ es una reparametrización del producto de caminos $\sigma * (g\circ\alpha) * \overline{\sigma}$, lo que nos permite afirmar que $\epsilon_{f(x_0)} * (f\circ\alpha) * \epsilon_{f(x_0)} \simeq_p \sigma * (g\circ\alpha) * \overline{\sigma}$.
