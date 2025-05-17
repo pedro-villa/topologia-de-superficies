@@ -113,7 +113,7 @@ Demostrar que $R_f$ es una relación de equivalencia.
 }
 
 \thmr{Proposición 4.1}{diagrama}{
-    Dados \((X, \T)\) y \((Y, \T')\) espacios topológicos, $f:(X, \T)\to(Y,\T')$ y \((\tilde{X}, \tilde{\T})\) el espacio cociente dado por \(R_f\), existe una aplicación \(\tilde{f} : (\tilde{X}, \tilde{\T}) \to (Y, \T')\) que hace que el siguiente diagrama sea conmutativo\footnote{Que el diagrama sea conmutativo quiere decir que ``da igual que camino de flechitas sigamos'', es decir, $\tilde{f}\circ p=f$.}
+    Dados \((X, \T)\) y \((Y, \T')\) espacios topológicos, $f:(X, \T)\to(Y,\T')$ y \((\tilde{X}, \tilde{\T})\) el espacio cociente dado por \(R_f\), existe una aplicación \(\tilde{f} : (\tilde{X}, \tilde{\T}) \to (Y, \T')\) que hace que el siguiente diagrama sea conmutativo\footnote{Que el diagrama sea conmutativo quiere decir que ``da igual qué camino de flechitas sigamos'', es decir, $\tilde{f}\circ p=f$.}
     \begin{center}
         \includegraphics[]{otros/diagrama.pdf}
     \end{center}
@@ -330,7 +330,7 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     \[
     x \sim_p y\iff x=\lambda y, \lambda\neq 0.
     \]
-    La idea va a ser construir una aplicación de $\R^3\setminus\{0\}$ a $\mathbb{S}^2$ de tal manera que la aplicación respeta la relación que existe sobre $\mathbb{S}^2$, es decir, $x\sim_p y\iff f(x)\sim f(y)$. Similarmente, veremos que existe una aplicación de $\mathbb{S}^2$ a $\R^3\setminus\{0\}$ que también respeta la relación de equivalencia del proyectivo. Esto garantiza que las aplicaciones "pasan al cociente". Finalmente veremos que estas aplicaciones en el cociente son homeomorfismos y que la una es la inversa de la otra. La idea se resume en el siguiente diagrama, donde $\pi_1,\pi_2$ son las proyecciones a los cocientes.
+    La idea va a ser construir una aplicación de $\R^3\setminus\{0\}$ a $\mathbb{S}^2$ de tal manera que la aplicación respeta la relación que existe sobre $\mathbb{S}^2$, es decir, $x\sim_p y\iff f(x)\sim f(y)$. Similarmente, veremos que existe una aplicación de $\mathbb{S}^2$ a $\R^3\setminus\{0\}$ que también respeta la relación de equivalencia del proyectivo. Esto garantiza que las aplicaciones ``pasan al cociente''. Finalmente veremos que estas aplicaciones en el cociente son homeomorfismos y que la una es la inversa de la otra. La idea se resume en el siguiente diagrama, donde $\pi_1,\pi_2$ son las proyecciones a los cocientes.
     \begin{center}
         \includegraphics[width=0.25\textwidth]{otros/diagrama-proyectivo-esfera.pdf}
     \end{center}
@@ -615,7 +615,7 @@ El resto de ejemplos se pueden justificar de manera similar a los anteriores enc
         Sea $X$ un espacio $2A\N$ y $\pi: X \to M$ continua y sobreyectiva. Si $M$ es localmente euclídeo entonces es $2A\N$.
     }
     \pf{
-        Sea $\mathcal{U}=\{U_p \mid p \in M\}$ un recubrimiento por bolas euclídeas de $M$, en tal caso $\mathcal{B}=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}\}$ es un recubrimiento por abiertos de $X$. Por ser $X$ $2A\N$ debe existir un subrecubrimiento numerable de $\mathcal{B}$ (la demostración de este hecho queda para el lector). Sea $\mathcal{B}'=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}'\}$ tal subrecubrimiento numerable, entonces existe un subrecubrimiento numerable $\mathcal{U}'\subset\mathcal{U}$. Como cada bola euclídea de $\mathcal{U}'$ tiene una base numerable la unión numerable de estas bases es una base numerable de $M$ (recordemos que la unión numerable de conjuntos numerbales es numerable).
+        Sea $\mathcal{U}=\{U_p \mid p \in M\}$ un recubrimiento por bolas euclídeas de $M$, en tal caso $\mathcal{B}=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}\}$ es un recubrimiento por abiertos de $X$. Por ser $X$ $2A\N$ debe existir un subrecubrimiento numerable de $\mathcal{B}$ (la demostración de este hecho queda para el lector). Sea $\mathcal{B}'=\{\pi^{-1}(U_p) \mid U_p \in \mathcal{U}'\}$ tal subrecubrimiento numerable, entonces existe un subrecubrimiento numerable $\mathcal{U}'\subset\mathcal{U}$. Como cada bola euclídea de $\mathcal{U}'$ tiene una base numerable la unión numerable de estas bases es una base numerable de $M$ (recordemos que la unión numerable de conjuntos numerables es numerable).
     }
 
     Finalmente para probar que es Hausdorff recordemos que una relación de equivalencia $\sim$ en un espacio topológico $X$ se dice abierta si para cada subconjunto abierto $A$ de $X$, el conjunto
@@ -755,7 +755,7 @@ Comenzamos demostrando sin demasiado detalle un pequeño lema técnico.
     
     (B1) Para todo \((x,\alpha)\in\bigsqcup_{\alpha\in J}X_\alpha\) se tiene $x\in X_\alpha$, y como $X_\alpha\in \T_\alpha$, deducimos que $(x,\alpha) \in \iota_\alpha(X_\alpha)\in B$.
 
-    (B2) Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso $\iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset$ que es una contradiccion con que $x$ esta en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V=U_1\cap U_2\in \T_\alpha\) (que es abierto puesto que $U_1,U_2$ lo son) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). La última inclusión es fácil de comprobar y se deja como un sencillo ejercicio.
+    (B2) Si \((x,\alpha)\in\iota_\alpha(U_1)\cap\iota_\beta(U_2)\) necesariamente  $\alpha = \beta$ puesto que en otro caso $\iota_\alpha(U_1)\cap\iota_\beta(U_2) = \emptyset$ que es una contradiccion con que $x$ está en la intersección. Entonces \(x\in U_1\cap U_2\) y existe \(V=U_1\cap U_2\in \T_\alpha\) (que es abierto puesto que $U_1,U_2$ lo son) con \(x\in V\subset U_1\cap U_2\), por lo que \((x,\alpha)\in\iota_\alpha(V)\subset\iota_\alpha(U_1)\cap\iota_\beta(U_2)\). La última inclusión es fácil de comprobar y se deja como un sencillo ejercicio.
 }
 
 \propp{Propiedades de la unión disjunta}{
