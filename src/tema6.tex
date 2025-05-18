@@ -769,13 +769,21 @@ Veremos a continuación que la estructura $(\pi_1(X, x_0), *)$ forma lo que en �
     \begin{align*}
         \hat{\sigma}_X \circ (Id_X)_* = \hat{\sigma}_X \circ Id_{\pi_1(X,x_0)} = g_* \circ f_*
     \end{align*}
-    Como $\hat{\sigma}_X, Id_{\pi_1(X,x_0)}$ son isomorfismos su composición también lo es, por tanto $g_* \circ f_*$ es un isomorfismo, lo que implica que $f_*$ debe ser inyectiva. 
+    Como $\hat{\sigma}_X, Id_{\pi_1(X,x_0)}$ son isomorfismos su composición también lo es, por tanto $g_* \circ f_*$ es un isomorfismo, lo que implica que $g_*$ debe ser sobreyectiva. 
     
     Similarmente, consideremos la aplicación $\sigma_Y=F_Y(f(x_0),t)$, aplicando la proposición anterior obtenemos:
     \begin{align*}
-        \hat{\sigma}_Y \circ (Id_Y)_* = \hat{\sigma}_Y \circ Id_{\pi_1(Y,f(x_0))} = f_* \circ g_*
+        \hat{\sigma}_Y \circ (Id_Y)_* = \hat{\sigma}_Y \circ Id_{\pi_1(Y,f(x_0))} = \tilde{f}_* \circ g_*
     \end{align*}
-    igual que antes $\hat{\sigma}_X \circ Id_{\pi_1(Y,f(x_0))}$ es un isomorfismo, y por tanto $f_*$ debe ser sobreyectiva, lo que finaliza la prueba puesto que ya sabemos que es un homomorfismo. 
+    notemos que en este caso
+    \[
+        \tilde{f}_* : \pi_1(Y,(g \circ f)(x_0)) \to \pi_1(Y,(f \circ g \circ f)(x_0)).
+    \]
+    Igual que antes $\hat{\sigma}_X \circ Id_{\pi_1(Y,f(x_0))}$ es un isomorfismo, y por tanto $g_*$ debe ser inyectiva, lo que finaliza la prueba puesto que entonces 
+    \[
+        f_* = (g_*)^{-1} \circ \hat{\sigma}_X \circ (Id_X)_*
+    \]
+    luego $f_*$ es biyectiva y por tanto un isomorfismo. 
 }
 
 \corp{
