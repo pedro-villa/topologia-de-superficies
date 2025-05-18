@@ -162,7 +162,7 @@
     \[
         f \circ g (x) = f(x) = x
     \] 
-    Concluimos que  $f \circ g \simeq Id_{\mathbb{S}^1}$. Por otro lado, si $y \in C$, 
+    Concluimos que $f \circ g = Id_{\mathbb{S}^1} \implies f \circ g \simeq Id_{\mathbb{S}^1}$. Por otro lado, si $y \in C$, 
     \[
     g\circ f (y) = g(\frac{y}{|y|}) = \frac{y}{|y|}
     \]
@@ -171,8 +171,7 @@
         F(y, t) = ty + (1 - t) \frac{y}{|y|}, \quad
         \begin{cases}
             F(y,0) = \frac{y}{|y|}=g(f(y)) \\
-            F(y,1) = y = Id_{\mathbb{S}^1 
-            }(y)
+            F(y,1) = y = Id_{C}(y)
         \end{cases}
     \]
     Se puede comprobar fácilmente que para cualquier $y\in C$ la aplicación $F_y$ definida como $F_y(t) = F(y, t)$ verifica $F_y(t) \in C \quad \forall t \in I $. Así, $F$ está bien definida y por tanto $g\circ f \simeq Id_C$.
