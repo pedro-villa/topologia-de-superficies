@@ -120,7 +120,7 @@ Enunciamos el siguiente teorema sin demostración:
     Probar que las realizaciones geométricas del ejemplo anterior, es decir, los cuadrados con una cierta relación de equivalencia, son homeomorfos a los espacios que se indica en la figura.
 }
 
-\propp{Compacidad y conexión de $|\partes|$}{\label{prop:244}
+\proppr{Compacidad y conexión de $|\partes|$}{comp-conex-realizacion}{
     Dada una representación poligonal $\partes$, su realización geométrica, $|\partes|$, es una superficie compacta. Además si solo tiene una palabra, entonces es conexa.
 }{
     Consideremos el polígono $X$ (realmente pueden ser varios polígonos disjuntos si hay más de una palabra). Vamos a ver que el espacio topológico cociente $\tilde{X}$ resultado de identificar las aristas es:
@@ -217,7 +217,7 @@ Enunciamos el siguiente teorema sin demostración:
         Luego, $\alpha$ es identificación (continua, sobreyectiva, cerrada) y $\tilde{\alpha}$ es un homeomorfismo al restringirla a su imagen, y podemos aplicar el mismo argumento del caso anterior.
     \end{enumerate}
 
-    \textbf{$\mathbf{2A\N}$:} La proyección es continua y sobreyectiva, y el polígono es $2A\N$, luego $\tilde{X}$ también lo es por el \hyperref[lem:146]{Lema 1.4.6}.
+    \textbf{$\mathbf{2A\N}$:} La proyección es continua y sobreyectiva, y el polígono es $2A\N$, luego $\tilde{X}$ también lo es por el Lema \ref{lem:146}.
 }
 
 \defn{Presentación de una superficie compacta}{
@@ -276,7 +276,7 @@ Enunciamos el siguiente teorema sin demostración:
     \]
     Definimos $\pi' : \partes_1 \cup Q_1 \to \mathcal{S}_1$ y $\pi:\partes_1 \to \mathcal{S}_1$. Sea entonces $B_1 = \pi'(\text{int}(Q_1)) \subset \mathcal{S}_1$. Si probamos que $B_1$ es homeomorfo a un disco, entonces podemos hacer lo mismo con $\mathcal{S}_2$ y aplicar que que $\mathcal{S}_1\#\mathcal{S}_2$ se puede ver como $\faktor{\mathcal{S}_1 \setminus Q_1 \sqcup \mathcal{S}_2\setminus Q_2}{R_\varphi}$.
 
-    Para ver que $B_1$ es homeomorfo a un disco, hacemos un razonamiento similar al de la \hyperref[prop:244]{Proposición 2.4.4} tomando como abierto uno de la forma <<sector circular>> con $p$ y $q$ dentro del sector y $v$ el vértice, y hacer el mismo razonamiento con un solo sector.
+    Para ver que $B_1$ es homeomorfo a un disco, hacemos un razonamiento similar al de la Proposición \ref{comp-conex-realizacion} tomando como abierto uno de la forma <<sector circular>> con $p$ y $q$ dentro del sector y $v$ el vértice, y hacer el mismo razonamiento con un solo sector.
 
     Así, tendremos que $\langle A_1 \cup \{a,b,c\}|W_1cba, a^{-1}b^{-1}c^{-1} \rangle$ es una presentación de $\mathcal{S}_1\setminus \text{int}(Q_1)$, análogamente $\langle A_2 \cup \{a',b',c'\}|W_2c'b'a', (a')^{-1}(b')^{-1}(c')^{-1} \rangle$ es presentación de $\mathcal{S}_2\setminus \text{int}(Q_2)$.
 
@@ -307,8 +307,7 @@ En primer lugar enunciamos sin demostración una serie de presentaciones <<está
 
 El siguiente lema simplifica la demostración del teorema de clasificación, mostrando la equivalencia entre ciertos tipos de superficies.
 
-\lemp{Equivalencia entre algunos tipos de superficies}{
-    \label{lem:toro-proyectivo}
+\lempr{Equivalencia entre algunos tipos de superficies}{toro-proyectivo}{
     \begin{enumerate}
         \item La botella de Klein y $\mathbb{RP}^2\#\mathbb{RP}^2$ son homeomorfas.
         \item $\mathbb{T}^2\#\mathbb{RP}^2$ y $\mathbb{RP}^2\#\mathbb{RP}^2\#\mathbb{RP}^2$ son homeomorfas.
@@ -338,8 +337,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     y llegamos a una presentación de la suma conexa de un toro y un proyectivo.
 }
 
-\thm{Clasificación de superficies compactas}{
-    \label{thm:clasificacion-superficies}
+\thmr{Clasificación de superficies compactas}{clasificacion-superficies}{
     Sea $S$ una superficie compacta y conexa, entonces $S$ es homeomorfa a una de las siguientes superficies:
     \begin{itemize}
         \item la esfera $\mathbb{S}^2$.
@@ -349,7 +347,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }
 \pf{
     \noindent
-    Sea $M$ una superficie compacta y conexa y sea $\partes$ su presentación poligonal, la cual sabemos que existe por el \hyperref[thm:rado]{Teorema de Radó}.
+    Sea $M$ una superficie compacta y conexa y sea $\partes$ su presentación poligonal, la cual sabemos que existe por el Teorema de Radó \ref{thm:rado}.
 
     \vspace{1em}
     \noindent
@@ -578,7 +576,7 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
     \noindent
     Nos queda ver qué ocurre en el caso de que $\partes$ contenga ambos grupos de aristas. 
     Supongamos que existen un grupo de aristas complementarias $aba^{-1}b^{-1}$ y otro de aristas retorcidas $cc$. 
-    Por el lema \hyperref[lem:toro-proyectivo]{2.6.1}, la suma conexa de un toro y un plano proyectivo es homeomorfa a la suma conexa de tres planos proyectivos. 
+    Por el Lema \ref{lem:toro-proyectivo}, la suma conexa de un toro y un plano proyectivo es homeomorfa a la suma conexa de tres planos proyectivos. 
     Es decir, $aba^{-1}b^{-1}cc \cong a'a'b'b'c'c'$. 
     Transformando cada par (toro, proyectivo) en tres proyectivos podemos eliminar los toros y quedarnos con un número finito de planos proyectivos.
 
@@ -688,9 +686,9 @@ El siguiente lema simplifica la demostración del teorema de clasificación, mos
 }{
     A partir de la propia definición de género de una superficie podemos conocer su característica de Euler, y sabiendo que es orientable esto nos permite discernir si se trata de una esfera o de una suma conexa de toros. Sin embargo, añadimos una demostración directa que resulta muy instructiva.
 
-    Sea $S$ una superficie compacta, conexa y orientable. Por definición, existe una presentación $\mathcal{P}$ que no tiene pares de aristas retorcidas. Además, por el \hyperref[thm:clasificacion-superficies]{Teorema de Clasificación}, $S$ debe ser homeomorfa a una suma conexa de una de las tres superficies modelo. Basta ver que a partir de la presentación $\mathcal{P}$ no se puede llegar a una suma conexa de planos proyectivos. 
+    Sea $S$ una superficie compacta, conexa y orientable. Por definición, existe una presentación $\mathcal{P}$ que no tiene pares de aristas retorcidas. Además, por el Teorema de Clasificación \ref{thm:clasificacion-superficies}, $S$ debe ser homeomorfa a una suma conexa de una de las tres superficies modelo. Basta ver que a partir de la presentación $\mathcal{P}$ no se puede llegar a una suma conexa de planos proyectivos. 
 
-    Nótese que en una presentación sin pares de aristas retorcidas, la única forma de que aparezcan mediante transformaciones es cortando y haciendo un reflejo en una de las palabras. Seguimos el algoritmo de la demostración del \hyperref[thm:clasificacion-superficies]{Teorema de Clasificación}, teniendo como hipótesis que en $\mathcal{P}$ inicialmente no hay aristas retorcidas, para observar que nunca aplicamos reflejos y por tanto no llegamos a un plano proyectivo (recomendamos tener dicha demostración delante para ver esta, pues son comentarios a los pasos de la misma).
+    Nótese que en una presentación sin pares de aristas retorcidas, la única forma de que aparezcan mediante transformaciones es cortando y haciendo un reflejo en una de las palabras. Seguimos el algoritmo de la demostración del Teorema de Clasificación \ref{thm:clasificacion-superficies}, teniendo como hipótesis que en $\mathcal{P}$ inicialmente no hay aristas retorcidas, para observar que nunca aplicamos reflejos y por tanto no llegamos a un plano proyectivo (recomendamos tener dicha demostración delante para ver esta, pues son comentarios a los pasos de la misma).
 
     \begin{enumerate}
         \item Si $\mathcal{P}$ tiene más de una palabra, para pegar solo hay que hacer rotaciones y no reflejos (pues todos los pares ya son de la forma $a, a^{-1}$).

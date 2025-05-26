@@ -88,6 +88,12 @@
     \end{mylemma}
 }
 
+\NewDocumentCommand{\lemr}{mm+m}{
+    \begin{mylemma}{#1}{#2}
+        #3
+    \end{mylemma}
+}
+
 \newenvironment{lempf}{
 	{\noindent{\it \textbf{Demostración}}}
 	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
@@ -109,6 +115,16 @@
     \end{lempf}
 }
 
+\NewDocumentCommand{\lempr}{mm+m+m}{
+    \begin{mylemma}{#1}{#2}
+        #3
+    \end{mylemma}
+
+    \begin{lempf}
+        #4
+    \end{lempf}
+}
+
 % Corollary
 \newtcbtheorem[use counter from=mydefinition]{mycorollary}{Corolario}
 {
@@ -126,6 +142,12 @@
 \NewDocumentCommand{\cor}{+m}{
     \begin{mycorollary}{}{}
         #1
+    \end{mycorollary}
+}
+
+\NewDocumentCommand{\corr}{m+m}{
+    \begin{mycorollary}{}{#1}
+        #2
     \end{mycorollary}
 }
 
@@ -150,6 +172,16 @@
     \end{corpf}
 }
 
+\NewDocumentCommand{\corpr}{mm+m}{
+    \begin{mycorollary}{}{#1}
+        #2
+    \end{mycorollary}
+
+    \begin{corpf}
+        #3
+    \end{corpf}
+}
+
 % Proposition
 \newtcbtheorem[use counter from=mydefinition]{myproposition}{Proposición}
 {
@@ -167,6 +199,12 @@
 \NewDocumentCommand{\prop}{m+m}{
     \begin{myproposition}{#1}{}
         #2
+    \end{myproposition}
+}
+
+\NewDocumentCommand{\propr}{mm+m}{
+    \begin{myproposition}{#1}{#2}
+        #3
     \end{myproposition}
 }
 
@@ -188,6 +226,16 @@
 
     \begin{proppf}
         #3
+    \end{proppf}
+}
+
+\NewDocumentCommand{\proppr}{mm+m+m}{
+    \begin{myproposition}{#1}{#2}
+        #3
+    \end{myproposition}
+
+    \begin{proppf}
+        #4
     \end{proppf}
 }
 
@@ -297,7 +345,7 @@
         {\par\noindent{\textbf{Nota}}}
         \tcolorbox[blanker,breakable,left=5mm,
         before skip=10pt,after skip=10pt,
-        borderline west={1mm}{0pt}{cyan!10!white}]
+        borderline west={1mm}{0pt}{orange!10!white}]
 }{
         \endtcolorbox
     \end{minipage}
@@ -322,7 +370,7 @@
     coltitle=black,
     colbacktitle=red!20!white,
     colback=red!10!white,
-}{fact}
+}{exer}
 
 
 \NewDocumentCommand{\exer}{+m}{

@@ -21,7 +21,7 @@
 }
 
 
-\propp{Propiedades de la topología final}{\label{prop:112}
+\proppr{Propiedades de la topología final}{prop-top-final}{
     \begin{enumerate}
     \item \(\T(p)\) hace a \(p\) continua y es la topología más fina que lo hace.
     \item Sea \(g : (Y, \T(p)) \to (Z, \T'')\) una aplicación. \(g\) es continua si y solo si \(g \circ p\) es continua.  
@@ -41,7 +41,7 @@
 
 \rmkb{Si $f:X\to Y$ es una aplicación sobreyectiva entonces $f(f^{-1}(U))=U$ para cualquier $U\subset X$.}
 
-\propp{Propiedades de las identificaciones}{\label{prop:114}
+\proppr{Propiedades de las identificaciones}{prop-ident}{
     \begin{enumerate}
     \item \(Id : (X, \T) \to (X, \T')\) es una identificación si y solo si \(\T = \T'\).  
     \item Si \(p : (X, \T) \to (Y, \T')\) es una identificación y \(f : (Y, \T') \to (Z, \T'')\) es una aplicación, entonces \(f\) es continua si y solo si \(f \circ p\) es continua.
@@ -55,7 +55,7 @@
         
         Si además es abierta entonces dado $U\in\T(f)$ arbitrario, $f^{-1}(U)\in\T$ por la definición de $\T(f)$, pero entonces $f(f^{-1}(U))\in\T'$ al ser $f$ abierta, y como es sobreyectiva $f(f^{-1}(U))=U\in\T'$, por lo que $\T(f)\subset\T'\subset\T(f)\implies \T(f)=\T'$, luego $f$ es una identificación.
         
-        Si $f$ es cerrada razonamos de manera similar pero con cerrados: dado $U\in\T(f)$, $C=Y\setminus U$ es cerrado en $\T(f)$, por lo que $f^{-1}(C)$ es cerrado en $\T$\footnote{Por la tercera parte de la Proposición \hyperref[prop:112]{1.1.2}}, por tanto $f(f^{-1}(C))=C$ es cerrado en $\T'$ al ser $f$ cerrada, pero entonces $U=Y\setminus C\in\T'$, por tanto $\T(f)\subset\T'\subset\T(f)\implies \T(f)=\T'$, luego $f$ es una identificación.
+        Si $f$ es cerrada razonamos de manera similar pero con cerrados: dado $U\in\T(f)$, $C=Y\setminus U$ es cerrado en $\T(f)$, por lo que $f^{-1}(C)$ es cerrado en $\T$\footnote{Por la tercera parte de la Proposición \ref{prop:prop-top-final}}, por tanto $f(f^{-1}(C))=C$ es cerrado en $\T'$ al ser $f$ cerrada, pero entonces $U=Y\setminus C\in\T'$, por tanto $\T(f)\subset\T'\subset\T(f)\implies \T(f)=\T'$, luego $f$ es una identificación.
     \end{enumerate}
 }
 
@@ -83,7 +83,7 @@
     \end{enumerate}
 }
 
-\propp{Propiedades del espacio cociente}{\label{prop:116}
+\proppr{Propiedades del espacio cociente}{prop-espacio-cociente}{
     \begin{enumerate}
     \item \(V\) es un abierto de \(\tilde{X}\) si y solo si \(\bigcup_{[x] \in V}[x]\) es abierto en \(X\).  
     \item Si \(X\) es compacto, entonces \(\tilde{X}\) es compacto.  
@@ -99,7 +99,7 @@
         \item Sabemos que la aplicación $p$ es continua y la compacidad se preserva por aplicaciones continuas. Como además $p$ es sobreyectiva entonces $p(X)=\tilde{X}$, por tanto si $X$ es compacto entonces $p(X)=\tilde{X}$ también lo es.
         \item Sabemos que la aplicación $p$ es continua y tanto la conexión como la arcoconexión se preservan por aplicaciones continuas. Como además $p$ es sobreyectiva entonces $p(X)=\tilde{X}$, por tanto si $X$ es conexo (conexo por caminos) entonces $p(X)=\tilde{X}$ también lo es.
         \item Es inmediato que $\tilde{\T}=\T(p)$, por otro lado dado $y\in\tilde{X}\implies y=[x]$ para cierto $x\in X$, por tanto $p(x)=y$, luego $p$ es sobreyectiva.
-        \item Por el apartado 4, $p$ es una identificación, por tanto basta aplicar la parte 2 de la Proposición \hyperref[prop:114]{1.1.4}
+        \item Por el apartado 4, $p$ es una identificación, por tanto basta aplicar la parte 2 de la Proposición \ref{prop:prop-ident}.
     \end{enumerate}
 }
 
@@ -112,8 +112,8 @@ x R_fx'\iff f(x)=f(x')
 Demostrar que $R_f$ es una relación de equivalencia.
 }
 
-\thmr{Proposición 4.1}{diagrama}{
-    Dados \((X, \T)\) y \((Y, \T')\) espacios topológicos, $f:(X, \T)\to(Y,\T')$ y \((\tilde{X}, \tilde{\T})\) el espacio cociente dado por \(R_f\), existe una aplicación \(\tilde{f} : (\tilde{X}, \tilde{\T}) \to (Y, \T')\) que hace que el siguiente diagrama sea conmutativo\footnote{Que el diagrama sea conmutativo quiere decir que ``da igual qué camino de flechitas sigamos'', es decir, $\tilde{f}\circ p=f$.}
+\thmr{}{diagrama}{
+    Dados \((X, \T)\) y \((Y, \T')\) espacios topológicos, $f:(X, \T)\to(Y,\T')$ y \((\tilde{X}, \tilde{\T})\) el espacio cociente dado por \(R_f\), existe una aplicación \(\tilde{f} : (\tilde{X}, \tilde{\T}) \to (Y, \T')\) que hace que el siguiente diagrama sea conmutativo \footnote{Que el diagrama sea conmutativo quiere decir que ``da igual qué camino de flechitas sigamos'', es decir, $\tilde{f}\circ p=f$.}
     \begin{center}
         \includegraphics[]{otros/diagrama.pdf}
     \end{center}
@@ -140,12 +140,12 @@ Demostrar que $R_f$ es una relación de equivalencia.
 
     Para la segunda parte, si suponemos que $\tilde{f}$ es un homeomorfismo entonces $f=\tilde{f}\circ p$ es continua por ser composición de funciones continuas, y es sobreyectiva por serlo $\tilde{f}$ y $p$. Además, si $U\in\T(f)$ entonces $f^{-1}(U)=p^{-1}(\tilde{f}^{-1}(U))\in\T$, por tanto $\tilde{f}^{-1}(U)\in\tilde{\T}$, y al ser $\tilde{f}$ abierta y biyectiva  $U=\tilde{f}(\tilde{f}^{-1}(U))\in\T'$, lo que prueba que $\T(f)=\T'$ y por tanto $f$ es una identificación.
 
-    Si por el contrario suponemos que $f$ es una identificación entonces $f$ es sobreyectiva y $\T'=\T(f)$, por tanto $f$ es continua y al ser $p$ identificación también lo es $\tilde{f}$ (apartado 2 de la Proposición \hyperref[prop:114]{1.1.4}). Que $\tilde{f}$ es inyectiva es inmediato por  la propia definición de $\tilde{f}$. Para ver que es sobreyectiva, dado $y\in Y$ por ser $f$ sobreyectiva existe $x\in X\mid f(x)=y$, por tanto $\exists z=[x]\in\tilde{X}$ tal que $\tilde{f}([x])=f(x)=y$. Veamos que $\tilde{f}$ es abierta: dado $U\in\tilde{\T}$ entonces $f^{-1}(\tilde{f}(U))=p^{-1}(\tilde{f}^{-1}(\tilde{f}(U)))=p^{-1}(U)\in\T$ por ser $p$ continua, por lo tanto $\tilde{f}(U)\in\T(f)=\T'$, luego $\tilde{f}$ es un homeomorfismo.
+    Si por el contrario suponemos que $f$ es una identificación entonces $f$ es sobreyectiva y $\T'=\T(f)$, por tanto $f$ es continua y al ser $p$ identificación también lo es $\tilde{f}$ (apartado 2 de la Proposición \ref{prop:prop-ident}). Que $\tilde{f}$ es inyectiva es inmediato por  la propia definición de $\tilde{f}$. Para ver que es sobreyectiva, dado $y\in Y$ por ser $f$ sobreyectiva existe $x\in X\mid f(x)=y$, por tanto $\exists z=[x]\in\tilde{X}$ tal que $\tilde{f}([x])=f(x)=y$. Veamos que $\tilde{f}$ es abierta: dado $U\in\tilde{\T}$ entonces $f^{-1}(\tilde{f}(U))=p^{-1}(\tilde{f}^{-1}(\tilde{f}(U)))=p^{-1}(U)\in\T$ por ser $p$ continua, por lo tanto $\tilde{f}(U)\in\T(f)=\T'$, luego $\tilde{f}$ es un homeomorfismo.
 }
 
 \clearpage
 
-\section{Ejemplos de espacios cocientes}\label{sec:ejemplos-cocientes}
+\section{Ejemplos de espacios cocientes}
 
 Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establecer homeomorfismos entre estos espacios cociente y otros espacios topológicos de interés. En estos primeros ejemplos haremos uso del Teorema \ref{thm:diagrama} para encontrar tales homeomorfismos.
 
@@ -171,7 +171,7 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     \]
     Por tanto ambas son la misma relación. Ahora veamos que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$.
 
-    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal, con $\alpha\in[0,2\pi)$. Es sencillo comprobar que $f(\frac{\alpha}{2\pi})=(x,y)$, por tanto $f$ es sobreyectiva, lo que según la Proposición \hyperref[prop:114]{1.1.4} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
+    En primer lugar, $f$ es continua por ser restricción de una aplicación continua (basta considerarla como aplicación de $I$ a $\R^2$), además es cerrada puesto que $I$ es compacto y $\sphere^2$ es Hausdorff (Ver Ejercicio \hyperref[exer:12]{1.2}). Por último dado $(x,y)\in\sphere^1$, denotemos por $\alpha=\text{ang}((x,y))$ al ángulo en radianes que forma el punto $(x,y)$ con la horizontal, con $\alpha\in[0,2\pi)$. Es sencillo comprobar que $f(\frac{\alpha}{2\pi})=(x,y)$, por tanto $f$ es sobreyectiva, lo que según la Proposición \ref{prop:prop-ident} apartado 3 garantiza que $f$ es una identificación, y por tanto $\exists \tilde{f}$ homeomorfismo entre $\tilde{I}$ y $\sphere^1$
 }
 
 \exer{Probar que si $X$ es compacto, $Y$ es Hausdorff y $f:(X,\T)\to(Y,\T')$ es continua entonces $f$ es cerrada.}\label{exer:12}
@@ -285,7 +285,7 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
         \sin(2\pi t)\cos(\pi s),\\
         \sin(2\pi t)\sin(\pi s))
     \end{gather*}
-    Claramente $f$ es continua, sobreyectiva (por la propia definición de $K$) y cerrada (por ir de un compacto a un $T2$). Además, se puede comprobar que determina la misma relación de equivalencia que $\sim$, por lo que en virtud de la Proposición 4.1 existe un homeomorfismo entre $\tilde{X}$ y la botella de Klein.
+    Claramente $f$ es continua, sobreyectiva (por la propia definición de $K$) y cerrada (por ir de un compacto a un $T2$). Además, se puede comprobar que determina la misma relación de equivalencia que $\sim$, por lo que en virtud del Teorema \ref{thm:diagrama} existe un homeomorfismo entre $\tilde{X}$ y la botella de Klein.
 }
 
 \clearpage
@@ -341,15 +341,11 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     \]
     y por tanto
     \[
-    f(x)=\frac{x}{|x|}=\frac{\lambda y}{|\lambda||y|}=\pm\frac{y}{|y|}=\pm f(y) \iff f(x)\sim f(y).
+    f(x)=\frac{x}{|x|}=\frac{\lambda y}{|\lambda||y|}=\pm\frac{y}{|y|}=\pm f(y) \implies f(x)\sim f(y).
     \]
-    Además, si $f(x)\sim f(y)$ entonces 
+    en esencia hemos visto que $x\sim_p y \implies f(x)\sim f(y)$, lo que garantiza que la aplicación $\tilde{f}([x]_p)=[f(x)]$\footnote{Usamos $[\cdot]_p$ para referirnos a las clases de equivalencia en el proyectivo y $[\cdot]$ para las clases de equivalencia en $\sphere^2$.} está bien definida puesto que
     \[
-    \frac{x}{|x|}=\pm\frac{y}{|y|}\implies x=\lambda y, \lambda \ne 0
-    \]
-    en esencia hemos visto que $x\sim_p y\iff f(x)\sim f(y)$, lo que garantiza que la aplicación $\tilde{f}([x]_p)=[f(x)]$\footnote{Usamos $[\cdot]_p$ para referirnos a las clases de equivalencia en el proyectivo y $[\cdot]$ para las clases de equivalencia en $\sphere^2$.} está bien definida puesto que
-    \[
-        \tilde{f}([x]_p)=\tilde{f}([y]_p)\iff [f(x)]=[f(y)]\iff f(x)\sim f(y) \iff x\sim_p y\iff [x]_p=[y]_p.
+        [x]_p=[y]_p \implies f(x)\sim f(y) \implies [f(x)]=[f(y)] \implies \tilde{f}([x]_p)=\tilde{f}([y]_p)
     \]
     La demostración de que $\iota$ también pasa al cociente como $\tilde{\iota}([x])=[\iota(x)]_p$ se deja como un sencillo ejercicio.
     
@@ -363,11 +359,9 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
     \]
     donde la última igualdad se sigue del hecho de que $\frac{x}{|x|}\sim_p x$.
 
-    Veamos ahora que $\tilde{f}$ es continua. Para ello notemos que por la Proposición \hyperref[prop:116]{1.1.6}, $\tilde{f}$ es continua si y solo si $\tilde{f}\circ\pi_1=\pi_2\circ f$ lo es. Pero claramente $f$ es continua y también lo es la proyección $\pi_2$, por lo que $\tilde{f}$ es continua. De manera similar, $\iota$ es continua si y solo si lo es $\iota\circ\pi_2=\pi_1\circ\iota$, que es claramente continua por serlo $\pi_1, \iota$.
+    Veamos ahora que $\tilde{f}$ es continua. Para ello notemos que por la Proposición \ref{prop:prop-espacio-cociente}, $\tilde{f}$ es continua si y solo si $\tilde{f}\circ\pi_1=\pi_2\circ f$ lo es. Pero claramente $f$ es continua y también lo es la proyección $\pi_2$, por lo que $\tilde{f}$ es continua. De manera similar, $\iota$ es continua si y solo si lo es $\iota\circ\pi_2=\pi_1\circ\iota$, que es claramente continua por serlo $\pi_1, \iota$.
 
 }
-
-\clearpage
 
 \ex{
     En el disco cerrado \(D(0, 1)\) de \(\mathbb{R}^2\), consideramos la relación de equivalencia:
@@ -380,6 +374,8 @@ Veamos ahora algunos ejemplos de espacios cociente y la posibilidad de establece
 \pf{
     Se deja como ejercicio.
 }
+
+\clearpage
 
 \exer{
     Dado $(X,\T)$ un espacio topológico y $K\subset X$, definimos la relación
@@ -411,7 +407,7 @@ y además es sobreyectiva por estar definida en su imagen. Por tanto $p|_{X\setm
 
 Para el apartado b) notemos en primer lugar que $p$ es continua, por lo que $p|_{X\setminus K}$ también lo será por ser su restricción a $X\setminus K$.
 
-Haremos el caso $K$ cerrado, cuando $K$ es abierto hay que razonar de manera idéntica pero con cerrados teniendo en cuenta la parte 3 de la Proposición \hyperref[prop:112]{1.1.2}.
+Haremos el caso $K$ cerrado, cuando $K$ es abierto hay que razonar de manera idéntica pero con cerrados teniendo en cuenta la parte 3 de la Proposición \ref{prop:prop-top-final}.
 
 Si  $K$ es cerrado entonces $X\setminus K$ es abierto, ahora si tomamos $U\in\T|_{X\setminus K}$ entonces $U=\tilde{U}\cap (X\setminus K), \tilde{U}\in\T$. Pero como $X\setminus K$ es abierto entonces de hecho $U\in\T$ y por tanto
 \[
@@ -528,7 +524,7 @@ En todos los ejemplos siguientes consideramos subespacios de algún $\R^m$, por 
 }
 
 \pf{
-    Recomendamos al lector que vuelva a echar un vistazo al ejemplo referente al toro en la \hyperref[sec:ejemplos-cocientes]{Sección 1.2}, aunque en este caso identificaremos al toro con el producto cartesiano de dos circunferencias.
+    Recomendamos al lector que vuelva a echar un vistazo al ejemplo referente al toro en la Sección 1.2, aunque en este caso identificaremos al toro con el producto cartesiano de dos circunferencias.
     
     Para ver que $\mathbb{T}^2$ es localmente euclídeo sea $p=(x_0,y_0)\in\mathbb{T}^2=\sphere^1\times\sphere^1$, de manera que
     \[
@@ -610,8 +606,7 @@ El resto de ejemplos se pueden justificar de manera similar a los anteriores enc
     es un homeomorfismo. Omitiremos ver que $\varphi$ esta bien definida y es un homeomorfismo.
 
     Ahora veamos que $\mathbb{RP}^n$ es $2A\N$. Para ello notemos que $\R^{n+1}\setminus\{0\}$ es $2A\N$ y $\pi$ es continua y sobreyectiva. En tal caso podemos aplicar el siguiente lema:
-    \lem{}{  
-        \label{lem:146}
+    \lemr{}{146}{
         Sea $X$ un espacio $2A\N$ y $\pi: X \to M$ continua y sobreyectiva. Si $M$ es localmente euclídeo entonces es $2A\N$.
     }
     \pf{
@@ -642,7 +637,7 @@ El resto de ejemplos se pueden justificar de manera similar a los anteriores enc
     \[
         p \sim q \iff p = \pm q
     \]
-    que denotaremos $\tilde{\sphere}^n$. Esta demostración es muy similar a la del ejemplo para $\mathbb{RP}^2$ de la \hyperref[sec:ejemplos-cocientes]{Sección 1.2} y queda para el lector. Por las propiedades de los espacios cociente $\tilde{\sphere}^n$ es compacta, y por tanto $\mathbb{RP}^n$ también.
+    que denotaremos $\tilde{\sphere}^n$. Esta demostración es muy similar a la del ejemplo para $\mathbb{RP}^2$ de la Sección 1.2 y queda para el lector. Por las propiedades de los espacios cociente $\tilde{\sphere}^n$ es compacta, y por tanto $\mathbb{RP}^n$ también.
 }
 
 \clearpage
@@ -666,7 +661,7 @@ Comenzamos demostrando sin demasiado detalle un pequeño lema técnico.
     se puede comprobar que $\phi$ es continua en la frontera de $B$ y que también lo es su inversa, por tanto es un homeomorfismo que cumple $\phi(p)=q,\phi|_{\partial B}=Id$.
 }
 
-\thmr{Proposición 4.2 - Homogeneidad}{homogeneidad}{
+\thmr{Homogeneidad de variedades}{homogeneidad}{
     Sea \(X\) una variedad topológica conexa de dimensión \(n\) y \(p\), \(q \in X\). Entonces existe un homeomorfismo \(f : X \to X\) tal que \(f(p) = q\).
 }
 \pf{
@@ -823,15 +818,13 @@ Comenzamos demostrando sin demasiado detalle un pequeño lema técnico.
 \]
 }
 
-A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \hyperref[prop:invarianza-cociente]{1.6.4}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
+A continuación se enuncian un par de lemas que serán útiles para la demostración de la Proposición \ref{prop:invarianza-cociente}. El primero es una generalización del conocido Teorema de la Curva de Jordan, el cual se enuncia sin demostración. El segundo es un lema técnico, que sí demostraremos.
 
-\lem{Teorema de Jordan - Schönflies}
-{
-    \label{lem:jordan}
+\lemr{Teorema de Jordan - Schönflies}{jordan}{
     Sean $C$ y $C'$ dos curvas cerradas simples de $\mathbb{R}^2$, y $f : C \to C'$ un homeomorfismo. Entonces existe un homeomorfismo $F : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $F\vert_C = f$ y fuera de un compacto $K \supseteq C$ es la identidad.
 }
 
-\lemp{Extensión de homeomorfismos de $\mathbb{S}^1$}{\label{lem:extension-homeo}
+\lempr{Extensión de homeomorfismos de $\mathbb{S}^1$}{extension-homeo}{
     Sean $C_1, C_2$ homeomorfos a $\mathbb{S}^1$, $h: C_1 \to C_2$ un homeomorfismo y $U \subseteq \mathbb{R}^2$ abierto, $U\cong \mathbb{R}^2$, con $C_1 \cup C_2 \subseteq U$. Entonces existe un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{C_1} = h$ y $H\vert_{\mathbb{R}^2 \setminus U} = Id$.
 }{
     Sea $g:U\to\mathbb{R}^2$ el homeomorfismo dado por la hipótesis $U\cong\R^2$ y sean $\tilde{C}_1 = g(C_1),\tilde{C}_2 = g(C_2)$, definamos la aplicación
@@ -849,7 +842,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
     y además $H|_{\R^2\setminus U}=Id.$
 }
 
-\propp{Invarianza del cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\)}{\label{prop:invarianza-cociente}
+\proppr{Invarianza del cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\)}{invarianza-cociente}{
     Si \(S_1\) y \(S_2\) son dos superficies topológicas conexas, entonces, salvo homeomorfismo, el espacio \(\faktor{S_1' \sqcup S_2'}{\sim}\) no depende de los discos regulares euclídeos ni del homeomorfismo \(\varphi\).
 }{
     Veremos la demostración en 3 pasos:
@@ -861,7 +854,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
         Sea $D_3'$ otro disco euclídeo con $\overline{D_3} \subseteq D_3'$, y $\psi :D_3' \to B(0,2)$ un homeomorfismo verificando $\psi(\overline{D_3})=\overline{B(0,1)}$. 
 
-        Aplicamos el Lema \hyperref[lem:extension-homeo]{1.6.3} a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
+        Aplicamos el Lema \ref{lem:extension-homeo} a $U = B(0, 3/2)$, $C_1 = \psi(\partial D_1)$, $C_2 = \psi(\partial D_3)$ y $h: C_1 \to C_2$ un homeomorfismo cualquiera. Obtenemos que existe $H : \mathbb{R}^2\to \mathbb{R}^2$ de forma que $H\vert_{C_1} = h$ y $H \vert_{\mathbb{R}^2 \setminus U} = Id$. 
 
         Sea 
         \[
@@ -890,7 +883,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
 
         Sea $D_2'$ disco regular euclídeo con $\overline{D_2}\subseteq D_2'$ y $\psi_2 : D_2' \to B(0,2)$ homeomorfismo, con $\psi_2(\overline{D_2}) = \overline{B(0,1)}$. 
 
-        Aplicamos el lema \hyperref[lem:extension-homeo]{1.6.3} a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
+        Aplicamos el Lema \ref{lem:extension-homeo} a las curvas $C_1 = C_2 = \mathbb{S}^1$, $h = \psi_2 \circ \sigma \circ \varphi^{-1} \circ \psi_2^{-1} : \mathbb{S}^1\to \mathbb{S}^1$ y $U = B(0,3/2)$. Obtenemos un homeomorfismo $H : \mathbb{R}^2 \to \mathbb{R}^2$ tal que $H\vert_{\mathbb{S}^1} = h$ y $H\vert_{\mathbb{R}^2\setminus U} = Id$. 
 
         Definimos $F:D_2' \to D_2'$ como $F = \psi_2^{-1} \circ H \vert_{B(0,2)} \circ \psi_2$, verificando $F(D_2'\setminus D_2) = D_2'\setminus D_2$. 
 
@@ -927,7 +920,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
     Al espacio topológico cociente \(\faktor{S_1' \sqcup S_2'}{\sim}\) lo denotaremos \(S_1 \# S_2\) y lo llamaremos suma conexa de \(S_1\) y \(S_2\).
 }
 
-\propp{Propiedades heredadas de la suma conexa}{\label{prop:herencia-suma-conexa}
+\propp{Propiedades heredadas de la suma conexa}{herencia-suma-conexa}{
     Sean \(S_1, S_2\) superficies. Entonces, \(S_1 \# S_2\) es una superficie. Además:
     \begin{itemize}
         \item Si \(S_1\) y \(S_2\) son superficies conexas, entonces \(S_1 \# S_2\) es una superficie conexa.
@@ -940,7 +933,7 @@ A continuación se enuncian un par de lemas que serán útiles para la demostrac
     \[
     S_1 \# S_2 = \faktor{S_1'\sqcup S_2'}{R\varphi},
     \]
-    con \( \varphi : \partial D_1 \to \partial D_2\) un homeomorfismo. Ya vimos en la \hyperref[prop:invarianza-cociente]{Proposición 1.6.4} que \(S_1 \# S_2\) no depende de la elección de \(D_1, D_2\) ni de \(\varphi\). 
+    con \( \varphi : \partial D_1 \to \partial D_2\) un homeomorfismo. Ya vimos en la Proposición \ref{prop:invarianza-cociente} que \(S_1 \# S_2\) no depende de la elección de \(D_1, D_2\) ni de \(\varphi\). 
 
     Consideramos la proyección
     \[
