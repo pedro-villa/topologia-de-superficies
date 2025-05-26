@@ -1,17 +1,24 @@
 \documentclass[oneside]{book}
 
+
+\usepackage[spanish]{babel}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
+
 \usepackage{tikz-cd}
 \usepackage{thmtools}
-\usepackage{graphicx}
-\usepackage{setspace}
+
 \usepackage{geometry}
 \usepackage{float}
-\usepackage{hyperref}
-\usepackage[spanish]{babel}
+\usepackage{setspace}
+\usepackage{graphicx}
+
 \usepackage{framed}
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems,skins,breakable}
+
+\usepackage{hyperref}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+\addbibresource{bibliography.bib}
 
 \setstretch{1.2}
 \geometry{
@@ -63,4 +70,8 @@
 
 % \input{example}
 
+\nocite{*}
+\printbibliography[
+    heading=bibintoc
+]
 \end{document}
