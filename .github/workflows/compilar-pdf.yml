@@ -30,16 +30,25 @@ jobs:
             texlive-bibtex-extra \
             latexmk
 
+      - name: Verify Bibliography Files
+        run: |
+          cd src
+          if [ ! -f "references.bib" ]; then
+            echo "Error: references.bib not found!"
+            exit 1
+          fi
+
       - name: Compile LaTeX
         run: |
           cd src
+          latexmk -C main.tex  # Clean auxiliary files
           latexmk -pdf -interaction=nonstopmode main.tex
           if [ -f "main.pdf" ]; then
             mkdir -p ../pdf
             mv "main.pdf" "../pdf/Apuntes - Topología de Superficies.pdf"
             echo "PDF generated successfully"
           else
-            echo "PDF generation failed"
+            echo "PDF generation failed. Check main.log for details."
             exit 1
           fi
 
@@ -61,4 +70,3 @@ jobs:
             git push https://x-access-token:${{ secrets.COMPILE_PAT }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
           else
             echo "No changes to commit."
-          fi
