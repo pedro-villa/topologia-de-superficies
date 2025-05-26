@@ -27,7 +27,7 @@ jobs:
             texlive-fonts-recommended \
             texlive-lang-spanish \
             texlive-science \
-            texlive-bibtex-extra \
+            texlive-bibtex-extra biber\
             latexmk
 
       - name: Compile LaTeX
