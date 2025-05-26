@@ -134,9 +134,28 @@
 
 \section{Teorema de Lagrange y consecuencias}
 
+Incluimos ahora una pequeña sección sobre el Teorema de Lagrange y algunas de sus consecuencias más importantes. Estas serán de gran utilidad para poder identificar ciertos grupos finitos que aparecen al estudiar el grupo fundamental de algunos espacios topológicos.
+
 \defn{Orden de un grupo}{
     Sea $G$ un grupo. El orden de $G$, denotado por $|G|$, es el número de elementos que contiene $G$ si $G$ es finito. Si $G$ tiene infinitos elementos decimos que $G$ es un grupo de orden infinito.
 }
+
+\defn{Orden de un elemento}{
+    Sea $G$ un grupo y $g \in G$. El orden de $g$, denotado por $|g|$, es el menor entero positivo $n$ tal que $g^n = e_G$, donde $e_G$ es el elemento neutro de $G$. Si no existe tal entero, decimos que el orden de $g$ es infinito.
+}
+
+\defn{Grupo generado por un elemento}{
+    Sea $G$ un grupo y $g \in G$. El grupo generado por $g$, denotado por $\langle g \rangle$, es el conjunto de todos los elementos que se pueden obtener como potencias de $g$:
+    \[
+    \langle g \rangle = \{ g^n : n \in \mathbb{Z} \}.
+    \]
+}
+
+\defn{Grupo cíclico}{
+    Un grupo $G$ se dice cíclico si existe un elemento $g \in G$ tal que $G = \langle g \rangle$. En este caso, decimos que $g$ genera el grupo $G$.
+}
+
+Enunciamos ahora el siguiente teorema sin demostración.
 
 \thm{Teorema de Lagrange}{
     Sea $G$ un grupo finito y $H$ un subgrupo de $G$. Entonces, el orden de $H$ divide al orden de $G$. Es decir,
